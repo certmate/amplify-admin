@@ -40,7 +40,8 @@
         }
       },
       "api": {
-        "AdminQueries": {}
+        "AdminQueries": {},
+        "certmate": {}
       }
     }
   }

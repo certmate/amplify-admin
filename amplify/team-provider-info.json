@@ -9,7 +9,39 @@
       "UnauthRoleName": "amplify-certmate-dev-153406-unauthRole",
       "StackName": "amplify-certmate-dev-153406",
       "StackId": "arn:aws:cloudformation:ap-southeast-2:638016836797:stack/amplify-certmate-dev-153406/ae9d12e0-4176-11ee-9430-0ada4876de7a",
-      "AmplifyAppId": "d1azskzge9qb63"
+      "AmplifyAppId": "d1azskzge9qb63",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-certmate-dev-153406-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "certmate": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "certmateCustomMessage": {
+          "REDIRECTURL": "https://admin.certmate.com.au",
+          "EMAILSUBJECT": "CertMate - Verify Your Account",
+          "EMAILMESSAGE": "",
+          "deploymentBucketName": "amplify-certmate-dev-153406-deployment",
+          "s3Key": "amplify-builds/certmateCustomMessage-557558335670782f4b79-build.zip"
+        },
+        "certmatePostConfirmation": {
+          "GROUP": "CompanyOwner",
+          "deploymentBucketName": "amplify-certmate-dev-153406-deployment",
+          "s3Key": "amplify-builds/certmatePostConfirmation-6f766371666834774531-build.zip"
+        },
+        "certmatePreTokenGeneration": {
+          "deploymentBucketName": "amplify-certmate-dev-153406-deployment",
+          "s3Key": "amplify-builds/certmatePreTokenGeneration-53796355656c3170586e-build.zip"
+        },
+        "AdminQueries1a858048": {
+          "deploymentBucketName": "amplify-certmate-dev-153406-deployment",
+          "s3Key": "amplify-builds/AdminQueries1a858048-61493472566531396e4d-build.zip"
+        }
+      },
+      "api": {
+        "AdminQueries": {}
+      }
     }
   }
 }

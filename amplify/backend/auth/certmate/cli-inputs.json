@@ -1,0 +1,79 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "identityPoolName": "certmate",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "certmabef2c949",
+    "userPoolName": "certmate",
+    "autoVerifiedAttributes": [
+      "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+      "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "CertMate - Verify Your Account",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+      "email"
+    ],
+    "aliasAttributes": [],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+      "phone_number",
+      "updated_at",
+      "email"
+    ],
+    "userpoolClientReadAttributes": [
+      "email",
+      "phone_number",
+      "updated_at",
+      "email_verified",
+      "phone_number_verified"
+    ],
+    "userpoolClientLambdaRole": "certmabef2c949_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": true,
+    "sharedId": "bef2c949",
+    "resourceName": "certmate",
+    "authSelections": "identityPoolAndUserPool",
+    "useDefault": "manual",
+    "thirdPartyAuth": false,
+    "usernameAttributes": [
+      "email"
+    ],
+    "userPoolGroups": true,
+    "adminQueries": true,
+    "triggers": {
+      "CustomMessage": [
+        "verification-link"
+      ],
+      "PostConfirmation": [
+        "add-to-group"
+      ],
+      "PreTokenGeneration": [
+        "alter-claims"
+      ]
+    },
+    "hostedUI": false,
+    "userPoolGroupList": [
+      "SuperAdmin",
+      "Admin",
+      "Support",
+      "CompanyOwner",
+      "Inspector",
+      "Driver",
+      "LandOwner"
+    ],
+    "adminQueryGroup": "SuperAdmin",
+    "serviceName": "Cognito",
+    "verificationBucketName": "certmateverificationbucket",
+    "usernameCaseSensitive": false,
+    "useEnabledMfas": true
+  }
+}

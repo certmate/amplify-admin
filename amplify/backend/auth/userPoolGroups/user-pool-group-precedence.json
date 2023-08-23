@@ -1,0 +1,30 @@
+[
+  {
+    "groupName": "SuperAdmin",
+    "precedence": 1
+  },
+  {
+    "groupName": "Admin",
+    "precedence": 2
+  },
+  {
+    "groupName": "Support",
+    "precedence": 3
+  },
+  {
+    "groupName": "CompanyOwner",
+    "precedence": 4
+  },
+  {
+    "groupName": "Inspector",
+    "precedence": 5
+  },
+  {
+    "groupName": "Driver",
+    "precedence": 6
+  },
+  {
+    "groupName": "LandOwner",
+    "precedence": 7
+  }
+]

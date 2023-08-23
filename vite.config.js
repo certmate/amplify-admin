@@ -12,6 +12,9 @@ export default defineConfig({
     },
   },
   plugins: [react()],
+  optimizeDeps: {
+    entries: 'index.html'
+  },
   // https://github.com/aws-amplify/amplify-js/issues/9639 - Cannot use amplify-js in browser environment (breaking vite / snowpack / esbuild)
   resolve: { alias: { './runtimeConfig': './runtimeConfig.browser' } }
 })

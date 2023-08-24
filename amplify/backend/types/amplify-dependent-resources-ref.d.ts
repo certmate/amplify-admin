@@ -60,5 +60,11 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     }
+  },
+  "storage": {
+    "certmate": {
+      "BucketName": "string",
+      "Region": "string"
+    }
   }
 }

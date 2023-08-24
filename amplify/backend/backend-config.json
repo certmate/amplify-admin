@@ -256,5 +256,12 @@
         }
       ]
     }
+  },
+  "storage": {
+    "certmate": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
   }
 }

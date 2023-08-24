@@ -1,0 +1,14 @@
+{
+  "resourceName": "certmate",
+  "policyUUID": "7731297e",
+  "bucketName": "certmate",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "triggerFunction": "NONE"
+}

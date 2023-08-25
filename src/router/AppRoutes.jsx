@@ -15,7 +15,7 @@ import VerticalLayout from "../layout/VerticalLayout";
 import Error404 from "../view/pages/404";
 import { API, graphqlOperation } from 'aws-amplify';
 
-export default function Router() {
+export default function AppRoutes() {
     // Redux
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
@@ -48,10 +48,10 @@ export default function Router() {
                 {/* <Route path={'/orders/:filter'} render={() => <VerticalLayout><Orders /></VerticalLayout>} /> */}
 
                 {/* Home Page */}
-                <Route exact path='/' element={() => <VerticalLayout><Dashboard /></VerticalLayout>} />
+                <Route exact path='/' element={<VerticalLayout><>Nik</></VerticalLayout>} />
 
                 {/* NotFound */}
-                <Route path='*'><Error404 /></Route>
+                <Route path='*' element={<Error404 />} />
             </Routes>
         </BrowserRouter>
     );

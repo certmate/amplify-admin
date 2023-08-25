@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 
 import HeaderUser from "./HeaderUser";
 import HeaderNotifications from "./HeaderNotifications";
-import HeaderLanguages from "./HeaderLanguages";
 import HeaderText from "./HeaderText";
 
 const { Header } = Layout;

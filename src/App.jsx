@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ConfigProvider } from 'antd';
-import Router from "./router/Router";
 import { Amplify, API, Auth } from 'aws-amplify';
 import { AuthState } from '@aws-amplify/ui-components';
 import awsconfig from './aws-exports';
 import Login from './view/pages/authentication/login/Login';
+import AppRoutes from './router/AppRoutes';
 Amplify.configure(awsconfig);
 API.configure(awsconfig);
 
@@ -28,7 +28,8 @@ export default function App() {
 
   return (
     <ConfigProvider locale={{ locale: 'en' }}>
-      {authState === AuthState.SignedIn ? <Router /> : <Login loggedIn={loggedIn} />}
+      <AppRoutes />
+      {/* {authState === AuthState.SignedIn ? <Router /> : <Login loggedIn={loggedIn} />} */}
     </ConfigProvider>
   );
 }

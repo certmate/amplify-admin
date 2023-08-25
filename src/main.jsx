@@ -9,9 +9,7 @@ import App from "./App";
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Suspense fallback="loading">
     <Provider store={store}>
-      <BrowserRouter >
-        <App />
-      </BrowserRouter>
+      <App />
     </Provider>
   </Suspense>
 );

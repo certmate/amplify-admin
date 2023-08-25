@@ -6,6 +6,9 @@ import _ from "lodash";
 import { precedence } from "./settings";
 
 export const role = user => {
+    if(!user)
+        return "";
+    
     let groups = (user.cognito || user).signInUserSession.accessToken.payload['cognito:groups'];
 
     for (let i = 0; i < precedence.length; i++) {

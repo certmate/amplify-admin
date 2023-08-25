@@ -10,6 +10,11 @@ const roles = {
     landOwner: "LandOwner"
 }
 
+export const appName = "CertMate";
+export const version = "0.1.1";
+export const tagline = "Digital Vehicle Biosecurity Management";
+export const logo = "";
+
 export const precedence = Object.values(roles);
 
 export const routes = [

@@ -1,6 +1,7 @@
 import { Col } from "antd";
 
 import image from "../../../assets/images/memoji/newspaper.svg";
+import { tagline } from "../../../settings";
 
 export default function HeaderText() {
 	return (
@@ -14,7 +15,7 @@ export default function HeaderText() {
 			</div>
 
 			<p className="hp-header-left-text-item hp-p1-body hp-text-color-black-100 hp-text-color-dark-0 hp-ml-12 hp-mb-0">
-				Let's help people read more books.
+				{ tagline }
 			</p>
 		</Col>
 	);

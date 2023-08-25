@@ -4,6 +4,7 @@ import { Row, Col } from "antd";
 import bg from "../../../assets/images/pages/authentication/authentication-bg.svg";
 import bgDark from "../../../assets/images/pages/authentication/authentication-bg-dark.svg";
 import MenuLogo from '../../../layout/components/menu/logo'
+import { tagline } from "../../../settings";
 export default function LeftContent() {
   // Redux
 
@@ -21,10 +22,10 @@ export default function LeftContent() {
             </Col>
 
             <Col xl={18} span={24} className="hp-text-item hp-text-center">
-              <h2 className="hp-text-color-black-100 hp-text-color-dark-0 hp-mx-lg-16 hp-mb-16">Let's help people read more books.</h2>
+              <h2 className="hp-text-color-black-100 hp-text-color-dark-0 hp-mx-lg-16 hp-mb-16">{tagline}</h2>
 
               <p className="h4 hp-mb-0 hp-font-weight-400 hp-text-color-black-80 hp-text-color-dark-30">
-                Welcome, Bookshelf Admin. Log in using your credentials and let's help people read more books.
+                Log in using your credentials or create a new account
               </p>
             </Col>
           </Row>

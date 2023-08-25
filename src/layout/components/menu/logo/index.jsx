@@ -8,6 +8,7 @@ import logo from "../../../../assets/images/logo/logo.svg";
 import logoDark from "../../../../assets/images/logo/logo-dark.svg";
 import logoRTL from "../../../../assets/images/logo/logo-rtl.svg";
 import logoRTLDark from "../../../../assets/images/logo/logo-rtl-dark.svg";
+import { version } from "../../../../settings";
 
 
 export default function MenuLogo(props) {
@@ -40,7 +41,7 @@ export default function MenuLogo(props) {
             to="/"
             onClick={props.onClose}
             className="hp-position-relative hp-d-flex"
-          >v.1.0.1</Link>
+          >v{version}</Link>
         )
       }
     </div>

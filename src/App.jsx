@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { ConfigProvider } from 'antd';
+import Router from "./router/Router";
+import { Amplify, API, Auth } from 'aws-amplify';
+import { AuthState } from '@aws-amplify/ui-components';
+import awsconfig from './aws-exports';
+import Login from './view/pages/authentication/login/Login';
+Amplify.configure(awsconfig);
+API.configure(awsconfig);
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  // Redux
+  const dispatch = useDispatch();
+
+  const [authState, setAuthState] = useState();
+
+  const loggedIn = user => {
+    dispatch({ type: 'SET_USER_COGNITO', data: user });
+    setAuthState(AuthState.SignedIn);
+  }
+
+  useEffect(() => {
+    Auth.currentAuthenticatedUser()
+      .then(loggedIn)
+      .catch(e => console.log(e));
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ConfigProvider locale={{ locale: 'en' }}>
+      {authState === AuthState.SignedIn ? <Router /> : <Login loggedIn={loggedIn} />}
+    </ConfigProvider>
+  );
 }
-
-export default App

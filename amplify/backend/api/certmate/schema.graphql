@@ -105,7 +105,7 @@ type Cert @model @auth(rules: [
 	client: String # Arrow Energy, Orion, etc...
 	operatingArea: String
 	checkList: [String] # Checklist of items to mark as clean/fail (TCC JD)
-	status: String
+	status: String @default(value: "P") # Pending, Active, Rejected
 	createdAt: String
 	updatedAt: String
 	bID: ID @default(value: "f") @index(name: "certsInCertMate", sortKeyFields: ["updatedAt"])

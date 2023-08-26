@@ -15,8 +15,11 @@ import VerticalLayout from "../layout/VerticalLayout";
 import Error404 from "../view/pages/404";
 import { API, graphqlOperation } from 'aws-amplify';
 import { routes } from '../settings';
-import { uniqueId, values } from "lodash";
+import { keys, uniqueId, values } from "lodash";
 import Base from "../view/pages/Base";
+import { Cert } from "../models";
+import { schema } from "../models/schema";
+import graphqlSchema from "../graphql/schema.json";
 
 export default function Router() {
     // Redux
@@ -26,22 +29,37 @@ export default function Router() {
     useEffect(() => {
         user && (async () => {
             // Checking for notifications - Orders Awaiting Pickup, New Books/Authors/Genres
-            // try{
-            //     const { data } = await API.graphql(graphqlOperation(getData));
-            //     dispatch({
-            //         type: "SET_NOTIFICATIONS",
-            //         data: {
-            //             ordersAwaitingPickup: data.getIndex.ledger.items.length,
-            //             booksAwaitingApproval: data.getIndex.books.items.length,
-            //             authorsAwaitingApproval: data.getIndex.authors.items.length,
-            //             genreAwaitingApproval: data.getIndex.genres.items.length,
-            //         }
-            //     })
+            try {
+                /**
+                 * Check which models have settings
+                 */
+                // console.log({ schema, d: graphqlSchema.data.__schema.types.find(({ name }) => name === 'CreateUserInput') });
+                // const query = `query GetNotifications{
+                //     user: getUser(id: "${user.cognito.username}"){
+                //         ${keys(routes).map(r => {
+                //     if (routes[r].notificationFilter) {
+                //         return `${schema.models[r].name}: get${schema.models[r].name}`
+                //     }
+                // }).filter(Boolean).join(`\n`)
+                //     }
+                //     }
+                // }`;
 
-            // }
-            // catch(e){
-            //     console.log(e);
-            // }
+                // const { data } = await API.graphql(graphqlOperation(getData));
+                // dispatch({
+                //     type: "SET_NOTIFICATIONS",
+                //     data: {
+                //         ordersAwaitingPickup: data.getIndex.ledger.items.length,
+                //         booksAwaitingApproval: data.getIndex.books.items.length,
+                //         authorsAwaitingApproval: data.getIndex.authors.items.length,
+                //         genreAwaitingApproval: data.getIndex.genres.items.length,
+                //     }
+                // })
+
+            }
+            catch (e) {
+                console.log(e);
+            }
         })();
     }, []);
 

@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Badge, Menu as AntMenu, Tag } from "antd";
 import { Bag, BagCross, BagTick, BagTimer, Book1, Building, Category2, CloseSquare, DocumentText1, ElementPlus, Heart, Hierarchy, InfoCircle, Profile, Profile2User, ProfileAdd, ProfileTick, ShieldTick, TicketExpired, Truck } from "iconsax-react";
 import { RoleRouteFilter, role } from "../../../helpers";
-import { startCase, uniqueId, values } from "lodash";
+import { keys, startCase, uniqueId, values } from "lodash";
 import { routes } from "../../../settings";
 
-export default function Menu({  }) {
+export default function Menu({ }) {
 
     // Redux
     const user = useSelector(state => state.user);
@@ -35,6 +35,7 @@ export default function Menu({  }) {
             // 
             // Children exist
             item.children = item.children.filter(({ roles, routes }) => RoleRouteFilter(roles, routes, user, null))
+            item.children.push({ label: `All ${title}`, key: `${route}-all`, icon, onClick: () => navigate(`/${route}`) });
         }
         else {
             // 
@@ -44,10 +45,11 @@ export default function Menu({  }) {
         }
 
         return item;
-    }).filter(({ roles, routes }) => RoleRouteFilter(roles, routes, user, null)), [ notifs ])
+    }).filter(({ roles, routes }) => RoleRouteFilter(roles, routes, user, null)), [notifs])
 
     useEffect(() => {
         setNotifs(notifications);
+        console.log({ notifications });
     }, [notifications]);
 
     useEffect(() => {
@@ -58,8 +60,9 @@ export default function Menu({  }) {
     return (
         <AntMenu
             className="hp-bg-black-20 hp-bg-dark-90"
-            defaultOpenKeys={['certs', 'companies']}
+            openKeys={values(routes).map(({ route }) => route)}
             mode="inline"
+            expandIcon={() => false}
             items={menu}
         />
     );

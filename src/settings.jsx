@@ -4,14 +4,19 @@ export const appName = "CertMate";
 export const version = "0.1.1";
 export const tagline = "Digital Vehicle Biosecurity Management";
 export const roles = ["SuperAdmin", "Admin", "Support", "CompanyOwner", "Inspector", "Driver", "LandOwner"];
+// Name keys as per models
 export const routes = {
-    certs: {
+    Cert: {
         title: "Certificates",
         route: "certs",
         filters: ["active", "pending", "failed", "expired"],
-        icon: <DocumentText1 />
+        icon: <DocumentText1 />,
+        model: 'Cert',
+        notificationFilter: {
+            status: { eq: 'P' }
+        }
     },
-    companies: {
+    Company: {
         title: "Companies",
         route: "companies",
         icon: <Profile2User />,
@@ -28,17 +33,17 @@ export const routes = {
             }
         }
     },
-    clients: {
+    Client: {
         title: "Clients",
         route: "clients",
         icon: <Building />
     },
-    vehicles: {
+    Vehicle: {
         title: "Vehicles",
         route: "vehicles",
         icon: <Truck />
     },
-    fleets: {
+    Fleet: {
         title: "Fleets",
         route: "fleets",
         icon: <Truck />

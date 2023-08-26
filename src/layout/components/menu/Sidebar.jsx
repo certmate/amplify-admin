@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 import MenuLogo from "./logo";
 import MenuFooter from "./footer/footer";
-import MenuItem from "./item/MenuItem";
+import Menu from "./Menu";
 import MenuMobile from "./mobile";
 
 const { Sider } = Layout;
@@ -50,13 +50,13 @@ export default function Sidebar(props) {
                     </Col>
 
                     <Col className="hp-pr-0">
-                                    <div className="hp-cursor-pointer" onClick={toggle}>
-                                        <svg width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.91102 1.73796L0.868979 4.78L0 3.91102L3.91102 0L7.82204 3.91102L6.95306 4.78L3.91102 1.73796Z" fill="#B2BEC3" />
-                                            <path d="M3.91125 12.0433L6.95329 9.00125L7.82227 9.87023L3.91125 13.7812L0.000224113 9.87023L0.869203 9.00125L3.91125 12.0433Z" fill="#B2BEC3" />
-                                        </svg>
-                                    </div>
-                                </Col>
+                        <div className="hp-cursor-pointer" onClick={toggle}>
+                            <svg width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.91102 1.73796L0.868979 4.78L0 3.91102L3.91102 0L7.82204 3.91102L6.95306 4.78L3.91102 1.73796Z" fill="#B2BEC3" />
+                                <path d="M3.91125 12.0433L6.95329 9.00125L7.82227 9.87023L3.91125 13.7812L0.000224113 9.87023L0.869203 9.00125L3.91125 12.0433Z" fill="#B2BEC3" />
+                            </svg>
+                        </div>
+                    </Col>
 
                     {collapsed && (
                         <Col span={24} className="hp-mt-12 hp-d-flex-full-center">
@@ -65,7 +65,7 @@ export default function Sidebar(props) {
                     )}
                 </Row>
 
-                <MenuItem onClose={onClose} />
+                <Menu onClose={onClose} />
 
                 <MenuFooter onClose={onClose} collapsed={collapsed} />
 

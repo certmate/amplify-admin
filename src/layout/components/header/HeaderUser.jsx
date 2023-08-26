@@ -29,7 +29,7 @@ export default function HeaderUser() {
 				}}
 			>
 				<a onClick={(e) => e.preventDefault()}>
-					<Profile variant="TwoTone" size={32} color="#FF8A65" />
+					<Profile variant="TwoTone" size={32} color="#4735df" />
 				</a>
 			</Dropdown>
 		</Col>

@@ -14,8 +14,11 @@ import VerticalLayout from "../layout/VerticalLayout";
 // Components
 import Error404 from "../view/pages/404";
 import { API, graphqlOperation } from 'aws-amplify';
+import { routes } from '../settings';
+import { uniqueId, values } from "lodash";
+import Base from "../view/pages/Base";
 
-export default function AppRoutes() {
+export default function Router() {
     // Redux
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
@@ -34,7 +37,7 @@ export default function AppRoutes() {
             //             genreAwaitingApproval: data.getIndex.genres.items.length,
             //         }
             //     })
-                
+
             // }
             // catch(e){
             //     console.log(e);
@@ -44,8 +47,22 @@ export default function AppRoutes() {
 
     return (
         <BrowserRouter>
-            <Routes>
-                {/* <Route path={'/orders/:filter'} render={() => <VerticalLayout><Orders /></VerticalLayout>} /> */}
+            <Routes >
+                {/* Routes > settings.json */}
+                {values(routes).map(({ title, route, filters, children }) => (
+                    <Route key={uniqueId()} path={route} element={<VerticalLayout><Base title={title} filters={filters} /></VerticalLayout>}>
+                        {/* 
+                            Nesting 1 level deep - for more levels, add more nested maps 
+                            BUT! - Menu should not be too nested. Use query params to pass filters
+                        */}
+                        <Route path="create" element={<>Create {title}</>} />
+                        <Route path="update/:id" element={<>Update {title}</>} />
+                        {values(children || {}).map(({ title, route }) => (
+                            <Route key={uniqueId()} path={route} element={<>{title}{route} Nik</>} />
+                        ))}
+                        <Route path=":id" element={<>Show {title}</>} />
+                    </Route>
+                ))}
 
                 {/* Home Page */}
                 <Route exact path='/' element={<VerticalLayout><>Nik</></VerticalLayout>} />

@@ -3,21 +3,21 @@ import { v4 as uuidv4 } from 'uuid';
 import dayjs from "dayjs";
 import { API, graphqlOperation } from 'aws-amplify';
 import _ from "lodash";
-import { precedence } from "./settings";
+import { roles } from "./settings";
 
 export const role = user => {
-    if(!user)
-        return "";
-    
+    if(!user?.cognito)
+        return "user";
+
     let groups = (user.cognito || user).signInUserSession.accessToken.payload['cognito:groups'];
 
-    for (let i = 0; i < precedence.length; i++) {
-        const p = precedence[i];
+    for (let i = 0; i < roles.length; i++) {
+        const p = roles[i];
         if (groups.includes(p))
             return p
     }
 
-    return precedence[precedence.length - 1];
+    return roles[roles.length - 1];
 }
 
 export const uploadImages = async (Storage, images, image_name) => {

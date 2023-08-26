@@ -3,7 +3,7 @@ import React from "react";
 import { Drawer } from "antd";
 
 import MenuLogo from "../logo";
-import MenuItem from "../item/MenuItem";
+import Menu from "../Menu";
 import MenuFooter from "../footer/footer";
 import { CloseCircle } from "iconsax-react";
 
@@ -23,7 +23,7 @@ export default function MenuMobile(props) {
             open={visible}
             closeIcon={<CloseCircle size={24} color="#000" />}
         >
-            <MenuItem onClose={onClose} />
+            <Menu onClose={onClose} />
 
             <MenuFooter onClose={onClose} collapsed={false} />
         </Drawer>

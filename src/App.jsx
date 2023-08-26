@@ -5,7 +5,7 @@ import { Amplify, API, Auth } from 'aws-amplify';
 import { AuthState } from '@aws-amplify/ui-components';
 import awsconfig from './aws-exports';
 import Login from './view/pages/authentication/login/Login';
-import AppRoutes from './router/AppRoutes';
+import Router from './router/Router';
 Amplify.configure(awsconfig);
 API.configure(awsconfig);
 
@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <ConfigProvider locale={{ locale: 'en' }}>
-      <AppRoutes />
+      <Router />
       {/* {authState === AuthState.SignedIn ? <Router /> : <Login loggedIn={loggedIn} />} */}
     </ConfigProvider>
   );

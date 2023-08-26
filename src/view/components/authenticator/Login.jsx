@@ -13,7 +13,7 @@ export default function Login({ change, loggedIn }) {
 	const [loginError, setLoginError] = useState(null);
 
 	const signIn = async function (data) {
-		
+
 	}
 
 	return <>
@@ -67,12 +67,12 @@ export default function Login({ change, loggedIn }) {
 
 						</Form.Item>
 
-						<Link
-							className="hp-button hp-text-color-black-80 hp-text-color-dark-40"
-							to="/pages/authentication/recover-password"
+						<span
+							className="hp-text-color-primary-1 hp-text-color-dark-primary-2 hp-caption hp-cursor-pointer"
+							onClick={() => change(AuthState.ForgotPassword)}
 						>
-							Forgot Password?
-						</Link>
+							Forgot Password
+						</span>
 					</Row>
 
 					<Form.Item className="hp-mt-16 hp-mb-8">
@@ -91,7 +91,7 @@ export default function Login({ change, loggedIn }) {
 			&nbsp;&nbsp;
 			<span
 				className="hp-text-color-primary-1 hp-text-color-dark-primary-2 hp-caption hp-cursor-pointer"
-				onClick={() => change(AuthState.SignUp) }
+				onClick={() => change(AuthState.SignUp)}
 			>
 				Create an account
 			</span>

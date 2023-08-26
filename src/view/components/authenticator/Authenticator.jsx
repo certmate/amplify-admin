@@ -11,6 +11,8 @@ import { AuthState } from "@aws-amplify/ui-components";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import ConfirmSignUp from "./ConfirmSignUp";
+import ForgotPassword from "./ForgotPassword";
+import ResetPassword from "./ResetPassword";
 
 export default function Authenticator({ loggedIn }) {
     const [view, setView] = useState(AuthState.SignIn);
@@ -32,6 +34,8 @@ export default function Authenticator({ loggedIn }) {
                         view === AuthState.SignIn ? <Login change={view => setView(view)} loggedIn={loggedIn} />
                         : view === AuthState.SignUp ? <SignUp change={view => setView(view)} />
                         : view === AuthState.ConfirmSignUp ? <ConfirmSignUp change={view => setView(view)} />
+                        : view === AuthState.ForgotPassword ? <ForgotPassword change={view => setView(view)} />
+                        : view === AuthState.ResetPassword ? <ResetPassword change={view => setView(view)}/>
                         : null
                     }
                     <Footer />

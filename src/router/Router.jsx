@@ -46,30 +46,28 @@ export default function Router() {
     }, []);
 
     return (
-        <BrowserRouter>
-            <Routes >
-                {/* Routes > settings.json */}
-                {values(routes).map(({ title, route, filters, children }) => (
-                    <Route key={uniqueId()} path={route} element={<VerticalLayout><Base title={title} filters={filters} /></VerticalLayout>}>
-                        {/* 
+        <Routes >
+            {/* Routes > settings.json */}
+            {values(routes).map(({ title, route, filters, children }) => (
+                <Route key={uniqueId()} path={route} element={<VerticalLayout><Base title={title} filters={filters} /></VerticalLayout>}>
+                    {/* 
                             Nesting 1 level deep - for more levels, add more nested maps 
                             BUT! - Menu should not be too nested. Use query params to pass filters
                         */}
-                        <Route path="create" element={<>Create {title}</>} />
-                        <Route path="update/:id" element={<>Update {title}</>} />
-                        {values(children || {}).map(({ title, route }) => (
-                            <Route key={uniqueId()} path={route} element={<>{title}{route} Nik</>} />
-                        ))}
-                        <Route path=":id" element={<>Show {title}</>} />
-                    </Route>
-                ))}
+                    <Route path="create" element={<>Create {title}</>} />
+                    <Route path="update/:id" element={<>Update {title}</>} />
+                    {values(children || {}).map(({ title, route }) => (
+                        <Route key={uniqueId()} path={route} element={<>{title}{route} Nik</>} />
+                    ))}
+                    <Route path=":id" element={<>Show {title}</>} />
+                </Route>
+            ))}
 
-                {/* Home Page */}
-                <Route exact path='/' element={<VerticalLayout><>Nik</></VerticalLayout>} />
+            {/* Home Page */}
+            <Route exact path='/' element={<VerticalLayout><>Nik</></VerticalLayout>} />
 
-                {/* NotFound */}
-                <Route path='*' element={<Error404 />} />
-            </Routes>
-        </BrowserRouter>
+            {/* NotFound */}
+            <Route path='*' element={<Error404 />} />
+        </Routes>
     );
 };

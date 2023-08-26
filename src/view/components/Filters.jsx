@@ -5,6 +5,7 @@ import { startCase, uniqueId } from "lodash";
 import Pill from "../components/Pill";
 
 export default function Filters({ filters }) {
+    const navigate = useNavigate();
     return <Space>
         {filters.map((filter, index) => <Pill index={index} key={uniqueId()} label={startCase(filter)} onClick={() => navigate(`?filter=${filter}`)} />)}
     </Space>

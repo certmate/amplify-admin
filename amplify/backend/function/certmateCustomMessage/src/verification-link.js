@@ -36,7 +36,7 @@ exports.handler = async (event) => {
     const url = `${bucketUrl}/?data=${payload}&code=${codeParameter}`;
     const message = `${process.env.EMAILMESSAGE}. \n ${url}`;
     event.response.smsMessage = 'Verify your account';
-    event.response.emailSubject = `Bookshelf - Verify your account`;
+    event.response.emailSubject = `CertMate - Verify your account`;
     event.response.emailMessage = `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';background-color:#edf2f7;margin:0;padding:0;width:100%">
     <tbody><tr>
     <td align="center" style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'">

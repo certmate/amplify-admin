@@ -51,12 +51,7 @@ export default function Menu({ }) {
         setNotifs(notifications);
         console.log({ notifications });
     }, [notifications]);
-
-    useEffect(() => {
-        console.log('Render');
-    }, []);
-
-
+    
     return (
         <AntMenu
             className="hp-bg-black-20 hp-bg-dark-90"

@@ -58,6 +58,7 @@ type Company @model @auth(rules: [
 	fleets: [Fleet]
 	createdAt: String
 	updatedAt: String
+	logo: String
 	bID: ID @default(value: "f") @index(name: "companiesInCertMate", sortKeyFields: ["name"])
 }
 

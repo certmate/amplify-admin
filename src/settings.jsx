@@ -11,7 +11,6 @@ export const routes = {
         route: "certs",
         filters: ["active", "pending", "failed", "expired"],
         icon: <DocumentText1 />,
-        model: 'Cert',
         notificationFilter: {
             status: { eq: 'P' }
         }
@@ -21,9 +20,9 @@ export const routes = {
         route: "companies",
         icon: <Profile2User />,
         children: {
-            "members": {
+            User: {
                 title: "Members",
-                route: "members",
+                route: "users",
                 icon: <Profile />
             },
             "invitations": {

@@ -15,7 +15,7 @@ import VerticalLayout from "../layout/VerticalLayout";
 import Error404 from "../view/pages/404";
 import { API, graphqlOperation } from 'aws-amplify';
 import { routes } from '../settings';
-import { keys, uniqueId, values } from "lodash";
+import { entries, keys, uniqueId, values } from "lodash";
 import Base from "../view/pages/Base";
 import { Cert } from "../models";
 import { schema } from "../models/schema";
@@ -66,16 +66,16 @@ export default function Router() {
     return (
         <Routes >
             {/* Routes > settings.json */}
-            {values(routes).map(({ title, route, filters, children }) => (
-                <Route key={uniqueId()} path={route} element={<VerticalLayout><Base title={title} filters={filters} /></VerticalLayout>}>
+            {entries(routes).map(([model, { title, route, filters, children }]) => (
+                <Route key={uniqueId()} path={route} element={<VerticalLayout><Base title={title} filters={filters} model={model} /></VerticalLayout>}>
                     {/* 
-                            Nesting 1 level deep - for more levels, add more nested maps 
-                            BUT! - Menu should not be too nested. Use query params to pass filters
-                        */}
+                        Nesting 1 level deep - for more levels, add more nested maps 
+                        BUT! - Menu should not be too nested. Use query params to pass filters
+                    */}
                     <Route path="create" element={<>Create {title}</>} />
                     <Route path="update/:id" element={<>Update {title}</>} />
-                    {values(children || {}).map(({ title, route }) => (
-                        <Route key={uniqueId()} path={route} element={<>{title}{route} Nik</>} />
+                    {entries(children).map(([model, { title, route }]) => (
+                        <Route key={uniqueId()} path={route} element={<pre>{JSON.stringify({ title, route, model }, false, 4)}</pre>} />
                     ))}
                     <Route path=":id" element={<>Show {title}</>} />
                 </Route>

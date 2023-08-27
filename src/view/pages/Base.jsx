@@ -1,5 +1,5 @@
 import { Outlet, useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { Row, Col, Button, Input, Table, Popconfirm, message, Space, Divider, Select, Modal } from "antd";
+import { Row, Col, Button, Input, Table, Popconfirm, message, Space, Divider, Select, Modal, Card } from "antd";
 import { AddCircle, SearchNormal, SearchNormal1 } from "iconsax-react";
 import { entries, isEmpty, startCase, uniqueId } from "lodash";
 import Pill from "../components/Pill";
@@ -7,9 +7,12 @@ import Filters from "../components/Filters";
 import { useEffect, useMemo, useState } from "react";
 import { routes } from "../../settings";
 import graphqlSchema from "../../graphql/schema";
-import CreateUpdateModal from "../components/CreateUpdateModal";
+import BaseForm from "../components/BaseForm";
+import * as mutations from "../../graphql/mutations";
+import SweetAlert from 'sweetalert2';
+import { API, graphqlOperation } from 'aws-amplify';
 
-export default function Base({ title, filters = [], model }) {
+export default function Base({ title, filters = [], model, form }) {
     const { id } = useParams();
     const { pathname, search, hash } = useLocation();
     const [showModal, setShowModal] = useState(false);
@@ -21,12 +24,6 @@ export default function Base({ title, filters = [], model }) {
      * Path fragments
      */
     const [...pathFragments] = pathname.split('/').filter(Boolean);
-    /**
-     * 
-     * Get schemas
-     * 
-     */console.log(graphqlSchema.data.__schema);
-    const createSchema = useMemo(() => graphqlSchema.data.__schema.types.find(({ name }) => name === `Create${model}Input`)?.inputFields, [model]);
 
     return <>
         {/* Header:START */}
@@ -36,19 +33,7 @@ export default function Base({ title, filters = [], model }) {
             </Col>
             <Col span={16} className='hp-text-right'>
                 <Space>
-                    <Row gutter={[16, 16]} justify="end">
-                        <Col>
-                            <Input placeholder={`Search ${title}`} prefix={<SearchNormal1 size={18} />} />
-                        </Col>
-                        <Col>
-                            <Button type="primary">
-                                <SearchNormal set="curved" size={18} style={{ marginRight: 12 }} />
-                                Search
-                            </Button>
-                        </Col>
-                    </Row>
-                    {!isEmpty(createSchema) && <>
-                        <Divider type="vertical" />
+                    {!isEmpty(form?.create) && <>
                         <Button type="primary" onClick={() => setShowModal(true)}>
                             <AddCircle set="curved" size={18} style={{ marginRight: 12 }} />
                             <span>Create {title}</span>
@@ -61,9 +46,27 @@ export default function Base({ title, filters = [], model }) {
         <Divider />
         {/* Header:END */}
         {/* Child */}
-        {pathFragments.length === 1 ? <>Show Base!</> : <Outlet context={{ filter, sort }} ></Outlet>}
+        <Outlet context={{ filter, sort }} ></Outlet>
         <pre>{JSON.stringify({ id, pathname, search, title, hash, filters, filter, model, pathFragments }, false, 4)}</pre>
         {/* Modals */}
-        <CreateUpdateModal schema={createSchema} open={showModal} title={title} close={() => setShowModal(false)} />
+        <Modal
+            title={<h4 className='hp-mb-0'>Create {startCase(title)}</h4>}
+            open={showModal}
+            onCancel={() => setShowModal(false)}
+            footer={null}
+        >
+            <Card>
+                <BaseForm schema={form?.schema} fields={form?.create} onSubmit={async input => {
+                    try {
+                        await API.graphql(graphqlOperation(mutations[`create${model}`], { input }));
+                        setShowModal(false);
+                        await SweetAlert.fire({ title: 'Success', text: `${model} Created!`, icon: 'success' });
+                    }
+                    catch (e) {
+                        console.log(e);
+                    }
+                }} />
+            </Card>
+        </Modal>
     </>
 }

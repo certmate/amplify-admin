@@ -1,8 +1,5 @@
-import { Input, Upload } from "antd";
-import { Bag, BagCross, BagTick, BagTimer, Book1, Building, Category2, CloseSquare, DocumentText1, ElementPlus, Heart, Hierarchy, InfoCircle, Profile, Profile2User, ProfileAdd, ProfileTick, ShieldTick, TicketExpired, Truck } from "iconsax-react";
+import { Building, DocumentText1, Profile, Profile2User, ProfileAdd, Truck } from "iconsax-react";
 import { string } from "yup";
-import { FileUploader } from "@aws-amplify/ui-react";
-import { StorageManager } from "@aws-amplify/ui-react-storage";
 
 export const appName = "CertMate";
 export const version = "0.1.1";

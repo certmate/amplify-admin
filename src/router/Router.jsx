@@ -67,15 +67,15 @@ export default function Router() {
         <Routes >
             {/* Routes > settings.json */}
             {entries(routes).map(([model, { title, route, filters, children, form }]) => (
-                <Route key={uniqueId()} path={route} element={<VerticalLayout><Base title={title} filters={filters} model={model} form={form} /></VerticalLayout>}>
+                <Route id={route} key={uniqueId()} path={route} element={<VerticalLayout><Base route={route} title={title} filters={filters} model={model} form={form} /></VerticalLayout>}>
                     {/* 
                         Nesting 1 level deep - for more levels, add more nested maps 
                         BUT! - Menu should not be too nested. Use query params to pass filters
                     */}
                     <Route path="create" element={<>Create {title}</>} />
                     <Route path="update/:id" element={<>Update {title}</>} />
-                    {entries(children).map(([model, { title, route }]) => (
-                        <Route key={uniqueId()} path={route} element={<Base title={title} filters={filters} model={model} form={form} />} />
+                    {entries(children).map(([model, { title, route, form }]) => (
+                        <Route key={uniqueId()} path={route} element={<Base route={route} title={title} filters={filters} model={model} form={form} />} />
                     ))}
                     <Route path=":id" element={<>Show {title}</>} />
                 </Route>

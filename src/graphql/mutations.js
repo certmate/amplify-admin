@@ -38,6 +38,7 @@ export const createIndex = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -164,6 +165,7 @@ export const updateIndex = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -290,6 +292,7 @@ export const deleteIndex = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -500,6 +503,7 @@ export const createUser = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -637,6 +641,7 @@ export const updateUser = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -774,6 +779,7 @@ export const deleteUser = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -878,6 +884,7 @@ export const createCompany = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      logo
       bID
       _version
       _deleted
@@ -975,6 +982,7 @@ export const updateCompany = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      logo
       bID
       _version
       _deleted
@@ -1072,6 +1080,7 @@ export const deleteCompany = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      logo
       bID
       _version
       _deleted
@@ -1115,6 +1124,7 @@ export const createVehicle = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -1198,6 +1208,7 @@ export const updateVehicle = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -1281,6 +1292,7 @@ export const deleteVehicle = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -1364,6 +1376,7 @@ export const createCert = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -1380,6 +1393,7 @@ export const createCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1445,6 +1459,7 @@ export const createCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1498,6 +1513,7 @@ export const createCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1563,6 +1579,7 @@ export const updateCert = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -1579,6 +1596,7 @@ export const updateCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1644,6 +1662,7 @@ export const updateCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1697,6 +1716,7 @@ export const updateCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1762,6 +1782,7 @@ export const deleteCert = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -1778,6 +1799,7 @@ export const deleteCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1843,6 +1865,7 @@ export const deleteCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1896,6 +1919,7 @@ export const deleteCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1976,6 +2000,7 @@ export const createNotification = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -2050,6 +2075,7 @@ export const updateNotification = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -2124,6 +2150,7 @@ export const deleteNotification = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted

@@ -35,6 +35,7 @@ export const getIndex = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -344,6 +345,7 @@ export const getUser = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -405,6 +407,7 @@ export const listUsers = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -476,6 +479,7 @@ export const syncUsers = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -551,6 +555,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -626,6 +631,7 @@ export const usersByBIDAndName = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -731,6 +737,7 @@ export const getCompany = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      logo
       bID
       _version
       _deleted
@@ -773,6 +780,7 @@ export const listCompanies = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -825,6 +833,7 @@ export const syncCompanies = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -881,6 +890,7 @@ export const companiesByBIDAndName = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -925,6 +935,7 @@ export const getVehicle = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -989,6 +1000,7 @@ export const listVehicles = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1042,6 +1054,7 @@ export const syncVehicles = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1099,6 +1112,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1156,6 +1170,7 @@ export const vehiclesByBIDAndUpdatedAt = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1219,6 +1234,7 @@ export const getCert = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        logo
         bID
         _version
         _deleted
@@ -1235,6 +1251,7 @@ export const getCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1300,6 +1317,7 @@ export const getCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1353,6 +1371,7 @@ export const getCert = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1399,6 +1418,7 @@ export const listCerts = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1506,6 +1526,7 @@ export const syncCerts = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1617,6 +1638,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1728,6 +1750,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1839,6 +1862,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -1950,6 +1974,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -2061,6 +2086,7 @@ export const certsByBIDAndUpdatedAt = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted
@@ -2193,6 +2219,7 @@ export const getNotification = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          logo
           bID
           _version
           _deleted

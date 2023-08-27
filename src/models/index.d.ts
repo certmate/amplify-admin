@@ -138,6 +138,7 @@ type EagerCompany = {
   readonly fleets?: (Fleet | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
+  readonly logo?: string | null;
   readonly bID?: string | null;
 }
 
@@ -153,6 +154,7 @@ type LazyCompany = {
   readonly fleets?: (Fleet | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
+  readonly logo?: string | null;
   readonly bID?: string | null;
 }
 

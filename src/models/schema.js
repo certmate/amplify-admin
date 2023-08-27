@@ -508,6 +508,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "logo": {
+                    "name": "logo",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "bID": {
                     "name": "bID",
                     "isArray": false,
@@ -1343,5 +1350,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "e3ec74efb0ef6f7bfd6b29c33176df3d"
+    "version": "e7f7496bd3ee4d65368b6d0709d3973d"
 };

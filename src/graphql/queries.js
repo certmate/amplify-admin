@@ -5,105 +5,123 @@ export const getIndex = /* GraphQL */ `
   query GetIndex($id: ID!) {
     getIndex(id: $id) {
       id
-      users {
+      bases {
         items {
           id
-          name
-          pushToken
-          email
-          phone
-          roles
-          acN
+          read
           createdAt
-          updatedAt
-          favouriteCerts
-          companyID
           bID
-          _version
-          _deleted
-          _lastChangedAt
-          owner
-          __typename
-        }
-        nextToken
-        startedAt
-        __typename
-      }
-      companies {
-        items {
-          id
-          name
-          createdAt
-          updatedAt
-          logo
-          bID
-          _version
-          _deleted
-          _lastChangedAt
-          owner
-          __typename
-        }
-        nextToken
-        startedAt
-        __typename
-      }
-      vehicles {
-        items {
-          id
-          companyID
-          make
-          model
-          rego
-          category
-          assetId
-          createdAt
-          updatedAt
-          bID
-          _version
-          _deleted
-          _lastChangedAt
-          owner
-          __typename
-        }
-        nextToken
-        startedAt
-        __typename
-      }
-      certs {
-        items {
-          id
-          companyID
-          vehicleID
-          driverID
-          inspectorID
-          type
-          odometer
-          client
-          operatingArea
-          checkList
-          status
-          createdAt
-          updatedAt
-          bID
-          _version
-          _deleted
-          _lastChangedAt
-          owner
-          __typename
-        }
-        nextToken
-        startedAt
-        __typename
-      }
-      notifications {
-        items {
-          id
-          type
-          title
-          body
-          userID
-          bID
-          createdAt
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          companies {
+            items {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           updatedAt
           _version
           _deleted
@@ -134,27 +152,44 @@ export const listIndices = /* GraphQL */ `
     listIndices(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        users {
-          nextToken
-          startedAt
-          __typename
-        }
-        companies {
-          nextToken
-          startedAt
-          __typename
-        }
-        vehicles {
-          nextToken
-          startedAt
-          __typename
-        }
-        certs {
-          nextToken
-          startedAt
-          __typename
-        }
-        notifications {
+        bases {
+          items {
+            id
+            read
+            createdAt
+            bID
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            companies {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -188,32 +223,1571 @@ export const syncIndices = /* GraphQL */ `
     ) {
       items {
         id
-        users {
-          nextToken
-          startedAt
-          __typename
-        }
-        companies {
-          nextToken
-          startedAt
-          __typename
-        }
-        vehicles {
-          nextToken
-          startedAt
-          __typename
-        }
-        certs {
-          nextToken
-          startedAt
-          __typename
-        }
-        notifications {
+        bases {
+          items {
+            id
+            read
+            createdAt
+            bID
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            companies {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+  }
+`;
+export const getBase = /* GraphQL */ `
+  query GetBase($id: ID!) {
+    getBase(id: $id) {
+      id
+      read
+      createdAt
+      bID
+      users {
+        items {
+          id
+          name
+          pushToken
+          email
+          phone
+          roles
+          acN
+          createdAt
+          updatedAt
+          favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        nextToken
+        startedAt
+        __typename
+      }
+      companies {
+        items {
+          id
+          name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          createdAt
+          updatedAt
+          logo
+          base
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        nextToken
+        startedAt
+        __typename
+      }
+      vehicles {
+        items {
+          id
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          make
+          model
+          rego
+          category
+          assetId
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          createdAt
+          updatedAt
+          base
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        nextToken
+        startedAt
+        __typename
+      }
+      certs {
+        items {
+          id
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          vehicleID
+          vehicle {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          driverID
+          driver {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          inspectorID
+          inspector {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          type
+          odometer
+          client
+          operatingArea
+          checkList
+          status
+          createdAt
+          updatedAt
+          base
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        nextToken
+        startedAt
+        __typename
+      }
+      notifications {
+        items {
+          id
+          type
+          title
+          body
+          userID
+          user {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        nextToken
+        startedAt
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+  }
+`;
+export const listBases = /* GraphQL */ `
+  query ListBases(
+    $filter: ModelBaseFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listBases(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        read
+        createdAt
+        bID
+        users {
+          items {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        companies {
+          items {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        vehicles {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notifications {
+          items {
+            id
+            type
+            title
+            body
+            userID
+            user {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+  }
+`;
+export const syncBases = /* GraphQL */ `
+  query SyncBases(
+    $filter: ModelBaseFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncBases(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        read
+        createdAt
+        bID
+        users {
+          items {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        companies {
+          items {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        vehicles {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notifications {
+          items {
+            id
+            type
+            title
+            body
+            userID
+            user {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+  }
+`;
+export const basesByBIDAndCreatedAt = /* GraphQL */ `
+  query BasesByBIDAndCreatedAt(
+    $bID: ID!
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelBaseFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    basesByBIDAndCreatedAt(
+      bID: $bID
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        read
+        createdAt
+        bID
+        users {
+          items {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        companies {
+          items {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        vehicles {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notifications {
+          items {
+            id
+            type
+            title
+            body
+            userID
+            user {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
         updatedAt
         _version
         _deleted
@@ -246,13 +1820,191 @@ export const getUser = /* GraphQL */ `
         vehicles
         __typename
       }
+      status
       driverCerts {
         items {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           vehicleID
+          vehicle {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           driverID
+          driver {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           inspectorID
+          inspector {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           type
           odometer
           client
@@ -261,7 +2013,7 @@ export const getUser = /* GraphQL */ `
           status
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -276,9 +2028,186 @@ export const getUser = /* GraphQL */ `
         items {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           vehicleID
+          vehicle {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           driverID
+          driver {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           inspectorID
+          inspector {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           type
           odometer
           client
@@ -287,7 +2216,7 @@ export const getUser = /* GraphQL */ `
           status
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -305,7 +2234,61 @@ export const getUser = /* GraphQL */ `
           title
           body
           userID
-          bID
+          user {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           createdAt
           updatedAt
           _version
@@ -323,16 +2306,196 @@ export const getUser = /* GraphQL */ `
         id
         name
         users {
+          items {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         vehicles {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -346,14 +2509,14 @@ export const getUser = /* GraphQL */ `
         createdAt
         updatedAt
         logo
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
         owner
         __typename
       }
-      bID
+      base
       _version
       _deleted
       _lastChangedAt
@@ -386,17 +2549,235 @@ export const listUsers = /* GraphQL */ `
           vehicles
           __typename
         }
+        status
         driverCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         inspectorCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         notifications {
+          items {
+            id
+            type
+            title
+            body
+            userID
+            user {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -405,17 +2786,96 @@ export const listUsers = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -458,17 +2918,235 @@ export const syncUsers = /* GraphQL */ `
           vehicles
           __typename
         }
+        status
         driverCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         inspectorCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         notifications {
+          items {
+            id
+            type
+            title
+            body
+            userID
+            user {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -477,17 +3155,96 @@ export const syncUsers = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -534,17 +3291,235 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
           vehicles
           __typename
         }
+        status
         driverCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         inspectorCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         notifications {
+          items {
+            id
+            type
+            title
+            body
+            userID
+            user {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -553,17 +3528,96 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -576,17 +3630,17 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
     }
   }
 `;
-export const usersByBIDAndName = /* GraphQL */ `
-  query UsersByBIDAndName(
-    $bID: ID!
+export const usersByBaseAndName = /* GraphQL */ `
+  query UsersByBaseAndName(
+    $base: ID!
     $name: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelUserFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    usersByBIDAndName(
-      bID: $bID
+    usersByBaseAndName(
+      base: $base
       name: $name
       sortDirection: $sortDirection
       filter: $filter
@@ -610,17 +3664,235 @@ export const usersByBIDAndName = /* GraphQL */ `
           vehicles
           __typename
         }
+        status
         driverCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         inspectorCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         notifications {
+          items {
+            id
+            type
+            title
+            body
+            userID
+            user {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -629,17 +3901,96 @@ export const usersByBIDAndName = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -669,8 +4020,121 @@ export const getCompany = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -685,14 +4149,74 @@ export const getCompany = /* GraphQL */ `
         items {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           make
           model
           rego
           category
           assetId
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -707,9 +4231,186 @@ export const getCompany = /* GraphQL */ `
         items {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           vehicleID
+          vehicle {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           driverID
+          driver {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           inspectorID
+          inspector {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           type
           odometer
           client
@@ -718,7 +4419,7 @@ export const getCompany = /* GraphQL */ `
           status
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -738,7 +4439,7 @@ export const getCompany = /* GraphQL */ `
       createdAt
       updatedAt
       logo
-      bID
+      base
       _version
       _deleted
       _lastChangedAt
@@ -758,16 +4459,196 @@ export const listCompanies = /* GraphQL */ `
         id
         name
         users {
+          items {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         vehicles {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -781,7 +4662,7 @@ export const listCompanies = /* GraphQL */ `
         createdAt
         updatedAt
         logo
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -811,16 +4692,196 @@ export const syncCompanies = /* GraphQL */ `
         id
         name
         users {
+          items {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         vehicles {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -834,7 +4895,7 @@ export const syncCompanies = /* GraphQL */ `
         createdAt
         updatedAt
         logo
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -847,17 +4908,17 @@ export const syncCompanies = /* GraphQL */ `
     }
   }
 `;
-export const companiesByBIDAndName = /* GraphQL */ `
-  query CompaniesByBIDAndName(
-    $bID: ID!
+export const companiesByBaseAndName = /* GraphQL */ `
+  query CompaniesByBaseAndName(
+    $base: ID!
     $name: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelCompanyFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    companiesByBIDAndName(
-      bID: $bID
+    companiesByBaseAndName(
+      base: $base
       name: $name
       sortDirection: $sortDirection
       filter: $filter
@@ -868,16 +4929,196 @@ export const companiesByBIDAndName = /* GraphQL */ `
         id
         name
         users {
+          items {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         vehicles {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -891,7 +5132,7 @@ export const companiesByBIDAndName = /* GraphQL */ `
         createdAt
         updatedAt
         logo
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -913,16 +5154,196 @@ export const getVehicle = /* GraphQL */ `
         id
         name
         users {
+          items {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         vehicles {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -936,7 +5357,7 @@ export const getVehicle = /* GraphQL */ `
         createdAt
         updatedAt
         logo
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -952,9 +5373,186 @@ export const getVehicle = /* GraphQL */ `
         items {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           vehicleID
+          vehicle {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           driverID
+          driver {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           inspectorID
+          inspector {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           type
           odometer
           client
@@ -963,7 +5561,7 @@ export const getVehicle = /* GraphQL */ `
           status
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -976,7 +5574,7 @@ export const getVehicle = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      bID
+      base
       _version
       _deleted
       _lastChangedAt
@@ -998,10 +5596,89 @@ export const listVehicles = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1014,13 +5691,104 @@ export const listVehicles = /* GraphQL */ `
         category
         assetId
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1052,10 +5820,89 @@ export const syncVehicles = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1068,13 +5915,104 @@ export const syncVehicles = /* GraphQL */ `
         category
         assetId
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1110,10 +6048,89 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1126,13 +6143,104 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
         category
         assetId
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1145,17 +6253,17 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
     }
   }
 `;
-export const vehiclesByBIDAndUpdatedAt = /* GraphQL */ `
-  query VehiclesByBIDAndUpdatedAt(
-    $bID: ID!
+export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
+  query VehiclesByBaseAndUpdatedAt(
+    $base: ID!
     $updatedAt: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelVehicleFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    vehiclesByBIDAndUpdatedAt(
-      bID: $bID
+    vehiclesByBaseAndUpdatedAt(
+      base: $base
       updatedAt: $updatedAt
       sortDirection: $sortDirection
       filter: $filter
@@ -1168,10 +6276,89 @@ export const vehiclesByBIDAndUpdatedAt = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1184,13 +6371,104 @@ export const vehiclesByBIDAndUpdatedAt = /* GraphQL */ `
         category
         assetId
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1212,16 +6490,196 @@ export const getCert = /* GraphQL */ `
         id
         name
         users {
+          items {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         vehicles {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -1235,7 +6693,7 @@ export const getCert = /* GraphQL */ `
         createdAt
         updatedAt
         logo
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1249,10 +6707,89 @@ export const getCert = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1265,13 +6802,104 @@ export const getCert = /* GraphQL */ `
         category
         assetId
         certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1296,17 +6924,235 @@ export const getCert = /* GraphQL */ `
           vehicles
           __typename
         }
+        status
         driverCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         inspectorCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         notifications {
+          items {
+            id
+            type
+            title
+            body
+            userID
+            user {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -1315,17 +7161,96 @@ export const getCert = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1350,17 +7275,235 @@ export const getCert = /* GraphQL */ `
           vehicles
           __typename
         }
+        status
         driverCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         inspectorCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         notifications {
+          items {
+            id
+            type
+            title
+            body
+            userID
+            user {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -1369,17 +7512,96 @@ export const getCert = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1394,7 +7616,7 @@ export const getCert = /* GraphQL */ `
       status
       createdAt
       updatedAt
-      bID
+      base
       _version
       _deleted
       _lastChangedAt
@@ -1416,10 +7638,89 @@ export const listCerts = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1430,14 +7731,74 @@ export const listCerts = /* GraphQL */ `
         vehicle {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           make
           model
           rego
           category
           assetId
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1456,8 +7817,121 @@ export const listCerts = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1476,8 +7950,121 @@ export const listCerts = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1492,7 +8079,7 @@ export const listCerts = /* GraphQL */ `
         status
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1524,10 +8111,89 @@ export const syncCerts = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1538,14 +8204,74 @@ export const syncCerts = /* GraphQL */ `
         vehicle {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           make
           model
           rego
           category
           assetId
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1564,8 +8290,121 @@ export const syncCerts = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1584,8 +8423,121 @@ export const syncCerts = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1600,7 +8552,7 @@ export const syncCerts = /* GraphQL */ `
         status
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1636,10 +8588,89 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1650,14 +8681,74 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
         vehicle {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           make
           model
           rego
           category
           assetId
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1676,8 +8767,121 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1696,8 +8900,121 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1712,7 +9029,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
         status
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1748,10 +9065,89 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1762,14 +9158,74 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
         vehicle {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           make
           model
           rego
           category
           assetId
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1788,8 +9244,121 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1808,8 +9377,121 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1824,7 +9506,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
         status
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1860,10 +9542,89 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1874,14 +9635,74 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
         vehicle {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           make
           model
           rego
           category
           assetId
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1900,8 +9721,121 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1920,8 +9854,121 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1936,7 +9983,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
         status
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -1972,10 +10019,89 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -1986,14 +10112,74 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
         vehicle {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           make
           model
           rego
           category
           assetId
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -2012,8 +10198,121 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -2032,8 +10331,121 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -2048,7 +10460,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
         status
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -2061,17 +10473,17 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
     }
   }
 `;
-export const certsByBIDAndUpdatedAt = /* GraphQL */ `
-  query CertsByBIDAndUpdatedAt(
-    $bID: ID!
+export const certsByBaseAndUpdatedAt = /* GraphQL */ `
+  query CertsByBaseAndUpdatedAt(
+    $base: ID!
     $updatedAt: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelCertFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    certsByBIDAndUpdatedAt(
-      bID: $bID
+    certsByBaseAndUpdatedAt(
+      base: $base
       updatedAt: $updatedAt
       sortDirection: $sortDirection
       filter: $filter
@@ -2084,10 +10496,89 @@ export const certsByBIDAndUpdatedAt = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -2098,14 +10589,74 @@ export const certsByBIDAndUpdatedAt = /* GraphQL */ `
         vehicle {
           id
           companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           make
           model
           rego
           category
           assetId
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           createdAt
           updatedAt
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
@@ -2124,8 +10675,121 @@ export const certsByBIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -2144,8 +10808,121 @@ export const certsByBIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
@@ -2160,7 +10937,7 @@ export const certsByBIDAndUpdatedAt = /* GraphQL */ `
         status
         createdAt
         updatedAt
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
@@ -2198,17 +10975,235 @@ export const getNotification = /* GraphQL */ `
           vehicles
           __typename
         }
+        status
         driverCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         inspectorCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
         }
         notifications {
+          items {
+            id
+            type
+            title
+            body
+            userID
+            user {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           nextToken
           startedAt
           __typename
@@ -2217,24 +11212,103 @@ export const getNotification = /* GraphQL */ `
         company {
           id
           name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
           createdAt
           updatedAt
           logo
-          bID
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         _version
         _deleted
         _lastChangedAt
         owner
         __typename
       }
-      bID
+      base
       createdAt
       updatedAt
       _version
@@ -2269,15 +11343,128 @@ export const listNotifications = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         createdAt
         updatedAt
         _version
@@ -2322,15 +11509,128 @@ export const syncNotifications = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         createdAt
         updatedAt
         _version
@@ -2379,15 +11679,128 @@ export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         createdAt
         updatedAt
         _version
@@ -2402,17 +11815,17 @@ export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
     }
   }
 `;
-export const notificationsByBIDAndUpdatedAt = /* GraphQL */ `
-  query NotificationsByBIDAndUpdatedAt(
-    $bID: ID!
+export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
+  query NotificationsByBaseAndUpdatedAt(
+    $base: ID!
     $updatedAt: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelNotificationFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    notificationsByBIDAndUpdatedAt(
-      bID: $bID
+    notificationsByBaseAndUpdatedAt(
+      base: $base
       updatedAt: $updatedAt
       sortDirection: $sortDirection
       filter: $filter
@@ -2436,15 +11849,128 @@ export const notificationsByBIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notifications {
+            items {
+              id
+              type
+              title
+              body
+              userID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           companyID
-          bID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
           _version
           _deleted
           _lastChangedAt
           owner
           __typename
         }
-        bID
+        base
         createdAt
         updatedAt
         _version

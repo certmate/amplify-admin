@@ -1,39 +1,29 @@
 import { Building, DocumentText1, Profile, Profile2User, ProfileAdd, Truck } from "iconsax-react";
 import { string } from "yup";
+import { encodeFilter } from "./helpers";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
 export const tagline = "Digital Vehicle Biosecurity Management";
 export const roles = ["SuperAdmin", "Admin", "Support", "CompanyOwner", "Inspector", "Driver", "LandOwner"];
+export const anchorModel = "Company";
 /**
  * 1.   Keys of routes are names of model
  */
 export const routes = {
-    Cert: {
+    ['/certs']: {
         title: "Certificates",
-        route: "certs",
+        model: "Cert",
         filters: ["active", "pending", "failed", "expired"],
         icon: <DocumentText1 />,
         notificationFilter: {
             status: { eq: 'P' }
         }
     },
-    Company: {
+    ['/companies']: {
         title: "Companies",
         route: "companies",
         icon: <Profile2User />,
-        children: {
-            User: {
-                title: "Members",
-                route: "users",
-                icon: <Profile />
-            },
-            "invitations": {
-                title: "Invitations",
-                route: "invitations",
-                icon: <ProfileAdd />
-            }
-        },
         form: {
             /**
              * Keys are names of schema field
@@ -43,22 +33,53 @@ export const routes = {
                 name: { label: 'Company name', validation: string().required(), component: 'input' },
                 logo: { label: 'Company logo', validation: string(), component: 'upload' }
             },
-            create: ['name', 'logo']
+            create: ['name', 'logo'],
+            read: ['name', 'logo']
         }
     },
-    Client: {
+    ['/companies/members']: {
+        title: "Members",
+        model: "User",
+        icon: <Profile />
+    },
+    ['/companies/members?filter=invited']: {
+        title: "Invitations",
+        model: "User",
+        icon: <ProfileAdd />
+    },
+    ['/clients']: {
         title: "Clients",
-        route: "clients",
+        model: "Client",
         icon: <Building />
     },
-    Vehicle: {
+    ['/vehicles']: {
         title: "Vehicles",
-        route: "vehicles",
+        model: "Vehicle",
         icon: <Truck />
     },
-    Fleet: {
+    ['/fleets']: {
         title: "Fleets",
-        route: "fleets",
+        dataKey: "Company.fleets",
         icon: <Truck />
     }
 }
+
+export const menu = [
+    {
+        node: '/certs',
+        children: [`/certs?filter=${encodeFilter({status: { eq: 'active' }}, 'Active')}`, `/certs?filter=${encodeFilter({status: { eq: 'pending' }}, 'Pending')}`, `/certs?filter=${encodeFilter({status: { eq: 'failed' }}, 'Failed')}`, `/certs?filter=${encodeFilter({status: { eq: 'expired' }}, 'Expired')}` ]
+    },
+    {
+        node: '/companies',
+        children: ['/companies/members', `/companies/members?filter=${encodeFilter({ status: 'I' }, 'Invitations')}`]
+    },
+    {
+        node: '/clients'
+    },
+    {
+        node: '/vehicles'
+    },
+    {
+        node: '/fleets'
+    }
+]

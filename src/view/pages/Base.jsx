@@ -10,6 +10,9 @@ import SweetAlert from 'sweetalert2';
 import { API, graphqlOperation } from 'aws-amplify';
 import BaseBreadcrumb from "../components/BaseBreadcrumb";
 import BaseHeader from "../components/BaseHeader";
+import BaseTable from "../components/BaseTable";
+import * as queries from "../../graphql/queries";
+import { anchorModel } from "../../settings";
 
 export default function Base({ title, filters = [], model, form, route }) {
     const { id } = useParams();
@@ -22,51 +25,29 @@ export default function Base({ title, filters = [], model, form, route }) {
      * Path fragments
      */
     const [...pathFragments] = useMemo(() => pathname.split('/').filter(Boolean), [pathname]);
+    const tableData = useMemo(async () => {
+        // try {
+        //     await API.graphql(graphqlOperation(`
+        //         query GetBase{
+        //             base: getBase()
+        //         }
+        //     `, { input }));
+        //     setShowModal(false);
+        //     await SweetAlert.fire({ title: 'Success', text: `${model} Created!`, icon: 'success' });
+        // }
+        // catch (e) {
+        //     console.log(e);
+        // }
+    }, [model]);
 
     return <>
         {/* Header:START */}
-        {route === last(pathFragments) ? (
-            <>
-                <BaseBreadcrumb pathFragments={pathFragments} />
-                <BaseHeader model={model} title={title} form={form} filters={filters} />
-                
-                <pre>{JSON.stringify({ id, pathname, search, route, title, hash, filters, filter, model, pathFragments }, false, 4)}</pre>
-                <Divider />
-                <Table dataSource={[
-  {
-    key: '1',
-    name: 'Mike',
-    age: 32,
-    address: '10 Downing Street',
-  },
-  {
-    key: '2',
-    name: 'John',
-    age: 42,
-    address: '10 Downing Street',
-  },
-]} columns={[
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-    },
-  ]} />;
-            </>
-        ) : <></>}
+        <BaseBreadcrumb pathFragments={pathFragments} />
+        <BaseHeader model={model} title={title} form={form} filters={filters} />
+
+        <pre>{JSON.stringify({ id, pathname, search, route, title, hash, filters, filter, model, pathFragments }, false, 4)}</pre>
+        <Divider />
+        <BaseTable data={tableData || []} columns={form?.read} schema={form?.schema} />
         {/* Header:END */}
-        {/* Child */}
-        <Outlet context={{ filter, sort }} ></Outlet>
-        
     </>
 }

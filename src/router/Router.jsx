@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 // Motion
 
@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Router
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes, useLocation } from "react-router-dom";
 
 // Layouts
 import VerticalLayout from "../layout/VerticalLayout";
@@ -15,7 +15,7 @@ import VerticalLayout from "../layout/VerticalLayout";
 import Error404 from "../view/pages/404";
 import { API, graphqlOperation } from 'aws-amplify';
 import { routes } from '../settings';
-import { entries, keys, uniqueId, values } from "lodash";
+import { entries, keys, last, uniqueId, values } from "lodash";
 import Base from "../view/pages/Base";
 import { Cert } from "../models";
 import { schema } from "../models/schema";
@@ -25,6 +25,8 @@ export default function Router() {
     // Redux
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
+    const { pathname, search, hash } = useLocation();
+    const [...pathFragments] = useMemo(() => pathname.split('/').filter(Boolean), [pathname]);
 
     useEffect(() => {
         user && (async () => {
@@ -55,7 +57,6 @@ export default function Router() {
                 //         genreAwaitingApproval: data.getIndex.genres.items.length,
                 //     }
                 // })
-
             }
             catch (e) {
                 console.log(e);
@@ -66,20 +67,7 @@ export default function Router() {
     return (
         <Routes >
             {/* Routes > settings.json */}
-            {entries(routes).map(([model, { title, route, filters, children, form }]) => (
-                <Route id={route} key={uniqueId()} path={route} element={<VerticalLayout><Base route={route} title={title} filters={filters} model={model} form={form} /></VerticalLayout>}>
-                    {/* 
-                        Nesting 1 level deep - for more levels, add more nested maps 
-                        BUT! - Menu should not be too nested. Use query params to pass filters
-                    */}
-                    <Route path="create" element={<>Create {title}</>} />
-                    <Route path="update/:id" element={<>Update {title}</>} />
-                    {entries(children).map(([model, { title, route, form }]) => (
-                        <Route key={uniqueId()} path={route} element={<Base route={route} title={title} filters={filters} model={model} form={form} />} />
-                    ))}
-                    <Route path=":id" element={<>Show {title}</>} />
-                </Route>
-            ))}
+            {entries(routes).map(([route, { title, model, filters, form }]) => <Route id={route} key={uniqueId()} path={route} element={<VerticalLayout><Base route={route} title={title} filters={filters} model={model} form={form} /></VerticalLayout>} />)}
 
             {/* Home Page */}
             <Route exact path='/' element={<VerticalLayout><>Nik</></VerticalLayout>} />

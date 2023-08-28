@@ -2,12 +2,28 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
+# Owner-as-admins [OAA] Only for product superadmin, admins, support
 type Index @model @auth(rules: [
 	{ allow: owner },
     { allow: public },
 	{ allow: private, operations: [read] }
 ]){
 	id: ID!
+	bases: [Base] @hasMany (indexName: "basesInApp", fields: ["id"])
+}
+
+# Users-as-admins [UAA] For products where users have their own admin portal
+type Base @model @auth(rules: [
+	{ allow: owner },
+    { allow: public },
+	{ allow: groups, groups: ["read"], operations: [read] },
+	{ allow: private, operations: [read] }
+]){
+	id: ID!
+	read: [String] # Who has read access?
+	createdAt: String
+	bID: ID @default(value: "f") @index(name: "basesInApp", sortKeyFields: ["createdAt"])
+	# # TODO Write all models as connections here
 	users: [User] @hasMany (indexName: "usersInCertMate", fields: ["id"])
 	companies: [Company] @hasMany (indexName: "companiesInCertMate", fields: ["id"])
 	vehicles: [Vehicle] @hasMany (indexName: "vehiclesInCertMate", fields: ["id"])
@@ -34,12 +50,13 @@ type User @model @auth(rules: [
 	updatedAt: String
 	favouriteCerts: [String]
 	fleets: [Fleet]
+	status: String @default(value: "I") # INVITED, ACTIVE
 	driverCerts: [Cert] @hasMany(indexName: "certsOfDriver", fields: ["id"])
 	inspectorCerts: [Cert] @hasMany(indexName: "certsOfInspector", fields: ["id"])
 	notifications: [Notification] @hasMany(indexName: "notificationsOfUser", fields: ["id"])
 	companyID: ID! @index(name: "usersInCompany", sortKeyFields: ["updatedAt"])
     company: Company @belongsTo(fields: ["companyID"])
-	bID: ID @default(value: "f") @index(name: "usersInCertMate", sortKeyFields: ["name"])
+	base: ID! @index(name: "usersInCertMate", sortKeyFields: ["name"])
 }
 
 type Company @model @auth(rules: [
@@ -59,7 +76,7 @@ type Company @model @auth(rules: [
 	createdAt: String
 	updatedAt: String
 	logo: String
-	bID: ID @default(value: "f") @index(name: "companiesInCertMate", sortKeyFields: ["name"])
+	base: ID! @index(name: "companiesInCertMate", sortKeyFields: ["name"])
 }
 
 type Vehicle @model @auth(rules: [
@@ -81,7 +98,7 @@ type Vehicle @model @auth(rules: [
 	certs: [Cert] @hasMany(indexName: "certsOfVehicle", fields: ["id"])
 	createdAt: String
 	updatedAt: String
-	bID: ID @default(value: "f") @index(name: "vehiclesInCertMate", sortKeyFields: ["updatedAt"])
+	base: ID! @index(name: "vehiclesInCertMate", sortKeyFields: ["updatedAt"])
 }
 
 type Cert @model @auth(rules: [
@@ -109,7 +126,7 @@ type Cert @model @auth(rules: [
 	status: String @default(value: "P") # Pending, Active, Rejected
 	createdAt: String
 	updatedAt: String
-	bID: ID @default(value: "f") @index(name: "certsInCertMate", sortKeyFields: ["updatedAt"])
+	base: ID! @index(name: "certsInCertMate", sortKeyFields: ["updatedAt"])
 }
 
 type Notification @model @auth(rules: [
@@ -125,7 +142,7 @@ type Notification @model @auth(rules: [
 	body: String
 	userID: ID! @index(name: "notificationsOfUser", sortKeyFields: ["updatedAt"])
     user: User @belongsTo(fields: ["userID"])
-	bID: ID @default(value: "f") @index(name: "notificationsInCertMate", sortKeyFields: ["updatedAt"])
+	base: ID! @index(name: "notificationsInCertMate", sortKeyFields: ["updatedAt"])
 	createdAt: String
 	updatedAt: String
 }

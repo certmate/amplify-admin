@@ -44,11 +44,7 @@ type EagerIndex = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly users?: (User | null)[] | null;
-  readonly companies?: (Company | null)[] | null;
-  readonly vehicles?: (Vehicle | null)[] | null;
-  readonly certs?: (Cert | null)[] | null;
-  readonly notifications?: (Notification | null)[] | null;
+  readonly bases?: (Base | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -59,11 +55,7 @@ type LazyIndex = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly users: AsyncCollection<User>;
-  readonly companies: AsyncCollection<Company>;
-  readonly vehicles: AsyncCollection<Vehicle>;
-  readonly certs: AsyncCollection<Cert>;
-  readonly notifications: AsyncCollection<Notification>;
+  readonly bases: AsyncCollection<Base>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -72,6 +64,46 @@ export declare type Index = LazyLoading extends LazyLoadingDisabled ? EagerIndex
 
 export declare const Index: (new (init: ModelInit<Index>) => Index) & {
   copyOf(source: Index, mutator: (draft: MutableModel<Index>) => MutableModel<Index> | void): Index;
+}
+
+type EagerBase = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Base, 'id'>;
+    readOnlyFields: 'updatedAt';
+  };
+  readonly id: string;
+  readonly read?: (string | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly bID?: string | null;
+  readonly users?: (User | null)[] | null;
+  readonly companies?: (Company | null)[] | null;
+  readonly vehicles?: (Vehicle | null)[] | null;
+  readonly certs?: (Cert | null)[] | null;
+  readonly notifications?: (Notification | null)[] | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyBase = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Base, 'id'>;
+    readOnlyFields: 'updatedAt';
+  };
+  readonly id: string;
+  readonly read?: (string | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly bID?: string | null;
+  readonly users: AsyncCollection<User>;
+  readonly companies: AsyncCollection<Company>;
+  readonly vehicles: AsyncCollection<Vehicle>;
+  readonly certs: AsyncCollection<Cert>;
+  readonly notifications: AsyncCollection<Notification>;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Base = LazyLoading extends LazyLoadingDisabled ? EagerBase : LazyBase
+
+export declare const Base: (new (init: ModelInit<Base>) => Base) & {
+  copyOf(source: Base, mutator: (draft: MutableModel<Base>) => MutableModel<Base> | void): Base;
 }
 
 type EagerUser = {
@@ -89,12 +121,13 @@ type EagerUser = {
   readonly updatedAt?: string | null;
   readonly favouriteCerts?: (string | null)[] | null;
   readonly fleets?: (Fleet | null)[] | null;
+  readonly status?: string | null;
   readonly driverCerts?: (Cert | null)[] | null;
   readonly inspectorCerts?: (Cert | null)[] | null;
   readonly notifications?: (Notification | null)[] | null;
   readonly companyID: string;
   readonly company?: Company | null;
-  readonly bID?: string | null;
+  readonly base: string;
 }
 
 type LazyUser = {
@@ -112,12 +145,13 @@ type LazyUser = {
   readonly updatedAt?: string | null;
   readonly favouriteCerts?: (string | null)[] | null;
   readonly fleets?: (Fleet | null)[] | null;
+  readonly status?: string | null;
   readonly driverCerts: AsyncCollection<Cert>;
   readonly inspectorCerts: AsyncCollection<Cert>;
   readonly notifications: AsyncCollection<Notification>;
   readonly companyID: string;
   readonly company: AsyncItem<Company | undefined>;
-  readonly bID?: string | null;
+  readonly base: string;
 }
 
 export declare type User = LazyLoading extends LazyLoadingDisabled ? EagerUser : LazyUser
@@ -139,7 +173,7 @@ type EagerCompany = {
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly logo?: string | null;
-  readonly bID?: string | null;
+  readonly base: string;
 }
 
 type LazyCompany = {
@@ -155,7 +189,7 @@ type LazyCompany = {
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly logo?: string | null;
-  readonly bID?: string | null;
+  readonly base: string;
 }
 
 export declare type Company = LazyLoading extends LazyLoadingDisabled ? EagerCompany : LazyCompany
@@ -179,7 +213,7 @@ type EagerVehicle = {
   readonly certs?: (Cert | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly bID?: string | null;
+  readonly base: string;
 }
 
 type LazyVehicle = {
@@ -197,7 +231,7 @@ type LazyVehicle = {
   readonly certs: AsyncCollection<Cert>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly bID?: string | null;
+  readonly base: string;
 }
 
 export declare type Vehicle = LazyLoading extends LazyLoadingDisabled ? EagerVehicle : LazyVehicle
@@ -227,7 +261,7 @@ type EagerCert = {
   readonly status?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly bID?: string | null;
+  readonly base: string;
 }
 
 type LazyCert = {
@@ -251,7 +285,7 @@ type LazyCert = {
   readonly status?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly bID?: string | null;
+  readonly base: string;
 }
 
 export declare type Cert = LazyLoading extends LazyLoadingDisabled ? EagerCert : LazyCert
@@ -270,7 +304,7 @@ type EagerNotification = {
   readonly body?: string | null;
   readonly userID: string;
   readonly user?: User | null;
-  readonly bID?: string | null;
+  readonly base: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -285,7 +319,7 @@ type LazyNotification = {
   readonly body?: string | null;
   readonly userID: string;
   readonly user: AsyncItem<User | undefined>;
-  readonly bID?: string | null;
+  readonly base: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

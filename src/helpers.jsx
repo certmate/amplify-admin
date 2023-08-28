@@ -141,3 +141,6 @@ export const isVisible = el => el.offsetWidth > 0 && el.offsetHeight > 0;
  * @returns Boolean
  */
 export const RoleRouteFilter = ( roles, routes, user, filter ) => (_.isEmpty(roles) || _.isEmpty(user) || roles.includes(role(user))) && (_.isEmpty(routes) || _.isEmpty(filter) || routes.includes(filter))
+
+export const encodeFilter = (filter, name) => encodeURI(JSON.stringify({ filter, name }))
+export const decodeFilter = filter => JSON.parse(decodeURI(filter))

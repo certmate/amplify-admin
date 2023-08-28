@@ -10,75 +10,11 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "users": {
-                    "name": "users",
+                "bases": {
+                    "name": "bases",
                     "isArray": true,
                     "type": {
-                        "model": "User"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": [
-                            "bID"
-                        ]
-                    }
-                },
-                "companies": {
-                    "name": "companies",
-                    "isArray": true,
-                    "type": {
-                        "model": "Company"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": [
-                            "bID"
-                        ]
-                    }
-                },
-                "vehicles": {
-                    "name": "vehicles",
-                    "isArray": true,
-                    "type": {
-                        "model": "Vehicle"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": [
-                            "bID"
-                        ]
-                    }
-                },
-                "certs": {
-                    "name": "certs",
-                    "isArray": true,
-                    "type": {
-                        "model": "Cert"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": [
-                            "bID"
-                        ]
-                    }
-                },
-                "notifications": {
-                    "name": "notifications",
-                    "isArray": true,
-                    "type": {
-                        "model": "Notification"
+                        "model": "Base"
                     },
                     "isRequired": false,
                     "attributes": [],
@@ -136,6 +72,191 @@ export const schema = {
                                     "create",
                                     "update",
                                     "delete",
+                                    "read"
+                                ]
+                            },
+                            {
+                                "allow": "private",
+                                "operations": [
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Base": {
+            "name": "Base",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "read": {
+                    "name": "read",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "bID": {
+                    "name": "bID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "users": {
+                    "name": "users",
+                    "isArray": true,
+                    "type": {
+                        "model": "User"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "base"
+                        ]
+                    }
+                },
+                "companies": {
+                    "name": "companies",
+                    "isArray": true,
+                    "type": {
+                        "model": "Company"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "base"
+                        ]
+                    }
+                },
+                "vehicles": {
+                    "name": "vehicles",
+                    "isArray": true,
+                    "type": {
+                        "model": "Vehicle"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "base"
+                        ]
+                    }
+                },
+                "certs": {
+                    "name": "certs",
+                    "isArray": true,
+                    "type": {
+                        "model": "Cert"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "base"
+                        ]
+                    }
+                },
+                "notifications": {
+                    "name": "notifications",
+                    "isArray": true,
+                    "type": {
+                        "model": "Notification"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "base"
+                        ]
+                    }
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Bases",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "basesInApp",
+                        "fields": [
+                            "bID",
+                            "createdAt"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "provider": "userPools",
+                                "ownerField": "owner",
+                                "allow": "owner",
+                                "identityClaim": "cognito:username",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            },
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "read"
+                                ],
+                                "operations": [
                                     "read"
                                 ]
                             },
@@ -235,6 +356,13 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
+                "status": {
+                    "name": "status",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "driverCerts": {
                     "name": "driverCerts",
                     "isArray": true,
@@ -305,11 +433,11 @@ export const schema = {
                         ]
                     }
                 },
-                "bID": {
-                    "name": "bID",
+                "base": {
+                    "name": "base",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 }
             },
@@ -335,7 +463,7 @@ export const schema = {
                     "properties": {
                         "name": "usersInCertMate",
                         "fields": [
-                            "bID",
+                            "base",
                             "name"
                         ]
                     }
@@ -515,11 +643,11 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "bID": {
-                    "name": "bID",
+                "base": {
+                    "name": "base",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 }
             },
@@ -535,7 +663,7 @@ export const schema = {
                     "properties": {
                         "name": "companiesInCertMate",
                         "fields": [
-                            "bID",
+                            "base",
                             "name"
                         ]
                     }
@@ -716,11 +844,11 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "bID": {
-                    "name": "bID",
+                "base": {
+                    "name": "base",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 }
             },
@@ -746,7 +874,7 @@ export const schema = {
                     "properties": {
                         "name": "vehiclesInCertMate",
                         "fields": [
-                            "bID",
+                            "base",
                             "updatedAt"
                         ]
                     }
@@ -979,11 +1107,11 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "bID": {
-                    "name": "bID",
+                "base": {
+                    "name": "base",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 }
             },
@@ -1039,7 +1167,7 @@ export const schema = {
                     "properties": {
                         "name": "certsInCertMate",
                         "fields": [
-                            "bID",
+                            "base",
                             "updatedAt"
                         ]
                     }
@@ -1170,11 +1298,11 @@ export const schema = {
                         ]
                     }
                 },
-                "bID": {
-                    "name": "bID",
+                "base": {
+                    "name": "base",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "createdAt": {
@@ -1214,7 +1342,7 @@ export const schema = {
                     "properties": {
                         "name": "notificationsInCertMate",
                         "fields": [
-                            "bID",
+                            "base",
                             "updatedAt"
                         ]
                     }
@@ -1350,5 +1478,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "e7f7496bd3ee4d65368b6d0709d3973d"
+    "version": "8ba6b2bf10dc426b4db42cc009dbf639"
 };

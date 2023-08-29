@@ -415,7 +415,7 @@ export const schema = {
                     "name": "companyID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "company": {
@@ -1478,5 +1478,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "8ba6b2bf10dc426b4db42cc009dbf639"
+    "version": "0a8d81b56160d606568bdd23a6bc2c91"
 };

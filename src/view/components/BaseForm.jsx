@@ -56,11 +56,11 @@ export default function BaseForm({ schema, fields, onSubmit }) {
         }) => (<>
             <Form form={form} layout="vertical" onSubmitCapture={handleSubmit}>
                 {fields.map((f, k) => {
-                    const { label, component } = schema[f];
-                    return component ? (
+                    const { label, formComponent } = schema[f];
+                    return formComponent ? (
                         <Form.Item name={f} label={label} key={`form-${k}`} validateStatus={errors?.[f] ? 'error' : 'success'} help={errors?.[f]}>{
-                            component === 'input' ? <Input onChange={handleChange(f)} disabled={isSubmitting} /> 
-                            : component === 'upload' ? <StorageManager accessLevel="public" acceptedFileTypes={['image/*']} maxFileCount={1} isResumable processFile={({ file, key }) => ({ file, key: `logo.${file.name.split('.').pop()}` })} /> : null
+                            formComponent === 'input' ? <Input onChange={handleChange(f)} disabled={isSubmitting} /> 
+                            : formComponent === 'upload' ? <StorageManager accessLevel="public" acceptedFileTypes={['image/*']} maxFileCount={1} isResumable processFile={({ file, key }) => ({ file, key: `logo.${file.name.split('.').pop()}` })} /> : null
                         }</Form.Item>
                     ) : null
                 })}

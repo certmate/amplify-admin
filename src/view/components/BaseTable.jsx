@@ -8,34 +8,20 @@ import { Formik } from "formik";
 import { object } from "yup";
 import { Checkbox, Form } from 'antd';
 import { StorageManager } from "@aws-amplify/ui-react-storage";
-import { cleanNull } from "../../helpers";
+import { RoleRouteFilter, cleanNull } from "../../helpers";
+import { useSelector } from "react-redux";
 
 export default function BaseTable({ data, columns, schema }) {
+    const user = useSelector(state => state.user);
 
-    return <pre>{ JSON.stringify({ data, columns, schema }, false ,4) }</pre>
-    // return <Table dataSource={[
-    //     {
-    //         key: '1',
-    //         name: 'Mike',
-    //         age: 32,
-    //         address: '10 Downing Street',
-    //     },
-    //     {
-    //         key: '2',
-    //         name: 'John',
-    //         age: 42,
-    //         address: '10 Downing Street',
-    //     },
-    // ]} columns={[
-    //     {
-    //         title: 'Name',
-    //         dataIndex: 'name',
-    //         key: 'name',
-    //     },
-    //     {
-    //         title: 'Address',
-    //         dataIndex: 'address',
-    //         key: 'address',
-    //     },
-    // ]} />
+    return <>
+        <Table dataSource={data || []} columns={
+            columns.map(c => schema[c]).filter(Boolean).filter(({ roles, routes }) => RoleRouteFilter(roles, [], user, null))
+            .map(({ label }) => ({
+                title: startCase(label),
+                key: label,
+                render: d => d
+            }))
+        } />
+    </>
 }

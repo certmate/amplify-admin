@@ -4,9 +4,9 @@ import { encodeFilter } from "./helpers";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
+export const appType = "OAA"; // OAA, UA
 export const tagline = "Digital Vehicle Biosecurity Management";
 export const roles = ["SuperAdmin", "Admin", "Support", "CompanyOwner", "Inspector", "Driver", "LandOwner"];
-export const anchorModel = "Company";
 /**
  * 1.   Keys of routes are names of model
  */
@@ -23,18 +23,19 @@ export const routes = {
     ['/companies']: {
         title: "Companies",
         route: "companies",
+        model: "Company",
         icon: <Profile2User />,
         form: {
             /**
              * Keys are names of schema field
              */
             schema: {
-                id: { label: 'id', component: null },
-                name: { label: 'Company name', validation: string().required(), component: 'input' },
-                logo: { label: 'Company logo', validation: string(), component: 'upload' }
+                id: { label: 'id', formComponent: null },
+                name: { label: 'Company name', validation: string().required(), formComponent: 'input' },
+                logo: { label: 'Company logo', validation: string(), formComponent: 'upload', tableComponent: 'image' }
             },
             create: ['name', 'logo'],
-            read: ['name', 'logo']
+            read: ['id', '_version', 'name', 'logo']
         }
     },
     ['/companies/members']: {

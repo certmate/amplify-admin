@@ -20,6 +20,10 @@ import Base from "../view/pages/Base";
 import { Cert } from "../models";
 import { schema } from "../models/schema";
 import graphqlSchema from "../graphql/schema.json";
+import { v4 } from "uuid";
+import { createUser } from "../graphql/mutations";
+import { getUser } from "../graphql/queries";
+import { createUserAndBase } from "../graphql/customQueries";
 
 export default function Router() {
     // Redux
@@ -28,14 +32,67 @@ export default function Router() {
     const { pathname, search, hash } = useLocation();
     const [...pathFragments] = useMemo(() => pathname.split('/').filter(Boolean), [pathname]);
 
+    const userFromAppSync = async cognitoUser => {
+		const get = async cognitoUser => {
+			try {
+				return await API.graphql(
+					graphqlOperation(getUser, {
+						id: cognitoUser.username,
+						favouritesShelf: `${cognitoUser.username}-f`
+					})
+				);
+			}
+			catch (e) {
+				return e;
+			}
+		}
+		let d = await get(cognitoUser);
+
+		if (!d.data.getUser) {
+			try {
+                const base = v4();
+
+				await API.graphql(
+					graphqlOperation(createUserAndBase, {
+						user: {
+							id: cognitoUser.username,
+							email: cognitoUser.attributes.email,
+                            base: base
+						},
+                        base: {
+                            id: base
+                        }
+					})
+				);
+				d = await get(cognitoUser);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+
+		return { ...d.data.getUser };
+	}
+
     useEffect(() => {
         user && (async () => {
             // Checking for notifications - Orders Awaiting Pickup, New Books/Authors/Genres
             try {
                 /**
+                 * 1.   Create user if doesn't exist
+                 * 2.   Onboard user - if not yet done
+                 * 3.   Check for notifications
+                 */
+                // 1.
+                const data = await userFromAppSync(user.cognito);
+                dispatch({ type: 'SET_USER_APPSYNC', data });
+
+                console.log(data);
+
+                /**
                  * Check which models have settings
                  */
-                // console.log({ schema, d: graphqlSchema.data.__schema.types.find(({ name }) => name === 'CreateUserInput') });
+            // console.log({ schema, d: graphqlSchema.data.__schema.types.find(({ name }) => name === 'CreateUserInput') });
                 // const query = `query GetNotifications{
                 //     user: getUser(id: "${user.cognito.username}"){
                 //         ${keys(routes).map(r => {

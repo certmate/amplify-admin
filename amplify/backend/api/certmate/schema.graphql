@@ -1,7 +1,14 @@
 # This "input" configures a global authorization rule to enable public access to
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
-
+# 
+# 
+# TODO Identify App Type
+# -	OOA : Only Owner as Admin
+# -	UA  : Users as Admins
+# -	
+# -	
+# -	
 # Owner-as-admins [OAA] Only for product superadmin, admins, support
 type Index @model @auth(rules: [
 	{ allow: owner },
@@ -13,6 +20,11 @@ type Index @model @auth(rules: [
 }
 
 # Users-as-admins [UAA] For products where users have their own admin portal
+# TODO name keys as Model plurals
+# 
+# 
+# 
+# 
 type Base @model @auth(rules: [
 	{ allow: owner },
     { allow: public },
@@ -54,7 +66,7 @@ type User @model @auth(rules: [
 	driverCerts: [Cert] @hasMany(indexName: "certsOfDriver", fields: ["id"])
 	inspectorCerts: [Cert] @hasMany(indexName: "certsOfInspector", fields: ["id"])
 	notifications: [Notification] @hasMany(indexName: "notificationsOfUser", fields: ["id"])
-	companyID: ID! @index(name: "usersInCompany", sortKeyFields: ["updatedAt"])
+	companyID: ID @index(name: "usersInCompany", sortKeyFields: ["updatedAt"])
     company: Company @belongsTo(fields: ["companyID"])
 	base: ID! @index(name: "usersInCertMate", sortKeyFields: ["name"])
 }

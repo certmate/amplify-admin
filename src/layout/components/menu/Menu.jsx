@@ -36,7 +36,7 @@ export default function Menu({ }) {
         else {
             item.onClick = () => navigate(node);
         }
-        console.log(item);
+
         return item;
     }).filter(({ roles, routes }) => RoleRouteFilter(roles, [], user, null)), [notifs])
 

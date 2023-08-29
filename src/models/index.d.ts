@@ -125,7 +125,7 @@ type EagerUser = {
   readonly driverCerts?: (Cert | null)[] | null;
   readonly inspectorCerts?: (Cert | null)[] | null;
   readonly notifications?: (Notification | null)[] | null;
-  readonly companyID: string;
+  readonly companyID?: string | null;
   readonly company?: Company | null;
   readonly base: string;
 }
@@ -149,7 +149,7 @@ type LazyUser = {
   readonly driverCerts: AsyncCollection<Cert>;
   readonly inspectorCerts: AsyncCollection<Cert>;
   readonly notifications: AsyncCollection<Notification>;
-  readonly companyID: string;
+  readonly companyID?: string | null;
   readonly company: AsyncItem<Company | undefined>;
   readonly base: string;
 }

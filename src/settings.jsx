@@ -1,7 +1,9 @@
-import { Building, DocumentText1, Profile, Profile2User, ProfileAdd, Truck } from "iconsax-react";
+import { Building, DocumentText1, Profile, Profile2User, ProfileAdd, Trash, Truck } from "iconsax-react";
 import { string } from "yup";
 import { encodeFilter } from "./helpers";
+import { deleteColumn } from "./actions";
 import clients from "./data/clients";
+import { Space } from "antd";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -59,10 +61,19 @@ export const routes = {
              */
             schema: {
                 id: { label: 'id', formComponent: null },
+                _version: { hidden: true },
                 name: { label: 'Company name', validation: string().required(), formComponent: 'input' },
                 logo: { label: 'Company logo', validation: string(), formComponent: 'upload', tableComponent: 'image' }
             },
-            read: ['id', 'name', 'logo']
+            read: {
+                fields: ['id', 'name', 'logo', '_version'],
+                actions: [
+                    {
+                        label: <Space><Trash size={24}/> Delete</Space>,
+                        fx: deleteColumn
+                    }
+                ]
+            }
         }
     },
     ['/vehicles']: {

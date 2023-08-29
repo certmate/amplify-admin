@@ -124,7 +124,7 @@ export default function Router() {
     return (
         <Routes >
             {/* Routes > settings.json */}
-            {entries(routes).map(([route, { title, model, filters, form }]) => <Route id={route} key={uniqueId()} path={route} element={<VerticalLayout><Base route={route} title={title} filters={filters} model={model} form={form} /></VerticalLayout>} />)}
+            {entries(routes).map(([route, { title, model, filters, form, data }]) => <Route id={route} key={uniqueId()} path={route} element={<VerticalLayout><Base route={route} title={title} filters={filters} model={model} form={form} data={data} /></VerticalLayout>} />)}
 
             {/* Home Page */}
             <Route exact path='/' element={<VerticalLayout><>Nik</></VerticalLayout>} />

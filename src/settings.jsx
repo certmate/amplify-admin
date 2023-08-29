@@ -1,6 +1,7 @@
 import { Building, DocumentText1, Profile, Profile2User, ProfileAdd, Truck } from "iconsax-react";
 import { string } from "yup";
 import { encodeFilter } from "./helpers";
+import clients from "./data/clients";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -22,7 +23,6 @@ export const routes = {
     },
     ['/companies']: {
         title: "Companies",
-        route: "companies",
         model: "Company",
         icon: <Profile2User />,
         form: {
@@ -51,7 +51,19 @@ export const routes = {
     ['/clients']: {
         title: "Clients",
         model: "Client",
-        icon: <Building />
+        icon: <Building />,
+        data: clients, // If data is not present, datasource is graphql
+        form: {
+            /**
+             * Keys are names of schema field
+             */
+            schema: {
+                id: { label: 'id', formComponent: null },
+                name: { label: 'Company name', validation: string().required(), formComponent: 'input' },
+                logo: { label: 'Company logo', validation: string(), formComponent: 'upload', tableComponent: 'image' }
+            },
+            read: ['id', 'name', 'logo']
+        }
     },
     ['/vehicles']: {
         title: "Vehicles",

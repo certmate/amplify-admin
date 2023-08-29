@@ -15,7 +15,7 @@ import * as queries from "../../graphql/queries";
 import { useSelector } from "react-redux";
 import { schema } from "../../models/schema";
 
-export default function Base({ title, filters = [], model, form, route }) {
+export default function Base({ title, filters = [], model, form, route, data }) {
     const { id } = useParams();
     const { pathname, search, hash } = useLocation();
     const [searchParams] = useSearchParams();
@@ -30,30 +30,32 @@ export default function Base({ title, filters = [], model, form, route }) {
      * Path fragments
      */
     useEffect(() => {
-        user.appsync && (async () => {
-            const plural = lowerCase(schema.models[model].pluralName);
-            try {
-                const { data } = await API.graphql(graphqlOperation(`
-                    query GetBase{
-                        getBase(id: "${user.appsync.base}"){
-                            ${plural}(
-                                filter: ${JSON.parse(filter)}
-                            ){
-                                items{
-                                    ${form?.read.join(`\n`)}
+        user.appsync && (
+            data ? setTableData(data) : (async () => {
+                const plural = lowerCase(schema.models[model].pluralName);
+                try {
+                    const { data } = await API.graphql(graphqlOperation(`
+                        query GetBase{
+                            getBase(id: "${user.appsync.base}"){
+                                ${plural}(
+                                    filter: ${JSON.parse(filter)}
+                                ){
+                                    items{
+                                        ${form?.read.join(`\n`)}
+                                    }
                                 }
                             }
                         }
-                    }
-                `));
-
-                setTableData(data.getBase[plural].items);
-            }
-            catch (e) {
-                console.log(e);
-                setTableData([]);
-            }
-        })();
+                    `));
+    
+                    setTableData(data.getBase[plural].items);
+                }
+                catch (e) {
+                    console.log(e);
+                    setTableData([]);
+                }
+            })()
+        );
     }, [model, user]);
 
     return <>
@@ -61,9 +63,9 @@ export default function Base({ title, filters = [], model, form, route }) {
         <BaseBreadcrumb pathFragments={pathFragments} />
         <BaseHeader model={model} title={title} form={form} filters={filters} />
 
-        <pre>{JSON.stringify({ id, pathname, search, route, title, hash, filters, filter, model, pathFragments, tableData }, false, 4)}</pre>
         <Divider />
         <BaseTable data={tableData} columns={form?.read} schema={form?.schema} />
+        <pre>{JSON.stringify({ id, pathname, search, route, title, hash, filters, filter, model, pathFragments, tableData }, false, 4)}</pre>
         {/* Header:END */}
     </>
 }

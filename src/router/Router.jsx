@@ -6,7 +6,7 @@ import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Router
-import { BrowserRouter, Outlet, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 // Layouts
 import VerticalLayout from "../layout/VerticalLayout";
@@ -15,22 +15,16 @@ import VerticalLayout from "../layout/VerticalLayout";
 import Error404 from "../view/pages/404";
 import { API, graphqlOperation } from 'aws-amplify';
 import { routes } from '../settings';
-import { entries, keys, last, uniqueId, values } from "lodash";
+import { entries, uniqueId } from "lodash";
 import Base from "../view/pages/Base";
-import { Cert } from "../models";
-import { schema } from "../models/schema";
-import graphqlSchema from "../graphql/schema.json";
 import { v4 } from "uuid";
-import { createUser } from "../graphql/mutations";
-import { getUser } from "../graphql/queries";
-import { createUserAndBase } from "../graphql/customQueries";
+import { createUserAndBase, getUser } from "../graphql/customQueries";
 
 export default function Router() {
     // Redux
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
     const { pathname, search, hash } = useLocation();
-    const [...pathFragments] = useMemo(() => pathname.split('/').filter(Boolean), [pathname]);
 
     const userFromAppSync = async cognitoUser => {
 		const get = async cognitoUser => {

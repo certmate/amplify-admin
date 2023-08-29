@@ -6,6 +6,18 @@ export const getNotifications = /* GraphQL */ `
     }
 `;
 
+export const getUser = /* GraphQL */ `
+    query GetUser(
+      $id: ID!
+    ){
+      getUser(id: $id) {
+        id
+        _version
+        base
+      }
+    }
+`;
+
 export const createUserAndBase = /* GraphQL */ `
     mutation CreateUserAndBase(
     $user: CreateUserInput!

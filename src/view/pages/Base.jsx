@@ -64,7 +64,7 @@ export default function Base({ title, filters = [], model, form, route, data }) 
         <BaseHeader model={model} title={title} form={form} filters={filters} />
 
         <Divider />
-        <BaseTable data={tableData} columns={form?.read?.fields} schema={form?.schema} actions={form?.read?.actions} model={model} />
+        <BaseTable data={tableData} columns={form?.read?.fields || []} schema={form?.schema || {}} actions={form?.read?.actions || []} model={model} />
         {/* <pre>{JSON.stringify({ id, pathname, search, route, title, hash, filters, filter, model, pathFragments, tableData }, false, 4)}</pre> */}
         {/* Header:END */}
     </>

@@ -8,10 +8,12 @@ import BaseForm from "./BaseForm";
 import * as mutations from "../../graphql/mutations";
 import SweetAlert from 'sweetalert2';
 import { API, graphqlOperation } from 'aws-amplify';
+import { useSelector } from "react-redux";
 
 export default function BaseHeader({ title, model, form, filters }) {
     const [showModal, setShowModal] = useState(false);
-    
+    const user = useSelector(state => state.user);
+
     return <>
         <Row gutter={[16, 16]} align="middle" className="hp-ecommerce-app">
             <Col span={8}>
@@ -39,7 +41,7 @@ export default function BaseHeader({ title, model, form, filters }) {
             <Card>
                 <BaseForm schema={form?.schema} fields={form?.create} onSubmit={async input => {
                     try {
-                        await API.graphql(graphqlOperation(mutations[`create${model}`], { input }));
+                        await API.graphql(graphqlOperation(mutations[`create${model}`], { input: { ...input, base: user.appsync.base } }));
                         setShowModal(false);
                         await SweetAlert.fire({ title: 'Success', text: `${model} Created!`, icon: 'success' });
                     }

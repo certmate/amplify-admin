@@ -32,12 +32,21 @@ export const routes = {
              * Keys are names of schema field
              */
             schema: {
-                id: { label: 'id', formComponent: null },
+                id: { label: 'id', hidden: true, formComponent: null },
+                _version: { hidden: true },
                 name: { label: 'Company name', validation: string().required(), formComponent: 'input' },
                 logo: { label: 'Company logo', validation: string(), formComponent: 'upload', tableComponent: 'image' }
             },
             create: ['name', 'logo'],
-            read: ['id', '_version', 'name', 'logo']
+            read: {
+                fields: ['id', '_version', 'name', 'logo'],
+                actions: [
+                    {
+                        label: <Space><Trash size={24}/> Delete</Space>,
+                        fx: deleteColumn
+                    }
+                ]
+            }
         }
     },
     ['/companies/members']: {

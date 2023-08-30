@@ -41,7 +41,7 @@ export default function Base({ title, filters = [], model, form, route, data }) 
                                     filter: ${JSON.parse(filter)}
                                 ){
                                     items{
-                                        ${form?.read.join(`\n`)}
+                                        ${form?.read?.fields.join(`\n`)}
                                     }
                                 }
                             }

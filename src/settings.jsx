@@ -1,7 +1,7 @@
 import { Building, DocumentText1, Profile, Profile2User, ProfileAdd, Trash, Truck } from "iconsax-react";
 import { string } from "yup";
 import { encodeFilter } from "./helpers";
-import { deleteColumn } from "./actions";
+import { deleteColumn } from "./common";
 import clients from "./data/clients";
 import { Space } from "antd";
 

@@ -10,7 +10,7 @@ import SweetAlert from 'sweetalert2';
 import { API, graphqlOperation } from 'aws-amplify';
 import { useSelector } from "react-redux";
 
-export default function BaseHeader({ title, model, form, filters }) {
+export default function BaseHeader({ title, model, form, filters, createCallback }) {
     const [showModal, setShowModal] = useState(false);
     const user = useSelector(state => state.user);
 
@@ -43,6 +43,7 @@ export default function BaseHeader({ title, model, form, filters }) {
                     try {
                         await API.graphql(graphqlOperation(mutations[`create${model}`], { input: { ...input, base: user.appsync.base } }));
                         setShowModal(false);
+                        createCallback();
                         await SweetAlert.fire({ title: 'Success', text: `${model} Created!`, icon: 'success' });
                     }
                     catch (e) {

@@ -18,14 +18,16 @@ export default function Menu({ }) {
     const notifOrIcon = (key, icon) => notifs?.[key] ? <Badge count={notifs[key]} /> : icon;
 
     const items = useMemo(() => menu.map(({ node, children }) => {
-        const { title, icon, route, filters, roles } = routes[node];
+        const { title, icon, roles } = routes[node];
         let item = { label: title, key: node, roles, icon: notifOrIcon('', icon) }
         if (children) {
             item.children = children.map(c => {
                 const [path, filter] = c.split('?filter=');
                 const child = routes[path];
+                const { filters } = routes[path];
+
                 return {
-                    label: filter ? startCase(decodeFilter(filter).name) : child.title,
+                    label: filter ? startCase(filters[filter].name) : child.title,
                     key: c,
                     roles: c.roles,
                     icon: notifOrIcon('', child.icon || icon),

@@ -1,9 +1,8 @@
-import { Outlet, useLocation, useMatch, useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { Row, Col, Button, Space, Divider, Modal, Card, Breadcrumb, Table } from "antd";
+import { Row, Col, Button, Space, Modal, Card } from "antd";
 import { AddCircle } from "iconsax-react";
-import { isEmpty, last, startCase } from "lodash";
+import { isEmpty, startCase } from "lodash";
 import Filters from "./Filters";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import BaseForm from "./BaseForm";
 import * as mutations from "../../graphql/mutations";
 import SweetAlert from 'sweetalert2';
@@ -15,7 +14,7 @@ export default function BaseHeader({ title, model, form, filters, createCallback
     const user = useSelector(state => state.user);
 
     return <>
-        <Row gutter={[16, 16]} align="middle" className="hp-ecommerce-app">
+        <Row gutter={[16, 16]} align="middle" className="hp-ecommerce-app hp-mb-16">
             <Col span={8}>
                 <h1 className="hp-mb-0">{title}</h1>
             </Col>

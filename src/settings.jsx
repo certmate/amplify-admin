@@ -1,6 +1,5 @@
 import { Building, DocumentText1, Profile, Profile2User, ProfileAdd, Trash, Truck } from "iconsax-react";
-import { string } from "yup";
-import { encodeFilter } from "./helpers";
+import { array, string } from "yup";
 import { deleteColumn } from "./common";
 import clients from "./data/clients";
 import { Space } from "antd";
@@ -9,7 +8,8 @@ export const appName = "CertMate";
 export const version = "0.1.1";
 export const appType = "OAA"; // OAA, UA
 export const tagline = "Digital Vehicle Biosecurity Management";
-export const roles = ["SuperAdmin", "Admin", "Support", "CompanyOwner", "Inspector", "Driver", "LandOwner"];
+const appRoles = { owner: ["SuperAdmin", "Admin", "Support"], users: ["Inspector", "Driver", "LandOwner"] };
+export const roles = [...appRoles.owner, ...appRoles.users];
 /**
  * 1.   Keys of routes are names of model
  */
@@ -17,7 +17,12 @@ export const routes = {
     ['/certs']: {
         title: "Certificates",
         model: "Cert",
-        filters: ["active", "pending", "failed", "expired"],
+        filters: {
+            active: {filter: { status: { eq: "A" } }, name: 'Active'},
+            pending: {filter: { status: { eq: "P" } }, name: 'Pending'},
+            rejected: {filter: { status: { eq: "R" } }, name: 'Rejected'},
+            expired: {filter: { status: { eq: "E" } }, name: 'Expired'},
+        },
         icon: <DocumentText1 />,
         notificationFilter: {
             status: { eq: 'P' }
@@ -52,12 +57,25 @@ export const routes = {
     ['/companies/members']: {
         title: "Members",
         model: "User",
-        icon: <Profile />
-    },
-    ['/companies/members?filter=invited']: {
-        title: "Invitations",
-        model: "User",
-        icon: <ProfileAdd />
+        icon: <Profile />,
+        filters: {
+            invitations: { filter: { status: { eq: "I" } }, name: 'Invitations' }
+        },
+        form: {
+            schema: {
+                id: { label: 'id', hidden: true, formComponent: null },
+                _version: { hidden: true },
+                name: { label: 'Name', validation: string().required(), formComponent: 'input' },
+                email: { label: 'Email', validation: string().email().required(), formComponent: 'input' },
+                roles: { label: 'Roles', validation: array().of(string()), formComponent: 'select', selectOptions: appRoles.users },
+                acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: 'input' },
+                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id' },
+            },
+            create: ['name', 'email', 'roles', 'acN', 'companyID'],
+            read: {
+                fields: ['id']
+            }
+        }
     },
     ['/clients']: {
         title: "Clients",
@@ -100,11 +118,11 @@ export const routes = {
 export const menu = [
     {
         node: '/certs',
-        children: [`/certs?filter=${encodeFilter({status: { eq: 'active' }}, 'Active')}`, `/certs?filter=${encodeFilter({status: { eq: 'pending' }}, 'Pending')}`, `/certs?filter=${encodeFilter({status: { eq: 'failed' }}, 'Failed')}`, `/certs?filter=${encodeFilter({status: { eq: 'expired' }}, 'Expired')}` ]
+        children: [`/certs?filter=active`, `/certs?filter=pending`, `/certs?filter=rejected`, `/certs?filter=expired` ]
     },
     {
         node: '/companies',
-        children: ['/companies/members', `/companies/members?filter=${encodeFilter({ status: 'I' }, 'Invitations')}`]
+        children: ['/companies/members', `/companies/members?filter=invitations`]
     },
     {
         node: '/clients'

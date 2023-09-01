@@ -117,6 +117,7 @@ type EagerUser = {
   readonly phone?: string | null;
   readonly roles?: (string | null)[] | null;
   readonly acN?: string | null;
+  readonly acnDoc?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly favouriteCerts?: (string | null)[] | null;
@@ -141,6 +142,7 @@ type LazyUser = {
   readonly phone?: string | null;
   readonly roles?: (string | null)[] | null;
   readonly acN?: string | null;
+  readonly acnDoc?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly favouriteCerts?: (string | null)[] | null;

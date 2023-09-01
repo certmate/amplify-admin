@@ -157,6 +157,22 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "memberInvitationEmail": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "certmate"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -253,6 +269,22 @@
         {
           "category": "function",
           "resourceName": "certmatePreTokenGeneration"
+        }
+      ]
+    },
+    "AMPLIFY_function_memberInvitationEmail_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "memberInvitationEmail"
+        }
+      ]
+    },
+    "AMPLIFY_function_memberInvitationEmail_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "memberInvitationEmail"
         }
       ]
     }

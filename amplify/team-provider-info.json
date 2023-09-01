@@ -37,6 +37,10 @@
         "AdminQueries1a858048": {
           "deploymentBucketName": "amplify-certmate-dev-153406-deployment",
           "s3Key": "amplify-builds/AdminQueries1a858048-61493472566531396e4d-build.zip"
+        },
+        "memberInvitationEmail": {
+          "deploymentBucketName": "amplify-certmate-dev-153406-deployment",
+          "s3Key": "amplify-builds/memberInvitationEmail-4464696f476870465941-build.zip"
         }
       },
       "api": {

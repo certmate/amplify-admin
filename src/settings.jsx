@@ -69,12 +69,13 @@ export const routes = {
                 email: { label: 'Email', validation: string().email().required(), formComponent: 'input' },
                 roles: { label: 'Roles', validation: array().of(string()), formComponent: 'select', selectOptions: appRoles.users },
                 acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: 'input' },
+                acnDoc: { label: 'Upload Accreditation Certificate', validation: string(), formComponent: 'upload', tableComponent: 'image' },
                 // @model.valueField:labelField
                 companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
             },
-            create: ['name', 'email', 'roles', 'acN', 'companyID'],
+            create: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID'],
             read: {
-                fields: ['id']
+                fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'company.id,name,logo']
             }
         }
     },

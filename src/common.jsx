@@ -11,7 +11,38 @@ export const deleteColumn = async ({ id, _version }, model) => {
 }
 
 export const readData = async ({ model, fields, user, filter }) => {
-    const plural = lowerCase(schema.models[model].pluralName);
+    const modelSchema = schema.models[model];
+    console.log(schema.models[model]);
+    const plural = lowerCase(modelSchema.pluralName);
+    // Check for nested fields - pick selected fields of model
+    fields = fields.map(f => {
+        if(f.includes('.')){
+            const [field, columns] = f.split('.');
+            // 
+            // Check if model
+            const { type, isArray } = modelSchema.fields[field];
+            if(type === 'model' && isArray){
+                return `
+                    ${field}{
+                        items{
+                            ${columns.split(',').join('\n')}
+                        }
+                    }
+                `;
+            }
+            else{
+                return `
+                    ${field}{
+                        ${columns.split(',').join('\n')}
+                    }
+                `
+            }
+        }
+        else{
+            return f;
+        }
+    });
+
     try {
         const { data } = await API.graphql(graphqlOperation(`
             query GetBase($filter: Model${schema.models[model].name}FilterInput){

@@ -324,6 +324,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "acnDoc": {
+                    "name": "acnDoc",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -1478,5 +1485,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "0a8d81b56160d606568bdd23a6bc2c91"
+    "version": "0bc3f91cace2ad5f9becf3657ec3d9a5"
 };

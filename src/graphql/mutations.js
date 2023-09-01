@@ -23,6 +23,7 @@ export const createIndex = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -168,6 +169,7 @@ export const updateIndex = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -313,6 +315,7 @@ export const deleteIndex = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -455,6 +458,7 @@ export const createBase = /* GraphQL */ `
           phone
           roles
           acN
+          acnDoc
           createdAt
           updatedAt
           favouriteCerts
@@ -596,6 +600,7 @@ export const createBase = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -845,6 +850,7 @@ export const createBase = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -900,6 +906,7 @@ export const createBase = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -980,6 +987,7 @@ export const createBase = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -1067,6 +1075,7 @@ export const updateBase = /* GraphQL */ `
           phone
           roles
           acN
+          acnDoc
           createdAt
           updatedAt
           favouriteCerts
@@ -1208,6 +1217,7 @@ export const updateBase = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -1457,6 +1467,7 @@ export const updateBase = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -1512,6 +1523,7 @@ export const updateBase = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -1592,6 +1604,7 @@ export const updateBase = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -1679,6 +1692,7 @@ export const deleteBase = /* GraphQL */ `
           phone
           roles
           acN
+          acnDoc
           createdAt
           updatedAt
           favouriteCerts
@@ -1820,6 +1834,7 @@ export const deleteBase = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -2069,6 +2084,7 @@ export const deleteBase = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -2124,6 +2140,7 @@ export const deleteBase = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -2204,6 +2221,7 @@ export const deleteBase = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -2285,6 +2303,7 @@ export const createUser = /* GraphQL */ `
       phone
       roles
       acN
+      acnDoc
       createdAt
       updatedAt
       favouriteCerts
@@ -2378,6 +2397,7 @@ export const createUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -2433,6 +2453,7 @@ export const createUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -2581,6 +2602,7 @@ export const createUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -2636,6 +2658,7 @@ export const createUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -2716,6 +2739,7 @@ export const createUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -2788,6 +2812,7 @@ export const createUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -2922,6 +2947,7 @@ export const createUser = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -2943,6 +2969,7 @@ export const createUser = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -3012,6 +3039,7 @@ export const updateUser = /* GraphQL */ `
       phone
       roles
       acN
+      acnDoc
       createdAt
       updatedAt
       favouriteCerts
@@ -3105,6 +3133,7 @@ export const updateUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -3160,6 +3189,7 @@ export const updateUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -3308,6 +3338,7 @@ export const updateUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -3363,6 +3394,7 @@ export const updateUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -3443,6 +3475,7 @@ export const updateUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -3515,6 +3548,7 @@ export const updateUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -3649,6 +3683,7 @@ export const updateUser = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -3670,6 +3705,7 @@ export const updateUser = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -3739,6 +3775,7 @@ export const deleteUser = /* GraphQL */ `
       phone
       roles
       acN
+      acnDoc
       createdAt
       updatedAt
       favouriteCerts
@@ -3832,6 +3869,7 @@ export const deleteUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -3887,6 +3925,7 @@ export const deleteUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -4035,6 +4074,7 @@ export const deleteUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -4090,6 +4130,7 @@ export const deleteUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -4170,6 +4211,7 @@ export const deleteUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -4242,6 +4284,7 @@ export const deleteUser = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -4376,6 +4419,7 @@ export const deleteUser = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -4397,6 +4441,7 @@ export const deleteUser = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -4470,6 +4515,7 @@ export const createCompany = /* GraphQL */ `
           phone
           roles
           acN
+          acnDoc
           createdAt
           updatedAt
           favouriteCerts
@@ -4763,6 +4809,7 @@ export const createCompany = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -4818,6 +4865,7 @@ export const createCompany = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -4918,6 +4966,7 @@ export const updateCompany = /* GraphQL */ `
           phone
           roles
           acN
+          acnDoc
           createdAt
           updatedAt
           favouriteCerts
@@ -5211,6 +5260,7 @@ export const updateCompany = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -5266,6 +5316,7 @@ export const updateCompany = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -5366,6 +5417,7 @@ export const deleteCompany = /* GraphQL */ `
           phone
           roles
           acN
+          acnDoc
           createdAt
           updatedAt
           favouriteCerts
@@ -5659,6 +5711,7 @@ export const deleteCompany = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -5714,6 +5767,7 @@ export const deleteCompany = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -5817,6 +5871,7 @@ export const createVehicle = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -5951,6 +6006,7 @@ export const createVehicle = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -5972,6 +6028,7 @@ export const createVehicle = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -6107,6 +6164,7 @@ export const createVehicle = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -6162,6 +6220,7 @@ export const createVehicle = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -6258,6 +6317,7 @@ export const updateVehicle = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -6392,6 +6452,7 @@ export const updateVehicle = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -6413,6 +6474,7 @@ export const updateVehicle = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -6548,6 +6610,7 @@ export const updateVehicle = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -6603,6 +6666,7 @@ export const updateVehicle = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -6699,6 +6763,7 @@ export const deleteVehicle = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -6833,6 +6898,7 @@ export const deleteVehicle = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -6854,6 +6920,7 @@ export const deleteVehicle = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -6989,6 +7056,7 @@ export const deleteVehicle = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -7044,6 +7112,7 @@ export const deleteVehicle = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -7140,6 +7209,7 @@ export const createCert = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -7274,6 +7344,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7295,6 +7366,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7358,6 +7430,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7487,6 +7560,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7508,6 +7582,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7557,6 +7632,7 @@ export const createCert = /* GraphQL */ `
         phone
         roles
         acN
+        acnDoc
         createdAt
         updatedAt
         favouriteCerts
@@ -7611,6 +7687,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7632,6 +7709,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7707,6 +7785,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7728,6 +7807,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7774,6 +7854,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7812,6 +7893,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7908,6 +7990,7 @@ export const createCert = /* GraphQL */ `
         phone
         roles
         acN
+        acnDoc
         createdAt
         updatedAt
         favouriteCerts
@@ -7962,6 +8045,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -7983,6 +8067,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8058,6 +8143,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8079,6 +8165,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8125,6 +8212,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8163,6 +8251,7 @@ export const createCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8287,6 +8376,7 @@ export const updateCert = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -8421,6 +8511,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8442,6 +8533,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8505,6 +8597,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8634,6 +8727,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8655,6 +8749,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8704,6 +8799,7 @@ export const updateCert = /* GraphQL */ `
         phone
         roles
         acN
+        acnDoc
         createdAt
         updatedAt
         favouriteCerts
@@ -8758,6 +8854,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8779,6 +8876,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8854,6 +8952,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8875,6 +8974,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8921,6 +9021,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -8959,6 +9060,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9055,6 +9157,7 @@ export const updateCert = /* GraphQL */ `
         phone
         roles
         acN
+        acnDoc
         createdAt
         updatedAt
         favouriteCerts
@@ -9109,6 +9212,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9130,6 +9234,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9205,6 +9310,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9226,6 +9332,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9272,6 +9379,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9310,6 +9418,7 @@ export const updateCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9434,6 +9543,7 @@ export const deleteCert = /* GraphQL */ `
             phone
             roles
             acN
+            acnDoc
             createdAt
             updatedAt
             favouriteCerts
@@ -9568,6 +9678,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9589,6 +9700,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9652,6 +9764,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9781,6 +9894,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9802,6 +9916,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9851,6 +9966,7 @@ export const deleteCert = /* GraphQL */ `
         phone
         roles
         acN
+        acnDoc
         createdAt
         updatedAt
         favouriteCerts
@@ -9905,6 +10021,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -9926,6 +10043,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10001,6 +10119,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10022,6 +10141,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10068,6 +10188,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10106,6 +10227,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10202,6 +10324,7 @@ export const deleteCert = /* GraphQL */ `
         phone
         roles
         acN
+        acnDoc
         createdAt
         updatedAt
         favouriteCerts
@@ -10256,6 +10379,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10277,6 +10401,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10352,6 +10477,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10373,6 +10499,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10419,6 +10546,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10457,6 +10585,7 @@ export const deleteCert = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10580,6 +10709,7 @@ export const createNotification = /* GraphQL */ `
         phone
         roles
         acN
+        acnDoc
         createdAt
         updatedAt
         favouriteCerts
@@ -10634,6 +10764,7 @@ export const createNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10655,6 +10786,7 @@ export const createNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10730,6 +10862,7 @@ export const createNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10751,6 +10884,7 @@ export const createNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10797,6 +10931,7 @@ export const createNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10835,6 +10970,7 @@ export const createNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -10952,6 +11088,7 @@ export const updateNotification = /* GraphQL */ `
         phone
         roles
         acN
+        acnDoc
         createdAt
         updatedAt
         favouriteCerts
@@ -11006,6 +11143,7 @@ export const updateNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11027,6 +11165,7 @@ export const updateNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11102,6 +11241,7 @@ export const updateNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11123,6 +11263,7 @@ export const updateNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11169,6 +11310,7 @@ export const updateNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11207,6 +11349,7 @@ export const updateNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11324,6 +11467,7 @@ export const deleteNotification = /* GraphQL */ `
         phone
         roles
         acN
+        acnDoc
         createdAt
         updatedAt
         favouriteCerts
@@ -11378,6 +11522,7 @@ export const deleteNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11399,6 +11544,7 @@ export const deleteNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11474,6 +11620,7 @@ export const deleteNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11495,6 +11642,7 @@ export const deleteNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11541,6 +11689,7 @@ export const deleteNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts
@@ -11579,6 +11728,7 @@ export const deleteNotification = /* GraphQL */ `
               phone
               roles
               acN
+              acnDoc
               createdAt
               updatedAt
               favouriteCerts

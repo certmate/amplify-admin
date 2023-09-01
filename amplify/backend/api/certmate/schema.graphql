@@ -58,6 +58,7 @@ type User @model @auth(rules: [
 	phone: String
 	roles: [String] # inspector, driver, admin
 	acN: String # Inspector Accreditation Number
+	acnDoc: String # ACN uploaded doc
 	createdAt: String
 	updatedAt: String
 	favouriteCerts: [String]

@@ -101,7 +101,7 @@ export default function BaseForm({ schema, fields, onSubmit }) {
                     return formComponent ? (
                         <Form.Item name={f} label={label} key={`form-${k}`} validateStatus={errors?.[f] ? 'error' : 'success'} help={errors?.[f]}>{
                             formComponent === 'input' ? <Input onChange={handleChange(f)} disabled={isSubmitting} />
-                                : formComponent === 'upload' ? <StorageManager accessLevel="public" acceptedFileTypes={['image/*']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
+                                : formComponent === 'upload' ? <StorageManager accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
                                     : formComponent === 'select' ? (
                                         validation?.type === 'array' ? <Select mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
                                         : <Select onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />

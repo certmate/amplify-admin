@@ -25,7 +25,7 @@ export default function MenuFooter(props) {
 								{user?.cognito?.attributes.email.split('@')[0]}
 							</span>
 							<span className="hp-d-block hp-text-color-primary-1 hp-font-weight-800 hp-mt-8" style={{ lineHeight: 1 }}>
-								{role(user?.cognito)}
+								{role(user)}
 							</span>
 						</div>
 					</Row>

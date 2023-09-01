@@ -6,11 +6,11 @@ import _ from "lodash";
 import { roles } from "./settings";
 
 export const role = user => {
+    console.log({ user });
     if(!user?.cognito)
         return "user";
 
     let groups = (user.cognito || user).signInUserSession.accessToken.payload['cognito:groups'];
-
     for (let i = 0; i < roles.length; i++) {
         const p = roles[i];
         if (groups.includes(p))

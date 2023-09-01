@@ -7,6 +7,24 @@ exports.handler = async event => {
   groups.push(event.request.userAttributes.email);
   groups.push(event.request.userAttributes.sub);
 
+  try{
+    const { data } = await axios.post(process.env.GRAPHQL_API_ENDPOINT, {
+      query: `query GetUserRoles($user: ID!){ getUser(id: $user){ roles } }`,
+      variables: {
+        user: event.request.userAttributes.sub
+      }
+    }, {
+      headers: { "x-api-key": process.env.GRAPHQL_API_KEY }
+    });
+
+    console.log(JSON.stringify(data));
+
+    data.data.getUser?.roles?.forEach(r => groups.push(r));
+  }
+  catch(e){
+    console.log(JSON.stringify(e));
+  }
+
   event.response = {
     claimsOverrideDetails: {
       claimsToAddOrOverride: {

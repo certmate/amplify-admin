@@ -23,12 +23,12 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "userPoolGroups": {
       "AdminGroupRole": "string",
-      "CompanyOwnerGroupRole": "string",
       "DriverGroupRole": "string",
       "InspectorGroupRole": "string",
       "LandOwnerGroupRole": "string",
       "SuperAdminGroupRole": "string",
-      "SupportGroupRole": "string"
+      "SupportGroupRole": "string",
+      "UserGroupRole": "string"
     }
   },
   "function": {

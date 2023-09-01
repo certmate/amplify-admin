@@ -1,7 +1,6 @@
-import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
-import { Row, Col, Button, Input, Table, Popconfirm, message, Space, Divider, Select, Modal } from "antd";
-import { AddCircle, SearchNormal, SearchNormal1 } from "iconsax-react";
-import { entries, startCase, uniqueId, values } from "lodash";
+import { useNavigate } from "react-router-dom";
+import { Space } from "antd";
+import { entries, uniqueId } from "lodash";
 import Pill from "../components/Pill";
 
 export default function Filters({ filters }) {

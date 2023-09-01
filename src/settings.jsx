@@ -69,7 +69,8 @@ export const routes = {
                 email: { label: 'Email', validation: string().email().required(), formComponent: 'input' },
                 roles: { label: 'Roles', validation: array().of(string()), formComponent: 'select', selectOptions: appRoles.users },
                 acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: 'input' },
-                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id' },
+                // @model.valueField:labelField
+                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
             },
             create: ['name', 'email', 'roles', 'acN', 'companyID'],
             read: {

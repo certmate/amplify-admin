@@ -35,7 +35,7 @@ type Base @model @auth(rules: [
 	read: [String] # Who has read access?
 	createdAt: String
 	bID: ID @default(value: "f") @index(name: "basesInApp", sortKeyFields: ["createdAt"])
-	# # TODO Write all models as connections here
+	# # TODO Write all models as connections here. Be sure to name the plural correctly.
 	users: [User] @hasMany (indexName: "usersInCertMate", fields: ["id"])
 	companies: [Company] @hasMany (indexName: "companiesInCertMate", fields: ["id"])
 	vehicles: [Vehicle] @hasMany (indexName: "vehiclesInCertMate", fields: ["id"])

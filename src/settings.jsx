@@ -3,6 +3,8 @@ import { array, string } from "yup";
 import { deleteColumn } from "./common";
 import clients from "./data/clients";
 import { Space } from "antd";
+// TODO Make custom table components
+import * as CustomTableCellComponent from "./view/components/custom/TableCell";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -40,7 +42,7 @@ export const routes = {
                 id: { label: 'id', hidden: true, formComponent: null },
                 _version: { hidden: true },
                 name: { label: 'Company name', validation: string().required(), formComponent: 'input' },
-                logo: { label: 'Company logo', validation: string(), formComponent: 'upload', tableComponent: 'image' }
+                logo: { label: 'Company logo', validation: string(), formComponent: 'upload', table: { component: 'image' } }
             },
             create: ['name', 'logo'],
             read: {
@@ -69,9 +71,11 @@ export const routes = {
                 email: { label: 'Email', validation: string().email().required(), formComponent: 'input' },
                 roles: { label: 'Roles', validation: array().of(string()), formComponent: 'select', selectOptions: appRoles.users },
                 acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: 'input' },
-                acnDoc: { label: 'Upload Accreditation Certificate', validation: string(), formComponent: 'upload', tableComponent: 'image' },
+                acnDoc: { label: 'Upload Accreditation Certificate', validation: string(), formComponent: 'upload', table: { component: 'image' } },
                 // @model.valueField:labelField
                 companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
+                // Example of custom component
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
             create: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID'],
             read: {
@@ -92,7 +96,7 @@ export const routes = {
                 id: { label: 'id', formComponent: null },
                 _version: { hidden: true },
                 name: { label: 'Company name', validation: string().required(), formComponent: 'input' },
-                logo: { label: 'Company logo', validation: string(), formComponent: 'upload', tableComponent: 'image' }
+                logo: { label: 'Company logo', validation: string(), formComponent: 'upload', table: { component: 'image' } }
             },
             read: {
                 fields: ['id', 'name', 'logo', '_version'],

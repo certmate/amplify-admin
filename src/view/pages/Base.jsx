@@ -17,7 +17,7 @@ export default function Base({ title, filters = [], model, form, route, data }) 
     const [...pathFragments] = useMemo(() => pathname.split('/').filter(Boolean), [pathname]);
     const filter = useMemo(() => filters?.[searchParams.get('filter')], [searchParams]);
     const sort = useMemo(() => searchParams.get('sort'), [searchParams]);
-    const getTableData = useCallback(async () => await readData({ user, filter: filter?.filter || null, model, fields: form?.read?.fields || [] }), [model, user]);
+    const getTableData = useCallback(async () => await readData({ user, filter: filter?.filter || null, model, fields: form?.read?.fields || [] }), [model, user, filter]);
     /**
      * Path fragments
      */
@@ -25,7 +25,7 @@ export default function Base({ title, filters = [], model, form, route, data }) 
         user.appsync && (
             data ? setTableData(data) : (async () => setTableData(await getTableData()))()
         );
-    }, [model, user]);
+    }, [model, user, filter]);
 
     return <>
         {/* Header:START */}

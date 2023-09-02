@@ -61,7 +61,8 @@ export const routes = {
         model: "User",
         icon: <Profile />,
         filters: {
-            invitations: { filter: { status: { eq: "I" } }, name: 'Invitations' }
+            invitations: { filter: { status: { eq: "I" } }, name: 'Invitations' },
+            members: { filter: { status: { ne: "I" } }, name: 'Members' },
         },
         form: {
             schema: {
@@ -128,7 +129,7 @@ export const menu = [
     },
     {
         node: '/companies',
-        children: ['/companies/members', `/companies/members?filter=invitations`]
+        children: ['/companies/members?filter=members', `/companies/members?filter=invitations`]
     },
     {
         node: '/clients'

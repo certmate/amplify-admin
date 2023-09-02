@@ -12,7 +12,6 @@ export const deleteColumn = async ({ id, _version }, model) => {
 
 export const readData = async ({ model, fields, user, filter }) => {
     const modelSchema = schema.models[model];
-    console.log(schema.models[model]);
     const plural = lowerCase(modelSchema.pluralName);
     // Check for nested fields - pick selected fields of model
     fields = fields.map(f => {

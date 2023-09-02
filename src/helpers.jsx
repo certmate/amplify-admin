@@ -1,12 +1,7 @@
-import * as Yup from "yup";
-import { v4 as uuidv4 } from 'uuid';
-import dayjs from "dayjs";
-import { API, graphqlOperation } from 'aws-amplify';
 import _ from "lodash";
 import { roles } from "./settings";
 
 export const role = user => {
-    console.log({ user });
     if(!user?.cognito)
         return "user";
 

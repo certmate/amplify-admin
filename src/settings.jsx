@@ -72,7 +72,7 @@ export const routes = {
                 email: { label: 'Email', validation: string().email().required(), formComponent: 'input' },
                 roles: { label: 'Roles', validation: array().of(string()), formComponent: 'select', selectOptions: appRoles.users },
                 acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: 'input' },
-                acnDoc: { label: 'Upload Accreditation Certificate', validation: string(), formComponent: 'upload', table: { component: 'image' } },
+                acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: 'upload', table: { component: 'image' } },
                 // @model.valueField:labelField
                 companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
                 // Example of custom component
@@ -117,7 +117,14 @@ export const routes = {
     },
     ['/fleets']: {
         title: "Fleets",
-        dataKey: "Company.fleets",
+        /**
+         * We're building our own query language and not using raw GraphQL because,
+         * -    We will have to remember to add/remove all the fields
+         * -    It will be messy
+         */
+        data: "@Company.fleets",
+        // Model is Company, CRUDS only for the field fleets
+        model: "@Company.fleets",
         icon: <Truck />
     }
 }

@@ -10,6 +10,11 @@ export const deleteColumn = async ({ id, _version }, model) => {
     console.log(`Deleting ${model}:${id}-${_version}`);
 }
 
+/**
+ * 
+ * @param {NewType} param0 
+ * @returns 
+ */
 export const readData = async ({ model, fields, user, filter }) => {
     const modelSchema = schema.models[model];
     const plural = lowerCase(modelSchema.pluralName);

@@ -29,7 +29,7 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
             else if (column.includes('.')) {
                 // Nested properties, to be shown in the same column
                 let [col, subCols] = column.split('.');
-                const { hidden, roles } = schema[col];
+                const { roles } = schema[col];
 
                 RoleRouteFilter(roles, null, user, null) && c.push({ ...schema[col], column: col, nested: subCols.split(',').map(s => `${col}.${s}`) });
             }
@@ -42,9 +42,6 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
         <Table dataSource={(data || []).map((d, key) => ({ ...d, key }))} columns={
             [
                 // data columns
-                /**
-                 * Hiding hidden columns
-                 */
                 ...tableColumns.map(({ label, column, table }) => ({
                     title: startCase(label),
                     key: label,

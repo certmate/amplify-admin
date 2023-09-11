@@ -32,7 +32,6 @@ export default function Router() {
 				return await API.graphql(
 					graphqlOperation(getUser, {
 						id: cognitoUser.username,
-						favouritesShelf: `${cognitoUser.username}-f`
 					})
 				);
 			}
@@ -80,8 +79,6 @@ export default function Router() {
                 // 1.
                 const data = await userFromAppSync(user.cognito);
                 dispatch({ type: 'SET_USER_APPSYNC', data });
-
-                console.log(data);
 
                 /**
                  * Check which models have settings

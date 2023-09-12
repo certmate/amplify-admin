@@ -2,6 +2,7 @@ import { Building, DocumentText1, Profile, Profile2User, ProfileAdd, Trash, Truc
 import { array, string } from "yup";
 import { deleteColumn } from "./common";
 import clients from "./data/clients";
+import vehicleCategories from "./data/vehicleCategories";
 import { Space } from "antd";
 // TODO Make custom table components
 import * as CustomTableCellComponent from "./view/components/custom/TableCell";
@@ -113,7 +114,26 @@ export const routes = {
     ['/vehicles']: {
         title: "Vehicles",
         model: "Vehicle",
-        icon: <Truck />
+        icon: <Truck />,
+        form: {
+            schema: {
+                id: { label: 'id', hidden: true, formComponent: null },
+                _version: { hidden: true },
+                make: { label: 'Make', validation: string().required(), formComponent: 'input' },
+                model: { label: 'Model', validation: string().required(), formComponent: 'input' },
+                rego: { label: 'Rego', validation: string().required(), formComponent: 'input' },
+                category: { label: 'Category', validation: string().required(), formComponent: 'select', selectOptions: vehicleCategories },
+                assetId: { label: 'Asset ID', validation: string().required(), formComponent: 'input' },
+                // @model.valueField:labelField
+                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
+                // Example of custom component - used to display in table
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
+            },
+            create: ['make', 'model', 'rego', 'category', 'assetId', 'companyID'],
+            read: {
+                fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo']
+            }
+        }
     },
     ['/fleets']: {
         title: "Fleets",
@@ -125,7 +145,8 @@ export const routes = {
         data: "@Company.fleets",
         // Model is Company, CRUDS only for the field fleets
         model: "@Company.fleets",
-        icon: <Truck />
+        icon: <Truck />,
+        // form: 
     }
 }
 

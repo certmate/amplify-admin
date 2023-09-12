@@ -77,6 +77,7 @@ type EagerBase = {
   readonly bID?: string | null;
   readonly users?: (User | null)[] | null;
   readonly companies?: (Company | null)[] | null;
+  readonly clients?: (Client | null)[] | null;
   readonly vehicles?: (Vehicle | null)[] | null;
   readonly certs?: (Cert | null)[] | null;
   readonly notifications?: (Notification | null)[] | null;
@@ -94,6 +95,7 @@ type LazyBase = {
   readonly bID?: string | null;
   readonly users: AsyncCollection<User>;
   readonly companies: AsyncCollection<Company>;
+  readonly clients: AsyncCollection<Client>;
   readonly vehicles: AsyncCollection<Vehicle>;
   readonly certs: AsyncCollection<Cert>;
   readonly notifications: AsyncCollection<Notification>;
@@ -170,6 +172,7 @@ type EagerCompany = {
   readonly name?: string | null;
   readonly users?: (User | null)[] | null;
   readonly vehicles?: (Vehicle | null)[] | null;
+  readonly clients?: (Client | null)[] | null;
   readonly certs?: (Cert | null)[] | null;
   readonly fleets?: (Fleet | null)[] | null;
   readonly createdAt?: string | null;
@@ -186,6 +189,7 @@ type LazyCompany = {
   readonly name?: string | null;
   readonly users: AsyncCollection<User>;
   readonly vehicles: AsyncCollection<Vehicle>;
+  readonly clients: AsyncCollection<Client>;
   readonly certs: AsyncCollection<Cert>;
   readonly fleets?: (Fleet | null)[] | null;
   readonly createdAt?: string | null;
@@ -330,4 +334,38 @@ export declare type Notification = LazyLoading extends LazyLoadingDisabled ? Eag
 
 export declare const Notification: (new (init: ModelInit<Notification>) => Notification) & {
   copyOf(source: Notification, mutator: (draft: MutableModel<Notification>) => MutableModel<Notification> | void): Notification;
+}
+
+type EagerClient = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Client, 'id'>;
+  };
+  readonly id: string;
+  readonly companyID: string;
+  readonly company?: Company | null;
+  readonly name?: string | null;
+  readonly logo?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  readonly base: string;
+}
+
+type LazyClient = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Client, 'id'>;
+  };
+  readonly id: string;
+  readonly companyID: string;
+  readonly company: AsyncItem<Company | undefined>;
+  readonly name?: string | null;
+  readonly logo?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  readonly base: string;
+}
+
+export declare type Client = LazyLoading extends LazyLoadingDisabled ? EagerClient : LazyClient
+
+export declare const Client: (new (init: ModelInit<Client>) => Client) & {
+  copyOf(source: Client, mutator: (draft: MutableModel<Client>) => MutableModel<Client> | void): Client;
 }

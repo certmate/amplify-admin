@@ -146,7 +146,19 @@ export const routes = {
         // Model is Company, CRUDS only for the field fleets
         model: "@Company.fleets",
         icon: <Truck />,
-        // form: 
+        form: {
+            schema: {
+                id: { label: 'id', hidden: true, formComponent: null },
+                name: { label: 'Name', validation: string().required(), formComponent: 'input' }, 
+                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: 'select', selectOptions: '@Vehicle.id:rego' }, 
+                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
+            },
+            create: ['name', 'vehicles', 'companyID'],
+            read: {
+                fields: ['id', 'name', 'vehicles', 'company']
+            }
+        }
     }
 }
 

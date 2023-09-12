@@ -49,6 +49,11 @@ export default function Base({ title, filters = [], model, form, data }) {
                     // 
                     // Check if model field is nested
                     console.log(schema.models[model], keys(queryFields), schema);
+                    /**
+                     * Move above code to common.readData
+                     * 
+                     * When creating/updating nested models, id = `${lowercase(model)}ID`, _version: model._version
+                     */
                 }
                 else {
                     // JSON Data is provided 
@@ -68,7 +73,8 @@ export default function Base({ title, filters = [], model, form, data }) {
 
         <Divider />
         <BaseTable data={tableData} columns={form?.read?.fields || []} schema={form?.schema || {}} actions={form?.read?.actions || []} model={model} />
-        {/* <pre>{JSON.stringify({ id, pathname, search, route, title, hash, filters, filter, model, pathFragments, tableData }, false, 4)}</pre> */}
+        {/* <pre>{JSON.stringify({ pathname, title, filters, filter, model, pathFragments, tableData }, false, 4)}</pre> */}
+        <pre>{JSON.stringify({ user, filter: filter?.filter || null, model, fields: form?.read?.fields || [] }, false, 4)}</pre>
         {/* Header:END */}
     </>
 }

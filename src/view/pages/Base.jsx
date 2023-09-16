@@ -6,7 +6,7 @@ import BaseHeader from "../components/BaseHeader";
 import BaseTable from "../components/BaseTable";
 import { useSelector } from "react-redux";
 import { readData } from "../../common";
-import { entries, isString, keys } from "lodash";
+import { entries, isObject, isString, keys } from "lodash";
 import { schema } from "../../models/schema";
 
 export default function Base({ title, filters = [], model, form, data }) {
@@ -32,32 +32,16 @@ export default function Base({ title, filters = [], model, form, data }) {
              * 2.   Get Table Data
              */
             if (data) {
-                if (isString(data) && data[0] === '@') {
-                    // 1.1.
-                    const [model, field] = data.slice(1).split('.');
-                    const { fields } = schema.models[model];
-                    let queryFields;
-
-                    // TODO Check if specific fields are passed. Querying ALL fields for now.
-                    if (fields[field].type.nonModel) {
-                        queryFields = schema.nonModels[fields[field].type.nonModel].fields;
-                    }
-                    else if (fields[field].type.model) {
-                        queryFields = schema.models[fields[field].type.model].fields;
-                    }
-                    // 
-                    // 
-                    // Check if model field is nested
-                    console.log(schema.models[model], keys(queryFields), schema);
-                    /**
-                     * Move above code to common.readData
-                     * 
-                     * When creating/updating nested models, id = `${lowercase(model)}ID`, _version: model._version
-                     */
+                // 
+                // 
+                // If data is string, check for deep nesting, else populate with array
+                if(isObject(data)){
+                    setTableData(data)
                 }
-                else {
-                    // JSON Data is provided 
-                    setTableData(data);
+                else if (isString(data) && data[0] === '@') {
+                    (async () => {
+                        setTableData(await getTableData());
+                    })();
                 }
             }
             else {

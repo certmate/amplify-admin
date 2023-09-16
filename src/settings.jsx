@@ -156,7 +156,7 @@ export const routes = {
             },
             create: ['name', 'vehicles', 'companyID'],
             read: {
-                fields: ['id', 'name', 'vehicles', 'company']
+                fields: ['id', 'name', 'vehicles']
             }
         }
     }

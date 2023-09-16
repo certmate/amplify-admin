@@ -4,7 +4,8 @@ import { Trash } from "iconsax-react";
 
 import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
-import { isArray, isString, lowerCase } from "lodash";
+import { isArray, isString, isUndefined, lowerCase, omit, values } from "lodash";
+import { routes } from "./settings";
 
 export const deleteColumn = async ({ id, _version }, model) => {
     console.log(`Deleting ${model}:${id}-${_version}`);
@@ -16,16 +17,25 @@ export const deleteColumn = async ({ id, _version }, model) => {
  * @returns 
  */
 export const readData = async ({ model, fields, user, filter }) => {
-    const modelSchema = schema.models[model];
-    const plural = lowerCase(modelSchema.pluralName);
+    // 
+    // Check for child node
+    let childNode;
+    if (model[0] === '@') {
+        [model, childNode] = model.slice(1).split('.');
+    }
+    // 
+    // 
+    const { pluralName, name, ...modelSchema } = schema.models[model];
+    const plural = lowerCase(pluralName);
+
     // Check for nested fields - pick selected fields of model
     fields = fields.map(f => {
-        if(f.includes('.')){
+        if (f.includes('.')) {
             const [field, columns] = f.split('.');
             // 
             // Check if model
             const { type, isArray } = modelSchema.fields[field];
-            if(type === 'model' && isArray){
+            if (type === 'model' && isArray) {
                 return `
                     ${field}{
                         items{
@@ -34,7 +44,7 @@ export const readData = async ({ model, fields, user, filter }) => {
                     }
                 `;
             }
-            else{
+            else {
                 return `
                     ${field}{
                         ${columns.split(',').join('\n')}
@@ -42,27 +52,51 @@ export const readData = async ({ model, fields, user, filter }) => {
                 `
             }
         }
-        else{
+        else {
             return f;
         }
     });
 
-    try {
-        const { data } = await API.graphql(graphqlOperation(`
-            query GetBase($filter: Model${schema.models[model].name}FilterInput){
-                getBase(id: "${user.appsync.base}"){
-                    ${plural}(
-                        filter: $filter
-                    ){
-                        items{
-                            ${fields.join(`\n`)}
+    /**
+     * If childNode is present, include fields of the parent Model.
+     * We needs these fields to show the parent in read table and use the parent id, _version in mutations.
+     */
+    const queryFields = childNode ? values(routes).filter(r => r.model === model)[0].form.read.fields : fields;
+
+    const query = `
+        query GetBase($filter: Model${name}FilterInput){
+            getBase(id: "${user.appsync.base}"){
+                ${plural}(
+                    filter: $filter
+                ){
+                    items{
+                        ${queryFields.join('\n')}
+                        ${childNode ? `
+                                ${childNode}{
+                                    ${fields.join(`\n`)}    
+                                }
+                            ` : ''
                         }
                     }
                 }
             }
-        `, { filter }));
+        }
+    `;
 
-        return data.getBase[plural].items;
+    try {
+        const { data } = await API.graphql(graphqlOperation(query, { filter }));
+        const items = data.getBase[plural].items;
+        if (childNode) {
+            let data = [];
+            items.forEach(item => {
+                data = item[childNode] ? [...data, ...item[childNode].map(c => ({ ...c, [model]: omit(c, [childNode])}))] : data;
+            });
+
+            return data;
+        }
+        else {
+            return items;
+        }
     }
     catch (e) {
         console.log(e);
@@ -81,11 +115,11 @@ export const deleteRecord = {
  * 
  */
 export const getSelectFields = async options => {
-    if(isArray(options)){
+    if (isArray(options)) {
         return options.map(o => ({ label: o, value: o }));
     }
-    else if(isString(options)){
-        if(options[0] === '@'){
+    else if (isString(options)) {
+        if (options[0] === '@') {
             /**
              * Fetch model records
              */

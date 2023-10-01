@@ -168,7 +168,7 @@ export const routes = {
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
             create: {
-                fields: ['name', 'vehicles']
+                fields: ['name', 'vehicles', 'id']
             },
             read: {
                 fields: ['id', 'name', 'vehicles']

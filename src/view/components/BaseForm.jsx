@@ -4,14 +4,16 @@ import { Formik } from "formik";
 import { object } from "yup";
 import { Form } from 'antd';
 import { StorageManager } from "@aws-amplify/ui-react-storage";
-import { cleanNull, isChildNode } from "../../helpers";
+import { cleanNull, getChildModel, getParentModel, isChildNode } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
-import { entries, isArray, pick } from "lodash";
+import { concat, entries, isArray, merge, omit, pick } from "lodash";
 import { readData } from "../../common";
 import ParentPicker from "./ParentPicker";
+import { API, graphqlOperation } from 'aws-amplify';
+import * as mutations from "../../graphql/mutations";
 
-export default function BaseForm({ model, schema, fields, onSubmit }) {
+export default function BaseForm({ model, schema, fields, readFields, onSubmit, clearInputs }) {
     const user = useSelector(state => state.user);
     const [form] = Form.useForm();
     const [options, setOptions] = useState({});
@@ -77,16 +79,43 @@ export default function BaseForm({ model, schema, fields, onSubmit }) {
 
     }, [fields]);
 
-
-
     return <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         validateOnChange={false}
         validateOnBlur={false}
         onSubmit={async values => {
-            await onSubmit(cleanNull(values));
-            form.resetFields();
+            values = cleanNull(values);
+            try {
+                let query, payload;
+                if (isChildNode(model)) {
+                    query = mutations[`update${getParentModel(model)}`];
+                    /**
+                     * Structure payload
+                     */
+                    payload = {
+                        // id, _version of model
+                        id: values.parent.id,
+                        _version: values.parent._version,
+                        // New + Existing
+                        [getChildModel(model)]: concat(
+                            // Set id if id field
+                            [cleanNull({ ...omit(values, ['parent']), id: fields.includes('id') ? v4() : null })],
+                            (await readData({ user, filter: null, model, fields: readFields })).map(d => pick(d, fields))
+                        )
+                    };
+                }
+                else {
+                    query = mutations[`create${model}`];
+                    payload = { ...values, base: user.appsync.base };
+                }
+                await API.graphql(graphqlOperation(query, { input: payload }));
+                form.resetFields();
+                onSubmit();
+            }
+            catch (e) {
+                console.log(e);
+            }
         }}
     >
         {({
@@ -102,9 +131,8 @@ export default function BaseForm({ model, schema, fields, onSubmit }) {
                 {/* 
                     If child node, parent should be picked
                 */}
-                {isChildNode(model) && (!values.id || !values._version) ? (
-                    <ParentPicker model={model} />
-                ) : (
+                {isChildNode(model) && <ParentPicker model={model} onPick={(parent) => ['id', '_version'].forEach(p => setFieldValue(`parent.${p}`, parent[p]))} />}
+                {isChildNode(model) && (!values.parent?.id || !values.parent?._version) ? <></> : (
                     fields.map((f, k) => {
                         const { label, formComponent, validation } = schema[f];
                         return formComponent ? (
@@ -120,7 +148,7 @@ export default function BaseForm({ model, schema, fields, onSubmit }) {
                         ) : null
                     })
                 )}
-                <pre>{JSON.stringify({ values }, false, 4)}</pre>
+                {/* <pre>{JSON.stringify({ values, clearInputs }, false, 4)}</pre> */}
                 <Form.Item>
                     <Button icon={null} type="primary" htmlType="submit" loading={isSubmitting}>
                         Submit

@@ -1,4 +1,4 @@
-import _, { values } from "lodash";
+import _, { first, last, values } from "lodash";
 import { roles } from "./settings";
 
 export const role = user => {
@@ -141,4 +141,6 @@ export const isChildNode = model => model[0] === '@';
 
 export const getModelRouteFields = ({ routes, model, fieldType }) => values(routes).filter(r => r.model === model)[0].form[fieldType].fields;
 
-export const getParentModel = model => model.slice(1).split('.')[0]
+export const getParentModel = model => first(model.slice(1).split('.'));
+
+export const getChildModel = model => last(model.slice(1).split('.'));

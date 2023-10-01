@@ -1,14 +1,12 @@
 import { Row, Col, Button, Space, Modal, Card } from "antd";
 import { AddCircle } from "iconsax-react";
-import { isEmpty, startCase } from "lodash";
+import { isEmpty, merge, omit, pick, startCase } from "lodash";
 import Filters from "./Filters";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BaseForm from "./BaseForm";
-import * as mutations from "../../graphql/mutations";
 import SweetAlert from 'sweetalert2';
-import { API, graphqlOperation } from 'aws-amplify';
 import { useSelector } from "react-redux";
-import { RoleRouteFilter } from "../../helpers";
+import { RoleRouteFilter, getChildModel, getParentModel, isChildNode } from "../../helpers";
 import { useLocation } from "react-router-dom";
 
 export default function BaseHeader({ title, model, form, filters, createCallback }) {
@@ -23,7 +21,7 @@ export default function BaseHeader({ title, model, form, filters, createCallback
             </Col>
             <Col span={16} className='hp-text-right'>
                 <Space>
-                    {!isEmpty(form?.create?.fields) && RoleRouteFilter(null, form?.create?.routes, user, pathname+search) && <>
+                    {!isEmpty(form?.create?.fields) && RoleRouteFilter(null, form?.create?.routes, user, pathname + search) && <>
                         <Button type="primary" onClick={() => setShowModal(true)}>
                             <AddCircle set="curved" size={18} style={{ marginRight: 12 }} />
                             <span>Create {title}</span>
@@ -41,9 +39,8 @@ export default function BaseHeader({ title, model, form, filters, createCallback
             footer={null}
         >
             <Card>
-                <BaseForm model={model} schema={form?.schema} fields={form?.create?.fields} onSubmit={async input => {
+                <BaseForm model={model} schema={form?.schema} fields={form?.create?.fields} readFields={form?.read?.fields} onSubmit={async () => {
                     try {
-                        await API.graphql(graphqlOperation(mutations[`create${model}`], { input: { ...input, base: user.appsync.base } }));
                         setShowModal(false);
                         createCallback();
                         await SweetAlert.fire({ title: 'Success', text: `${model} Created!`, icon: 'success' });

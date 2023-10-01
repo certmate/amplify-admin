@@ -94,7 +94,6 @@ export const routes = {
         title: "Clients",
         model: "Client",
         icon: <Building />,
-        data: clients, // If data is not present, datasource is graphql
         form: {
             /**
              * Keys are names of schema field
@@ -102,11 +101,18 @@ export const routes = {
             schema: {
                 id: { label: 'id', formComponent: null },
                 _version: { hidden: true },
-                name: { label: 'Company name', validation: string().required(), formComponent: 'input' },
-                logo: { label: 'Company logo', validation: string(), formComponent: 'upload', table: { component: 'image' } }
+                name: { label: 'Client name', validation: string().required(), formComponent: 'input' },
+                logo: { label: 'Client logo', validation: string(), formComponent: 'upload', table: { component: 'image' } },
+                // @model.valueField:labelField
+                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
+                // Example of custom component
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
+            },
+            create: {
+                fields: ['name', 'logo', 'companyID']
             },
             read: {
-                fields: ['id', 'name', 'logo', '_version'],
+                fields: ['id', 'name', 'logo', '_version', 'company.id,name,logo'],
                 actions: [
                     {
                         label: <Space><Trash size={24}/> Delete</Space>,

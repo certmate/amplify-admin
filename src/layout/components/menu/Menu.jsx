@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { Badge, Menu as AntMenu, Tag } from "antd";
-import { Bag, BagCross, BagTick, BagTimer, Book1, Building, Category2, CloseSquare, DocumentText1, ElementPlus, Heart, Hierarchy, InfoCircle, Profile, Profile2User, ProfileAdd, ProfileTick, ShieldTick, TicketExpired, Truck } from "iconsax-react";
-import { RoleRouteFilter, decodeFilter, role } from "../../../helpers";
-import { keys, startCase, uniqueId, values } from "lodash";
+import React, { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { Badge, Menu as AntMenu } from "antd";
+import { RoleRouteFilter } from "../../../helpers";
+import { startCase } from "lodash";
 import { routes, menu } from "../../../settings";
 
 export default function Menu({ }) {

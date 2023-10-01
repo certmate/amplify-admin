@@ -6,7 +6,7 @@ import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Router
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 // Layouts
 import VerticalLayout from "../layout/VerticalLayout";
@@ -118,7 +118,7 @@ export default function Router() {
             {entries(routes).map(([route, { title, model, filters, form, data }]) => <Route id={route} key={uniqueId()} path={route} element={<VerticalLayout><Base route={route} title={title} filters={filters} model={model} form={form} data={data} /></VerticalLayout>} />)}
 
             {/* Home Page */}
-            <Route exact path='/' element={<VerticalLayout><>Nik</></VerticalLayout>} />
+            <Route exact path='/' element={<Navigate to='/certs' />} />
 
             {/* NotFound */}
             <Route path='*' element={<Error404 />} />

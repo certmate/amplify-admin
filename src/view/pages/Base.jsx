@@ -11,7 +11,7 @@ import { schema } from "../../models/schema";
 
 export default function Base({ title, filters = [], model, form, data }) {
     // Hooks
-    const { pathname } = useLocation();
+    const { pathname, search } = useLocation();
     const [searchParams] = useSearchParams();
     const user = useSelector(state => state.user);
     // Constants
@@ -57,8 +57,8 @@ export default function Base({ title, filters = [], model, form, data }) {
 
         <Divider />
         <BaseTable data={tableData} columns={form?.read?.fields || []} schema={form?.schema || {}} actions={form?.read?.actions || []} model={model} />
-        {/* <pre>{JSON.stringify({ pathname, title, filters, filter, model, pathFragments, tableData }, false, 4)}</pre> */}
-        <pre>{JSON.stringify({ user, filter: filter?.filter || null, model, fields: form?.read?.fields || [] }, false, 4)}</pre>
+        {/* <pre>{JSON.stringify({ pathname, search, title, filters, filter, model, pathFragments, tableData }, false, 4)}</pre> */}
+        {/* <pre>{JSON.stringify({ user, filter: filter?.filter || null, model, fields: form?.read?.fields || [] }, false, 4)}</pre> */}
         {/* Header:END */}
     </>
 }

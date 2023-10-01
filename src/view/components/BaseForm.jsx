@@ -4,13 +4,14 @@ import { Formik } from "formik";
 import { object } from "yup";
 import { Form } from 'antd';
 import { StorageManager } from "@aws-amplify/ui-react-storage";
-import { cleanNull } from "../../helpers";
+import { cleanNull, isChildNode } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
 import { entries, isArray, pick } from "lodash";
 import { readData } from "../../common";
+import ParentPicker from "./ParentPicker";
 
-export default function BaseForm({ schema, fields, onSubmit }) {
+export default function BaseForm({ model, schema, fields, onSubmit }) {
     const user = useSelector(state => state.user);
     const [form] = Form.useForm();
     const [options, setOptions] = useState({});
@@ -29,7 +30,7 @@ export default function BaseForm({ schema, fields, onSubmit }) {
                     case "array":
                         i[f] = [
                             validation.innerType?.type === 'string' ? ''
-                            : ''
+                                : ''
                         ];
                         break;
 
@@ -74,7 +75,9 @@ export default function BaseForm({ schema, fields, onSubmit }) {
             setOptions(o);
         })();
 
-    }, [fields])
+    }, [fields]);
+
+
 
     return <Formik
         initialValues={initialValues}
@@ -96,20 +99,27 @@ export default function BaseForm({ schema, fields, onSubmit }) {
             setFieldValue
         }) => (<>
             <Form form={form} layout="vertical" onSubmitCapture={handleSubmit}>
-                {fields.map((f, k) => {
-                    const { label, formComponent, validation } = schema[f];
-                    return formComponent ? (
-                        <Form.Item name={f} label={label} key={`form-${k}`} validateStatus={errors?.[f] ? 'error' : 'success'} help={errors?.[f]}>{
-                            formComponent === 'input' ? <Input onChange={handleChange(f)} disabled={isSubmitting} />
-                                : formComponent === 'upload' ? <StorageManager accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
-                                    : formComponent === 'select' ? (
-                                        validation?.type === 'array' ? <Select mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
-                                        : <Select onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
-                                    )
-                                        : null
-                        }</Form.Item>
-                    ) : null
-                })}
+                {/* 
+                    If child node, parent should be picked
+                */}
+                {isChildNode(model) && (!values.id || !values._version) ? (
+                    <ParentPicker model={model} />
+                ) : (
+                    fields.map((f, k) => {
+                        const { label, formComponent, validation } = schema[f];
+                        return formComponent ? (
+                            <Form.Item name={f} label={label} key={`form-${k}`} validateStatus={errors?.[f] ? 'error' : 'success'} help={errors?.[f]}>{
+                                formComponent === 'input' ? <Input onChange={handleChange(f)} disabled={isSubmitting} />
+                                    : formComponent === 'upload' ? <StorageManager accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
+                                        : formComponent === 'select' ? (
+                                            validation?.type === 'array' ? <Select mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
+                                                : <Select onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
+                                        )
+                                            : null
+                            }</Form.Item>
+                        ) : null
+                    })
+                )}
                 <pre>{JSON.stringify({ values }, false, 4)}</pre>
                 <Form.Item>
                     <Button icon={null} type="primary" htmlType="submit" loading={isSubmitting}>

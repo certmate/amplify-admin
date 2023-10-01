@@ -11,7 +11,7 @@ export const appName = "CertMate";
 export const version = "0.1.1";
 export const appType = "OAA"; // OAA, UA
 export const tagline = "Digital Vehicle Biosecurity Management";
-const appRoles = { owner: ["SuperAdmin", "Admin", "Support"], users: ["Inspector", "Driver", "LandOwner"] };
+export const appRoles = { owner: ["SuperAdmin", "Admin", "Support"], users: ["Inspector", "Driver", "LandOwner"] };
 export const roles = [...appRoles.owner, ...appRoles.users];
 /**
  * 1.   Keys of routes are names of model
@@ -45,7 +45,9 @@ export const routes = {
                 name: { label: 'Company name', validation: string().required(), formComponent: 'input' },
                 logo: { label: 'Company logo', validation: string(), formComponent: 'upload', table: { component: 'image' } }
             },
-            create: ['name', 'logo'],
+            create: {
+                fields: ['name', 'logo']
+            },
             read: {
                 fields: ['id', '_version', 'name', 'logo'],
                 actions: [
@@ -79,7 +81,10 @@ export const routes = {
                 // Example of custom component
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
-            create: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID'],
+            create: {
+                routes: ['/companies/members?filter=invitations'],
+                fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID']
+            },
             read: {
                 fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'company.id,name,logo']
             }
@@ -129,7 +134,9 @@ export const routes = {
                 // Example of custom component - used to display in table
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
-            create: ['make', 'model', 'rego', 'category', 'assetId', 'companyID'],
+            create: {
+                fields: ['make', 'model', 'rego', 'category', 'assetId', 'companyID'],
+            },
             read: {
                 fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo']
             }
@@ -154,7 +161,9 @@ export const routes = {
                 companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
-            create: ['name', 'vehicles', 'companyID'],
+            create: {
+                fields: ['name', 'vehicles']
+            },
             read: {
                 fields: ['id', 'name', 'vehicles']
             }

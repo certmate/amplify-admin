@@ -1,8 +1,8 @@
-import _ from "lodash";
+import _, { values } from "lodash";
 import { roles } from "./settings";
 
 export const role = user => {
-    if(!user?.cognito)
+    if (!user?.cognito)
         return "user";
 
     let groups = (user.cognito || user).signInUserSession.accessToken.payload['cognito:groups'];
@@ -12,7 +12,7 @@ export const role = user => {
             return p
     }
 
-    return roles[roles.length - 1];
+    return "user";
 }
 
 export const uploadImages = async (Storage, images, image_name) => {
@@ -135,7 +135,10 @@ export const isVisible = el => el.offsetWidth > 0 && el.offsetHeight > 0;
  * @param {String} filter Current route of the page. If _.isEmpty, column is shown for all routes
  * @returns Boolean
  */
-export const RoleRouteFilter = ( roles, routes, user, filter ) => (_.isEmpty(roles) || _.isEmpty(user) || roles.includes(role(user))) && (_.isEmpty(routes) || _.isEmpty(filter) || routes.includes(filter))
+export const RoleRouteFilter = (roles, routes, user, filter) => (_.isEmpty(roles) || _.isEmpty(user) || roles.includes(role(user))) && (_.isEmpty(routes) || _.isEmpty(filter) || routes.includes(filter))
 
-export const encodeFilter = (filter, name) => encodeURI(JSON.stringify({ filter, name }));
-export const decodeFilter = filter => JSON.parse(decodeURI(filter));
+export const isChildNode = model => model[0] === '@';
+
+export const getModelRouteFields = ({ routes, model, fieldType }) => values(routes).filter(r => r.model === model)[0].form[fieldType].fields;
+
+export const getParentModel = model => model.slice(1).split('.')[0]

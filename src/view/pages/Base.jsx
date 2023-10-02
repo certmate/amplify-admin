@@ -1,12 +1,12 @@
 import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { Divider } from "antd";
+import { Divider, Skeleton } from "antd";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import BaseBreadcrumb from "../components/BaseBreadcrumb";
 import BaseHeader from "../components/BaseHeader";
 import BaseTable from "../components/BaseTable";
 import { useSelector } from "react-redux";
 import { readData } from "../../common";
-import { entries, isObject, isString, keys } from "lodash";
+import { entries, first, isObject, isString, keys } from "lodash";
 import { schema } from "../../models/schema";
 
 export default function Base({ title, filters = [], model, form, data }) {
@@ -20,7 +20,7 @@ export default function Base({ title, filters = [], model, form, data }) {
     const sort = useMemo(() => searchParams.get('sort'), [searchParams]);
     // State
     const [tableData, setTableData] = useState([]);
-    const getTableData = useCallback(async () => await readData({ user, filter: filter?.filter || null, model, fields: form?.read?.fields || [] }), [model, user, filter]);
+    const getTableData = useCallback(async () => await readData({ user, filter: filter?.filter || null, model, fields: form?.read?.fields.map(f => first(f.split(/[^a-zA-Z0-9.]/))) || [] }), [model, user, filter]);
     /**
      * Path fragments
      */
@@ -50,7 +50,7 @@ export default function Base({ title, filters = [], model, form, data }) {
         }
     }, [model, user, filter]);
 
-    return <>
+    return user.appsync ? <>
         {/* Header:START */}
         <BaseBreadcrumb pathFragments={pathFragments} />
         <BaseHeader model={model} title={filter?.name || title} form={form} filters={filters} createCallback={async () => setTableData(await getTableData())} />
@@ -60,5 +60,5 @@ export default function Base({ title, filters = [], model, form, data }) {
         {/* <pre>{JSON.stringify({ pathname, search, title, filters, filter, model, pathFragments, tableData }, false, 4)}</pre> */}
         {/* <pre>{JSON.stringify({ user, filter: filter?.filter || null, model, fields: form?.read?.fields || [] }, false, 4)}</pre> */}
         {/* Header:END */}
-    </>
+    </> : <Skeleton></Skeleton>
 }

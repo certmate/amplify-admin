@@ -154,7 +154,7 @@ export const routes = {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
                 name: { label: 'Name', validation: string().required(), formComponent: 'input' },
-                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: 'select', selectOptions: '@Vehicle.id:rego' },
+                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: 'select', selectOptions: '@Vehicle.id:rego', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Vehicle {...data} /> } },
                 companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
@@ -162,7 +162,7 @@ export const routes = {
                 fields: ['name', 'vehicles', 'id']
             },
             read: {
-                fields: ['id', 'name', 'vehicles']
+                fields: ['id', 'name', 'vehicles:@Vehicle.id,make,model,rego']
             }
         }
     }

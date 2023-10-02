@@ -1,10 +1,11 @@
 import { Table, Space } from "antd";
-import { isFunction, isObject, startCase } from "lodash";
-import { RoleRouteFilter } from "../../helpers";
+import { has, isFunction, isObject, startCase, set, find } from "lodash";
+import { RoleRouteFilter, getFieldsOfParentModel, getParentModel } from "../../helpers";
 import { useSelector } from "react-redux";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { readData } from "../../common";
 
 export const deriveComponent = (type, data) => {
     switch (type) {
@@ -19,29 +20,53 @@ export const deriveComponent = (type, data) => {
 export default function BaseTable({ data, columns, schema, actions, model }) {
     const user = useSelector(state => state.user);
     const { pathname, search } = useLocation();
-    const tableColumns = useMemo(() => {
+    const [tableData, setTableData] = useState(data || []);
+    const [tableColumns, setTableColumns] = useState([]);
+
+    useEffect(() => { data && setTableData(data) }, [data]);
+
+    useEffect(() => {
         // Shouldn't be hidden
         // Should pass RoleRouteFilter
-        let c = [];
-        columns.forEach(column => {
-            if (schema[column]) {
-                const { hidden, roles } = schema[column];
-                !hidden && RoleRouteFilter(roles, null, user, null) && c.push({ ...schema[column], column });
-            }
-            else if (column.includes('.')) {
-                // Nested properties, to be shown in the same column
-                let [col, subCols] = column.split('.');
-                const { roles } = schema[col];
+        user.appsync && data && (async () => {
+            let c = [], cache = {}; // Cache is calculated every time columns are calculated
+            for (const i in columns) {
+                const column = columns[i];
+                if (schema[column]) {
+                    const { hidden, roles } = schema[column];
+                    !hidden && RoleRouteFilter(roles, null, user, null) && c.push({ ...schema[column], column });
+                }
+                else if (column.includes(':@')) {
+                    // field:@Model.field1,field2,field3
+                    // Read from model, based on id
+                    let [fieldData, modelData] = column.split(':'),
+                        m = getParentModel(modelData);
 
-                RoleRouteFilter(roles, null, user, null) && c.push({ ...schema[col], column: col, nested: subCols.split(',').map(s => `${col}.${s}`) });
-            }
-        });
+                    const { roles } = schema[fieldData];
+                    if(RoleRouteFilter(roles, null, user, null)){
+                        !has(cache, m) && set(cache, m, await readData({ model: m, fields: getFieldsOfParentModel(modelData), user, filter: null }));
+                        // 
+                        // Replace all tabledata column with respective fields
+                        // TODO For now, look up is via `id`. Have flexibility of which field to look
+                        console.log(JSON.stringify({tableData, data}));
+                        setTableData(data.map(item => ({ ...item, [fieldData]: item[fieldData].map( id => find(cache[m], { id: id }) ) })));
+                        c.push({ ...schema[fieldData], column: fieldData});
+                    }
+                }
+                else if (column.includes('.')) {
+                    // Nested properties, to be shown in the same column
+                    let [col, subCols] = column.split('.');
+                    const { roles } = schema[col];
 
-        return c;
-    }, [columns]);
+                    RoleRouteFilter(roles, null, user, null) && c.push({ ...schema[col], column: col, nested: subCols.split(',').map(s => `${col}.${s}`) });
+                }
+            }
+            setTableColumns(c);
+        })();
+    }, [columns, user.appsync, data]);
 
     return <>
-        <Table dataSource={(data || []).map((d, key) => ({ ...d, key }))} columns={
+        <Table dataSource={tableData.map((d, key) => ({ ...d, key }))} columns={
             [
                 // data columns
                 ...tableColumns.map(({ label, column, table }) => ({
@@ -55,7 +80,7 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
                     title: 'Actions',
                     key: 'actions',
                     render: d => <Space size="large">
-                        {actions.filter(({ roles, routes }) => RoleRouteFilter( roles, routes, user, pathname + search )).map(({ label, fx }, key) => <a key={`action-${key}`} onClick={() => fx(d, model)}>{label}</a>)}
+                        {actions.filter(({ roles, routes }) => RoleRouteFilter(roles, routes, user, pathname + search)).map(({ label, fx }, key) => <a key={`action-${key}`} onClick={() => fx(d, model)}>{label}</a>)}
                     </Space>
                 }
             ]

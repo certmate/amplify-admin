@@ -45,6 +45,7 @@ export const readData = async ({ model, fields, user, filter }) => {
             const [field, columns] = f.split('.');
             // 
             // Check if model
+            console.log({ modelSchema, field })
             const { type, isArray } = modelSchema.fields[field];
             if (type === 'model' && isArray) {
                 return `

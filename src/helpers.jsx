@@ -143,4 +143,6 @@ export const getModelRouteFields = ({ routes, model, fieldType }) => values(rout
 
 export const getParentModel = model => first(model.slice(1).split('.'));
 
+export const getFieldsOfParentModel = model => last(model.split('.')).split(',');
+
 export const getChildModel = model => last(model.slice(1).split('.'));

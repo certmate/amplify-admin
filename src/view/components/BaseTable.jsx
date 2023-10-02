@@ -4,6 +4,7 @@ import { RoleRouteFilter } from "../../helpers";
 import { useSelector } from "react-redux";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
 import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export const deriveComponent = (type, data) => {
     switch (type) {
@@ -17,6 +18,7 @@ export const deriveComponent = (type, data) => {
 
 export default function BaseTable({ data, columns, schema, actions, model }) {
     const user = useSelector(state => state.user);
+    const { pathname, search } = useLocation();
     const tableColumns = useMemo(() => {
         // Shouldn't be hidden
         // Should pass RoleRouteFilter
@@ -53,7 +55,7 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
                     title: 'Actions',
                     key: 'actions',
                     render: d => <Space size="large">
-                        {actions.map(({ label, fx }, key) => <a key={`action-${key}`} onClick={() => fx(d, model)}>{label}</a>)}
+                        {actions.filter(({ roles, routes }) => RoleRouteFilter( roles, routes, user, pathname + search )).map(({ label, fx }, key) => <a key={`action-${key}`} onClick={() => fx(d, model)}>{label}</a>)}
                     </Space>
                 }
             ]

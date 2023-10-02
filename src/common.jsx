@@ -7,8 +7,19 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { isArray, isString, isUndefined, lowerCase, omit, values } from "lodash";
 import { routes } from "./settings";
 
-export const deleteColumn = async ({ id, _version }, model) => {
-    console.log(`Deleting ${model}:${id}-${_version}`);
+export const actions = {
+    update: {
+        label: <Space><Trash size={24}/> Delete</Space>,
+        fx: async ({ id, _version }, model) => {
+            console.log(`Updating ${model}:${id}-${_version}`);
+        }
+    },
+    delete: {
+        label: <Space><Trash size={24}/> Delete</Space>,
+        fx: async ({ id, _version }, model) => {
+            console.log(`Deleting ${model}:${id}-${_version}`);
+        }
+    }
 }
 
 /**
@@ -103,11 +114,6 @@ export const readData = async ({ model, fields, user, filter }) => {
         return [];
     }
 };
-
-export const deleteRecord = {
-    label: <Space><Trash size={24} /> Delete</Space>,
-    fx: deleteColumn
-}
 
 /**
  * 

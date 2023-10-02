@@ -1,9 +1,7 @@
 import { Building, DocumentText1, Profile, Profile2User, ProfileAdd, Trash, Truck } from "iconsax-react";
 import { array, string } from "yup";
-import { deleteColumn } from "./common";
-import clients from "./data/clients";
+import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
-import { Space } from "antd";
 // TODO Make custom table components
 import * as CustomTableCellComponent from "./view/components/custom/TableCell";
 
@@ -21,10 +19,10 @@ export const routes = {
         title: "Certificates",
         model: "Cert",
         filters: {
-            active: {filter: { status: { eq: "A" } }, name: 'Active'},
-            pending: {filter: { status: { eq: "P" } }, name: 'Pending'},
-            rejected: {filter: { status: { eq: "R" } }, name: 'Rejected'},
-            expired: {filter: { status: { eq: "E" } }, name: 'Expired'},
+            active: { filter: { status: { eq: "A" } }, name: 'Active' },
+            pending: { filter: { status: { eq: "P" } }, name: 'Pending' },
+            rejected: { filter: { status: { eq: "R" } }, name: 'Rejected' },
+            expired: { filter: { status: { eq: "E" } }, name: 'Expired' },
         },
         icon: <DocumentText1 />,
         notificationFilter: {
@@ -50,12 +48,7 @@ export const routes = {
             },
             read: {
                 fields: ['id', '_version', 'name', 'logo'],
-                actions: [
-                    {
-                        label: <Space><Trash size={24}/> Delete</Space>,
-                        fx: deleteColumn
-                    }
-                ]
+                actions: [actions.delete]
             }
         }
     },
@@ -86,7 +79,10 @@ export const routes = {
                 fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID']
             },
             read: {
-                fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'company.id,name,logo']
+                fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'company.id,name,logo'],
+                actions: [
+                    { ...actions.delete, routes: ['/companies/members?filter=invitations'] }
+                ]
             }
         }
     },
@@ -113,12 +109,7 @@ export const routes = {
             },
             read: {
                 fields: ['id', 'name', 'logo', '_version', 'company.id,name,logo'],
-                actions: [
-                    {
-                        label: <Space><Trash size={24}/> Delete</Space>,
-                        fx: deleteColumn
-                    }
-                ]
+                actions: [actions.delete]
             }
         }
     },
@@ -162,8 +153,8 @@ export const routes = {
         form: {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
-                name: { label: 'Name', validation: string().required(), formComponent: 'input' }, 
-                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: 'select', selectOptions: '@Vehicle.id:rego' }, 
+                name: { label: 'Name', validation: string().required(), formComponent: 'input' },
+                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: 'select', selectOptions: '@Vehicle.id:rego' },
                 companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
@@ -180,7 +171,7 @@ export const routes = {
 export const menu = [
     {
         node: '/certs',
-        children: [`/certs?filter=active`, `/certs?filter=pending`, `/certs?filter=rejected`, `/certs?filter=expired` ]
+        children: [`/certs?filter=active`, `/certs?filter=pending`, `/certs?filter=rejected`, `/certs?filter=expired`]
     },
     {
         node: '/companies',

@@ -1,6 +1,6 @@
 import { Table, Space } from "antd";
-import { has, isFunction, isObject, startCase, set, find } from "lodash";
-import { RoleRouteFilter, getFieldsOfParentModel, getParentModel } from "../../helpers";
+import { has, isFunction, isObject, startCase, set, find, isEmpty } from "lodash";
+import { RoleRouteFilter, getFieldsOfParentModel, getParentModel, hasArrayOfValues } from "../../helpers";
 import { useSelector } from "react-redux";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
 import { useEffect, useMemo, useState } from "react";
@@ -36,7 +36,7 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
                     const { hidden, roles } = schema[column];
                     !hidden && RoleRouteFilter(roles, null, user, null) && c.push({ ...schema[column], column });
                 }
-                else if (column.includes(':@')) {
+                else if (hasArrayOfValues(column)) {
                     // field:@Model.field1,field2,field3
                     // Read from model, based on id
                     let [fieldData, modelData] = column.split(':'),
@@ -48,7 +48,6 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
                         // 
                         // Replace all tabledata column with respective fields
                         // TODO For now, look up is via `id`. Have flexibility of which field to look
-                        console.log(JSON.stringify({tableData, data}));
                         setTableData(data.map(item => ({ ...item, [fieldData]: item[fieldData].map( id => find(cache[m], { id: id }) ) })));
                         c.push({ ...schema[fieldData], column: fieldData});
                     }
@@ -84,6 +83,7 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
                     </Space>
                 }
             ]
-        } scroll={{ x: 1000 }} />
+        }  
+        scroll={{ x: 1000 }} />
     </>
 }

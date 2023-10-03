@@ -133,8 +133,8 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                     If child node, parent should be picked
                 */}
                 {isChildNode(model) && <ParentPicker model={model} onPick={(parent) => ['id', '_version'].forEach(p => setFieldValue(`parent.${p}`, parent[p]))} />}
-                {isChildNode(model) && (!values.parent?.id || !values.parent?._version) ? <></> : (
-                    fields.map((f, k) => {
+                {isChildNode(model) && (!values.parent?.id || !values.parent?._version) ? <></> : <>
+                    {fields.map((f, k) => {
                         const { label, formComponent, validation } = schema[f];
                         return formComponent ? (
                             <Form.Item name={f} label={label} key={`form-${k}`} validateStatus={errors?.[f] ? 'error' : 'success'} help={errors?.[f]}>{
@@ -147,14 +147,15 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                                             : null
                             }</Form.Item>
                         ) : null
-                    })
-                )}
+                    })}
+                    <Form.Item>
+                        <Button icon={null} type="primary" htmlType="submit" loading={isSubmitting}>
+                            Submit
+                        </Button>
+                    </Form.Item>
+                </>}
                 {/* <pre>{JSON.stringify({ values, errors, initialValues }, false, 4)}</pre> */}
-                <Form.Item>
-                    <Button icon={null} type="primary" htmlType="submit" loading={isSubmitting}>
-                        Submit
-                    </Button>
-                </Form.Item>
+
             </Form>
         </>)}
     </Formik>

@@ -148,6 +148,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "certmateInviteUser": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "certmatePostConfirmation": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -229,6 +234,22 @@
         {
           "category": "function",
           "resourceName": "certmateCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_certmateInviteUser_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "certmateInviteUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_certmateInviteUser_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "certmateInviteUser"
         }
       ]
     },

@@ -46,6 +46,13 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     },
+    "certmateInviteUser": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "certmatePostConfirmation": {
       "Arn": "string",
       "LambdaExecutionRole": "string",

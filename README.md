@@ -4,4 +4,3 @@ TODO Delete Invitations
 TODO Update/Delete Clients
 TODO Delete/Update Vehicles
 TODO Delete/Update Fleets
-TODO Show actual vehicles in Fleets

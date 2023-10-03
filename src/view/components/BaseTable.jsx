@@ -48,7 +48,7 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
                         // 
                         // Replace all tabledata column with respective fields
                         // TODO For now, look up is via `id`. Have flexibility of which field to look
-                        setTableData(data.map(item => ({ ...item, [fieldData]: item[fieldData].map( id => find(cache[m], { id: id }) ) })));
+                        setTableData(data?.map(item => ({ ...item, [fieldData]: item[fieldData].map( id => find(cache[m], { id: id }) ) })));
                         c.push({ ...schema[fieldData], column: fieldData});
                     }
                 }

@@ -84,6 +84,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
         validationSchema={validationSchema}
         validateOnChange={false}
         validateOnBlur={false}
+        enableReinitialize={true}
         onSubmit={async values => {
             values = cleanNull(values);
             try {
@@ -148,7 +149,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         ) : null
                     })
                 )}
-                {/* <pre>{JSON.stringify({ values, clearInputs }, false, 4)}</pre> */}
+                {/* <pre>{JSON.stringify({ values, errors, initialValues }, false, 4)}</pre> */}
                 <Form.Item>
                     <Button icon={null} type="primary" htmlType="submit" loading={isSubmitting}>
                         Submit

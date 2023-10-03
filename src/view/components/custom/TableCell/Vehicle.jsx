@@ -1,6 +1,4 @@
-import { List, Space, Tag } from "antd";
-import { deriveComponent } from "../../BaseTable";
-import Title from "antd/lib/typography/Title";
+import { Tag } from "antd";
 import { values } from "lodash";
 
 export default function Vehicle(vehicles) {

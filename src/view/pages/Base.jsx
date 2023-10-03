@@ -20,7 +20,7 @@ export default function Base({ title, filters = [], model, form, data }) {
     const sort = useMemo(() => searchParams.get('sort'), [searchParams]);
     // State
     const [tableData, setTableData] = useState([]);
-    const getTableData = useCallback(async () => await readData({ user, filter: filter?.filter || null, model, fields: form?.read?.fields.map(f => first(f.split(/[^a-zA-Z0-9.]/))) || [] }), [model, user, filter]);
+    const getTableData = useCallback(async () => await readData({ user, filter: filter?.filter || null, model, fields: form?.read?.fields.map(f => first(f.split(/(:@)/))) || [] }), [model, user, filter]);
     /**
      * Path fragments
      */

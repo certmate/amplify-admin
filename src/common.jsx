@@ -10,14 +10,31 @@ import { routes } from "./settings";
 export const actions = {
     update: {
         label: <Space><Trash size={24}/> Delete</Space>,
-        fx: async ({ id, _version }, model) => {
+        _fx: async ({ id, _version }, model) => {
             console.log(`Updating ${model}:${id}-${_version}`);
         }
     },
     delete: {
         label: <Space><Trash size={24}/> Delete</Space>,
-        fx: async ({ id, _version }, model) => {
+        _fx: async ({ id, _version }, model, fx) => {
             console.log(`Deleting ${model}:${id}-${_version}`);
+            try {
+                await API.graphql(graphqlOperation(`
+                    mutation Delete${model}(
+                        $input: Delete${model}Input!
+                    ){
+                        delete${model}(input: $input){
+                            id
+                        }
+                    }
+                `, { input: { id, _version } }));
+                
+                return await fx();
+            }
+            catch (e) {
+                console.log(e);
+                return false;
+            }
         }
     }
 }
@@ -96,7 +113,7 @@ export const readData = async ({ model, fields, user, filter }) => {
     `;
 
     try {
-        const { data } = await API.graphql(graphqlOperation(query, { filter }));
+        const { data } = await API.graphql(graphqlOperation(query, { filter: { ...filter, _deleted: { ne: true } } }));
         const items = data.getBase[plural].items;
         if (childNode) {
             let data = [];

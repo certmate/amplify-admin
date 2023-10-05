@@ -4,6 +4,7 @@ import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 // TODO Make custom table components
 import * as CustomTableCellComponent from "./view/components/custom/TableCell";
+import { deleteInvitationCallback } from "./custom/callbackFunctions";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -81,7 +82,7 @@ export const routes = {
             read: {
                 fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'company.id,name,logo'],
                 actions: [
-                    { ...actions.delete, routes: ['/companies/members?filter=invitations'] }
+                    { ...actions.delete, routes: ['/companies/members?filter=invitations'], fx: deleteInvitationCallback }
                 ]
             }
         }

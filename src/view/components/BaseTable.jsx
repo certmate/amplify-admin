@@ -4,8 +4,9 @@ import { RoleRouteFilter, getFieldsOfParentModel, getParentModel, hasArrayOfValu
 import { useSelector } from "react-redux";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
 import { useEffect, useMemo, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { readData } from "../../common";
+import SweetAlert from 'sweetalert2';
 
 export const deriveComponent = (type, data) => {
     switch (type) {
@@ -22,6 +23,7 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
     const { pathname, search } = useLocation();
     const [tableData, setTableData] = useState(data || []);
     const [tableColumns, setTableColumns] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => { data && setTableData(data) }, [data]);
 
@@ -79,7 +81,12 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
                     title: 'Actions',
                     key: 'actions',
                     render: d => <Space size="large">
-                        {actions.filter(({ roles, routes }) => RoleRouteFilter(roles, routes, user, pathname + search)).map(({ label, fx }, key) => <a key={`action-${key}`} onClick={() => fx(d, model)}>{label}</a>)}
+                        {actions.filter(({ roles, routes }) => RoleRouteFilter(roles, routes, user, pathname + search)).map(({ label, _fx, fx }, key) => <a key={`action-${key}`} onClick={async () => {
+                            await _fx(d, model, () => fx(d));
+
+                            await SweetAlert.fire({ title: 'Done', icon: 'success' });
+                            navigate(0);
+                        }}>{label}</a>)}
                     </Space>
                 }
             ]

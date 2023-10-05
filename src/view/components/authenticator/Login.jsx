@@ -8,6 +8,7 @@ import { Auth } from 'aws-amplify';
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { AuthState } from "@aws-amplify/ui-components";
+import SweetAlert from 'sweetalert2';
 
 export default function Login({ change, loggedIn }) {
 	const [loginError, setLoginError] = useState(null);

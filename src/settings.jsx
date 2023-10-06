@@ -110,7 +110,7 @@ export const routes = {
             },
             read: {
                 fields: ['id', 'name', 'logo', '_version', 'company.id,name,logo'],
-                actions: [actions.delete]
+                actions: [actions.delete, actions.update]
             }
         }
     },

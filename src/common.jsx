@@ -1,6 +1,6 @@
 // TODO Enter common actions here
 import { Space } from "antd";
-import { Trash } from "iconsax-react";
+import { Edit, Trash } from "iconsax-react";
 
 import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
@@ -10,13 +10,13 @@ import { hasArrayOfValues } from "./helpers";
 
 export const actions = {
     update: {
-        label: <Space><Trash size={24}/> Delete</Space>,
+        label: <Space><Edit size={24} /> Update</Space>,
         _fx: async ({ id, _version }, model) => {
             console.log(`Updating ${model}:${id}-${_version}`);
         }
     },
     delete: {
-        label: <Space><Trash size={24}/> Delete</Space>,
+        label: <Space><Trash size={24} /> Delete</Space>,
         _fx: async ({ id, _version }, model, fx) => {
             console.log(`Deleting ${model}:${id}-${_version}`);
             try {
@@ -29,7 +29,7 @@ export const actions = {
                         }
                     }
                 `, { input: { id, _version } }));
-                
+
                 return await fx();
             }
             catch (e) {
@@ -112,7 +112,7 @@ export const readData = async ({ model, fields, user, filter }) => {
                                     ${fields.join(`\n`)}    
                                 }
                             ` : ''
-                        }
+        }
                     }
                 }
             }
@@ -125,7 +125,7 @@ export const readData = async ({ model, fields, user, filter }) => {
         if (childNode) {
             let data = [];
             items.forEach(item => {
-                data = item[childNode] ? [...data, ...item[childNode].map(c => ({ ...c, [model]: omit(c, [childNode])}))] : data;
+                data = item[childNode] ? [...data, ...item[childNode].map(c => ({ ...c, [model]: omit(c, [childNode]) }))] : data;
             });
 
             return data;

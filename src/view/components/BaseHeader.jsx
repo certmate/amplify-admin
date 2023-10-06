@@ -8,6 +8,7 @@ import SweetAlert from 'sweetalert2';
 import { useSelector } from "react-redux";
 import { RoleRouteFilter } from "../../helpers";
 import { useLocation } from "react-router-dom";
+import BaseModal from "./BaseModal";
 
 export default function BaseHeader({ title, model, form, filters, createCallback }) {
     const [showModal, setShowModal] = useState(false);
@@ -32,24 +33,17 @@ export default function BaseHeader({ title, model, form, filters, createCallback
         </Row>
         <Filters filters={filters} />
         {/* Modals */}
-        <Modal
-            title={<h4 className='hp-mb-0'>Create {startCase(title)}</h4>}
-            open={showModal}
-            onCancel={() => setShowModal(false)}
-            footer={null}
-        >
-            <Card>
-                <BaseForm model={model} schema={form?.schema} fields={form?.create?.fields} readFields={form?.read?.fields} onSubmit={async () => {
-                    try {
-                        setShowModal(false);
-                        createCallback();
-                        await SweetAlert.fire({ title: 'Done', text: `${model} Created!`, icon: 'success' });
-                    }
-                    catch (e) {
-                        console.log(e);
-                    }
-                }} />
-            </Card>
-        </Modal>
+        <BaseModal modal={{ title, showModal, hideModal: () => setShowModal(false) }} form={{
+            model, schema: form?.schema, fields: form?.create?.fields, readFields: form?.read?.fields, onSubmit: async () => {
+                try {
+                    setShowModal(false);
+                    createCallback();
+                    await SweetAlert.fire({ title: 'Done', text: `${model} Created!`, icon: 'success' });
+                }
+                catch (e) {
+                    console.log(e);
+                }
+            }
+        }} />
     </>
 }

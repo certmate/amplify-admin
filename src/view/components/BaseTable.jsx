@@ -24,6 +24,7 @@ export default function BaseTable({ data, columns, schema, actions, model, actio
     const [tableData, setTableData] = useState(data || []);
     const [tableColumns, setTableColumns] = useState([]);
     const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(null);
 
     useEffect(() => { data && setTableData(data) }, [data]);
 
@@ -45,13 +46,13 @@ export default function BaseTable({ data, columns, schema, actions, model, actio
                         m = getParentModel(modelData);
 
                     const { roles } = schema[fieldData];
-                    if(RoleRouteFilter(roles, null, user, null)){
+                    if (RoleRouteFilter(roles, null, user, null)) {
                         !has(cache, m) && set(cache, m, await readData({ model: m, fields: getFieldsOfParentModel(modelData), user, filter: null }));
                         // 
                         // Replace all tabledata column with respective fields
                         // TODO For now, look up is via `id`. Have flexibility of which field to look
-                        setTableData(data?.map(item => ({ ...item, [fieldData]: item[fieldData].map( id => find(cache[m], { id: id }) ).filter(Boolean) })));
-                        c.push({ ...schema[fieldData], column: fieldData});
+                        setTableData(data?.map(item => ({ ...item, [fieldData]: item[fieldData].map(id => find(cache[m], { id: id })).filter(Boolean) })));
+                        c.push({ ...schema[fieldData], column: fieldData });
                     }
                 }
                 else if (column.includes('.')) {
@@ -90,7 +91,7 @@ export default function BaseTable({ data, columns, schema, actions, model, actio
                     </Space>
                 }
             ]
-        }  
-        scroll={{ x: 1000 }} />
+        }
+            scroll={{ x: 1000 }} />
     </>
 }

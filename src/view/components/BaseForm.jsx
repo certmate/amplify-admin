@@ -1,6 +1,6 @@
 import { Button, Input, Select } from "antd";
 import { useEffect, useMemo, useState } from "react";
-import { Formik } from "formik";
+import { Field, Formik } from "formik";
 import { object } from "yup";
 import { Form } from 'antd';
 import { StorageManager } from "@aws-amplify/ui-react-storage";
@@ -13,7 +13,7 @@ import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
 import * as mutations from "../../graphql/mutations";
 
-export default function BaseForm({ model, schema, fields, readFields, onSubmit, clearInputs }) {
+export default function BaseForm({ model, schema, fields, readFields, onSubmit, values }) {
     const user = useSelector(state => state.user);
     const [form] = Form.useForm();
     const [options, setOptions] = useState({});
@@ -26,11 +26,11 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 v[f] = validation;
                 switch (validation.type) {
                     case "string":
-                        i[f] = '';
+                        i[f] = values?.[f] || '';
                         break;
 
                     case "array":
-                        i[f] = [
+                        i[f] = values?.[f] || [
                             validation.innerType?.type === 'string' ? ''
                                 : ''
                         ];
@@ -44,7 +44,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
         })
 
         return [i, object().shape({ ...v })];
-    }, [schema, fields]);
+    }, [schema, fields, values]);
 
     useEffect(() => {
         (async () => {
@@ -136,8 +136,9 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 {isChildNode(model) && (!values.parent?.id || !values.parent?._version) ? <></> : <>
                     {fields.map((f, k) => {
                         const { label, formComponent, validation } = schema[f];
+
                         return formComponent ? (
-                            <Form.Item name={f} label={label} key={`form-${k}`} validateStatus={errors?.[f] ? 'error' : 'success'} help={errors?.[f]}>{
+                            <Form.Item initialValue={initialValues[f]} name={f} label={label} key={`form-${k}`} validateStatus={errors?.[f] ? 'error' : 'success'} help={errors?.[f]}>{
                                 formComponent === 'input' ? <Input onChange={handleChange(f)} disabled={isSubmitting} />
                                     : formComponent === 'upload' ? <StorageManager accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
                                         : formComponent === 'select' ? (
@@ -154,7 +155,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         </Button>
                     </Form.Item>
                 </>}
-                {/* <pre>{JSON.stringify({ values, errors, initialValues }, false, 4)}</pre> */}
+                <pre>{JSON.stringify({ values, errors, initialValues }, false, 4)}</pre>
 
             </Form>
         </>)}

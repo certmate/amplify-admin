@@ -11,13 +11,15 @@ import { hasArrayOfValues } from "./helpers";
 export const actions = {
     update: {
         label: <Space><Edit size={24} /> Update</Space>,
-        _fx: async ({ id, _version }, model) => {
+        name: 'update',
+        _fx: async ({ id, _version, ...payload }, model, fx, parentFx) => {
+
             console.log(`Updating ${model}:${id}-${_version}`);
         }
     },
     delete: {
         label: <Space><Trash size={24} /> Delete</Space>,
-        _fx: async ({ id, _version }, model, fx) => {
+        _fx: async ({ id, _version }, model, fx, parentFx) => {
             console.log(`Deleting ${model}:${id}-${_version}`);
             try {
                 await API.graphql(graphqlOperation(`
@@ -31,6 +33,7 @@ export const actions = {
                 `, { input: { id, _version } }));
 
                 await fx();
+                await parentFx();
                 return await SweetAlert.fire({ title: 'Done', icon: 'success' });
             }
             catch (e) {

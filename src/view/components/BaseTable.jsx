@@ -69,6 +69,7 @@ export default function BaseTable({ data, title, columns, schema, actions, model
     }, [columns, user.appsync, data]);
 
     return <>
+    <pre>{JSON.stringify({ tableData }, false, 4)}</pre>
         <Table dataSource={tableData.map((d, key) => ({ ...d, key }))} columns={
             [
                 // data columns
@@ -83,10 +84,16 @@ export default function BaseTable({ data, title, columns, schema, actions, model
                     title: 'Actions',
                     key: 'actions',
                     render: d => <Space size="large">
-                        {actions.filter(({ roles, routes }) => RoleRouteFilter(roles, routes, user, pathname + search)).map(({ label, _fx, fx }, key) => <a key={`action-${key}`} onClick={async () => {
-                            await _fx(d, model, () => fx(d));
-
-                            actionCallback();
+                        {actions.filter(({ roles, routes }) => RoleRouteFilter(roles, routes, user, pathname + search)).map(({ label, name, _fx, fx }, key) => <a key={`action-${key}`} onClick={async () => {
+                            /**
+                             * If action is update, check if modal is shown
+                             */
+                            if(name  === 'update' && !Boolean(modalData)){
+                                setModalData(d);
+                            }
+                            else{
+                                await _fx(d, model, () => fx(d), () => actionCallback());
+                            }
                         }}>{label}</a>)}
                     </Space>
                 }
@@ -94,10 +101,10 @@ export default function BaseTable({ data, title, columns, schema, actions, model
         }
             scroll={{ x: 1000 }} />
         <BaseModal modal={{ title, showModal: Boolean(modalData), hideModal: () => setModalData(null) }} form={{
-            model, schema, fields: form?.create?.fields, readFields: form?.read?.fields, onSubmit: async () => {
+            model, schema, fields: form?.create?.fields, readFields: form?.read?.fields, values: modalData, onSubmit: async () => {
                 try {
                     setModalData(null);
-                    createCallback();
+                    actionCallback();
                     await SweetAlert.fire({ title: 'Done', text: `${model} Created!`, icon: 'success' });
                 }
                 catch (e) {

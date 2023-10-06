@@ -136,7 +136,10 @@ export const routes = {
                 fields: ['make', 'model', 'rego', 'category', 'assetId', 'companyID'],
             },
             read: {
-                fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo']
+                fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo'],
+                actions: [
+                    actions.delete
+                ]
             }
         }
     },

@@ -56,7 +56,7 @@ export default function Base({ title, filters = [], model, form, data }) {
         <BaseHeader model={model} title={filter?.name || title} form={form} filters={filters} createCallback={async () => setTableData(await getTableData())} />
 
         <Divider />
-        <BaseTable data={tableData} columns={form?.read?.fields || []} schema={form?.schema || {}} actions={form?.read?.actions || []} model={model} />
+        <BaseTable data={tableData} columns={form?.read?.fields || []} schema={form?.schema || {}} actions={form?.read?.actions || []} model={model} actionCallback={async () => setTableData(await getTableData())} />
         {/* <pre>{JSON.stringify({ pathname, search, title, filters, filter, model, pathFragments, tableData }, false, 4)}</pre> */}
         {/* <pre>{JSON.stringify({ user, filter: filter?.filter || null, model, fields: form?.read?.fields || [] }, false, 4)}</pre> */}
         {/* Header:END */}

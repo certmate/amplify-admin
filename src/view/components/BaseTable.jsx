@@ -18,7 +18,7 @@ export const deriveComponent = (type, data) => {
     }
 }
 
-export default function BaseTable({ data, columns, schema, actions, model }) {
+export default function BaseTable({ data, columns, schema, actions, model, actionCallback }) {
     const user = useSelector(state => state.user);
     const { pathname, search } = useLocation();
     const [tableData, setTableData] = useState(data || []);
@@ -50,7 +50,7 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
                         // 
                         // Replace all tabledata column with respective fields
                         // TODO For now, look up is via `id`. Have flexibility of which field to look
-                        setTableData(data?.map(item => ({ ...item, [fieldData]: item[fieldData].map( id => find(cache[m], { id: id }) ) })));
+                        setTableData(data?.map(item => ({ ...item, [fieldData]: item[fieldData].map( id => find(cache[m], { id: id }) ).filter(Boolean) })));
                         c.push({ ...schema[fieldData], column: fieldData});
                     }
                 }
@@ -85,7 +85,7 @@ export default function BaseTable({ data, columns, schema, actions, model }) {
                             await _fx(d, model, () => fx(d));
 
                             await SweetAlert.fire({ title: 'Done', icon: 'success' });
-                            navigate(0);
+                            actionCallback() || navigate(0);
                         }}>{label}</a>)}
                     </Space>
                 }

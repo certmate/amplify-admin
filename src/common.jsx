@@ -6,6 +6,7 @@ import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
 import { isArray, isString, isUndefined, lowerCase, omit, values } from "lodash";
 import { routes } from "./settings";
+import { hasArrayOfValues } from "./helpers";
 
 export const actions = {
     update: {
@@ -58,8 +59,14 @@ export const readData = async ({ model, fields, user, filter }) => {
 
     // Check for nested fields - pick selected fields of model
     fields = fields.map(f => {
-        if (f.includes('.')) {
-            const [field, columns] = f.split('.');
+        if (hasArrayOfValues(f)) {
+            return f.split(':@')[0];
+        }
+        else if (f.includes('.')) {
+            let [field, columns] = f.split('.');
+            // 
+            // 
+            field = field.split(/[^a-zA-Z]/)[0];
             // 
             // Check if model
             console.log({ modelSchema, field })

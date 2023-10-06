@@ -7,6 +7,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { readData } from "../../common";
 import SweetAlert from 'sweetalert2';
+import BaseModal from "./BaseModal";
 
 export const deriveComponent = (type, data) => {
     switch (type) {
@@ -18,13 +19,13 @@ export const deriveComponent = (type, data) => {
     }
 }
 
-export default function BaseTable({ data, columns, schema, actions, model, actionCallback }) {
+export default function BaseTable({ data, title, columns, schema, actions, model, form, actionCallback }) {
     const user = useSelector(state => state.user);
     const { pathname, search } = useLocation();
     const [tableData, setTableData] = useState(data || []);
     const [tableColumns, setTableColumns] = useState([]);
     const navigate = useNavigate();
-    const [showModal, setShowModal] = useState(null);
+    const [modalData, setModalData] = useState(null);
 
     useEffect(() => { data && setTableData(data) }, [data]);
 
@@ -85,13 +86,24 @@ export default function BaseTable({ data, columns, schema, actions, model, actio
                         {actions.filter(({ roles, routes }) => RoleRouteFilter(roles, routes, user, pathname + search)).map(({ label, _fx, fx }, key) => <a key={`action-${key}`} onClick={async () => {
                             await _fx(d, model, () => fx(d));
 
-                            await SweetAlert.fire({ title: 'Done', icon: 'success' });
-                            actionCallback() || navigate(0);
+                            actionCallback();
                         }}>{label}</a>)}
                     </Space>
                 }
             ]
         }
             scroll={{ x: 1000 }} />
+        <BaseModal modal={{ title, showModal: Boolean(modalData), hideModal: () => setModalData(null) }} form={{
+            model, schema, fields: form?.create?.fields, readFields: form?.read?.fields, onSubmit: async () => {
+                try {
+                    setModalData(null);
+                    createCallback();
+                    await SweetAlert.fire({ title: 'Done', text: `${model} Created!`, icon: 'success' });
+                }
+                catch (e) {
+                    console.log(e);
+                }
+            }
+        }} />
     </>
 }

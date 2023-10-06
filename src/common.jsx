@@ -30,7 +30,8 @@ export const actions = {
                     }
                 `, { input: { id, _version } }));
 
-                return await fx();
+                await fx();
+                return await SweetAlert.fire({ title: 'Done', icon: 'success' });
             }
             catch (e) {
                 console.log(e);

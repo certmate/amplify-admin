@@ -19,10 +19,11 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
     const [form] = Form.useForm();
     const [options, setOptions] = useState({});
     const [formValues, setFormValues] = useState(values);
-    const formIs = useMemo(() => Boolean(formValues?._version) ? 'update' : 'create' , [formValues]);
+    const formIs = useMemo(() => Boolean(formValues?._version) ? 'update' : 'create', [formValues]);
 
     const [initialValues, validationSchema] = useMemo(() => {
         let i = {}, v = {};
+        // Fields from settings
         fields.map(f => {
             const { validation } = schema[f];
             if (validation) {
@@ -34,9 +35,9 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
 
                     case "array":
                         i[f] = formValues?.[f] || [
-                            validation.innerType?.type === 'string' ? ''
-                                : ''
-                        ];
+                            validation.innerType?.type === 'object' ? {}
+                                : null
+                        ].filter(Boolean);
                         break;
 
                     default:
@@ -46,6 +47,8 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
             }
         })
 
+        // Custom fields for updating child node - Is there a better place to put this?
+        isChildNode(model) && formValues?.parent && (i.parent = formValues.parent);
         return [i, object().shape({ ...v })];
     }, [schema, fields, formValues]);
 
@@ -84,27 +87,24 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
     useEffect(() => {
 
         values?.id && (async () => {
-            if(isChildNode(model)){
+            if (isChildNode(model)) {
                 // 
                 // 
                 // Populate parent & child values
                 const parentModel = getParentModel(model);
                 const childModel = getChildModel(model);
-                const { id, _version, ...parentData } = await getData({ model, fields, id: values[parentModel].id })
+                const { id, _version, name, logo, ...parentData } = await getData({ model, fields, id: values[parentModel].id })
 
                 let formValues = {
-                    parent: {
-                        id: id,
-                        _version: _version,
-                    },
+                    parent: { id, _version, name, logo },
                     // Get correct child model from parent
                     // TODO Make lookup key dynamic. For now, it's ID
-                    ...find(parentData[childModel], {id: values.id})
+                    ...find(parentData[childModel], { id: values.id })
                 };
 
-                setFormValues( formValues );
+                setFormValues(formValues);
             }
-            else{
+            else {
                 setFormValues(await getData({ model, fields, id: values.id }));
             }
         })();
@@ -167,7 +167,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 {/* 
                     If child node, parent should be picked
                 */}
-                {isChildNode(model) && <ParentPicker model={model} onPick={(parent) => ['id', '_version'].forEach(p => setFieldValue(`parent.${p}`, parent[p]))} />}
+                {isChildNode(model) && <ParentPicker model={model} parent={values.parent} onPick={(parent) => ['id', '_version', 'name', 'logo'].forEach(p => setFieldValue(`parent.${p}`, parent[p]))} />}
                 {isChildNode(model) && (!values.parent?.id || !values.parent?._version) ? <></> : <>
                     {fields.map((f, k) => {
                         const { label, formComponent, validation } = schema[f];

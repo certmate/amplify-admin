@@ -44,12 +44,7 @@ export const actions = {
     }
 }
 
-/**
- * 
- * @param {NewType} param0 
- * @returns 
- */
-export const readData = async ({ model, fields, user, filter }) => {
+const getQueryFieldsAndChildNode = ({ model, fields }) => {
     // 
     // Check for child node
     let childNode;
@@ -58,8 +53,7 @@ export const readData = async ({ model, fields, user, filter }) => {
     }
     // 
     // 
-    const { pluralName, name, ...modelSchema } = schema.models[model];
-    const plural = lowerCase(pluralName);
+    const modelSchema = schema.models[model];
 
     // Check for nested fields - pick selected fields of model
     fields = fields.map(f => {
@@ -103,6 +97,20 @@ export const readData = async ({ model, fields, user, filter }) => {
      */
     const queryFields = childNode ? values(routes).filter(r => r.model === model)[0].form.read.fields : fields;
 
+    return [queryFields, childNode, model];
+}
+/**
+ * 
+ * @param {NewType} param0 
+ * @returns 
+ */
+export const readData = async ({ model, fields, user, filter }) => {
+
+    let queryFields, childNode;
+    [queryFields, childNode, model] = getQueryFieldsAndChildNode({ model, fields });
+    const { pluralName, name } = schema.models[model];
+    const plural = lowerCase(pluralName);
+
     const query = `
         query GetBase($filter: Model${name}FilterInput){
             getBase(id: "${user.appsync.base}"){
@@ -116,7 +124,7 @@ export const readData = async ({ model, fields, user, filter }) => {
                                     ${fields.join(`\n`)}    
                                 }
                             ` : ''
-        }
+                        }
                     }
                 }
             }
@@ -143,6 +151,37 @@ export const readData = async ({ model, fields, user, filter }) => {
         return [];
     }
 };
+
+export const getData = async ({ model, fields, id }) => {
+    let queryFields, childNode;
+    [queryFields, childNode, model] = getQueryFieldsAndChildNode({ model, fields });
+    const { name } = schema.models[model];
+
+    const query = `
+        query GetModel($id: ID!){
+            get${name}(id: $id){
+                id
+                _version
+                ${queryFields.join('\n')}
+                ${childNode ? `
+                        ${childNode}{
+                            ${fields.join(`\n`)}    
+                        }
+                    ` : ''
+                }           
+            }
+        }
+    `;
+
+    try {
+        const { data } = await API.graphql(graphqlOperation(query, { id }));
+        return data[`get${name}`];
+    }
+    catch (e) {
+        console.log(e);
+        return [];
+    }
+}
 
 /**
  * 

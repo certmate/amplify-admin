@@ -1,22 +1,25 @@
-import { Button, Input, Select } from "antd";
+import { Button, Input, Select, Form as AntForm } from "antd";
 import { useEffect, useMemo, useState } from "react";
-import { Field, Formik } from "formik";
+import { ErrorMessage, Field, Formik } from "formik";
 import { object } from "yup";
 import { Form } from 'antd';
 import { StorageManager } from "@aws-amplify/ui-react-storage";
 import { cleanNull, getChildModel, getParentModel, isChildNode } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
-import { concat, entries, isArray, merge, omit, pick } from "lodash";
-import { readData } from "../../common";
+import { concat, entries, isArray, isEqual, merge, omit, pick } from "lodash";
+import { getData, readData } from "../../common";
 import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
 import * as mutations from "../../graphql/mutations";
+import { deriveComponent } from "./BaseTable";
 
 export default function BaseForm({ model, schema, fields, readFields, onSubmit, values }) {
     const user = useSelector(state => state.user);
     const [form] = Form.useForm();
     const [options, setOptions] = useState({});
+    const [formValues, setFormValues] = useState(values);
+    const formIs = useMemo(() => Boolean(formValues?._version) ? 'update' : 'create' , [formValues]);
 
     const [initialValues, validationSchema] = useMemo(() => {
         let i = {}, v = {};
@@ -26,11 +29,11 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 v[f] = validation;
                 switch (validation.type) {
                     case "string":
-                        i[f] = values?.[f] || '';
+                        i[f] = formValues?.[f] || '';
                         break;
 
                     case "array":
-                        i[f] = values?.[f] || [
+                        i[f] = formValues?.[f] || [
                             validation.innerType?.type === 'string' ? ''
                                 : ''
                         ];
@@ -44,7 +47,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
         })
 
         return [i, object().shape({ ...v })];
-    }, [schema, fields, values]);
+    }, [schema, fields, formValues]);
 
     useEffect(() => {
         (async () => {
@@ -79,6 +82,15 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
 
     }, [fields]);
 
+    useEffect(() => {
+
+        values?.id && (async () => {
+            setFormValues(await getData({ model, fields, id: values.id }));
+        })();
+
+        return () => setFormValues(null);
+    }, [values]);
+
     return <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -107,9 +119,10 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                     };
                 }
                 else {
-                    query = mutations[`create${model}`];
-                    payload = { ...values, base: user.appsync.base };
+                    query = mutations[`${formIs}${model}`];
+                    payload = { ...values, base: user.appsync.base, ...(isEqual(formIs, 'update') ? { id: formValues.id, _version: formValues._version } : {}) };
                 }
+
                 await API.graphql(graphqlOperation(query, { input: payload }));
                 form.resetFields();
                 onSubmit();
@@ -138,15 +151,26 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         const { label, formComponent, validation } = schema[f];
 
                         return formComponent ? (
-                            <Form.Item initialValue={initialValues[f]} name={f} label={label} key={`form-${k}`} validateStatus={errors?.[f] ? 'error' : 'success'} help={errors?.[f]}>{
-                                formComponent === 'input' ? <Input onChange={handleChange(f)} disabled={isSubmitting} />
-                                    : formComponent === 'upload' ? <StorageManager accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
-                                        : formComponent === 'select' ? (
-                                            validation?.type === 'array' ? <Select mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
-                                                : <Select onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
-                                        )
-                                            : null
-                            }</Form.Item>
+                            <Field name={f} key={`form-${k}`}>
+                                {({ field }) => (
+                                    <div className="hp-mb-16">
+                                        <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{label}</span>
+                                        {
+                                            formComponent === 'input' ? <Input {...field} onChange={handleChange(f)} disabled={isSubmitting} />
+                                                : formComponent === 'upload' ? <>
+                                                    <StorageManager {...field} accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
+                                                    {values?.[f] && deriveComponent('image', values?.[f])}
+                                                </>
+                                                    : formComponent === 'select' ? (
+                                                        validation?.type === 'array' ? <Select {...field} mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
+                                                            : <Select {...field} onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
+                                                    )
+                                                        : null
+                                        }
+                                        <ErrorMessage name={f} render={m => <span className="hp-text-color-danger-1">{m}</span>} />
+                                    </div>
+                                )}
+                            </Field>
                         ) : null
                     })}
                     <Form.Item>

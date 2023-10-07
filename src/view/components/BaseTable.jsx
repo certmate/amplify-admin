@@ -69,7 +69,6 @@ export default function BaseTable({ data, title, columns, schema, actions, model
     }, [columns, user.appsync, data]);
 
     return <>
-    <pre>{JSON.stringify({ tableData }, false, 4)}</pre>
         <Table dataSource={tableData.map((d, key) => ({ ...d, key }))} columns={
             [
                 // data columns
@@ -105,7 +104,7 @@ export default function BaseTable({ data, title, columns, schema, actions, model
                 try {
                     setModalData(null);
                     actionCallback();
-                    await SweetAlert.fire({ title: 'Done', text: `${model} Created!`, icon: 'success' });
+                    await SweetAlert.fire({ title: 'Done', text: `${model} Updated!`, icon: 'success' });
                 }
                 catch (e) {
                     console.log(e);

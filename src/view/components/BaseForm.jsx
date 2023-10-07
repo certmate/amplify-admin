@@ -1,4 +1,4 @@
-import { Button, Input, Select, Form as AntForm } from "antd";
+import { Button, Input, Select } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import { ErrorMessage, Field, Formik } from "formik";
 import { object } from "yup";
@@ -7,7 +7,7 @@ import { StorageManager } from "@aws-amplify/ui-react-storage";
 import { cleanNull, getChildModel, getParentModel, isChildNode } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
-import { concat, entries, isArray, isEqual, merge, omit, pick } from "lodash";
+import { concat, entries, isArray, isEqual, omit, pick, find } from "lodash";
 import { getData, readData } from "../../common";
 import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
@@ -84,7 +84,29 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
     useEffect(() => {
 
         values?.id && (async () => {
-            setFormValues(await getData({ model, fields, id: values.id }));
+            if(isChildNode(model)){
+                // 
+                // 
+                // Populate parent & child values
+                const parentModel = getParentModel(model);
+                const childModel = getChildModel(model);
+                const { id, _version, ...parentData } = await getData({ model, fields, id: values[parentModel].id })
+
+                let formValues = {
+                    parent: {
+                        id: id,
+                        _version: _version,
+                    },
+                    // Get correct child model from parent
+                    // TODO Make lookup key dynamic. For now, it's ID
+                    ...find(parentData[childModel], {id: values.id})
+                };
+
+                setFormValues( formValues );
+            }
+            else{
+                setFormValues(await getData({ model, fields, id: values.id }));
+            }
         })();
 
         return () => setFormValues(null);
@@ -179,7 +201,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         </Button>
                     </Form.Item>
                 </>}
-                {/* <pre>{JSON.stringify({ values, errors, initialValues, }, false, 4)}</pre> */}
+                <pre>{JSON.stringify({ values, errors, initialValues, }, false, 4)}</pre>
 
             </Form>
         </>)}

@@ -137,7 +137,7 @@ export const readData = async ({ model, fields, user, filter }) => {
         if (childNode) {
             let data = [];
             items.forEach(item => {
-                data = item[childNode] ? [...data, ...item[childNode].map(c => ({ ...c, [model]: omit(c, [childNode]) }))] : data;
+                data = item[childNode] ? [...data, ...item[childNode].map(c => ({ ...c, [model]: omit(item, [childNode]) }))] : data;
             });
 
             return data;

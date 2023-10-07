@@ -164,7 +164,8 @@ export const routes = {
                 fields: ['name', 'vehicles', 'id']
             },
             read: {
-                fields: ['id', 'name', 'vehicles:@Vehicle.id,make,model,rego']
+                fields: ['id', 'name', 'vehicles:@Vehicle.id,make,model,rego'],
+                actions: [actions.delete, actions.update]
             }
         }
     }

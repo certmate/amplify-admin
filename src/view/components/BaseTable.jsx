@@ -76,7 +76,9 @@ export default function BaseTable({ data, title, columns, schema, actions, model
                     title: startCase(label),
                     key: label,
                     ...(table?.columnProps || {}),
-                    render: record => isFunction(table?.component) ? table?.component(record[column]) : deriveComponent(table?.component, record[column])
+                    render: record => <>
+                        {isFunction(table?.component) ? table?.component(record[column]) : deriveComponent(table?.component, record[column])}
+                    </>
                 })),
                 // actions
                 {

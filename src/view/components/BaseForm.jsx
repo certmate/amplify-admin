@@ -62,7 +62,6 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                     continue;
                 }
                 else {
-                    console.log(selectOptions);
                     if (isArray(selectOptions)) {
                         // Simple array of options
                         o[field] = selectOptions.map(s => ({ label: s, value: s }));
@@ -97,7 +96,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
         validateOnChange={false}
         validateOnBlur={false}
         enableReinitialize={true}
-        onSubmit={async values => {
+        onSubmit={async (values, { resetForm }) => {
             values = cleanNull(values);
             try {
                 let query, payload;
@@ -124,7 +123,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 }
 
                 await API.graphql(graphqlOperation(query, { input: payload }));
-                form.resetFields();
+                resetForm();
                 onSubmit();
             }
             catch (e) {
@@ -139,6 +138,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
             handleBlur,
             handleSubmit,
             isSubmitting,
+            resetForm,
             setFieldValue
         }) => (<>
             <Form form={form} layout="vertical" onSubmitCapture={handleSubmit}>
@@ -179,7 +179,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         </Button>
                     </Form.Item>
                 </>}
-                <pre>{JSON.stringify({ values, errors, initialValues }, false, 4)}</pre>
+                {/* <pre>{JSON.stringify({ values, errors, initialValues, }, false, 4)}</pre> */}
 
             </Form>
         </>)}

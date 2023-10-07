@@ -137,9 +137,7 @@ export const routes = {
             },
             read: {
                 fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo'],
-                actions: [
-                    actions.delete
-                ]
+                actions: [actions.delete, actions.update]
             }
         }
     },

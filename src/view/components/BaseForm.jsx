@@ -135,7 +135,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         [getChildModel(model)]: concat(
                             // Set id if id field
                             [cleanNull({ ...omit(values, ['parent']), id: fields.includes('id') ? v4() : null })],
-                            (await readData({ user, filter: null, model, fields: readFields })).map(d => pick(d, fields))
+                            (await readData({ user, filter: null, model, fields: readFields })).filter(r => r[getParentModel(model)].id === values.parent.id).map(d => pick(d, fields))
                         )
                     };
                 }
@@ -144,6 +144,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                     payload = { ...values, base: user.appsync.base, ...(isEqual(formIs, 'update') ? { id: formValues.id, _version: formValues._version } : {}) };
                 }
 
+                // console.log({ query, payload }); return;
                 await API.graphql(graphqlOperation(query, { input: payload }));
                 resetForm();
                 onSubmit();

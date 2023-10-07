@@ -4,7 +4,7 @@ import { Edit, Trash } from "iconsax-react";
 
 import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
-import { isArray, isString, isUndefined, lowerCase, omit, values } from "lodash";
+import { isArray, isString, isUndefined, lowerCase, omit, values, first } from "lodash";
 import { routes } from "./settings";
 import { hasArrayOfValues } from "./helpers";
 
@@ -111,6 +111,7 @@ export const readData = async ({ model, fields, user, filter }) => {
     const { pluralName, name } = schema.models[model];
     const plural = lowerCase(pluralName);
 
+    // # TODO Fix this!! the child model identifier
     const query = `
         query GetBase($filter: Model${name}FilterInput){
             getBase(id: "${user.appsync.base}"){
@@ -121,7 +122,7 @@ export const readData = async ({ model, fields, user, filter }) => {
                         ${queryFields.join('\n')}
                         ${childNode ? `
                                 ${childNode}{
-                                    ${fields.join(`\n`)}    
+                                    ${fields.map(f => first(f.split(':@')) ).join(`\n`)}    
                                 }
                             ` : ''
                         }
@@ -130,7 +131,7 @@ export const readData = async ({ model, fields, user, filter }) => {
             }
         }
     `;
-
+        console.log({query});
     try {
         const { data } = await API.graphql(graphqlOperation(query, { filter: { ...filter, _deleted: { ne: true } } }));
         const items = data.getBase[plural].items;

@@ -7,7 +7,7 @@ import { StorageManager } from "@aws-amplify/ui-react-storage";
 import { cleanNull, getChildModel, getParentModel, isChildNode } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
-import { concat, entries, isArray, isEqual, omit, pick, find } from "lodash";
+import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy } from "lodash";
 import { getData, readData } from "../../common";
 import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
@@ -48,7 +48,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
         })
 
         // Custom fields for updating child node - Is there a better place to put this?
-        isChildNode(model) && formValues?.parent && (i.parent = formValues.parent);
+        isChildNode(model) && ['parent', 'id'].forEach(v => formValues?.[v] && ( i[v] = formValues[v] ))
         return [i, object().shape({ ...v })];
     }, [schema, fields, formValues]);
 
@@ -132,11 +132,11 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         id: values.parent.id,
                         _version: values.parent._version,
                         // New + Existing
-                        [getChildModel(model)]: concat(
+                        [getChildModel(model)]: uniqBy(concat(
                             // Set id if id field
-                            [cleanNull({ ...omit(values, ['parent']), id: fields.includes('id') ? v4() : null })],
+                            [cleanNull({ ...omit(values, ['parent']), id: fields.includes('id') ? values.id || v4() : null })],
                             (await readData({ user, filter: null, model, fields: readFields })).filter(r => r[getParentModel(model)].id === values.parent.id).map(d => pick(d, fields))
-                        )
+                        ), 'id')
                     };
                 }
                 else {
@@ -144,7 +144,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                     payload = { ...values, base: user.appsync.base, ...(isEqual(formIs, 'update') ? { id: formValues.id, _version: formValues._version } : {}) };
                 }
 
-                // console.log({ query, payload }); return;
+                // console.log({ query, payload, formValues }); return;
                 await API.graphql(graphqlOperation(query, { input: payload }));
                 resetForm();
                 onSubmit();

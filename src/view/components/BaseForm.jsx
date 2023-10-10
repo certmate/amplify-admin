@@ -7,7 +7,7 @@ import { StorageManager } from "@aws-amplify/ui-react-storage";
 import { cleanNull, getChildModel, getParentModel, isChildNode } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
-import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy } from "lodash";
+import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get } from "lodash";
 import { getData, readData } from "../../common";
 import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
@@ -75,7 +75,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         // @model.valueField:labelField
                         const [model, valueLabel] = select.options.slice(1).split('.');
                         const [value, label] = valueLabel.split(':');
-                        o[field] = await readData({ user, model, fields: [`value:${value}`, `label:${label}`] });
+                        o[field] = await readData({ user, model, fields: [`value:${value}`, `label:${label}`], filter: get(select, 'filter', null) });
                     }
                 }
 

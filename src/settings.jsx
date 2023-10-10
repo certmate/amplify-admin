@@ -1,4 +1,4 @@
-import { Building, DocumentText1, Profile, Profile2User, ProfileAdd, Trash, Truck } from "iconsax-react";
+import { Building, DocumentText1, Profile, Profile2User, Truck } from "iconsax-react";
 import { array, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
@@ -32,16 +32,16 @@ export const routes = {
                 id: { label: 'id', hidden: true, formComponent: null },
                 _version: { hidden: true },
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
-                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: {options: '@Company.id:name'} } },
-                vehicleID: { label: 'Vehicle', validation: string().required(), formComponent: { component: 'select', select: {options: '@Vehicle.id:rego'} } },
-                driverID: { label: 'Driver', validation: string().required(), formComponent: { component: 'select', select: {options: '@User.id:name'} } },
-                inspectorID: { label: 'Inspector', validation: string().required(), formComponent: { component: 'select', select: {options: '@User.id:name'} } },
-                type: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: {options: ['Vehicle Hygiene Certificate', 'Self Declaration']} } },
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
+                vehicleID: { label: 'Vehicle', validation: string().required(), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } } },
+                driverID: { label: 'Driver', validation: string().required(), formComponent: { component: 'select', select: { options: '@User.id:name' } } },
+                inspectorID: { label: 'Inspector', validation: string().required(), formComponent: { component: 'select', select: { options: '@User.id:name', filter: { roles: { contains: "Inspector" } } } } },
+                type: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: { options: ['Vehicle Hygiene Certificate', 'Self Declaration'] } } },
                 odometer: { label: 'Odometer', validation: string().required(), formComponent: { component: 'input' } },
-                clientID: { label: 'Client', validation: string().required(), formComponent: { component: 'select', select: {options: '@Client.id:name'} } },
+                clientID: { label: 'Client', validation: string().required(), formComponent: { component: 'select', select: { options: '@Client.id:name' } } },
                 operatingArea: { label: 'Operating Area', validation: string().required(), formComponent: { component: 'input' } },
                 checkList: { label: 'Checklist', validation: string().required(), formComponent: { component: 'input' } },
-                status: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: {options: ['Pending', 'Approved', 'Rejected']} } }
+                status: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: { options: ['Pending', 'Approved', 'Rejected'] } } }
             },
             create: {
                 fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'clientID', 'operatingArea', 'status']
@@ -92,11 +92,11 @@ export const routes = {
                 _version: { hidden: true },
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
                 email: { label: 'Email', validation: string().email().required(), formComponent: { component: 'input' } },
-                roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: {options: appRoles.users} } },
+                roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } } },
                 acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: { component: 'input' } },
                 acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
                 // @model.valueField:labelField
-                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: {options: '@Company.id:name'} } },
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
@@ -126,7 +126,7 @@ export const routes = {
                 name: { label: 'Client name', validation: string().required(), formComponent: { component: 'input' } },
                 logo: { label: 'Client logo', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
                 // @model.valueField:labelField
-                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: {options: '@Company.id:name'} } },
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
@@ -150,10 +150,10 @@ export const routes = {
                 make: { label: 'Make', validation: string().required(), formComponent: { component: 'input' } },
                 model: { label: 'Model', validation: string().required(), formComponent: { component: 'input' } },
                 rego: { label: 'Rego', validation: string().required(), formComponent: { component: 'input' } },
-                category: { label: 'Category', validation: string().required(), formComponent: { component: 'select', select: {options: vehicleCategories} } },
+                category: { label: 'Category', validation: string().required(), formComponent: { component: 'select', select: { options: vehicleCategories } } },
                 assetId: { label: 'Asset ID', validation: string().required(), formComponent: { component: 'input' } },
                 // @model.valueField:labelField
-                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: {options: '@Company.id:name'} } },
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component - used to display in table
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
@@ -181,8 +181,8 @@ export const routes = {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
-                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: { component: 'select', select: {options: '@Vehicle.id:rego'} }, table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Vehicle {...data} /> } },
-                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: {options: '@Company.id:name'} } },
+                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } }, table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Vehicle {...data} /> } },
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
             create: {

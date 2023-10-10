@@ -20,6 +20,7 @@ export const routes = {
         title: "Certificates",
         model: "Cert",
         filters: {
+            all: { filter: { status: { eq: "A" } }, name: 'All Certs' },
             active: { filter: { status: { eq: "A" } }, name: 'Active' },
             pending: { filter: { status: { eq: "P" } }, name: 'Pending' },
             rejected: { filter: { status: { eq: "R" } }, name: 'Rejected' },
@@ -198,7 +199,7 @@ export const routes = {
 export const menu = [
     {
         node: '/certs',
-        children: [`/certs`, `/certs?filter=active`, `/certs?filter=pending`, `/certs?filter=rejected`, `/certs?filter=expired`]
+        children: [`/certs?filter=all`, `/certs?filter=active`, `/certs?filter=pending`, `/certs?filter=rejected`, `/certs?filter=expired`]
     },
     {
         node: '/companies',

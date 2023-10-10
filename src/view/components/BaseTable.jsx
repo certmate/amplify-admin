@@ -93,7 +93,7 @@ export default function BaseTable({ data, title, columns, schema, actions, model
                                 setModalData(d);
                             }
                             else{
-                                await _fx(d, model, () => fx(d), () => actionCallback());
+                                await _fx(d, model, () => isFunction(fx) ? fx(d) : () => {}, () => actionCallback());
                             }
                         }}>{label}</a>)}
                     </Space>

@@ -7,6 +7,7 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { isArray, isString, isUndefined, lowerCase, omit, values, first } from "lodash";
 import { routes } from "./settings";
 import { hasArrayOfValues } from "./helpers";
+import SweetAlert from 'sweetalert2';
 
 export const actions = {
     update: {

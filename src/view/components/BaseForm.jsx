@@ -59,20 +59,21 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
          */
             let o = {}, e = entries(pick(schema, fields));
             for (let i = 0; i < e.length; i++) {
-                const [field, { selectOptions }] = e[i];
+                const [field, { formComponent: { select } }] = e[i];
+                // Check if form is a select component and has select options specified
 
-                if (!selectOptions) {
+                if (!select?.options) {
                     continue;
                 }
                 else {
-                    if (isArray(selectOptions)) {
+                    if (isArray(select.options)) {
                         // Simple array of options
-                        o[field] = selectOptions.map(s => ({ label: s, value: s }));
+                        o[field] = select.options.map(s => ({ label: s, value: s }));
                     }
-                    else if (selectOptions[0] === '@') {
+                    else if (select.options[0] === '@') {
                         // Fetch data from models
                         // @model.valueField:labelField
-                        const [model, valueLabel] = selectOptions.slice(1).split('.');
+                        const [model, valueLabel] = select.options.slice(1).split('.');
                         const [value, label] = valueLabel.split(':');
                         o[field] = await readData({ user, model, fields: [`value:${value}`, `label:${label}`] });
                     }
@@ -171,20 +172,20 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 {isChildNode(model) && <ParentPicker model={model} parent={values.parent} onPick={(parent) => ['id', '_version', 'name', 'logo'].forEach(p => setFieldValue(`parent.${p}`, parent[p]))} />}
                 {isChildNode(model) && (!values.parent?.id || !values.parent?._version) ? <></> : <>
                     {fields.map((f, k) => {
-                        const { label, formComponent, validation } = schema[f];
+                        const { label, formComponent: { component }, validation } = schema[f];
 
-                        return formComponent ? (
+                        return component ? (
                             <Field name={f} key={`form-${k}`}>
                                 {({ field }) => (
                                     <div className="hp-mb-16">
                                         <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{label}</span>
                                         {
-                                            formComponent === 'input' ? <Input {...field} onChange={handleChange(f)} disabled={isSubmitting} />
-                                                : formComponent === 'upload' ? <>
+                                            component === 'input' ? <Input {...field} onChange={handleChange(f)} disabled={isSubmitting} />
+                                                : component === 'upload' ? <>
                                                     <StorageManager {...field} accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
                                                     {values?.[f] && deriveComponent('image', values?.[f])}
                                                 </>
-                                                    : formComponent === 'select' ? (
+                                                    : component === 'select' ? (
                                                         validation?.type === 'array' ? <Select {...field} mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
                                                             : <Select {...field} onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
                                                     )

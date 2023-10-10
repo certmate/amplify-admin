@@ -171,7 +171,7 @@ export const readData = async ({ model, fields, user, filter }) => {
             }
         }
     `;
-    console.log({ query });
+
     try {
         const { data } = await API.graphql(graphqlOperation(query, { filter: { ...filter, _deleted: { ne: true } } }));
         const items = data.getBase[plural].items;

@@ -20,7 +20,7 @@ export const routes = {
         title: "Certificates",
         model: "Cert",
         filters: {
-            all: { filter: { status: { eq: "A" } }, name: 'All Certs' },
+            all: { filter: { status: { eq: "A" } }, name: 'Certs' },
             active: { filter: { status: { eq: "A" } }, name: 'Active' },
             pending: { filter: { status: { eq: "P" } }, name: 'Pending' },
             rejected: { filter: { status: { eq: "R" } }, name: 'Rejected' },
@@ -31,23 +31,23 @@ export const routes = {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
                 _version: { hidden: true },
-                name: { label: 'Name', validation: string().required(), formComponent: 'input' },
-                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
-                vehicleID: { label: 'Vehicle', validation: string().required(), formComponent: 'select', selectOptions: '@Vehicle.id:rego' },
-                driverID: { label: 'Driver', validation: string().required(), formComponent: 'select', selectOptions: '@User.id:name' },
-                inspectorID: { label: 'Inspector', validation: string().required(), formComponent: 'select', selectOptions: '@User.id:name' },
-                type: { label: 'Type', validation: string().required(), formComponent: 'select', selectOptions: [{ value: 'Type 1', label: 'Type 1' }, { value: 'Type 2', label: 'Type 2' }] },
-                odometer: { label: 'Odometer', validation: string().required(), formComponent: 'input' },
-                clientID: { label: 'Client', validation: string().required(), formComponent: 'select', selectOptions: '@Client.id:name' },
-                operatingArea: { label: 'Operating Area', validation: string().required(), formComponent: 'input' },
-                checkList: { label: 'Checklist', validation: string().required(), formComponent: 'input' },
-                status: { label: 'Type', validation: string().required(), formComponent: 'select', selectOptions: [{ value: 'P', label: 'Pending' }, { value: 'A', label: 'Approved' }, { value: 'R', label: 'Rejected' }] }
+                name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: {options: '@Company.id:name'} } },
+                vehicleID: { label: 'Vehicle', validation: string().required(), formComponent: { component: 'select', select: {options: '@Vehicle.id:rego'} } },
+                driverID: { label: 'Driver', validation: string().required(), formComponent: { component: 'select', select: {options: '@User.id:name'} } },
+                inspectorID: { label: 'Inspector', validation: string().required(), formComponent: { component: 'select', select: {options: '@User.id:name'} } },
+                type: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: {options: ['Vehicle Hygiene Certificate', 'Self Declaration']} } },
+                odometer: { label: 'Odometer', validation: string().required(), formComponent: { component: 'input' } },
+                clientID: { label: 'Client', validation: string().required(), formComponent: { component: 'select', select: {options: '@Client.id:name'} } },
+                operatingArea: { label: 'Operating Area', validation: string().required(), formComponent: { component: 'input' } },
+                checkList: { label: 'Checklist', validation: string().required(), formComponent: { component: 'input' } },
+                status: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: {options: ['Pending', 'Approved', 'Rejected']} } }
             },
             create: {
-                fields: ['name', 'companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'clientID', 'operatingArea', 'checkList', 'status']
+                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'clientID', 'operatingArea', 'status']
             },
             read: {
-                fields: ['id', '_version', 'name', 'logo'],
+                fields: ['id', '_version'],
                 actions: [actions.delete]
             }
         },
@@ -66,8 +66,8 @@ export const routes = {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
                 _version: { hidden: true },
-                name: { label: 'Company name', validation: string().required(), formComponent: 'input' },
-                logo: { label: 'Company logo', validation: string(), formComponent: 'upload', table: { component: 'image' } }
+                name: { label: 'Company name', validation: string().required(), formComponent: { component: 'input' } },
+                logo: { label: 'Company logo', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } }
             },
             create: {
                 fields: ['name', 'logo']
@@ -90,13 +90,13 @@ export const routes = {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
                 _version: { hidden: true },
-                name: { label: 'Name', validation: string().required(), formComponent: 'input' },
-                email: { label: 'Email', validation: string().email().required(), formComponent: 'input' },
-                roles: { label: 'Roles', validation: array().of(string()), formComponent: 'select', selectOptions: appRoles.users },
-                acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: 'input' },
-                acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: 'upload', table: { component: 'image' } },
+                name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
+                email: { label: 'Email', validation: string().email().required(), formComponent: { component: 'input' } },
+                roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: {options: appRoles.users} } },
+                acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: { component: 'input' } },
+                acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
                 // @model.valueField:labelField
-                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: {options: '@Company.id:name'} } },
                 // Example of custom component
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
@@ -123,10 +123,10 @@ export const routes = {
             schema: {
                 id: { label: 'id', formComponent: null },
                 _version: { hidden: true },
-                name: { label: 'Client name', validation: string().required(), formComponent: 'input' },
-                logo: { label: 'Client logo', validation: string(), formComponent: 'upload', table: { component: 'image' } },
+                name: { label: 'Client name', validation: string().required(), formComponent: { component: 'input' } },
+                logo: { label: 'Client logo', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
                 // @model.valueField:labelField
-                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: {options: '@Company.id:name'} } },
                 // Example of custom component
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
@@ -147,13 +147,13 @@ export const routes = {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
                 _version: { hidden: true },
-                make: { label: 'Make', validation: string().required(), formComponent: 'input' },
-                model: { label: 'Model', validation: string().required(), formComponent: 'input' },
-                rego: { label: 'Rego', validation: string().required(), formComponent: 'input' },
-                category: { label: 'Category', validation: string().required(), formComponent: 'select', selectOptions: vehicleCategories },
-                assetId: { label: 'Asset ID', validation: string().required(), formComponent: 'input' },
+                make: { label: 'Make', validation: string().required(), formComponent: { component: 'input' } },
+                model: { label: 'Model', validation: string().required(), formComponent: { component: 'input' } },
+                rego: { label: 'Rego', validation: string().required(), formComponent: { component: 'input' } },
+                category: { label: 'Category', validation: string().required(), formComponent: { component: 'select', select: {options: vehicleCategories} } },
+                assetId: { label: 'Asset ID', validation: string().required(), formComponent: { component: 'input' } },
                 // @model.valueField:labelField
-                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: {options: '@Company.id:name'} } },
                 // Example of custom component - used to display in table
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
@@ -180,9 +180,9 @@ export const routes = {
         form: {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
-                name: { label: 'Name', validation: string().required(), formComponent: 'input' },
-                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: 'select', selectOptions: '@Vehicle.id:rego', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Vehicle {...data} /> } },
-                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
+                name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
+                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: { component: 'select', select: {options: '@Vehicle.id:rego'} }, table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Vehicle {...data} /> } },
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: {options: '@Company.id:name'} } },
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
             },
             create: {

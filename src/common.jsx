@@ -4,9 +4,9 @@ import { Edit, Trash } from "iconsax-react";
 
 import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
-import { isArray, isString, isUndefined, lowerCase, omit, values, first } from "lodash";
+import { isArray, isString, isUndefined, lowerCase, omit, values, first, keys } from "lodash";
 import { routes } from "./settings";
-import { hasArrayOfValues } from "./helpers";
+import { getChildModel, getParentModel, hasArrayOfValues, isChildNode } from "./helpers";
 import SweetAlert from 'sweetalert2';
 
 export const actions = {
@@ -20,10 +20,44 @@ export const actions = {
     },
     delete: {
         label: <Space><Trash size={24} /> Delete</Space>,
-        _fx: async ({ id, _version }, model, fx, parentFx) => {
+        _fx: async ({ id, _version, ...props }, model, fx, parentFx) => {
             console.log(`Deleting ${model}:${id}-${_version}`);
-            try {
-                await API.graphql(graphqlOperation(`
+            let input, query;
+            if (isChildNode(model)) {
+                /**
+                 * 1.   Read child model data of parent model
+                 * 2.   Exclude deleting child from parent model
+                 * 3.   Update Parent
+                 * 4.   Success
+                 */
+                // 1.
+                let parentModel = getParentModel(model), childModel = getChildModel(model), fields;
+                if (schema.models[parentModel].fields[childModel].type.nonModel) {
+                    fields = keys(schema.nonModels[schema.models[parentModel].fields[childModel].type.nonModel].fields);
+                }
+                else {
+                    console.error('Updating weird model', schema.models[parentModel].fields[childModel]);
+                }
+                const parent = await getData({ model, fields, id: props[parentModel].id });
+                // 2.
+                input = {
+                    id: parent.id,
+                    _version: parent._version,
+                    [childModel]: parent[childModel].filter(f => f.id !== id)
+                }
+                query = `
+                    mutation Update${parentModel}(
+                        $input: Update${parentModel}Input!
+                    ){
+                        update${parentModel}(input: $input){
+                            id
+                        }
+                    }
+                `;
+                // console.log({ parentModel, childModel, fields, props, parent, input });
+            }
+            else {
+                query = `
                     mutation Delete${model}(
                         $input: Delete${model}Input!
                     ){
@@ -31,7 +65,12 @@ export const actions = {
                             id
                         }
                     }
-                `, { input: { id, _version } }));
+                `;
+                input = { id, _version };
+            }
+
+            try {
+                await API.graphql(graphqlOperation(query, { input }));
 
                 await fx();
                 await parentFx();
@@ -123,16 +162,16 @@ export const readData = async ({ model, fields, user, filter }) => {
                         ${queryFields.join('\n')}
                         ${childNode ? `
                                 ${childNode}{
-                                    ${fields.map(f => first(f.split(':@')) ).join(`\n`)}    
+                                    ${fields.map(f => first(f.split(':@'))).join(`\n`)}    
                                 }
                             ` : ''
-                        }
+        }
                     }
                 }
             }
         }
     `;
-        console.log({query});
+    console.log({ query });
     try {
         const { data } = await API.graphql(graphqlOperation(query, { filter: { ...filter, _deleted: { ne: true } } }));
         const items = data.getBase[plural].items;
@@ -170,7 +209,7 @@ export const getData = async ({ model, fields, id }) => {
                             ${fields.join(`\n`)}    
                         }
                     ` : ''
-                }           
+        }           
             }
         }
     `;

@@ -26,6 +26,30 @@ export const routes = {
             expired: { filter: { status: { eq: "E" } }, name: 'Expired' },
         },
         icon: <DocumentText1 />,
+        form: {
+            schema: {
+                id: { label: 'id', hidden: true, formComponent: null },
+                _version: { hidden: true },
+                name: { label: 'Name', validation: string().required(), formComponent: 'input' },
+                companyID: { label: 'Company', validation: string().required(), formComponent: 'select', selectOptions: '@Company.id:name' },
+                vehicleID: { label: 'Vehicle', validation: string().required(), formComponent: 'select', selectOptions: '@Vehicle.id:rego' },
+                driverID: { label: 'Driver', validation: string().required(), formComponent: 'select', selectOptions: '@User.id:name' },
+                inspectorID: { label: 'Inspector', validation: string().required(), formComponent: 'select', selectOptions: '@User.id:name' },
+                type: { label: 'Type', validation: string().required(), formComponent: 'select', selectOptions: [{ value: 'Type 1', label: 'Type 1' }, { value: 'Type 2', label: 'Type 2' }] },
+                odometer: { label: 'Odometer', validation: string().required(), formComponent: 'input' },
+                clientID: { label: 'Client', validation: string().required(), formComponent: 'select', selectOptions: '@Client.id:name' },
+                operatingArea: { label: 'Operating Area', validation: string().required(), formComponent: 'input' },
+                checkList: { label: 'Checklist', validation: string().required(), formComponent: 'input' },
+                status: { label: 'Type', validation: string().required(), formComponent: 'select', selectOptions: [{ value: 'P', label: 'Pending' }, { value: 'A', label: 'Approved' }, { value: 'R', label: 'Rejected' }] }
+            },
+            create: {
+                fields: ['name', 'companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'clientID', 'operatingArea', 'checkList', 'status']
+            },
+            read: {
+                fields: ['id', '_version', 'name', 'logo'],
+                actions: [actions.delete]
+            }
+        },
         notificationFilter: {
             status: { eq: 'P' }
         }
@@ -174,7 +198,7 @@ export const routes = {
 export const menu = [
     {
         node: '/certs',
-        children: [`/certs?filter=active`, `/certs?filter=pending`, `/certs?filter=rejected`, `/certs?filter=expired`]
+        children: [`/certs`, `/certs?filter=active`, `/certs?filter=pending`, `/certs?filter=rejected`, `/certs?filter=expired`]
     },
     {
         node: '/companies',

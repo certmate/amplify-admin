@@ -1,3 +1,7 @@
 TODO Create Certs
-TODO Send invitation email to users
-TODO Delete/Update Fleets
+TODO Delete Fleets
+
+TODO Accept AWS SES
+TODO Start sending app emails
+TODO Begin app development
+TODO Role based access

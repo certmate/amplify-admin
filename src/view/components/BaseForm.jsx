@@ -4,7 +4,7 @@ import { ErrorMessage, Field, Formik } from "formik";
 import { object } from "yup";
 import { Form } from 'antd';
 import { StorageManager } from "@aws-amplify/ui-react-storage";
-import { cleanNull, getChildModel, getParentModel, isChildNode } from "../../helpers";
+import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChildNode } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
 import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get } from "lodash";
@@ -48,7 +48,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
         })
 
         // Custom fields for updating child node - Is there a better place to put this?
-        isChildNode(model) && ['parent', 'id'].forEach(v => formValues?.[v] && ( i[v] = formValues[v] ))
+        isChildNode(model) && ['parent', 'id'].forEach(v => formValues?.[v] && (i[v] = formValues[v]))
         return [i, object().shape({ ...v })];
     }, [schema, fields, formValues]);
 
@@ -146,7 +146,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 }
 
                 // console.log({ query, payload, formValues }); return;
-                await API.graphql(graphqlOperation(query, { input: payload }));
+                await API.graphql(graphqlOperation(query, { input: cleanEmptyConnections(payload) }));
                 resetForm();
                 onSubmit();
             }

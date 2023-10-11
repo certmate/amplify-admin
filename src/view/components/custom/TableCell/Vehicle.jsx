@@ -1,6 +1,9 @@
-import { Tag } from "antd";
-import { values } from "lodash";
+import "./Vehicle.less";
 
-export default function Vehicle(vehicles) {
-    return values(vehicles).map(({ make, model, rego }, key) => <Tag key={key} className={key > 0 ? 'hp-mt-8' : ''}>{rego} | {make} {model}</Tag>)
+export default function Vehicle({ rego }) {
+    return <div className="number-plate">
+        <div className="plate-background">
+            <span className="plate-text">{rego}</span>
+        </div>
+    </div>
 }

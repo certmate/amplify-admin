@@ -1,4 +1,4 @@
-import _, { first, last, values } from "lodash";
+import _, { first, last, omitBy, values } from "lodash";
 import { roles } from "./settings";
 
 export const role = user => {
@@ -59,6 +59,15 @@ export const cleanNull = obj => {
             .map(([k, v]) => [k, v && typeof v === 'object' ? cleanNull(v) : v])
             .reduce((a, [k, v]) => (v == null ? a : (a[k] = v, a)), {});
     }
+};
+
+export const cleanEmptyConnections = obj => {
+    Object.keys(obj).forEach((key) => {
+        if (key.includes('ID') && obj[key] === '') {
+            delete obj[key];
+        }
+    });
+    return obj;
 };
 
 export function downloadBlob(blob, filename) {

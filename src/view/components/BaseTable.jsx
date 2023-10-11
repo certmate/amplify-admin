@@ -4,7 +4,7 @@ import { RoleRouteFilter, getFieldsOfParentModel, getParentModel, hasArrayOfValu
 import { useSelector } from "react-redux";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
 import { useEffect, useMemo, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { readData } from "../../common";
 import SweetAlert from 'sweetalert2';
 import BaseModal from "./BaseModal";
@@ -26,6 +26,7 @@ export default function BaseTable({ data, title, columns, schema, actions, model
     const [tableColumns, setTableColumns] = useState([]);
     const navigate = useNavigate();
     const [modalData, setModalData] = useState(null);
+    const [searchParams] = useSearchParams();
 
     useEffect(() => { data && setTableData(data) }, [data]);
 
@@ -68,6 +69,12 @@ export default function BaseTable({ data, title, columns, schema, actions, model
         })();
     }, [columns, user.appsync, data]);
 
+    useEffect(() => {
+        if(searchParams.get('id')){
+            console.log('Show User')
+        }
+    }, [searchParams]);
+
     return <>
         <Table dataSource={tableData.map((d, key) => ({ ...d, key }))} columns={
             [
@@ -77,7 +84,7 @@ export default function BaseTable({ data, title, columns, schema, actions, model
                     key: label,
                     ...(table?.columnProps || {}),
                     render: record => <>
-                        {isFunction(table?.component) ? table?.component(record[column]) : deriveComponent(table?.component, record[column])}
+                        {isFunction(table?.component) ? table?.component(record[column], record) : deriveComponent(table?.component, record[column])}
                     </>
                 })),
                 // actions

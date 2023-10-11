@@ -129,9 +129,9 @@ type Cert @model @auth(rules: [
     company: Company @belongsTo(fields: ["companyID"])
 	vehicleID: ID! @index(name: "certsOfVehicle", sortKeyFields: ["updatedAt"])
     vehicle: Vehicle @belongsTo(fields: ["vehicleID"])
-	driverID: ID! @index(name: "certsOfDriver", sortKeyFields: ["updatedAt"])
+	driverID: ID @index(name: "certsOfDriver", sortKeyFields: ["updatedAt"])
     driver: User @belongsTo(fields: ["driverID"])
-	inspectorID: ID! @index(name: "certsOfInspector", sortKeyFields: ["updatedAt"])
+	inspectorID: ID @index(name: "certsOfInspector", sortKeyFields: ["updatedAt"])
     inspector: User @belongsTo(fields: ["inspectorID"])
 	type: String # Self Declaration, Hygiene
 	odometer: String # 8 places

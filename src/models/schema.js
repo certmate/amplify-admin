@@ -1049,7 +1049,7 @@ export const schema = {
                     "name": "driverID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "driver": {
@@ -1071,7 +1071,7 @@ export const schema = {
                     "name": "inspectorID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "inspector": {
@@ -1685,5 +1685,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "f6eb59cbc1b0c42b1ca952b29768d14a"
+    "version": "8942a2588afc93e6a6809d6b41714fda"
 };

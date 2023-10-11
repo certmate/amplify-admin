@@ -2,7 +2,6 @@ import { Building, DocumentText1, Profile, Profile2User, Truck } from "iconsax-r
 import { array, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
-// TODO Make custom table components
 import * as CustomTableCellComponent from "./view/components/custom/TableCell";
 import { deleteInvitationCallback } from "./custom/callbackFunctions";
 
@@ -20,7 +19,7 @@ export const routes = {
         title: "Certificates",
         model: "Cert",
         filters: {
-            all: { filter: { status: { eq: "A" } }, name: 'Certs' },
+            all: { name: 'Certs' },
             active: { filter: { status: { eq: "A" } }, name: 'Active' },
             pending: { filter: { status: { eq: "P" } }, name: 'Pending' },
             rejected: { filter: { status: { eq: "R" } }, name: 'Rejected' },
@@ -31,23 +30,24 @@ export const routes = {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
                 _version: { hidden: true },
-                name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 vehicleID: { label: 'Vehicle', validation: string().required(), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } } },
                 driverID: { label: 'Driver', validation: string().required(), formComponent: { component: 'select', select: { options: '@User.id:name' } } },
-                inspectorID: { label: 'Inspector', validation: string().required(), formComponent: { component: 'select', select: { options: '@User.id:name', filter: { roles: { contains: "Inspector" } } } } },
-                type: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: { options: ['Vehicle Hygiene Certificate', 'Self Declaration'] } } },
+                inspectorID: { label: 'Inspector', validation: string(), formComponent: { component: 'select', select: { options: '@User.id:name', filter: { roles: { contains: "Inspector" } } } } },
+                type: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: { options: ['Vehicle Hygiene Certificate', 'Self Declaration'] } }, table: { columnProps: { width: 250 } } },
                 odometer: { label: 'Odometer', validation: string().required(), formComponent: { component: 'input' } },
-                clientID: { label: 'Client', validation: string().required(), formComponent: { component: 'select', select: { options: '@Client.id:name' } } },
                 operatingArea: { label: 'Operating Area', validation: string().required(), formComponent: { component: 'input' } },
                 checkList: { label: 'Checklist', validation: string().required(), formComponent: { component: 'input' } },
-                status: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: { options: ['Pending', 'Approved', 'Rejected'] } } }
+                status: { label: 'Status', validation: string(), formComponent: { component: 'select', select: { options: ['Pending', 'Approved', 'Rejected'] } }, table: { component: (data, record) => <CustomTableCellComponent.CertStatus data={data} record={record} /> } },
+                vehicle: { label: 'Vehicle', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Vehicle {...data} /> } },
+                driver: { label: 'Driver', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.User {...data} /> } },
+                inspector: { label: 'Inspector', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.User {...data} /> } },
             },
             create: {
-                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'clientID', 'operatingArea', 'status']
+                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'status']
             },
             read: {
-                fields: ['id', '_version'],
+                fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name'],
                 actions: [actions.delete]
             }
         },
@@ -98,7 +98,7 @@ export const routes = {
                 // @model.valueField:labelField
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component
-                company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Company {...data} /> } },
             },
             create: {
                 routes: ['/companies/members?filter=invitations'],
@@ -128,7 +128,7 @@ export const routes = {
                 // @model.valueField:labelField
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component
-                company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Company {...data} /> } },
             },
             create: {
                 fields: ['name', 'logo', 'companyID']
@@ -155,7 +155,7 @@ export const routes = {
                 // @model.valueField:labelField
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component - used to display in table
-                company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Company {...data} /> } },
             },
             create: {
                 fields: ['make', 'model', 'rego', 'category', 'assetId', 'companyID'],
@@ -181,9 +181,9 @@ export const routes = {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
-                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } }, table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Vehicle {...data} /> } },
+                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } }, table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Vehicles {...data} /> } },
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
-                company: { label: 'Company', table: { columnProps: { width: 250 }, component: data => <CustomTableCellComponent.Company {...data} /> } },
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Company {...data} /> } },
             },
             create: {
                 fields: ['name', 'vehicles', 'id']

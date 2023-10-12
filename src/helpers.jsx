@@ -1,4 +1,4 @@
-import _, { first, last, omitBy, values } from "lodash";
+import _, { first, isFunction, last, omitBy, values } from "lodash";
 import { roles } from "./settings";
 
 export const role = user => {
@@ -145,6 +145,8 @@ export const isVisible = el => el.offsetWidth > 0 && el.offsetHeight > 0;
  * @returns Boolean
  */
 export const RoleRouteFilter = (roles, routes, user, filter) => (_.isEmpty(roles) || _.isEmpty(user) || roles.includes(role(user))) && (_.isEmpty(routes) || _.isEmpty(filter) || routes.includes(filter))
+
+export const ConditionalFilter = (condition, record) => !isFunction(condition) || condition(record);
 
 export const isChildNode = model => model[0] === '@';
 

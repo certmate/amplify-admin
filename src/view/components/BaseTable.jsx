@@ -1,6 +1,6 @@
 import { Table, Space } from "antd";
 import { has, isFunction, isObject, startCase, set, find, isEmpty } from "lodash";
-import { RoleRouteFilter, getFieldsOfParentModel, getParentModel, hasArrayOfValues } from "../../helpers";
+import { RoleRouteFilter, ConditionalFilter, getFieldsOfParentModel, getParentModel, hasArrayOfValues } from "../../helpers";
 import { useSelector } from "react-redux";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
 import { useEffect, useMemo, useState } from "react";
@@ -92,7 +92,8 @@ export default function BaseTable({ data, title, columns, schema, actions, model
                     title: 'Actions',
                     key: 'actions',
                     render: d => <Space size="large">
-                        {actions.filter(({ roles, routes }) => RoleRouteFilter(roles, routes, user, pathname + search)).map(({ label, name, _fx, fx }, key) => <a key={`action-${key}`} onClick={async () => {
+                        {/* TODO Format Filters to accept an array of filters */}
+                        {actions.filter(({ roles, routes, condition }) => RoleRouteFilter(roles, routes, user, pathname + search) && ConditionalFilter(condition, d) ).map(({ label, name, _fx, fx }, key) => <a key={`action-${key}`} onClick={async () => {
                             /**
                              * If action is update, check if modal is shown
                              */

@@ -1,9 +1,10 @@
-import { Building, DocumentText1, Profile, Profile2User, Truck } from "iconsax-react";
+import { Building, DocumentText1, Profile, Profile2User, Share, Truck } from "iconsax-react";
 import { array, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 import * as CustomTableCellComponent from "./view/components/custom/TableCell";
 import { deleteInvitationCallback } from "./custom/callbackFunctions";
+import { shareCert } from "./custom/actions";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -48,7 +49,7 @@ export const routes = {
             },
             read: {
                 fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name'],
-                actions: [actions.delete]
+                actions: [actions.delete, actions.update, shareCert]
             }
         },
         notificationFilter: {

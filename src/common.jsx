@@ -8,79 +8,15 @@ import { isArray, isString, isUndefined, lowerCase, omit, values, first, keys } 
 import { routes } from "./settings";
 import { getChildModel, getParentModel, hasArrayOfValues, isChildNode } from "./helpers";
 import SweetAlert from 'sweetalert2';
+import BaseUpdateButton from "./view/components/BaseUpdateButton";
+import BaseDeleteButton from "./view/components/BaseDeleteButton";
 
 export const actions = {
     update: {
-        label: <Space><Edit size={24} /> Update</Space>,
-        name: 'update',
-        _fx: async ({ id, _version, ...payload }, model, fx, parentFx) => {
-
-            console.log(`Updating ${model}:${id}-${_version}`);
-        }
+        component: ({ data, model, form, callback, schema }) => <BaseUpdateButton data={data} model={model} form={form} schema={schema} callback={callback} />,
     },
     delete: {
-        label: <Space><Trash size={24} /> Delete</Space>,
-        _fx: async ({ id, _version, ...props }, model, fx, parentFx) => {
-            console.log(`Deleting ${model}:${id}-${_version}`);
-            let input, query;
-            if (isChildNode(model)) {
-                /**
-                 * 1.   Read child model data of parent model
-                 * 2.   Exclude deleting child from parent model
-                 * 3.   Update Parent
-                 * 4.   Success
-                 */
-                // 1.
-                let parentModel = getParentModel(model), childModel = getChildModel(model), fields;
-                if (schema.models[parentModel].fields[childModel].type.nonModel) {
-                    fields = keys(schema.nonModels[schema.models[parentModel].fields[childModel].type.nonModel].fields);
-                }
-                else {
-                    console.error('Updating weird model', schema.models[parentModel].fields[childModel]);
-                }
-                const parent = await getData({ model, fields, id: props[parentModel].id });
-                // 2.
-                input = {
-                    id: parent.id,
-                    _version: parent._version,
-                    [childModel]: parent[childModel].filter(f => f.id !== id)
-                }
-                query = `
-                    mutation Update${parentModel}(
-                        $input: Update${parentModel}Input!
-                    ){
-                        update${parentModel}(input: $input){
-                            id
-                        }
-                    }
-                `;
-                // console.log({ parentModel, childModel, fields, props, parent, input });
-            }
-            else {
-                query = `
-                    mutation Delete${model}(
-                        $input: Delete${model}Input!
-                    ){
-                        delete${model}(input: $input){
-                            id
-                        }
-                    }
-                `;
-                input = { id, _version };
-            }
-
-            try {
-                await API.graphql(graphqlOperation(query, { input }));
-
-                await fx();
-                await parentFx();
-                return await SweetAlert.fire({ title: 'Done', icon: 'success' });
-            }
-            catch (e) {
-                console.log(e);
-                return false;
-            }
-        }
+        component: ({ data, model, callback }) => <BaseDeleteButton data={data} model={model} callback={callback} />,
     }
 }
 

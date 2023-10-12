@@ -6,8 +6,6 @@ import { StorageImage } from "@aws-amplify/ui-react-storage";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { readData } from "../../common";
-import SweetAlert from 'sweetalert2';
-import BaseModal from "./BaseModal";
 
 export const deriveComponent = (type, data) => {
     switch (type) {
@@ -19,7 +17,7 @@ export const deriveComponent = (type, data) => {
     }
 }
 
-export default function BaseTable({ data, title, columns, schema, actions, model, form, actionCallback }) {
+export default function BaseTable({ data, columns, schema, actions, model, form, callback }) {
     const user = useSelector(state => state.user);
     const { pathname, search } = useLocation();
     const [tableData, setTableData] = useState(data || []);
@@ -70,56 +68,32 @@ export default function BaseTable({ data, title, columns, schema, actions, model
     }, [columns, user.appsync, data]);
 
     useEffect(() => {
-        if(searchParams.get('id')){
+        if (searchParams.get('id')) {
             console.log('Show User')
         }
     }, [searchParams]);
 
-    return <>
-        <Table dataSource={tableData.map((d, key) => ({ ...d, key }))} columns={
-            [
-                // data columns
-                ...tableColumns.map(({ label, column, table }) => ({
-                    title: startCase(label),
-                    key: label,
-                    ...(table?.columnProps || {}),
-                    render: record => <>
-                        {isFunction(table?.component) ? table?.component(record[column], record) : deriveComponent(table?.component, record[column])}
-                    </>
-                })),
-                // actions
-                {
-                    title: 'Actions',
-                    key: 'actions',
-                    render: d => <Space size="large">
-                        {/* TODO Format Filters to accept an array of filters */}
-                        {actions.filter(({ roles, routes, condition }) => RoleRouteFilter(roles, routes, user, pathname + search) && ConditionalFilter(condition, d) ).map(({ label, name, _fx, fx }, key) => <a key={`action-${key}`} onClick={async () => {
-                            /**
-                             * If action is update, check if modal is shown
-                             */
-                            if(name  === 'update' && !Boolean(modalData)){
-                                setModalData(d);
-                            }
-                            else{
-                                await _fx(d, model, () => isFunction(fx) ? fx(d) : () => {}, () => actionCallback());
-                            }
-                        }}>{label}</a>)}
-                    </Space>
-                }
-            ]
-        }
-            scroll={{ x: 1000 }} />
-        <BaseModal modal={{ title, showModal: Boolean(modalData), hideModal: () => setModalData(null) }} form={{
-            model, schema, fields: form?.create?.fields, readFields: form?.read?.fields, values: modalData, onSubmit: async () => {
-                try {
-                    setModalData(null);
-                    actionCallback();
-                    await SweetAlert.fire({ title: 'Done', text: `${model} Updated!`, icon: 'success' });
-                }
-                catch (e) {
-                    console.log(e);
-                }
+    return <Table dataSource={tableData.map((d, key) => ({ ...d, key }))} columns={
+        [
+            // data columns
+            ...tableColumns.map(({ label, column, table }) => ({
+                title: startCase(label),
+                key: label,
+                ...(table?.columnProps || {}),
+                render: record => <>
+                    {isFunction(table?.component) ? table?.component(record[column], record) : deriveComponent(table?.component, record[column])}
+                </>
+            })),
+            // actions
+            {
+                title: 'Actions',
+                key: 'actions',
+                render: data => <Space size="large">
+                    {/* TODO Format Filters to accept an array of filters */}
+                    {actions.filter(({ roles, routes, condition }) => RoleRouteFilter(roles, routes, user, pathname + search) && ConditionalFilter(condition, data)).map(({ component, fx }, key) => <a key={`action-${key}`}>{component({ data, model, form, schema, callback: async () => { await fx(); callback(); } })}</a>)}
+                </Space>
             }
-        }} />
-    </>
+        ]
+    }
+        scroll={{ x: 1000 }} />
 }

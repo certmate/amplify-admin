@@ -1,5 +1,5 @@
 import { Space } from "antd";
-import { deriveComponent } from "../../BaseTable";
+import { deriveComponent } from "../BaseTable";
 
 export default function Company({ name, logo }) {
     return <Space>

@@ -2,7 +2,7 @@ import { Building, DocumentText1, Profile, Profile2User, Share, Truck } from "ic
 import { array, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
-import * as CustomTableCellComponent from "./view/components/custom/TableCell";
+import * as CustomComponent from "./view/components/custom";
 import { deleteInvitationCallback } from "./custom/callbackFunctions";
 import { shareCert } from "./custom/actions";
 
@@ -39,16 +39,17 @@ export const routes = {
                 odometer: { label: 'Odometer', validation: string().required(), formComponent: { component: 'input' } },
                 operatingArea: { label: 'Operating Area', validation: string().required(), formComponent: { component: 'input' } },
                 checkList: { label: 'Checklist', validation: string().required(), formComponent: { component: 'input' } },
-                status: { label: 'Status', validation: string(), formComponent: { component: 'select', select: { options: ['Pending', 'Approved', 'Rejected'] } }, table: { component: (data, record) => <CustomTableCellComponent.CertStatus data={data} record={record} /> } },
-                vehicle: { label: 'Vehicle', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Vehicle {...data} /> } },
-                driver: { label: 'Driver', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.User {...data} /> } },
-                inspector: { label: 'Inspector', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.User {...data} /> } },
+                status: { label: 'Status', validation: string(), formComponent: { component: 'select', select: { options: ['Pending', 'Approved', 'Rejected'] } }, table: { component: (data, record) => <CustomComponent.CertStatus data={data} record={record} /> } },
+                vehicle: { label: 'Vehicle', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Vehicle {...data} /> } },
+                driver: { label: 'Driver', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
+                inspector: { label: 'Inspector', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
                 fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'status']
             },
             read: {
-                fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name'],
+                fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name', 'company.id,name,logo'],
                 actions: [actions.delete, actions.update, shareCert]
             }
         },
@@ -99,7 +100,7 @@ export const routes = {
                 // @model.valueField:labelField
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component
-                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Company {...data} /> } },
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
                 routes: ['/companies/members?filter=invitations'],
@@ -129,7 +130,7 @@ export const routes = {
                 // @model.valueField:labelField
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component
-                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Company {...data} /> } },
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
                 fields: ['name', 'logo', 'companyID']
@@ -156,7 +157,7 @@ export const routes = {
                 // @model.valueField:labelField
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component - used to display in table
-                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Company {...data} /> } },
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
                 fields: ['make', 'model', 'rego', 'category', 'assetId', 'companyID'],
@@ -182,9 +183,9 @@ export const routes = {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
-                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } }, table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Vehicles {...data} /> } },
+                vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } }, table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Vehicles {...data} /> } },
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
-                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomTableCellComponent.Company {...data} /> } },
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
                 fields: ['name', 'vehicles', 'id']

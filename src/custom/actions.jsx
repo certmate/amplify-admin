@@ -6,10 +6,12 @@
 import { Space } from "antd";
 import { Share } from "iconsax-react";
 import { isNull } from "lodash";
+import { useState } from "react";
+import ShareCert from "../view/components/custom/ShareCert";
 
 export const shareCert = {
-    label: <Space><Share size={24} /> Share</Space>,
-    condition: ({ inspector }) => !isNull(inspector),
+    component: ({ data, model, form, callback }) => <ShareCert />,
+    condition: ({ inspector }) => true || !isNull(inspector),
     _fx: (cert) => {
         console.log('Share Cert', cert);
     }

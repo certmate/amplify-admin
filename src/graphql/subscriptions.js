@@ -110,6 +110,7 @@ export const onCreateIndex = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -280,6 +281,7 @@ export const onUpdateIndex = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -450,6 +452,7 @@ export const onDeleteIndex = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -548,6 +551,7 @@ export const onCreateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -575,6 +579,7 @@ export const onCreateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -749,6 +754,7 @@ export const onCreateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -906,6 +912,7 @@ export const onCreateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -1138,6 +1145,7 @@ export const onCreateBase = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -1281,6 +1289,7 @@ export const onUpdateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -1308,6 +1317,7 @@ export const onUpdateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -1482,6 +1492,7 @@ export const onUpdateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -1639,6 +1650,7 @@ export const onUpdateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -1871,6 +1883,7 @@ export const onUpdateBase = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -2014,6 +2027,7 @@ export const onDeleteBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -2041,6 +2055,7 @@ export const onDeleteBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -2215,6 +2230,7 @@ export const onDeleteBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -2372,6 +2388,7 @@ export const onDeleteBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -2604,6 +2621,7 @@ export const onDeleteBase = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -2932,6 +2950,7 @@ export const onCreateUser = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -3150,6 +3169,7 @@ export const onCreateUser = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -3472,6 +3492,7 @@ export const onCreateUser = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -3741,6 +3762,7 @@ export const onUpdateUser = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -3959,6 +3981,7 @@ export const onUpdateUser = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -4281,6 +4304,7 @@ export const onUpdateUser = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -4550,6 +4574,7 @@ export const onDeleteUser = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -4768,6 +4793,7 @@ export const onDeleteUser = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -5090,6 +5116,7 @@ export const onDeleteUser = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -5172,6 +5199,7 @@ export const onCreateCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -5199,6 +5227,7 @@ export const onCreateCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -5348,6 +5377,7 @@ export const onCreateCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -5640,6 +5670,7 @@ export const onCreateCompany = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -5714,6 +5745,7 @@ export const onUpdateCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -5741,6 +5773,7 @@ export const onUpdateCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -5890,6 +5923,7 @@ export const onUpdateCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -6182,6 +6216,7 @@ export const onUpdateCompany = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -6256,6 +6291,7 @@ export const onDeleteCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -6283,6 +6319,7 @@ export const onDeleteCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -6432,6 +6469,7 @@ export const onDeleteCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -6724,6 +6762,7 @@ export const onDeleteCompany = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -6995,6 +7034,7 @@ export const onCreateVehicle = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -7235,6 +7275,7 @@ export const onCreateVehicle = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -7499,6 +7540,7 @@ export const onUpdateVehicle = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -7739,6 +7781,7 @@ export const onUpdateVehicle = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -8003,6 +8046,7 @@ export const onDeleteVehicle = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -8243,6 +8287,7 @@ export const onDeleteVehicle = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -8507,6 +8552,7 @@ export const onCreateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -8628,6 +8674,7 @@ export const onCreateCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -8753,6 +8800,7 @@ export const onCreateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -8886,6 +8934,7 @@ export const onCreateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -8989,6 +9038,7 @@ export const onCreateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -9132,6 +9182,7 @@ export const onCreateCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9280,6 +9331,7 @@ export const onCreateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -9383,6 +9435,7 @@ export const onCreateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -9526,6 +9579,7 @@ export const onCreateCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9571,6 +9625,7 @@ export const onCreateCert = /* GraphQL */ `
         owner
         __typename
       }
+      number
       type
       odometer
       client
@@ -9821,6 +9876,7 @@ export const onUpdateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -9942,6 +9998,7 @@ export const onUpdateCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10067,6 +10124,7 @@ export const onUpdateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -10200,6 +10258,7 @@ export const onUpdateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -10303,6 +10362,7 @@ export const onUpdateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -10446,6 +10506,7 @@ export const onUpdateCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10594,6 +10655,7 @@ export const onUpdateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -10697,6 +10759,7 @@ export const onUpdateCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -10840,6 +10903,7 @@ export const onUpdateCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10885,6 +10949,7 @@ export const onUpdateCert = /* GraphQL */ `
         owner
         __typename
       }
+      number
       type
       odometer
       client
@@ -11135,6 +11200,7 @@ export const onDeleteCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -11256,6 +11322,7 @@ export const onDeleteCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11381,6 +11448,7 @@ export const onDeleteCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -11514,6 +11582,7 @@ export const onDeleteCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -11617,6 +11686,7 @@ export const onDeleteCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -11760,6 +11830,7 @@ export const onDeleteCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11908,6 +11979,7 @@ export const onDeleteCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -12011,6 +12083,7 @@ export const onDeleteCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -12154,6 +12227,7 @@ export const onDeleteCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -12199,6 +12273,7 @@ export const onDeleteCert = /* GraphQL */ `
         owner
         __typename
       }
+      number
       type
       odometer
       client
@@ -12330,6 +12405,7 @@ export const onCreateNotification = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -12433,6 +12509,7 @@ export const onCreateNotification = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -12576,6 +12653,7 @@ export const onCreateNotification = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -12745,6 +12823,7 @@ export const onUpdateNotification = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -12848,6 +12927,7 @@ export const onUpdateNotification = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -12991,6 +13071,7 @@ export const onUpdateNotification = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -13160,6 +13241,7 @@ export const onDeleteNotification = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -13263,6 +13345,7 @@ export const onDeleteNotification = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -13406,6 +13489,7 @@ export const onDeleteNotification = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -13694,6 +13778,7 @@ export const onCreateClient = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -13977,6 +14062,7 @@ export const onUpdateClient = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -14260,6 +14346,7 @@ export const onDeleteClient = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client

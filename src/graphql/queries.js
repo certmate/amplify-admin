@@ -107,6 +107,7 @@ export const getIndex = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -348,6 +349,7 @@ export const getBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -375,6 +377,7 @@ export const getBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -549,6 +552,7 @@ export const getBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -706,6 +710,7 @@ export const getBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -938,6 +943,7 @@ export const getBase = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -1322,6 +1328,7 @@ export const listBases = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -1681,6 +1688,7 @@ export const syncBases = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -2044,6 +2052,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -2338,6 +2347,7 @@ export const getUser = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -2556,6 +2566,7 @@ export const getUser = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -2878,6 +2889,7 @@ export const getUser = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -3034,6 +3046,7 @@ export const listUsers = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -3137,6 +3150,7 @@ export const listUsers = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -3280,6 +3294,7 @@ export const listUsers = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -3446,6 +3461,7 @@ export const syncUsers = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -3549,6 +3565,7 @@ export const syncUsers = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -3692,6 +3709,7 @@ export const syncUsers = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -3862,6 +3880,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -3965,6 +3984,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -4108,6 +4128,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -4278,6 +4299,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -4381,6 +4403,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -4524,6 +4547,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -4607,6 +4631,7 @@ export const getCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -4634,6 +4659,7 @@ export const getCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -4783,6 +4809,7 @@ export const getCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -5075,6 +5102,7 @@ export const getCompany = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -5345,6 +5373,7 @@ export const listCompanies = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -5625,6 +5654,7 @@ export const syncCompanies = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -5909,6 +5939,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -6181,6 +6212,7 @@ export const getVehicle = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -6421,6 +6453,7 @@ export const getVehicle = /* GraphQL */ `
             owner
             __typename
           }
+          number
           type
           odometer
           client
@@ -6543,6 +6576,7 @@ export const listVehicles = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -6668,6 +6702,7 @@ export const listVehicles = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -6800,6 +6835,7 @@ export const syncVehicles = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -6925,6 +6961,7 @@ export const syncVehicles = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -7061,6 +7098,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -7186,6 +7224,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -7322,6 +7361,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -7447,6 +7487,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -7712,6 +7753,7 @@ export const getCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -7833,6 +7875,7 @@ export const getCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -7958,6 +8001,7 @@ export const getCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -8091,6 +8135,7 @@ export const getCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -8194,6 +8239,7 @@ export const getCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -8337,6 +8383,7 @@ export const getCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -8485,6 +8532,7 @@ export const getCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -8588,6 +8636,7 @@ export const getCert = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -8731,6 +8780,7 @@ export const getCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -8776,6 +8826,7 @@ export const getCert = /* GraphQL */ `
         owner
         __typename
       }
+      number
       type
       odometer
       client
@@ -8884,6 +8935,7 @@ export const listCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -8977,6 +9029,7 @@ export const listCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9034,6 +9087,7 @@ export const listCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9061,6 +9115,7 @@ export const listCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9177,6 +9232,7 @@ export const listCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9204,6 +9260,7 @@ export const listCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9293,6 +9350,7 @@ export const listCerts = /* GraphQL */ `
           owner
           __typename
         }
+        number
         type
         odometer
         client
@@ -9411,6 +9469,7 @@ export const syncCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9504,6 +9563,7 @@ export const syncCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9561,6 +9621,7 @@ export const syncCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9588,6 +9649,7 @@ export const syncCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9704,6 +9766,7 @@ export const syncCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9731,6 +9794,7 @@ export const syncCerts = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -9820,6 +9884,7 @@ export const syncCerts = /* GraphQL */ `
           owner
           __typename
         }
+        number
         type
         odometer
         client
@@ -9942,6 +10007,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10035,6 +10101,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10092,6 +10159,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10119,6 +10187,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10235,6 +10304,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10262,6 +10332,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10351,6 +10422,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           owner
           __typename
         }
+        number
         type
         odometer
         client
@@ -10473,6 +10545,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10566,6 +10639,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10623,6 +10697,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10650,6 +10725,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10766,6 +10842,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10793,6 +10870,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -10882,6 +10960,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           owner
           __typename
         }
+        number
         type
         odometer
         client
@@ -11004,6 +11083,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11097,6 +11177,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11154,6 +11235,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11181,6 +11263,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11297,6 +11380,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11324,6 +11408,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11413,6 +11498,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           owner
           __typename
         }
+        number
         type
         odometer
         client
@@ -11535,6 +11621,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11628,6 +11715,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11685,6 +11773,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11712,6 +11801,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11828,6 +11918,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11855,6 +11946,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -11944,6 +12036,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           owner
           __typename
         }
+        number
         type
         odometer
         client
@@ -12066,6 +12159,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -12159,6 +12253,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -12216,6 +12311,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -12243,6 +12339,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -12359,6 +12456,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -12386,6 +12484,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -12475,6 +12574,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           owner
           __typename
         }
+        number
         type
         odometer
         client
@@ -12607,6 +12707,7 @@ export const getNotification = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -12710,6 +12811,7 @@ export const getNotification = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -12853,6 +12955,7 @@ export const getNotification = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -12948,6 +13051,7 @@ export const listNotifications = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -12975,6 +13079,7 @@ export const listNotifications = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -13124,6 +13229,7 @@ export const syncNotifications = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -13151,6 +13257,7 @@ export const syncNotifications = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -13304,6 +13411,7 @@ export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -13331,6 +13439,7 @@ export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -13484,6 +13593,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -13511,6 +13621,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -13844,6 +13955,7 @@ export const getClient = /* GraphQL */ `
               owner
               __typename
             }
+            number
             type
             odometer
             client
@@ -13985,6 +14097,7 @@ export const listClients = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -14136,6 +14249,7 @@ export const syncClients = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -14291,6 +14405,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client
@@ -14446,6 +14561,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              number
               type
               odometer
               client

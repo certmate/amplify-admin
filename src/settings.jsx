@@ -4,7 +4,7 @@ import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 import * as CustomComponent from "./view/components/custom";
 import { deleteInvitationCallback } from "./custom/callbackFunctions";
-import { shareCert } from "./custom/actions";
+import { shareCert, approveRejectCert, downloadCert } from "./custom/actions";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -35,6 +35,7 @@ export const routes = {
                 vehicleID: { label: 'Vehicle', validation: string().required(), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } } },
                 driverID: { label: 'Driver', validation: string().required(), formComponent: { component: 'select', select: { options: '@User.id:name' } } },
                 inspectorID: { label: 'Inspector', validation: string(), formComponent: { component: 'select', select: { options: '@User.id:name', filter: { roles: { contains: "Inspector" } } } } },
+                number: { label: 'Certificate Number', validation: string().required(), formComponent: { component: 'input' } },
                 type: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: { options: ['Vehicle Hygiene Certificate', 'Self Declaration'] } }, table: { columnProps: { width: 250 } } },
                 odometer: { label: 'Odometer', validation: string().required(), formComponent: { component: 'input' } },
                 operatingArea: { label: 'Operating Area', validation: string().required(), formComponent: { component: 'input' } },
@@ -46,11 +47,11 @@ export const routes = {
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
-                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'status']
+                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'status', 'number']
             },
             read: {
                 fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name', 'company.id,name,logo'],
-                actions: [actions.delete, actions.update, shareCert]
+                actions: [actions.delete, actions.update, shareCert, approveRejectCert, downloadCert]
             }
         },
         notificationFilter: {

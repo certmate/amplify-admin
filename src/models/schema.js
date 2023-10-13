@@ -1113,6 +1113,13 @@ export const schema = {
                         ]
                     }
                 },
+                "number": {
+                    "name": "number",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "type": {
                     "name": "type",
                     "isArray": false,
@@ -1725,5 +1732,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "910a058aec8067506ee0bf0d556add29"
+    "version": "574cb8a56ded9d25c62f2624ff9d1afe"
 };

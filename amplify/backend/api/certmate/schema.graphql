@@ -136,6 +136,7 @@ type Cert @model @auth(rules: [
     driver: User @belongsTo(fields: ["driverID"])
 	inspectorID: ID @index(name: "certsOfInspector", sortKeyFields: ["updatedAt"])
     inspector: User @belongsTo(fields: ["inspectorID"])
+	number: String # Cert number
 	type: String # Self Declaration, Hygiene
 	odometer: String # 8 places
 	client: String # Arrow Energy, Orion, etc...

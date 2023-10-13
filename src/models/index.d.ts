@@ -265,6 +265,7 @@ type EagerCert = {
   readonly driver?: User | null;
   readonly inspectorID?: string | null;
   readonly inspector?: User | null;
+  readonly number?: string | null;
   readonly type?: string | null;
   readonly odometer?: string | null;
   readonly client?: string | null;
@@ -290,6 +291,7 @@ type LazyCert = {
   readonly driver: AsyncItem<User | undefined>;
   readonly inspectorID?: string | null;
   readonly inspector: AsyncItem<User | undefined>;
+  readonly number?: string | null;
   readonly type?: string | null;
   readonly odometer?: string | null;
   readonly client?: string | null;

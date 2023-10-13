@@ -27,6 +27,7 @@ export const getIndex = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -45,6 +46,7 @@ export const getIndex = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -64,6 +66,7 @@ export const getIndex = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -86,6 +89,7 @@ export const getIndex = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -112,6 +116,7 @@ export const getIndex = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -352,6 +357,7 @@ export const getBase = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -378,6 +384,7 @@ export const getBase = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -442,6 +449,7 @@ export const getBase = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -449,6 +457,7 @@ export const getBase = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -479,6 +488,7 @@ export const getBase = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -501,6 +511,7 @@ export const getBase = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -520,6 +531,7 @@ export const getBase = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -546,6 +558,7 @@ export const getBase = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -566,6 +579,7 @@ export const getBase = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -613,6 +627,7 @@ export const getBase = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -624,6 +639,7 @@ export const getBase = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -671,6 +687,7 @@ export const getBase = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -698,6 +715,7 @@ export const getBase = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -711,6 +729,7 @@ export const getBase = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -758,6 +777,7 @@ export const getBase = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -775,6 +795,7 @@ export const getBase = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -794,6 +815,7 @@ export const getBase = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -843,6 +865,7 @@ export const getBase = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -850,6 +873,7 @@ export const getBase = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -899,6 +923,7 @@ export const getBase = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -906,6 +931,7 @@ export const getBase = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -921,6 +947,7 @@ export const getBase = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -980,6 +1007,7 @@ export const getBase = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -987,6 +1015,7 @@ export const getBase = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1070,6 +1099,7 @@ export const listBases = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1077,6 +1107,7 @@ export const listBases = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1121,6 +1152,7 @@ export const listBases = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1142,6 +1174,7 @@ export const listBases = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1153,6 +1186,7 @@ export const listBases = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1174,6 +1208,7 @@ export const listBases = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1193,6 +1228,7 @@ export const listBases = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1214,6 +1250,7 @@ export const listBases = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1232,6 +1269,7 @@ export const listBases = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1254,6 +1292,7 @@ export const listBases = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1276,6 +1315,7 @@ export const listBases = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1291,6 +1331,7 @@ export const listBases = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1323,6 +1364,7 @@ export const listBases = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1416,6 +1458,7 @@ export const syncBases = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1423,6 +1466,7 @@ export const syncBases = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1467,6 +1511,7 @@ export const syncBases = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1488,6 +1533,7 @@ export const syncBases = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1499,6 +1545,7 @@ export const syncBases = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1520,6 +1567,7 @@ export const syncBases = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1539,6 +1587,7 @@ export const syncBases = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1560,6 +1609,7 @@ export const syncBases = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1578,6 +1628,7 @@ export const syncBases = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1600,6 +1651,7 @@ export const syncBases = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1622,6 +1674,7 @@ export const syncBases = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1637,6 +1690,7 @@ export const syncBases = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1669,6 +1723,7 @@ export const syncBases = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1766,6 +1821,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1773,6 +1829,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1817,6 +1874,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1838,6 +1896,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1849,6 +1908,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1870,6 +1930,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1889,6 +1950,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -1910,6 +1972,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1928,6 +1991,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1950,6 +2014,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1972,6 +2037,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -1987,6 +2053,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2019,6 +2086,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2109,6 +2177,7 @@ export const getUser = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2126,6 +2195,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2145,6 +2215,7 @@ export const getUser = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2194,6 +2265,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2201,6 +2273,7 @@ export const getUser = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2250,6 +2323,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2257,6 +2331,7 @@ export const getUser = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2272,6 +2347,7 @@ export const getUser = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -2319,6 +2395,7 @@ export const getUser = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2336,6 +2413,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2355,6 +2433,7 @@ export const getUser = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2404,6 +2483,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2411,6 +2491,7 @@ export const getUser = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2460,6 +2541,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2467,6 +2549,7 @@ export const getUser = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2482,6 +2565,7 @@ export const getUser = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -2541,6 +2625,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2548,6 +2633,7 @@ export const getUser = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2614,6 +2700,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2621,6 +2708,7 @@ export const getUser = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2642,6 +2730,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2661,6 +2750,7 @@ export const getUser = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2682,6 +2772,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2693,6 +2784,7 @@ export const getUser = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2714,6 +2806,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2732,6 +2825,7 @@ export const getUser = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2754,6 +2848,7 @@ export const getUser = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2776,6 +2871,7 @@ export const getUser = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2791,6 +2887,7 @@ export const getUser = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2811,6 +2908,7 @@ export const getUser = /* GraphQL */ `
         updatedAt
         logo
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -2818,6 +2916,7 @@ export const getUser = /* GraphQL */ `
         __typename
       }
       base
+      read
       _version
       _deleted
       _lastChangedAt
@@ -2863,6 +2962,7 @@ export const listUsers = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2881,6 +2981,7 @@ export const listUsers = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2903,6 +3004,7 @@ export const listUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2925,6 +3027,7 @@ export const listUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2940,6 +3043,7 @@ export const listUsers = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -2961,6 +3065,7 @@ export const listUsers = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -2979,6 +3084,7 @@ export const listUsers = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3001,6 +3107,7 @@ export const listUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3023,6 +3130,7 @@ export const listUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3038,6 +3146,7 @@ export const listUsers = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -3070,6 +3179,7 @@ export const listUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3109,6 +3219,7 @@ export const listUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3131,6 +3242,7 @@ export const listUsers = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3150,6 +3262,7 @@ export const listUsers = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3176,6 +3289,7 @@ export const listUsers = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3196,6 +3310,7 @@ export const listUsers = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -3203,6 +3318,7 @@ export const listUsers = /* GraphQL */ `
           __typename
         }
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -3258,6 +3374,7 @@ export const syncUsers = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3276,6 +3393,7 @@ export const syncUsers = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3298,6 +3416,7 @@ export const syncUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3320,6 +3439,7 @@ export const syncUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3335,6 +3455,7 @@ export const syncUsers = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -3356,6 +3477,7 @@ export const syncUsers = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3374,6 +3496,7 @@ export const syncUsers = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3396,6 +3519,7 @@ export const syncUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3418,6 +3542,7 @@ export const syncUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3433,6 +3558,7 @@ export const syncUsers = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -3465,6 +3591,7 @@ export const syncUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3504,6 +3631,7 @@ export const syncUsers = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3526,6 +3654,7 @@ export const syncUsers = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3545,6 +3674,7 @@ export const syncUsers = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3571,6 +3701,7 @@ export const syncUsers = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3591,6 +3722,7 @@ export const syncUsers = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -3598,6 +3730,7 @@ export const syncUsers = /* GraphQL */ `
           __typename
         }
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -3657,6 +3790,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3675,6 +3809,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3697,6 +3832,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3719,6 +3855,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3734,6 +3871,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -3755,6 +3893,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3773,6 +3912,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3795,6 +3935,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3817,6 +3958,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3832,6 +3974,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -3864,6 +4007,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3903,6 +4047,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3925,6 +4070,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3944,6 +4090,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3970,6 +4117,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -3990,6 +4138,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -3997,6 +4146,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
           __typename
         }
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -4056,6 +4206,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4074,6 +4225,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4096,6 +4248,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4118,6 +4271,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4133,6 +4287,7 @@ export const usersByBaseAndName = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -4154,6 +4309,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4172,6 +4328,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4194,6 +4351,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4216,6 +4374,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4231,6 +4390,7 @@ export const usersByBaseAndName = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -4263,6 +4423,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4302,6 +4463,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4324,6 +4486,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4343,6 +4506,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4369,6 +4533,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4389,6 +4554,7 @@ export const usersByBaseAndName = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -4396,6 +4562,7 @@ export const usersByBaseAndName = /* GraphQL */ `
           __typename
         }
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -4449,6 +4616,7 @@ export const getCompany = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4475,6 +4643,7 @@ export const getCompany = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4539,6 +4708,7 @@ export const getCompany = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -4546,6 +4716,7 @@ export const getCompany = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -4593,6 +4764,7 @@ export const getCompany = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -4620,6 +4792,7 @@ export const getCompany = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4633,6 +4806,7 @@ export const getCompany = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -4680,6 +4854,7 @@ export const getCompany = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -4691,6 +4866,7 @@ export const getCompany = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -4738,6 +4914,7 @@ export const getCompany = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -4755,6 +4932,7 @@ export const getCompany = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4774,6 +4952,7 @@ export const getCompany = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -4823,6 +5002,7 @@ export const getCompany = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4830,6 +5010,7 @@ export const getCompany = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -4879,6 +5060,7 @@ export const getCompany = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4886,6 +5068,7 @@ export const getCompany = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -4901,6 +5084,7 @@ export const getCompany = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -4921,6 +5105,7 @@ export const getCompany = /* GraphQL */ `
       updatedAt
       logo
       base
+      read
       _version
       _deleted
       _lastChangedAt
@@ -4982,6 +5167,7 @@ export const listCompanies = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -4989,6 +5175,7 @@ export const listCompanies = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5010,6 +5197,7 @@ export const listCompanies = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5029,6 +5217,7 @@ export const listCompanies = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5050,6 +5239,7 @@ export const listCompanies = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5061,6 +5251,7 @@ export const listCompanies = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5082,6 +5273,7 @@ export const listCompanies = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5100,6 +5292,7 @@ export const listCompanies = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5122,6 +5315,7 @@ export const listCompanies = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5144,6 +5338,7 @@ export const listCompanies = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5159,6 +5354,7 @@ export const listCompanies = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5179,6 +5375,7 @@ export const listCompanies = /* GraphQL */ `
         updatedAt
         logo
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -5250,6 +5447,7 @@ export const syncCompanies = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5257,6 +5455,7 @@ export const syncCompanies = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5278,6 +5477,7 @@ export const syncCompanies = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5297,6 +5497,7 @@ export const syncCompanies = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5318,6 +5519,7 @@ export const syncCompanies = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5329,6 +5531,7 @@ export const syncCompanies = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5350,6 +5553,7 @@ export const syncCompanies = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5368,6 +5572,7 @@ export const syncCompanies = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5390,6 +5595,7 @@ export const syncCompanies = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5412,6 +5618,7 @@ export const syncCompanies = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5427,6 +5634,7 @@ export const syncCompanies = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5447,6 +5655,7 @@ export const syncCompanies = /* GraphQL */ `
         updatedAt
         logo
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -5522,6 +5731,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5529,6 +5739,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5550,6 +5761,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5569,6 +5781,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5590,6 +5803,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5601,6 +5815,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5622,6 +5837,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5640,6 +5856,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5662,6 +5879,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5684,6 +5902,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5699,6 +5918,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5719,6 +5939,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
         updatedAt
         logo
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -5782,6 +6003,7 @@ export const getVehicle = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5789,6 +6011,7 @@ export const getVehicle = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5810,6 +6033,7 @@ export const getVehicle = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5829,6 +6053,7 @@ export const getVehicle = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5850,6 +6075,7 @@ export const getVehicle = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5861,6 +6087,7 @@ export const getVehicle = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5882,6 +6109,7 @@ export const getVehicle = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5900,6 +6128,7 @@ export const getVehicle = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5922,6 +6151,7 @@ export const getVehicle = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5944,6 +6174,7 @@ export const getVehicle = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -5959,6 +6190,7 @@ export const getVehicle = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -5979,6 +6211,7 @@ export const getVehicle = /* GraphQL */ `
         updatedAt
         logo
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -6027,6 +6260,7 @@ export const getVehicle = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -6044,6 +6278,7 @@ export const getVehicle = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6063,6 +6298,7 @@ export const getVehicle = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -6112,6 +6348,7 @@ export const getVehicle = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6119,6 +6356,7 @@ export const getVehicle = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -6168,6 +6406,7 @@ export const getVehicle = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6175,6 +6414,7 @@ export const getVehicle = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -6190,6 +6430,7 @@ export const getVehicle = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -6203,6 +6444,7 @@ export const getVehicle = /* GraphQL */ `
       createdAt
       updatedAt
       base
+      read
       _version
       _deleted
       _lastChangedAt
@@ -6240,6 +6482,7 @@ export const listVehicles = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6262,6 +6505,7 @@ export const listVehicles = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6281,6 +6525,7 @@ export const listVehicles = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6307,6 +6552,7 @@ export const listVehicles = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6327,6 +6573,7 @@ export const listVehicles = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -6349,6 +6596,7 @@ export const listVehicles = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6367,6 +6615,7 @@ export const listVehicles = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6389,6 +6638,7 @@ export const listVehicles = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6411,6 +6661,7 @@ export const listVehicles = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6426,6 +6677,7 @@ export const listVehicles = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -6439,6 +6691,7 @@ export const listVehicles = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -6486,6 +6739,7 @@ export const syncVehicles = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6508,6 +6762,7 @@ export const syncVehicles = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6527,6 +6782,7 @@ export const syncVehicles = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6553,6 +6809,7 @@ export const syncVehicles = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6573,6 +6830,7 @@ export const syncVehicles = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -6595,6 +6853,7 @@ export const syncVehicles = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6613,6 +6872,7 @@ export const syncVehicles = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6635,6 +6895,7 @@ export const syncVehicles = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6657,6 +6918,7 @@ export const syncVehicles = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6672,6 +6934,7 @@ export const syncVehicles = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -6685,6 +6948,7 @@ export const syncVehicles = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -6736,6 +7000,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6758,6 +7023,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6777,6 +7043,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6803,6 +7070,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6823,6 +7091,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -6845,6 +7114,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6863,6 +7133,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6885,6 +7156,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6907,6 +7179,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -6922,6 +7195,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -6935,6 +7209,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -6986,6 +7261,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7008,6 +7284,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7027,6 +7304,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7053,6 +7331,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7073,6 +7352,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -7095,6 +7375,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7113,6 +7394,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7135,6 +7417,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7157,6 +7440,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7172,6 +7456,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -7185,6 +7470,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -7248,6 +7534,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7255,6 +7542,7 @@ export const getCert = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -7276,6 +7564,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7295,6 +7584,7 @@ export const getCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -7316,6 +7606,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7327,6 +7618,7 @@ export const getCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -7348,6 +7640,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7366,6 +7659,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7388,6 +7682,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7410,6 +7705,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7425,6 +7721,7 @@ export const getCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -7445,6 +7742,7 @@ export const getCert = /* GraphQL */ `
         updatedAt
         logo
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -7474,6 +7772,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7496,6 +7795,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7515,6 +7815,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7541,6 +7842,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7561,6 +7863,7 @@ export const getCert = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -7583,6 +7886,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7601,6 +7905,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7623,6 +7928,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7645,6 +7951,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7660,6 +7967,7 @@ export const getCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -7673,6 +7981,7 @@ export const getCert = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -7710,6 +8019,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7728,6 +8038,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7750,6 +8061,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7772,6 +8084,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7787,6 +8100,7 @@ export const getCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -7808,6 +8122,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7826,6 +8141,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7848,6 +8164,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7870,6 +8187,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7885,6 +8203,7 @@ export const getCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -7917,6 +8236,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7956,6 +8276,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7978,6 +8299,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -7997,6 +8319,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8023,6 +8346,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8043,6 +8367,7 @@ export const getCert = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -8050,6 +8375,7 @@ export const getCert = /* GraphQL */ `
           __typename
         }
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -8087,6 +8413,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8105,6 +8432,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8127,6 +8455,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8149,6 +8478,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8164,6 +8494,7 @@ export const getCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -8185,6 +8516,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8203,6 +8535,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8225,6 +8558,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8247,6 +8581,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8262,6 +8597,7 @@ export const getCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -8294,6 +8630,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8333,6 +8670,7 @@ export const getCert = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8355,6 +8693,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8374,6 +8713,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8400,6 +8740,7 @@ export const getCert = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8420,6 +8761,7 @@ export const getCert = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -8427,6 +8769,7 @@ export const getCert = /* GraphQL */ `
           __typename
         }
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -8442,6 +8785,7 @@ export const getCert = /* GraphQL */ `
       createdAt
       updatedAt
       base
+      read
       _version
       _deleted
       _lastChangedAt
@@ -8479,6 +8823,7 @@ export const listCerts = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8501,6 +8846,7 @@ export const listCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8520,6 +8866,7 @@ export const listCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8546,6 +8893,7 @@ export const listCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8566,6 +8914,7 @@ export const listCerts = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -8609,6 +8958,7 @@ export const listCerts = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -8636,6 +8986,7 @@ export const listCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8649,6 +9000,7 @@ export const listCerts = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -8691,6 +9043,7 @@ export const listCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8717,6 +9070,7 @@ export const listCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8781,6 +9135,7 @@ export const listCerts = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -8788,6 +9143,7 @@ export const listCerts = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -8830,6 +9186,7 @@ export const listCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8856,6 +9213,7 @@ export const listCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -8920,6 +9278,7 @@ export const listCerts = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -8927,6 +9286,7 @@ export const listCerts = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -8942,6 +9302,7 @@ export const listCerts = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -8989,6 +9350,7 @@ export const syncCerts = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9011,6 +9373,7 @@ export const syncCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9030,6 +9393,7 @@ export const syncCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9056,6 +9420,7 @@ export const syncCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9076,6 +9441,7 @@ export const syncCerts = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -9119,6 +9485,7 @@ export const syncCerts = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -9146,6 +9513,7 @@ export const syncCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9159,6 +9527,7 @@ export const syncCerts = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -9201,6 +9570,7 @@ export const syncCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9227,6 +9597,7 @@ export const syncCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9291,6 +9662,7 @@ export const syncCerts = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -9298,6 +9670,7 @@ export const syncCerts = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -9340,6 +9713,7 @@ export const syncCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9366,6 +9740,7 @@ export const syncCerts = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9430,6 +9805,7 @@ export const syncCerts = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -9437,6 +9813,7 @@ export const syncCerts = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -9452,6 +9829,7 @@ export const syncCerts = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -9503,6 +9881,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9525,6 +9904,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9544,6 +9924,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9570,6 +9951,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9590,6 +9972,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -9633,6 +10016,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -9660,6 +10044,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9673,6 +10058,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -9715,6 +10101,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9741,6 +10128,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9805,6 +10193,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -9812,6 +10201,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -9854,6 +10244,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9880,6 +10271,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -9944,6 +10336,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -9951,6 +10344,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -9966,6 +10360,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -10017,6 +10412,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10039,6 +10435,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10058,6 +10455,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10084,6 +10482,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10104,6 +10503,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -10147,6 +10547,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -10174,6 +10575,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10187,6 +10589,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -10229,6 +10632,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10255,6 +10659,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10319,6 +10724,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -10326,6 +10732,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -10368,6 +10775,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10394,6 +10802,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10458,6 +10867,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -10465,6 +10875,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -10480,6 +10891,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -10531,6 +10943,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10553,6 +10966,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10572,6 +10986,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10598,6 +11013,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10618,6 +11034,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -10661,6 +11078,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -10688,6 +11106,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10701,6 +11120,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -10743,6 +11163,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10769,6 +11190,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10833,6 +11255,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -10840,6 +11263,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -10882,6 +11306,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10908,6 +11333,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -10972,6 +11398,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -10979,6 +11406,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -10994,6 +11422,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -11045,6 +11474,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11067,6 +11497,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11086,6 +11517,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11112,6 +11544,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11132,6 +11565,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -11175,6 +11609,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -11202,6 +11637,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11215,6 +11651,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -11257,6 +11694,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11283,6 +11721,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11347,6 +11786,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -11354,6 +11794,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -11396,6 +11837,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11422,6 +11864,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11486,6 +11929,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -11493,6 +11937,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -11508,6 +11953,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -11559,6 +12005,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11581,6 +12028,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11600,6 +12048,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11626,6 +12075,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11646,6 +12096,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -11689,6 +12140,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -11716,6 +12168,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11729,6 +12182,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -11771,6 +12225,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11797,6 +12252,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11861,6 +12317,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -11868,6 +12325,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -11910,6 +12368,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -11936,6 +12395,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12000,6 +12460,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -12007,6 +12468,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -12022,6 +12484,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -12072,6 +12535,7 @@ export const getNotification = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12090,6 +12554,7 @@ export const getNotification = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12112,6 +12577,7 @@ export const getNotification = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12134,6 +12600,7 @@ export const getNotification = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12149,6 +12616,7 @@ export const getNotification = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -12170,6 +12638,7 @@ export const getNotification = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12188,6 +12657,7 @@ export const getNotification = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12210,6 +12680,7 @@ export const getNotification = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12232,6 +12703,7 @@ export const getNotification = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12247,6 +12719,7 @@ export const getNotification = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -12279,6 +12752,7 @@ export const getNotification = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12318,6 +12792,7 @@ export const getNotification = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12340,6 +12815,7 @@ export const getNotification = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12359,6 +12835,7 @@ export const getNotification = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12385,6 +12862,7 @@ export const getNotification = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12405,6 +12883,7 @@ export const getNotification = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -12412,6 +12891,7 @@ export const getNotification = /* GraphQL */ `
           __typename
         }
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -12477,6 +12957,7 @@ export const listNotifications = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12503,6 +12984,7 @@ export const listNotifications = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12567,6 +13049,7 @@ export const listNotifications = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -12574,6 +13057,7 @@ export const listNotifications = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -12649,6 +13133,7 @@ export const syncNotifications = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12675,6 +13160,7 @@ export const syncNotifications = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12739,6 +13225,7 @@ export const syncNotifications = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -12746,6 +13233,7 @@ export const syncNotifications = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -12825,6 +13313,7 @@ export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12851,6 +13340,7 @@ export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -12915,6 +13405,7 @@ export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -12922,6 +13413,7 @@ export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -13001,6 +13493,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13027,6 +13520,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13091,6 +13585,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
             updatedAt
             logo
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -13098,6 +13593,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
             __typename
           }
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -13170,6 +13666,7 @@ export const getClient = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13177,6 +13674,7 @@ export const getClient = /* GraphQL */ `
               __typename
             }
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -13198,6 +13696,7 @@ export const getClient = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13217,6 +13716,7 @@ export const getClient = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -13238,6 +13738,7 @@ export const getClient = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13249,6 +13750,7 @@ export const getClient = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -13270,6 +13772,7 @@ export const getClient = /* GraphQL */ `
               updatedAt
               logo
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13288,6 +13791,7 @@ export const getClient = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13310,6 +13814,7 @@ export const getClient = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13332,6 +13837,7 @@ export const getClient = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13347,6 +13853,7 @@ export const getClient = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            read
             _version
             _deleted
             _lastChangedAt
@@ -13367,6 +13874,7 @@ export const getClient = /* GraphQL */ `
         updatedAt
         logo
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -13378,6 +13886,7 @@ export const getClient = /* GraphQL */ `
       createdAt
       updatedAt
       base
+      read
       _version
       _deleted
       _lastChangedAt
@@ -13415,6 +13924,7 @@ export const listClients = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13437,6 +13947,7 @@ export const listClients = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13456,6 +13967,7 @@ export const listClients = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13482,6 +13994,7 @@ export const listClients = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13502,6 +14015,7 @@ export const listClients = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -13513,6 +14027,7 @@ export const listClients = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -13560,6 +14075,7 @@ export const syncClients = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13582,6 +14098,7 @@ export const syncClients = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13601,6 +14118,7 @@ export const syncClients = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13627,6 +14145,7 @@ export const syncClients = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13647,6 +14166,7 @@ export const syncClients = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -13658,6 +14178,7 @@ export const syncClients = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -13709,6 +14230,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13731,6 +14253,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13750,6 +14273,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13776,6 +14300,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13796,6 +14321,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -13807,6 +14333,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt
@@ -13858,6 +14385,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               companyID
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13880,6 +14408,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13899,6 +14428,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13925,6 +14455,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               createdAt
               updatedAt
               base
+              read
               _version
               _deleted
               _lastChangedAt
@@ -13945,6 +14476,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
           updatedAt
           logo
           base
+          read
           _version
           _deleted
           _lastChangedAt
@@ -13956,6 +14488,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
         createdAt
         updatedAt
         base
+        read
         _version
         _deleted
         _lastChangedAt

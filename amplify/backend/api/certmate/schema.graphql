@@ -71,6 +71,7 @@ type User @model @auth(rules: [
 	companyID: ID @index(name: "usersInCompany", sortKeyFields: ["updatedAt"])
     company: Company @belongsTo(fields: ["companyID"])
 	base: ID! @index(name: "usersInCertMate", sortKeyFields: ["name"])
+	read: [String]
 }
 
 type Company @model @auth(rules: [
@@ -92,6 +93,7 @@ type Company @model @auth(rules: [
 	updatedAt: String
 	logo: String
 	base: ID! @index(name: "companiesInCertMate", sortKeyFields: ["name"])
+	read: [String]
 }
 
 type Vehicle @model @auth(rules: [
@@ -114,6 +116,7 @@ type Vehicle @model @auth(rules: [
 	createdAt: String
 	updatedAt: String
 	base: ID! @index(name: "vehiclesInCertMate", sortKeyFields: ["updatedAt"])
+	read: [String]
 }
 
 type Cert @model @auth(rules: [
@@ -142,6 +145,7 @@ type Cert @model @auth(rules: [
 	createdAt: String
 	updatedAt: String
 	base: ID! @index(name: "certsInCertMate", sortKeyFields: ["updatedAt"])
+	read: [String]
 }
 
 type Notification @model @auth(rules: [
@@ -178,6 +182,7 @@ type Client @model @auth(rules: [
 	createdAt: String
 	updatedAt: String
 	base: ID! @index(name: "clientsInCertMate", sortKeyFields: ["updatedAt"])
+	read: [String]
 }
 
 type CertCheckList @aws_api_key @aws_cognito_user_pools @aws_iam{

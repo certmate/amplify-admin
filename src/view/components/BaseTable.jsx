@@ -90,7 +90,15 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
                 key: 'actions',
                 render: data => <Space size="large">
                     {/* TODO Format Filters to accept an array of filters */}
-                    {actions.filter(({ roles, routes, condition }) => RoleRouteFilter(roles, routes, user, pathname + search) && ConditionalFilter(condition, data)).map(({ component, fx }, key) => <a key={`action-${key}`}>{component({ data, model, form, schema, callback: async () => { await fx(); callback(); } })}</a>)}
+                    {actions.filter(({ roles, routes, condition }) => RoleRouteFilter(roles, routes, user, pathname + search) && ConditionalFilter(condition, data)).map(({ component, fx }, key) => (
+                        <a key={`action-${key}`}>
+                            {/* Render Component */}
+                            {component({ data, model, form, schema, callback: async () => { 
+                                // Check if custom fx is called and execute it on callback
+                                isFunction(fx) && await fx(); callback();  // Execute parent callback
+                            } })}
+                        </a>
+                    ))}
                 </Space>
             }
         ]

@@ -2,6 +2,7 @@ import _, { first, isFunction, last, omitBy, values } from "lodash";
 import { roles } from "./settings";
 
 export const role = user => {
+    console.log({user});
     if (!user?.cognito)
         return "user";
 

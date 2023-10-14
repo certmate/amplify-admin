@@ -7,7 +7,7 @@ import { StorageManager } from "@aws-amplify/ui-react-storage";
 import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChildNode } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
-import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get } from "lodash";
+import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get, isEmpty, isUndefined } from "lodash";
 import { getData, readData } from "../../common";
 import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
@@ -59,9 +59,13 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
          */
             let o = {}, e = entries(pick(schema, fields));
             for (let i = 0; i < e.length; i++) {
-                const [field, { formComponent: { select } }] = e[i];
+                const [field, { formComponent }] = e[i];
+                // Check if formComponent is specified
+                if(isEmpty(formComponent)){
+                    continue;
+                }
                 // Check if form is a select component and has select options specified
-
+                const { select } = formComponent;
                 if (!select?.options) {
                     continue;
                 }
@@ -172,10 +176,13 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 {isChildNode(model) && <ParentPicker model={model} parent={values.parent} onPick={(parent) => ['id', '_version', 'name', 'logo'].forEach(p => setFieldValue(`parent.${p}`, parent[p]))} />}
                 {isChildNode(model) && (!values.parent?.id || !values.parent?._version) ? <></> : <>
                     {fields.map((f, k) => {
-                        const { label, formComponent: { component }, validation } = schema[f];
-
-                        return component ? (
-                            <Field name={f} key={`form-${k}`}>
+                        const { label, formComponent, validation } = schema[f];
+                        if(isEmpty(formComponent?.component)){
+                            return null
+                        }
+                        else{
+                            const { component } = formComponent;
+                            return <Field name={f} key={`form-${k}`}>
                                 {({ field }) => (
                                     <div className="hp-mb-16">
                                         <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{label}</span>
@@ -195,7 +202,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                                     </div>
                                 )}
                             </Field>
-                        ) : null
+                        }
                     })}
                     <Form.Item>
                         <Button icon={null} type="primary" htmlType="submit" loading={isSubmitting}>

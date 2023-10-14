@@ -1,4 +1,4 @@
-import { Building, DocumentText1, Profile, Profile2User, Share, Truck } from "iconsax-react";
+import { Building, Colorfilter, DocumentText1, Profile, Profile2User, Share, Truck } from "iconsax-react";
 import { array, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
@@ -196,6 +196,31 @@ export const routes = {
                 actions: [actions.delete, actions.update]
             }
         }
+    },
+    ['/access']: {
+        title: "Access Control",
+        model: "Notification",
+        icon: <Colorfilter />,
+        form: {
+            schema: {
+                id: { label: 'id', hidden: true, formComponent: null },
+                _version: { hidden: true },
+                type: { label: 'Type of Access', validation: string().required(), formComponent: { component: 'select', select: { options: ['SHARE'] } } },
+                resourceID: { label: 'Resource', validation: string().required(), formComponent: { component: 'select', select: { options: ['@Company.id:name', '@Vehicle.id:rego', '@Cert.id:number'] } } },
+                accessLevel: { label: 'Type of Access', validation: string().required(), formComponent: { component: 'select', select: { options: ['READ', 'WRITE'] } } },
+                toUserID: { label: 'Email address of User', validation: string().required(), formComponent: { component: 'input' } },
+                // Example of custom component - used to display in table
+                to: { label: 'User', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
+            },
+            create: {
+                fields: ['type', 'resourceID', 'accessLevel', 'toUserID'],
+                button: { label: 'Provide Access' }
+            },
+            read: {
+                fields: ['id', '_version', 'type', 'resourceID', 'accessLevel', 'to.name,email'],
+                actions: [actions.delete, actions.update]
+            }
+        }
     }
 }
 
@@ -205,8 +230,7 @@ export const menu = [
         children: [`/certs?filter=all`, `/certs?filter=active`, `/certs?filter=pending`, `/certs?filter=rejected`, `/certs?filter=expired`]
     },
     {
-        node: '/companies',
-        children: ['/companies/members?filter=members', `/companies/members?filter=invitations`]
+        node: '/companies'
     },
     {
         node: '/clients'
@@ -216,5 +240,8 @@ export const menu = [
     },
     {
         node: '/fleets'
+    },
+    {
+        node: '/access'
     }
 ]

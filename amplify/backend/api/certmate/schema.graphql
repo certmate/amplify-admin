@@ -42,6 +42,7 @@ type Base @model @auth(rules: [
 	vehicles: [Vehicle] @hasMany (indexName: "vehiclesInCertMate", fields: ["id"])
 	certs: [Cert] @hasMany (indexName: "certsInCertMate", fields: ["id"])
 	notifications: [Notification] @hasMany (indexName: "notificationsInCertMate", fields: ["id"])
+	shareds: [Shared] @hasMany (indexName: "sharedsInCertMate", fields: ["id"])
 }
 
 type User @model @auth(rules: [
@@ -67,7 +68,8 @@ type User @model @auth(rules: [
 	status: String @default(value: "I") # INVITED, ACTIVE
 	driverCerts: [Cert] @hasMany(indexName: "certsOfDriver", fields: ["id"])
 	inspectorCerts: [Cert] @hasMany(indexName: "certsOfInspector", fields: ["id"])
-	notifications: [Notification] @hasMany(indexName: "notificationsOfUser", fields: ["id"])
+	notificationsFrom: [Notification] @hasMany(indexName: "notificationsFromUser", fields: ["id"])
+	notificationsTo: [Notification] @hasMany(indexName: "notificationsToUser", fields: ["id"])
 	companyID: ID @index(name: "usersInCompany", sortKeyFields: ["updatedAt"])
     company: Company @belongsTo(fields: ["companyID"])
 	base: ID! @index(name: "usersInCertMate", sortKeyFields: ["name"])
@@ -159,9 +161,14 @@ type Notification @model @auth(rules: [
 	id: ID!
 	type: String # Invitation to CertMate, Invitation to Team, Cert Shared, etc...
 	title: String
+	status: String @default(value: "P") # [P]ENDING, [A]CCEPTED, [R]EJECTED
 	body: String
-	userID: ID! @index(name: "notificationsOfUser", sortKeyFields: ["updatedAt"])
-    user: User @belongsTo(fields: ["userID"])
+	resourceID: String
+	accessLevel: String
+	fromUserID: ID! @index(name: "notificationsFromUser", sortKeyFields: ["updatedAt"])
+	from: User @belongsTo(fields: ["fromUserID"]) 
+	toUserID: ID! @index(name: "notificationsToUser", sortKeyFields: ["updatedAt"])
+	to: User @belongsTo(fields: ["toUserID"]) 
 	base: ID! @index(name: "notificationsInCertMate", sortKeyFields: ["updatedAt"])
 	createdAt: String
 	updatedAt: String
@@ -184,6 +191,22 @@ type Client @model @auth(rules: [
 	updatedAt: String
 	base: ID! @index(name: "clientsInCertMate", sortKeyFields: ["updatedAt"])
 	read: [String]
+}
+
+type Shared @model @auth(rules: [
+	{ allow: owner },
+    { allow: public },
+	{ allow: groups, groups: ["SuperAdmin"], operations: [read, create, update, delete] },
+	{ allow: groups, groups: ["Admin"], operations: [read, update] },
+	{ allow: groups, groups: ["read"], operations: [read] },
+	{ allow: private, operations: [read] }
+]){
+	id: ID!
+	model: String # One of the models being shared
+	modelID: ID!
+	base: ID! @index(name: "sharedsInCertMate", sortKeyFields: ["createdAt"])
+	write: [String] # User sharing and User accepting share
+	createdAt: String
 }
 
 type CertCheckList @aws_api_key @aws_cognito_user_pools @aws_iam{

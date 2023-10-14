@@ -81,6 +81,7 @@ type EagerBase = {
   readonly vehicles?: (Vehicle | null)[] | null;
   readonly certs?: (Cert | null)[] | null;
   readonly notifications?: (Notification | null)[] | null;
+  readonly shareds?: (Shared | null)[] | null;
   readonly updatedAt?: string | null;
 }
 
@@ -99,6 +100,7 @@ type LazyBase = {
   readonly vehicles: AsyncCollection<Vehicle>;
   readonly certs: AsyncCollection<Cert>;
   readonly notifications: AsyncCollection<Notification>;
+  readonly shareds: AsyncCollection<Shared>;
   readonly updatedAt?: string | null;
 }
 
@@ -127,7 +129,8 @@ type EagerUser = {
   readonly status?: string | null;
   readonly driverCerts?: (Cert | null)[] | null;
   readonly inspectorCerts?: (Cert | null)[] | null;
-  readonly notifications?: (Notification | null)[] | null;
+  readonly notificationsFrom?: (Notification | null)[] | null;
+  readonly notificationsTo?: (Notification | null)[] | null;
   readonly companyID?: string | null;
   readonly company?: Company | null;
   readonly base: string;
@@ -153,7 +156,8 @@ type LazyUser = {
   readonly status?: string | null;
   readonly driverCerts: AsyncCollection<Cert>;
   readonly inspectorCerts: AsyncCollection<Cert>;
-  readonly notifications: AsyncCollection<Notification>;
+  readonly notificationsFrom: AsyncCollection<Notification>;
+  readonly notificationsTo: AsyncCollection<Notification>;
   readonly companyID?: string | null;
   readonly company: AsyncItem<Company | undefined>;
   readonly base: string;
@@ -317,9 +321,14 @@ type EagerNotification = {
   readonly id: string;
   readonly type?: string | null;
   readonly title?: string | null;
+  readonly status?: string | null;
   readonly body?: string | null;
-  readonly userID: string;
-  readonly user?: User | null;
+  readonly resourceID?: string | null;
+  readonly accessLevel?: string | null;
+  readonly fromUserID: string;
+  readonly from?: User | null;
+  readonly toUserID: string;
+  readonly to?: User | null;
   readonly base: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -332,9 +341,14 @@ type LazyNotification = {
   readonly id: string;
   readonly type?: string | null;
   readonly title?: string | null;
+  readonly status?: string | null;
   readonly body?: string | null;
-  readonly userID: string;
-  readonly user: AsyncItem<User | undefined>;
+  readonly resourceID?: string | null;
+  readonly accessLevel?: string | null;
+  readonly fromUserID: string;
+  readonly from: AsyncItem<User | undefined>;
+  readonly toUserID: string;
+  readonly to: AsyncItem<User | undefined>;
   readonly base: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -380,4 +394,38 @@ export declare type Client = LazyLoading extends LazyLoadingDisabled ? EagerClie
 
 export declare const Client: (new (init: ModelInit<Client>) => Client) & {
   copyOf(source: Client, mutator: (draft: MutableModel<Client>) => MutableModel<Client> | void): Client;
+}
+
+type EagerShared = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Shared, 'id'>;
+    readOnlyFields: 'updatedAt';
+  };
+  readonly id: string;
+  readonly model?: string | null;
+  readonly modelID: string;
+  readonly base: string;
+  readonly write?: (string | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyShared = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Shared, 'id'>;
+    readOnlyFields: 'updatedAt';
+  };
+  readonly id: string;
+  readonly model?: string | null;
+  readonly modelID: string;
+  readonly base: string;
+  readonly write?: (string | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Shared = LazyLoading extends LazyLoadingDisabled ? EagerShared : LazyShared
+
+export declare const Shared: (new (init: ModelInit<Shared>) => Shared) & {
+  copyOf(source: Shared, mutator: (draft: MutableModel<Shared>) => MutableModel<Shared> | void): Shared;
 }

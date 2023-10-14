@@ -214,6 +214,22 @@ export const schema = {
                         ]
                     }
                 },
+                "shareds": {
+                    "name": "shareds",
+                    "isArray": true,
+                    "type": {
+                        "model": "Shared"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "base"
+                        ]
+                    }
+                },
                 "updatedAt": {
                     "name": "updatedAt",
                     "isArray": false,
@@ -418,8 +434,8 @@ export const schema = {
                         ]
                     }
                 },
-                "notifications": {
-                    "name": "notifications",
+                "notificationsFrom": {
+                    "name": "notificationsFrom",
                     "isArray": true,
                     "type": {
                         "model": "Notification"
@@ -430,7 +446,23 @@ export const schema = {
                     "association": {
                         "connectionType": "HAS_MANY",
                         "associatedWith": [
-                            "user"
+                            "from"
+                        ]
+                    }
+                },
+                "notificationsTo": {
+                    "name": "notificationsTo",
+                    "isArray": true,
+                    "type": {
+                        "model": "Notification"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "to"
                         ]
                     }
                 },
@@ -1347,6 +1379,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "status": {
+                    "name": "status",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "body": {
                     "name": "body",
                     "isArray": false,
@@ -1354,15 +1393,29 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "userID": {
-                    "name": "userID",
+                "resourceID": {
+                    "name": "resourceID",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "accessLevel": {
+                    "name": "accessLevel",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "fromUserID": {
+                    "name": "fromUserID",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": true,
                     "attributes": []
                 },
-                "user": {
-                    "name": "user",
+                "from": {
+                    "name": "from",
                     "isArray": false,
                     "type": {
                         "model": "User"
@@ -1372,7 +1425,29 @@ export const schema = {
                     "association": {
                         "connectionType": "BELONGS_TO",
                         "targetNames": [
-                            "userID"
+                            "fromUserID"
+                        ]
+                    }
+                },
+                "toUserID": {
+                    "name": "toUserID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "to": {
+                    "name": "to",
+                    "isArray": false,
+                    "type": {
+                        "model": "User"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetNames": [
+                            "toUserID"
                         ]
                     }
                 },
@@ -1408,9 +1483,19 @@ export const schema = {
                 {
                     "type": "key",
                     "properties": {
-                        "name": "notificationsOfUser",
+                        "name": "notificationsFromUser",
                         "fields": [
-                            "userID",
+                            "fromUserID",
+                            "updatedAt"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "notificationsToUser",
+                        "fields": [
+                            "toUserID",
                             "updatedAt"
                         ]
                     }
@@ -1665,6 +1750,151 @@ export const schema = {
                     }
                 }
             ]
+        },
+        "Shared": {
+            "name": "Shared",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "model": {
+                    "name": "model",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "modelID": {
+                    "name": "modelID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "base": {
+                    "name": "base",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "write": {
+                    "name": "write",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Shareds",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "sharedsInCertMate",
+                        "fields": [
+                            "base",
+                            "createdAt"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "provider": "userPools",
+                                "ownerField": "owner",
+                                "allow": "owner",
+                                "identityClaim": "cognito:username",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            },
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "SuperAdmin"
+                                ],
+                                "operations": [
+                                    "read",
+                                    "create",
+                                    "update",
+                                    "delete"
+                                ]
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "Admin"
+                                ],
+                                "operations": [
+                                    "read",
+                                    "update"
+                                ]
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "read"
+                                ],
+                                "operations": [
+                                    "read"
+                                ]
+                            },
+                            {
+                                "allow": "private",
+                                "operations": [
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
         }
     },
     "enums": {},
@@ -1732,5 +1962,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "574cb8a56ded9d25c62f2624ff9d1afe"
+    "version": "97e88a369212ff2914f9d36b520fa7ac"
 };

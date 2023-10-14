@@ -177,3 +177,14 @@ export const getSelectFields = async options => {
         }
     }
 }
+
+/**
+ * 
+ * @param {*} param0 
+ */
+export const shareModelWithUser = async ({ data, model, user, shareWith, accessLevel }) => {
+    /**
+     * 1.   Create notification
+     */
+    console.log('Sharing', { data, model, user, shareWith });
+}

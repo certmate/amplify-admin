@@ -133,9 +133,32 @@ export const getIndex = /* GraphQL */ `
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          shareds {
+            items {
+              id
+              model
+              modelID
+              base
+              write
               createdAt
               updatedAt
               _version
@@ -214,6 +237,11 @@ export const listIndices = /* GraphQL */ `
               startedAt
               __typename
             }
+            shareds {
+              nextToken
+              startedAt
+              __typename
+            }
             updatedAt
             _version
             _deleted
@@ -286,6 +314,11 @@ export const syncIndices = /* GraphQL */ `
               __typename
             }
             notifications {
+              nextToken
+              startedAt
+              __typename
+            }
+            shareds {
               nextToken
               startedAt
               __typename
@@ -398,13 +431,41 @@ export const getBase = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -857,7 +918,12 @@ export const getBase = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -915,7 +981,12 @@ export const getBase = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -969,9 +1040,12 @@ export const getBase = /* GraphQL */ `
           id
           type
           title
+          status
           body
-          userID
-          user {
+          resourceID
+          accessLevel
+          fromUserID
+          from {
             id
             name
             pushToken
@@ -1000,7 +1074,75 @@ export const getBase = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          toUserID
+          to {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            acnDoc
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -1029,6 +1171,25 @@ export const getBase = /* GraphQL */ `
             __typename
           }
           base
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        nextToken
+        startedAt
+        __typename
+      }
+      shareds {
+        items {
+          id
+          model
+          modelID
+          base
+          write
           createdAt
           updatedAt
           _version
@@ -1092,7 +1253,12 @@ export const listBases = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -1354,9 +1520,35 @@ export const listBases = /* GraphQL */ `
             id
             type
             title
+            status
             body
-            userID
-            user {
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
               id
               name
               pushToken
@@ -1379,6 +1571,25 @@ export const listBases = /* GraphQL */ `
               __typename
             }
             base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        shareds {
+          items {
+            id
+            model
+            modelID
+            base
+            write
             createdAt
             updatedAt
             _version
@@ -1452,7 +1663,12 @@ export const syncBases = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -1714,9 +1930,35 @@ export const syncBases = /* GraphQL */ `
             id
             type
             title
+            status
             body
-            userID
-            user {
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
               id
               name
               pushToken
@@ -1739,6 +1981,25 @@ export const syncBases = /* GraphQL */ `
               __typename
             }
             base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        shareds {
+          items {
+            id
+            model
+            modelID
+            base
+            write
             createdAt
             updatedAt
             _version
@@ -1816,7 +2077,12 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -2078,9 +2344,35 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             id
             type
             title
+            status
             body
-            userID
-            user {
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
               id
               name
               pushToken
@@ -2103,6 +2395,25 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               __typename
             }
             base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        shareds {
+          items {
+            id
+            model
+            modelID
+            base
+            write
             createdAt
             updatedAt
             _version
@@ -2261,7 +2572,12 @@ export const getUser = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -2319,7 +2635,12 @@ export const getUser = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -2480,7 +2801,12 @@ export const getUser = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -2538,7 +2864,12 @@ export const getUser = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -2587,14 +2918,17 @@ export const getUser = /* GraphQL */ `
         startedAt
         __typename
       }
-      notifications {
+      notificationsFrom {
         items {
           id
           type
           title
+          status
           body
-          userID
-          user {
+          resourceID
+          accessLevel
+          fromUserID
+          from {
             id
             name
             pushToken
@@ -2623,7 +2957,223 @@ export const getUser = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          toUserID
+          to {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            acnDoc
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        nextToken
+        startedAt
+        __typename
+      }
+      notificationsTo {
+        items {
+          id
+          type
+          title
+          status
+          body
+          resourceID
+          accessLevel
+          fromUserID
+          from {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            acnDoc
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          toUserID
+          to {
+            id
+            name
+            pushToken
+            email
+            phone
+            roles
+            acN
+            acnDoc
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -2698,7 +3248,12 @@ export const getUser = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -3171,14 +3726,108 @@ export const listUsers = /* GraphQL */ `
           startedAt
           __typename
         }
-        notifications {
+        notificationsFrom {
           items {
             id
             type
             title
+            status
             body
-            userID
-            user {
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notificationsTo {
+          items {
+            id
+            type
+            title
+            status
+            body
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
               id
               name
               pushToken
@@ -3586,14 +4235,108 @@ export const syncUsers = /* GraphQL */ `
           startedAt
           __typename
         }
-        notifications {
+        notificationsFrom {
           items {
             id
             type
             title
+            status
             body
-            userID
-            user {
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notificationsTo {
+          items {
+            id
+            type
+            title
+            status
+            body
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
               id
               name
               pushToken
@@ -4005,14 +4748,108 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
           startedAt
           __typename
         }
-        notifications {
+        notificationsFrom {
           items {
             id
             type
             title
+            status
             body
-            userID
-            user {
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notificationsTo {
+          items {
+            id
+            type
+            title
+            status
+            body
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
               id
               name
               pushToken
@@ -4424,14 +5261,108 @@ export const usersByBaseAndName = /* GraphQL */ `
           startedAt
           __typename
         }
-        notifications {
+        notificationsFrom {
           items {
             id
             type
             title
+            status
             body
-            userID
-            user {
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notificationsTo {
+          items {
+            id
+            type
+            title
+            status
+            body
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
               id
               name
               pushToken
@@ -4680,13 +5611,41 @@ export const getCompany = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -5016,7 +5975,12 @@ export const getCompany = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -5074,7 +6038,12 @@ export const getCompany = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -5182,7 +6151,12 @@ export const listCompanies = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -5463,7 +6437,12 @@ export const syncCompanies = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -5748,7 +6727,12 @@ export const companiesByBaseAndName = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -6021,7 +7005,12 @@ export const getVehicle = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -6367,7 +7356,12 @@ export const getVehicle = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -6425,7 +7419,12 @@ export const getVehicle = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -7562,7 +8561,12 @@ export const getCert = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -8260,14 +9264,108 @@ export const getCert = /* GraphQL */ `
           startedAt
           __typename
         }
-        notifications {
+        notificationsFrom {
           items {
             id
             type
             title
+            status
             body
-            userID
-            user {
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notificationsTo {
+          items {
+            id
+            type
+            title
+            status
+            body
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
               id
               name
               pushToken
@@ -8657,14 +9755,108 @@ export const getCert = /* GraphQL */ `
           startedAt
           __typename
         }
-        notifications {
+        notificationsFrom {
           items {
             id
             type
             title
+            status
             body
-            userID
-            user {
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notificationsTo {
+          items {
+            id
+            type
+            title
+            status
+            body
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
               id
               name
               pushToken
@@ -9136,13 +10328,41 @@ export const listCerts = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -9281,13 +10501,41 @@ export const listCerts = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -9670,13 +10918,41 @@ export const syncCerts = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -9815,13 +11091,41 @@ export const syncCerts = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -10208,13 +11512,41 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -10353,13 +11685,41 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -10746,13 +12106,41 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -10891,13 +12279,41 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -11284,13 +12700,41 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -11429,13 +12873,41 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -11822,13 +13294,41 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -11967,13 +13467,41 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -12360,13 +13888,41 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -12505,13 +14061,41 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -12603,9 +14187,12 @@ export const getNotification = /* GraphQL */ `
       id
       type
       title
+      status
       body
-      userID
-      user {
+      resourceID
+      accessLevel
+      fromUserID
+      from {
         id
         name
         pushToken
@@ -12832,14 +14419,599 @@ export const getNotification = /* GraphQL */ `
           startedAt
           __typename
         }
-        notifications {
+        notificationsFrom {
           items {
             id
             type
             title
+            status
             body
-            userID
-            user {
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notificationsTo {
+          items {
+            id
+            type
+            title
+            status
+            body
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        companyID
+        company {
+          id
+          name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          clients {
+            items {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          createdAt
+          updatedAt
+          logo
+          base
+          read
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        base
+        read
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      toUserID
+      to {
+        id
+        name
+        pushToken
+        email
+        phone
+        roles
+        acN
+        acnDoc
+        createdAt
+        updatedAt
+        favouriteCerts
+        fleets {
+          id
+          name
+          vehicles
+          __typename
+        }
+        status
+        driverCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            number
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        inspectorCerts {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            number
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            status
+            createdAt
+            updatedAt
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notificationsFrom {
+          items {
+            id
+            type
+            title
+            status
+            body
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        notificationsTo {
+          items {
+            id
+            type
+            title
+            status
+            body
+            resourceID
+            accessLevel
+            fromUserID
+            from {
+              id
+              name
+              pushToken
+              email
+              phone
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            toUserID
+            to {
               id
               name
               pushToken
@@ -13023,9 +15195,12 @@ export const listNotifications = /* GraphQL */ `
         id
         type
         title
+        status
         body
-        userID
-        user {
+        resourceID
+        accessLevel
+        fromUserID
+        from {
           id
           name
           pushToken
@@ -13100,13 +15275,214 @@ export const listNotifications = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            clients {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
+          read
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        toUserID
+        to {
+          id
+          name
+          pushToken
+          email
+          phone
+          roles
+          acN
+          acnDoc
+          createdAt
+          updatedAt
+          favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsFrom {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -13201,9 +15577,12 @@ export const syncNotifications = /* GraphQL */ `
         id
         type
         title
+        status
         body
-        userID
-        user {
+        resourceID
+        accessLevel
+        fromUserID
+        from {
           id
           name
           pushToken
@@ -13278,13 +15657,214 @@ export const syncNotifications = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            clients {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
+          read
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        toUserID
+        to {
+          id
+          name
+          pushToken
+          email
+          phone
+          roles
+          acN
+          acnDoc
+          createdAt
+          updatedAt
+          favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsFrom {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -13362,17 +15942,17 @@ export const syncNotifications = /* GraphQL */ `
     }
   }
 `;
-export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
-  query NotificationsByUserIDAndUpdatedAt(
-    $userID: ID!
+export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
+  query NotificationsByFromUserIDAndUpdatedAt(
+    $fromUserID: ID!
     $updatedAt: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelNotificationFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    notificationsByUserIDAndUpdatedAt(
-      userID: $userID
+    notificationsByFromUserIDAndUpdatedAt(
+      fromUserID: $fromUserID
       updatedAt: $updatedAt
       sortDirection: $sortDirection
       filter: $filter
@@ -13383,9 +15963,12 @@ export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
         id
         type
         title
+        status
         body
-        userID
-        user {
+        resourceID
+        accessLevel
+        fromUserID
+        from {
           id
           name
           pushToken
@@ -13460,13 +16043,600 @@ export const notificationsByUserIDAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            clients {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
+          read
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        toUserID
+        to {
+          id
+          name
+          pushToken
+          email
+          phone
+          roles
+          acN
+          acnDoc
+          createdAt
+          updatedAt
+          favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsFrom {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            clients {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
+          read
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        base
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+  }
+`;
+export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
+  query NotificationsByToUserIDAndUpdatedAt(
+    $toUserID: ID!
+    $updatedAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelNotificationFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    notificationsByToUserIDAndUpdatedAt(
+      toUserID: $toUserID
+      updatedAt: $updatedAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        type
+        title
+        status
+        body
+        resourceID
+        accessLevel
+        fromUserID
+        from {
+          id
+          name
+          pushToken
+          email
+          phone
+          roles
+          acN
+          acnDoc
+          createdAt
+          updatedAt
+          favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsFrom {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            clients {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
+          read
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        toUserID
+        to {
+          id
+          name
+          pushToken
+          email
+          phone
+          roles
+          acN
+          acnDoc
+          createdAt
+          updatedAt
+          favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsFrom {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -13565,9 +16735,12 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
         id
         type
         title
+        status
         body
-        userID
-        user {
+        resourceID
+        accessLevel
+        fromUserID
+        from {
           id
           name
           pushToken
@@ -13642,13 +16815,214 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
             startedAt
             __typename
           }
-          notifications {
+          notificationsFrom {
             items {
               id
               type
               title
+              status
               body
-              userID
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            clients {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            read
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          base
+          read
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        toUserID
+        to {
+          id
+          name
+          pushToken
+          email
+          phone
+          roles
+          acN
+          acnDoc
+          createdAt
+          updatedAt
+          favouriteCerts
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          status
+          driverCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          inspectorCerts {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              status
+              createdAt
+              updatedAt
+              base
+              read
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsFrom {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
+              base
+              createdAt
+              updatedAt
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          notificationsTo {
+            items {
+              id
+              type
+              title
+              status
+              body
+              resourceID
+              accessLevel
+              fromUserID
+              toUserID
               base
               createdAt
               updatedAt
@@ -13764,7 +17138,12 @@ export const getClient = /* GraphQL */ `
               startedAt
               __typename
             }
-            notifications {
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
               nextToken
               startedAt
               __typename
@@ -14605,6 +17984,121 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
         updatedAt
         base
         read
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+  }
+`;
+export const getShared = /* GraphQL */ `
+  query GetShared($id: ID!) {
+    getShared(id: $id) {
+      id
+      model
+      modelID
+      base
+      write
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+  }
+`;
+export const listShareds = /* GraphQL */ `
+  query ListShareds(
+    $filter: ModelSharedFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listShareds(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        model
+        modelID
+        base
+        write
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+  }
+`;
+export const syncShareds = /* GraphQL */ `
+  query SyncShareds(
+    $filter: ModelSharedFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncShareds(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        model
+        modelID
+        base
+        write
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+  }
+`;
+export const sharedsByBaseAndCreatedAt = /* GraphQL */ `
+  query SharedsByBaseAndCreatedAt(
+    $base: ID!
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelSharedFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    sharedsByBaseAndCreatedAt(
+      base: $base
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        model
+        modelID
+        base
+        write
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt

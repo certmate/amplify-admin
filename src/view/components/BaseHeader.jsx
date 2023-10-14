@@ -1,6 +1,6 @@
 import { Row, Col, Button, Space, Modal, Card } from "antd";
 import { AddCircle } from "iconsax-react";
-import { isEmpty, startCase } from "lodash";
+import { get, isEmpty, startCase } from "lodash";
 import Filters from "./Filters";
 import { useState } from "react";
 import BaseForm from "./BaseForm";
@@ -25,7 +25,7 @@ export default function BaseHeader({ title, model, form, filters, createCallback
                     {!isEmpty(form?.create?.fields) && RoleRouteFilter(null, form?.create?.routes, user, pathname + search) && <>
                         <Button type="primary" onClick={() => setShowModal(true)}>
                             <AddCircle set="curved" size={18} style={{ marginRight: 12 }} />
-                            <span>Create {title}</span>
+                            <span>{get(form, 'create.button.label', `Create ${title}`)}</span>
                         </Button>
                     </>}
                 </Space>

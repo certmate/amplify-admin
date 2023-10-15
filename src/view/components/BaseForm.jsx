@@ -146,7 +146,16 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 }
                 else {
                     query = mutations[`${formIs}${model}`];
-                    payload = { ...values, base: user.appsync.base, ...(isEqual(formIs, 'update') ? { id: formValues.id, _version: formValues._version } : {}) };
+                    payload = {  ...values,  base: user.appsync.base };
+                    
+                    if(isEqual(formIs, 'update')){
+                        payload.id = formValues.id;
+                        payload._version = formValues._version;
+                    }
+                    else{
+                        schema.id.createValue && (payload.id = values[schema.id.createValue]);
+                        schema.id.write && (payload.write = [payload.id]);
+                    }
                 }
 
                 // console.log({ query, payload, formValues }); return;
@@ -211,7 +220,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         </Button>
                     </Form.Item>
                 </>}
-                <pre>{JSON.stringify({ values, errors, initialValues, }, false, 4)}</pre>
+                {/* <pre>{JSON.stringify({ values, errors, initialValues, schema }, false, 4)}</pre> */}
 
             </Form>
         </>)}

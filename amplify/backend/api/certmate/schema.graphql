@@ -48,10 +48,7 @@ type Base @model @auth(rules: [
 type User @model @auth(rules: [
 	{ allow: owner },
     { allow: public },
-	{ allow: groups, groups: ["SuperAdmin"], operations: [read, create, update, delete] },
-	{ allow: groups, groups: ["Admin"], operations: [read, update] },
-	{ allow: groups, groups: ["read"], operations: [read] },
-    { allow: groups, groups: ["write"], operations: [update, delete] }
+    { allow: groups, groupsField: "write", operations: [read, update, delete] }
 ]){
 	id: ID!
 	name: String
@@ -74,6 +71,8 @@ type User @model @auth(rules: [
     company: Company @belongsTo(fields: ["companyID"])
 	base: ID! @index(name: "usersInCertMate", sortKeyFields: ["name"])
 	read: [String]
+	write: [String]
+	owner: String
 }
 
 type Company @model @auth(rules: [

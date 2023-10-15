@@ -135,6 +135,8 @@ type EagerUser = {
   readonly company?: Company | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
+  readonly write?: (string | null)[] | null;
+  readonly owner?: string | null;
 }
 
 type LazyUser = {
@@ -162,6 +164,8 @@ type LazyUser = {
   readonly company: AsyncItem<Company | undefined>;
   readonly base: string;
   readonly read?: (string | null)[] | null;
+  readonly write?: (string | null)[] | null;
+  readonly owner?: string | null;
 }
 
 export declare type User = LazyLoading extends LazyLoadingDisabled ? EagerUser : LazyUser

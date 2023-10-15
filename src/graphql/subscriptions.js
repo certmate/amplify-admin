@@ -31,10 +31,11 @@ export const onCreateIndex = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -225,10 +226,11 @@ export const onUpdateIndex = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -419,10 +421,11 @@ export const onDeleteIndex = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -760,10 +763,11 @@ export const onCreateBase = /* GraphQL */ `
           }
           base
           read
+          write
+          owner
           _version
           _deleted
           _lastChangedAt
-          owner
           __typename
         }
         nextToken
@@ -791,10 +795,11 @@ export const onCreateBase = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -1183,10 +1188,11 @@ export const onCreateBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -1246,10 +1252,11 @@ export const onCreateBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -1339,10 +1346,11 @@ export const onCreateBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           toUserID
@@ -1402,10 +1410,11 @@ export const onCreateBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           base
@@ -1626,10 +1635,11 @@ export const onUpdateBase = /* GraphQL */ `
           }
           base
           read
+          write
+          owner
           _version
           _deleted
           _lastChangedAt
-          owner
           __typename
         }
         nextToken
@@ -1657,10 +1667,11 @@ export const onUpdateBase = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -2049,10 +2060,11 @@ export const onUpdateBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -2112,10 +2124,11 @@ export const onUpdateBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -2205,10 +2218,11 @@ export const onUpdateBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           toUserID
@@ -2268,10 +2282,11 @@ export const onUpdateBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           base
@@ -2492,10 +2507,11 @@ export const onDeleteBase = /* GraphQL */ `
           }
           base
           read
+          write
+          owner
           _version
           _deleted
           _lastChangedAt
-          owner
           __typename
         }
         nextToken
@@ -2523,10 +2539,11 @@ export const onDeleteBase = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -2915,10 +2932,11 @@ export const onDeleteBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -2978,10 +2996,11 @@ export const onDeleteBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -3071,10 +3090,11 @@ export const onDeleteBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           toUserID
@@ -3134,10 +3154,11 @@ export const onDeleteBase = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           base
@@ -3344,10 +3365,11 @@ export const onCreateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -3407,10 +3429,11 @@ export const onCreateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -3573,10 +3596,11 @@ export const onCreateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -3636,10 +3660,11 @@ export const onCreateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -3729,10 +3754,11 @@ export const onCreateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           toUserID
@@ -3792,10 +3818,11 @@ export const onCreateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           base
@@ -3877,10 +3904,11 @@ export const onCreateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           toUserID
@@ -3940,10 +3968,11 @@ export const onCreateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           base
@@ -4020,10 +4049,11 @@ export const onCreateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -4160,10 +4190,11 @@ export const onCreateUser = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -4183,10 +4214,11 @@ export const onCreateUser = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -4229,10 +4261,11 @@ export const onCreateUser = /* GraphQL */ `
       }
       base
       read
+      write
+      owner
       _version
       _deleted
       _lastChangedAt
-      owner
       __typename
     }
   }
@@ -4400,10 +4433,11 @@ export const onUpdateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -4463,10 +4497,11 @@ export const onUpdateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -4629,10 +4664,11 @@ export const onUpdateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -4692,10 +4728,11 @@ export const onUpdateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -4785,10 +4822,11 @@ export const onUpdateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           toUserID
@@ -4848,10 +4886,11 @@ export const onUpdateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           base
@@ -4933,10 +4972,11 @@ export const onUpdateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           toUserID
@@ -4996,10 +5036,11 @@ export const onUpdateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           base
@@ -5076,10 +5117,11 @@ export const onUpdateUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -5216,10 +5258,11 @@ export const onUpdateUser = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -5239,10 +5282,11 @@ export const onUpdateUser = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -5285,10 +5329,11 @@ export const onUpdateUser = /* GraphQL */ `
       }
       base
       read
+      write
+      owner
       _version
       _deleted
       _lastChangedAt
-      owner
       __typename
     }
   }
@@ -5456,10 +5501,11 @@ export const onDeleteUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -5519,10 +5565,11 @@ export const onDeleteUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -5685,10 +5732,11 @@ export const onDeleteUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -5748,10 +5796,11 @@ export const onDeleteUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -5841,10 +5890,11 @@ export const onDeleteUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           toUserID
@@ -5904,10 +5954,11 @@ export const onDeleteUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           base
@@ -5989,10 +6040,11 @@ export const onDeleteUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           toUserID
@@ -6052,10 +6104,11 @@ export const onDeleteUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           base
@@ -6132,10 +6185,11 @@ export const onDeleteUser = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -6272,10 +6326,11 @@ export const onDeleteUser = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -6295,10 +6350,11 @@ export const onDeleteUser = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -6341,10 +6397,11 @@ export const onDeleteUser = /* GraphQL */ `
       }
       base
       read
+      write
+      owner
       _version
       _deleted
       _lastChangedAt
-      owner
       __typename
     }
   }
@@ -6524,10 +6581,11 @@ export const onCreateCompany = /* GraphQL */ `
           }
           base
           read
+          write
+          owner
           _version
           _deleted
           _lastChangedAt
-          owner
           __typename
         }
         nextToken
@@ -6824,10 +6882,11 @@ export const onCreateCompany = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -6887,10 +6946,11 @@ export const onCreateCompany = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -7108,10 +7168,11 @@ export const onUpdateCompany = /* GraphQL */ `
           }
           base
           read
+          write
+          owner
           _version
           _deleted
           _lastChangedAt
-          owner
           __typename
         }
         nextToken
@@ -7408,10 +7469,11 @@ export const onUpdateCompany = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -7471,10 +7533,11 @@ export const onUpdateCompany = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -7692,10 +7755,11 @@ export const onDeleteCompany = /* GraphQL */ `
           }
           base
           read
+          write
+          owner
           _version
           _deleted
           _lastChangedAt
-          owner
           __typename
         }
         nextToken
@@ -7992,10 +8056,11 @@ export const onDeleteCompany = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -8055,10 +8120,11 @@ export const onDeleteCompany = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -8169,10 +8235,11 @@ export const onCreateVehicle = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -8309,10 +8376,11 @@ export const onCreateVehicle = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -8332,10 +8400,11 @@ export const onCreateVehicle = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -8520,10 +8589,11 @@ export const onCreateVehicle = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -8583,10 +8653,11 @@ export const onCreateVehicle = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -8690,10 +8761,11 @@ export const onUpdateVehicle = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -8830,10 +8902,11 @@ export const onUpdateVehicle = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -8853,10 +8926,11 @@ export const onUpdateVehicle = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -9041,10 +9115,11 @@ export const onUpdateVehicle = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -9104,10 +9179,11 @@ export const onUpdateVehicle = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -9211,10 +9287,11 @@ export const onDeleteVehicle = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -9351,10 +9428,11 @@ export const onDeleteVehicle = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -9374,10 +9452,11 @@ export const onDeleteVehicle = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -9562,10 +9641,11 @@ export const onDeleteVehicle = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           inspectorID
@@ -9625,10 +9705,11 @@ export const onDeleteVehicle = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           number
@@ -9732,10 +9813,11 @@ export const onCreateCert = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -9872,10 +9954,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -9895,10 +9978,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -9963,10 +10047,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -10120,10 +10205,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -10143,10 +10229,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -10254,10 +10341,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -10277,10 +10365,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -10358,10 +10447,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -10381,10 +10471,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -10434,10 +10525,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -10457,10 +10549,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -10502,10 +10595,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -10525,10 +10619,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -10565,10 +10660,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -10665,10 +10761,11 @@ export const onCreateCert = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       inspectorID
@@ -10745,10 +10842,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -10768,10 +10866,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -10849,10 +10948,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -10872,10 +10972,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -10925,10 +11026,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -10948,10 +11050,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -10993,10 +11096,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -11016,10 +11120,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -11056,10 +11161,11 @@ export const onCreateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -11156,10 +11262,11 @@ export const onCreateCert = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       number
@@ -11249,10 +11356,11 @@ export const onUpdateCert = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -11389,10 +11497,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -11412,10 +11521,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -11480,10 +11590,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -11637,10 +11748,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -11660,10 +11772,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -11771,10 +11884,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -11794,10 +11908,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -11875,10 +11990,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -11898,10 +12014,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -11951,10 +12068,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -11974,10 +12092,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -12019,10 +12138,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -12042,10 +12162,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -12082,10 +12203,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -12182,10 +12304,11 @@ export const onUpdateCert = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       inspectorID
@@ -12262,10 +12385,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -12285,10 +12409,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -12366,10 +12491,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -12389,10 +12515,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -12442,10 +12569,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -12465,10 +12593,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -12510,10 +12639,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -12533,10 +12663,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -12573,10 +12704,11 @@ export const onUpdateCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -12673,10 +12805,11 @@ export const onUpdateCert = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       number
@@ -12766,10 +12899,11 @@ export const onDeleteCert = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -12906,10 +13040,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -12929,10 +13064,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -12997,10 +13133,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -13154,10 +13291,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -13177,10 +13315,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -13288,10 +13427,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -13311,10 +13451,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -13392,10 +13533,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -13415,10 +13557,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -13468,10 +13611,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -13491,10 +13635,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -13536,10 +13681,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -13559,10 +13705,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -13599,10 +13746,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -13699,10 +13847,11 @@ export const onDeleteCert = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       inspectorID
@@ -13779,10 +13928,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -13802,10 +13952,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -13883,10 +14034,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -13906,10 +14058,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -13959,10 +14112,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -13982,10 +14136,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -14027,10 +14182,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -14050,10 +14206,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -14090,10 +14247,11 @@ export const onDeleteCert = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -14190,10 +14348,11 @@ export const onDeleteCert = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       number
@@ -14302,10 +14461,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -14325,10 +14485,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -14406,10 +14567,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -14429,10 +14591,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -14482,10 +14645,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -14505,10 +14669,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -14550,10 +14715,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -14573,10 +14739,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -14613,10 +14780,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -14713,10 +14881,11 @@ export const onCreateNotification = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       toUserID
@@ -14793,10 +14962,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -14816,10 +14986,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -14897,10 +15068,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -14920,10 +15092,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -14973,10 +15146,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -14996,10 +15170,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -15041,10 +15216,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -15064,10 +15240,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -15104,10 +15281,11 @@ export const onCreateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -15204,10 +15382,11 @@ export const onCreateNotification = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       base
@@ -15308,10 +15487,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -15331,10 +15511,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -15412,10 +15593,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -15435,10 +15617,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -15488,10 +15671,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -15511,10 +15695,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -15556,10 +15741,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -15579,10 +15765,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -15619,10 +15806,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -15719,10 +15907,11 @@ export const onUpdateNotification = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       toUserID
@@ -15799,10 +15988,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -15822,10 +16012,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -15903,10 +16094,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -15926,10 +16118,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -15979,10 +16172,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -16002,10 +16196,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -16047,10 +16242,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -16070,10 +16266,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -16110,10 +16307,11 @@ export const onUpdateNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -16210,10 +16408,11 @@ export const onUpdateNotification = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       base
@@ -16314,10 +16513,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -16337,10 +16537,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -16418,10 +16619,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -16441,10 +16643,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -16494,10 +16697,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -16517,10 +16721,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -16562,10 +16767,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -16585,10 +16791,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -16625,10 +16832,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -16725,10 +16933,11 @@ export const onDeleteNotification = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       toUserID
@@ -16805,10 +17014,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -16828,10 +17038,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -16909,10 +17120,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -16932,10 +17144,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -16985,10 +17198,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -17008,10 +17222,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -17053,10 +17268,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             toUserID
@@ -17076,10 +17292,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             base
@@ -17116,10 +17333,11 @@ export const onDeleteNotification = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             nextToken
@@ -17216,10 +17434,11 @@ export const onDeleteNotification = /* GraphQL */ `
         }
         base
         read
+        write
+        owner
         _version
         _deleted
         _lastChangedAt
-        owner
         __typename
       }
       base
@@ -17301,10 +17520,11 @@ export const onCreateClient = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -17441,10 +17661,11 @@ export const onCreateClient = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -17464,10 +17685,11 @@ export const onCreateClient = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -17590,10 +17812,11 @@ export const onUpdateClient = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -17730,10 +17953,11 @@ export const onUpdateClient = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -17753,10 +17977,11 @@ export const onUpdateClient = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number
@@ -17879,10 +18104,11 @@ export const onDeleteClient = /* GraphQL */ `
             }
             base
             read
+            write
+            owner
             _version
             _deleted
             _lastChangedAt
-            owner
             __typename
           }
           nextToken
@@ -18019,10 +18245,11 @@ export const onDeleteClient = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             inspectorID
@@ -18042,10 +18269,11 @@ export const onDeleteClient = /* GraphQL */ `
               companyID
               base
               read
+              write
+              owner
               _version
               _deleted
               _lastChangedAt
-              owner
               __typename
             }
             number

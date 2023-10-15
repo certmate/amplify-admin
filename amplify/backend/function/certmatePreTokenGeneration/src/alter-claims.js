@@ -1,6 +1,8 @@
 /**
  * @type {import('@types/aws-lambda').PreTokenGenerationTriggerHandler}
  */
+const axios = require('axios');
+
 exports.handler = async event => {
 
   let groups = event.request.groupConfiguration.groupsToOverride;
@@ -8,29 +10,29 @@ exports.handler = async event => {
   groups.push(event.request.userAttributes.sub);
 
   try{
-    const { data } = await axios.post(process.env.GRAPHQL_API_ENDPOINT, {
-      query: `query GetUserRoles($user: ID!){ getUser(id: $user){ roles } }`,
+    const { data: { data: { getUser } } } = await axios.post(process.env.GRAPHQL_API_ENDPOINT, {
+      query: `query GetUserRoles($user: ID!){ getUser(id: $user){ roles \n base\n } }`,
       variables: {
-        user: event.request.userAttributes.sub
+        user: event.request.userAttributes.email
       }
     }, {
       headers: { "x-api-key": process.env.GRAPHQL_API_KEY }
     });
 
-    console.log(JSON.stringify(data));
+    console.log(JSON.stringify({getUser}));
 
-    data.data.getUser?.roles?.forEach(r => groups.push(r));
+    // Adding roles to user
+    getUser?.roles?.forEach(r => groups.push(r));
+    // Adding base to user
+    getUser?.base && groups.push(getUser.base);
   }
   catch(e){
     console.log(JSON.stringify(e));
   }
 
+  console.log({groups});
   event.response = {
     claimsOverrideDetails: {
-      claimsToAddOrOverride: {
-        attribute_key1: 'attribute_value1_2',
-        attribute_key2: 'attribute_value2_2',
-      },
       groupOverrideDetails: {
         groupsToOverride: groups,
       }

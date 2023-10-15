@@ -502,6 +502,21 @@ export const schema = {
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
+                },
+                "write": {
+                    "name": "write",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "owner": {
+                    "name": "owner",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
                 }
             },
             "syncable": true,
@@ -560,50 +575,13 @@ export const schema = {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
                                 "allow": "groups",
-                                "groups": [
-                                    "SuperAdmin"
-                                ],
+                                "groupsField": "write",
                                 "operations": [
                                     "read",
-                                    "create",
                                     "update",
                                     "delete"
-                                ]
-                            },
-                            {
-                                "groupClaim": "cognito:groups",
-                                "provider": "userPools",
-                                "allow": "groups",
-                                "groups": [
-                                    "Admin"
                                 ],
-                                "operations": [
-                                    "read",
-                                    "update"
-                                ]
-                            },
-                            {
-                                "groupClaim": "cognito:groups",
-                                "provider": "userPools",
-                                "allow": "groups",
-                                "groups": [
-                                    "read"
-                                ],
-                                "operations": [
-                                    "read"
-                                ]
-                            },
-                            {
-                                "groupClaim": "cognito:groups",
-                                "provider": "userPools",
-                                "allow": "groups",
-                                "groups": [
-                                    "write"
-                                ],
-                                "operations": [
-                                    "update",
-                                    "delete"
-                                ]
+                                "groupField": "groups"
                             }
                         ]
                     }
@@ -1962,5 +1940,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "97e88a369212ff2914f9d36b520fa7ac"
+    "version": "d76dadfba6144ef97e5470ac04fdc410"
 };

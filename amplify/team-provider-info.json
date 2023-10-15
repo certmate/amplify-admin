@@ -32,7 +32,7 @@
         },
         "certmatePreTokenGeneration": {
           "deploymentBucketName": "amplify-certmate-dev-153406-deployment",
-          "s3Key": "amplify-builds/certmatePreTokenGeneration-316c344573684c2f686a-build.zip"
+          "s3Key": "amplify-builds/certmatePreTokenGeneration-71594933347548766f51-build.zip"
         },
         "AdminQueries1a858048": {
           "deploymentBucketName": "amplify-certmate-dev-153406-deployment",

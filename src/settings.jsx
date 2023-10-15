@@ -97,7 +97,7 @@ export const routes = {
         },
         form: {
             schema: {
-                id: { label: 'id', hidden: true, formComponent: null },
+                id: { label: 'id', hidden: true, formComponent: null, createValue: 'email', write: true },
                 _version: { hidden: true },
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
                 email: { label: 'Email', validation: string().email().required(), formComponent: { component: 'input' } },
@@ -110,7 +110,7 @@ export const routes = {
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
-                routes: ['/companies/members?filter=invitations'],
+                routes: ['/companies/members?filter=members'],
                 fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID']
             },
             read: {
@@ -242,7 +242,8 @@ export const menu = [
         children: [`/certs?filter=all`, `/certs?filter=active`, `/certs?filter=pending`, `/certs?filter=rejected`, `/certs?filter=expired`]
     },
     {
-        node: '/companies'
+        node: '/companies',
+        children: ['/companies/members?filter=members', `/companies/members?filter=invitations`]
     },
     {
         node: '/clients'
@@ -252,8 +253,5 @@ export const menu = [
     },
     {
         node: '/fleets'
-    },
-    {
-        node: '/access'
     }
 ]

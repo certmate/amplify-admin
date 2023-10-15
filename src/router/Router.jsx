@@ -31,7 +31,7 @@ export default function Router() {
 			try {
 				return await API.graphql(
 					graphqlOperation(getUser, {
-						id: cognitoUser.username,
+						id: cognitoUser.attributes.email,
 					})
 				);
 			}
@@ -48,7 +48,7 @@ export default function Router() {
 				await API.graphql(
 					graphqlOperation(createUserAndBase, {
 						user: {
-							id: cognitoUser.username,
+							id: cognitoUser.attributes.email,
 							email: cognitoUser.attributes.email,
                             base: base
 						},

@@ -56,6 +56,9 @@ export const routes = {
         },
         notificationFilter: {
             status: { eq: 'P' }
+        },
+        share: {
+            fields: 'number'
         }
     },
     ['/companies']: {
@@ -79,6 +82,9 @@ export const routes = {
                 fields: ['id', '_version', 'name', 'logo'],
                 actions: [actions.delete]
             }
+        },
+        share: {
+            fields: 'make,model,rego'
         }
     },
     ['/companies/members']: {
@@ -140,6 +146,9 @@ export const routes = {
                 fields: ['id', 'name', 'logo', '_version', 'company.id,name,logo'],
                 actions: [actions.delete, actions.update]
             }
+        },
+        share: {
+            fields: 'name,logo'
         }
     },
     ['/vehicles']: {
@@ -167,6 +176,9 @@ export const routes = {
                 fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo'],
                 actions: [actions.delete, actions.update]
             }
+        },
+        share: {
+            fields: 'make,model,rego'
         }
     },
     ['/fleets']: {
@@ -206,7 +218,7 @@ export const routes = {
                 id: { label: 'id', hidden: true, formComponent: null },
                 _version: { hidden: true },
                 type: { label: 'Type of Access', validation: string().required(), formComponent: { component: 'select', select: { options: ['SHARE'] } } },
-                resourceID: { label: 'Resource', validation: string().required(), formComponent: { component: 'select', select: { options: ['@Company.id:name', '@Vehicle.id:rego', '@Cert.id:number'] } } },
+                resourceID: { label: 'Resource', validation: string().required(), formComponent: { component: (data, record) => <CustomComponent.ShareResourceSelector {...data} /> } },
                 accessLevel: { label: 'Type of Access', validation: string().required(), formComponent: { component: 'select', select: { options: ['READ', 'WRITE'] } } },
                 toUserID: { label: 'Email address of User', validation: string().required(), formComponent: { component: 'input' } },
                 // Example of custom component - used to display in table

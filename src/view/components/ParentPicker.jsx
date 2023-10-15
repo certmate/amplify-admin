@@ -1,13 +1,8 @@
-import { Button, Input, List, Select, Space } from "antd";
+import { Space } from "antd";
 import { useEffect, useMemo, useState } from "react";
-import { Formik } from "formik";
-import { object } from "yup";
-import { Form } from 'antd';
-import { StorageImage, StorageManager } from "@aws-amplify/ui-react-storage";
-import { cleanNull, getModelRouteFields, getParentModel } from "../../helpers";
-import { v4 } from "uuid";
+import { StorageImage } from "@aws-amplify/ui-react-storage";
+import { getModelRouteFields, getParentModel } from "../../helpers";
 import { useSelector } from "react-redux";
-import { entries, isArray, pick } from "lodash";
 import { readData } from "../../common";
 import { routes } from "../../settings";
 import Title from "antd/lib/typography/Title";
@@ -27,6 +22,8 @@ export default function ParentPicker({ model, onPick, parent }) {
 
     useEffect(() => {
         (async () => setParents(await readData({ user, model: parentModel, fields: getModelRouteFields({ routes, model: parentModel, fieldType: 'read' }) })))()
+
+        return () => setSelectedParent(null);
     }, [model]);
 
     return <Space direction="vertical" style={{marginBottom: 20}}>

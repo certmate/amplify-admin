@@ -7,7 +7,7 @@ import { StorageManager } from "@aws-amplify/ui-react-storage";
 import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChildNode } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
-import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get, isEmpty, isUndefined } from "lodash";
+import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get, isEmpty, isUndefined, isFunction } from "lodash";
 import { getData, readData } from "../../common";
 import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
@@ -61,7 +61,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
             for (let i = 0; i < e.length; i++) {
                 const [field, { formComponent }] = e[i];
                 // Check if formComponent is specified
-                if(isEmpty(formComponent)){
+                if (isEmpty(formComponent)) {
                     continue;
                 }
                 // Check if form is a select component and has select options specified
@@ -177,10 +177,10 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 {isChildNode(model) && (!values.parent?.id || !values.parent?._version) ? <></> : <>
                     {fields.map((f, k) => {
                         const { label, formComponent, validation } = schema[f];
-                        if(isEmpty(formComponent?.component)){
+                        if (isUndefined(formComponent?.component)) {
                             return null
                         }
-                        else{
+                        else {
                             const { component } = formComponent;
                             return <Field name={f} key={`form-${k}`}>
                                 {({ field }) => (
@@ -196,7 +196,8 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                                                         validation?.type === 'array' ? <Select {...field} mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
                                                             : <Select {...field} onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
                                                     )
-                                                        : null
+                                                        : isFunction(component) ? component({ field, setFieldValue, isSubmitting })
+                                                            : null
                                         }
                                         <ErrorMessage name={f} render={m => <span className="hp-text-color-danger-1">{m}</span>} />
                                     </div>

@@ -4,6 +4,7 @@ import Vehicle from "./Vehicle";
 import User from "./User";
 import CertStatus from "./CertStatus";
 import FleetName from "./FleetName";
+import ShareResourceSelector from "./ShareResourceSelector";
 
 export {
     Company,
@@ -11,5 +12,6 @@ export {
     Vehicle,
     User,
     CertStatus,
-    FleetName
+    FleetName,
+    ShareResourceSelector
 }

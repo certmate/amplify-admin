@@ -2,7 +2,6 @@ import _, { first, isFunction, last, omitBy, values } from "lodash";
 import { roles } from "./settings";
 
 export const role = user => {
-    console.log({user});
     if (!user?.cognito)
         return "user";
 
@@ -13,7 +12,7 @@ export const role = user => {
             return p
     }
 
-    return "user";
+    return "Owner";
 }
 
 export const uploadImages = async (Storage, images, image_name) => {

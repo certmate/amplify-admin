@@ -54,11 +54,13 @@ export const routes = {
                 actions: [actions.delete, actions.update, shareCert, approveRejectCert, downloadCert]
             }
         },
+        access: {
+            read: {
+                roles: ['Owner', 'Inspector', 'Driver']
+            }
+        },
         notificationFilter: {
             status: { eq: 'P' }
-        },
-        share: {
-            fields: 'number'
         }
     },
     ['/companies']: {
@@ -82,9 +84,6 @@ export const routes = {
                 fields: ['id', '_version', 'name', 'logo'],
                 actions: [actions.delete]
             }
-        },
-        share: {
-            fields: 'make,model,rego'
         }
     },
     ['/companies/members']: {
@@ -146,9 +145,6 @@ export const routes = {
                 fields: ['id', 'name', 'logo', '_version', 'company.id,name,logo'],
                 actions: [actions.delete, actions.update]
             }
-        },
-        share: {
-            fields: 'name,logo'
         }
     },
     ['/vehicles']: {
@@ -176,9 +172,6 @@ export const routes = {
                 fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo'],
                 actions: [actions.delete, actions.update]
             }
-        },
-        share: {
-            fields: 'make,model,rego'
         }
     },
     ['/fleets']: {
@@ -239,11 +232,21 @@ export const routes = {
 export const menu = [
     {
         node: '/certs',
-        children: [`/certs?filter=all`, `/certs?filter=active`, `/certs?filter=pending`, `/certs?filter=rejected`, `/certs?filter=expired`]
+        children: [
+            { node: `/certs?filter=all`, roles: ['Owner'] }, 
+            { node: `/certs?filter=active`, roles: ['Owner', 'Driver'] }, 
+            { node: `/certs?filter=pending`, roles: ['Owner', 'Inspector'] }, 
+            { node: `/certs?filter=rejected`, roles: ['Owner', 'Inspector'] }, 
+            { node: `/certs?filter=expired`, roles: ['Owner', 'Inspector'] }
+        ]
     },
     {
         node: '/companies',
-        children: ['/companies/members?filter=members', `/companies/members?filter=invitations`]
+        children: [
+            { node: `/companies/members?filter=members` }, 
+            { node: `/companies/members?filter=invitations` }, 
+        ],
+        roles: ['Owner']
     },
     {
         node: '/clients'

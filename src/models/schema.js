@@ -285,12 +285,11 @@ export const schema = {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
                                 "allow": "groups",
-                                "groups": [
-                                    "read"
-                                ],
+                                "groupsField": "read",
                                 "operations": [
                                     "read"
-                                ]
+                                ],
+                                "groupField": "groups"
                             },
                             {
                                 "allow": "private",
@@ -788,24 +787,22 @@ export const schema = {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
                                 "allow": "groups",
-                                "groups": [
-                                    "read"
-                                ],
+                                "groupsField": "read",
                                 "operations": [
                                     "read"
-                                ]
+                                ],
+                                "groupField": "groups"
                             },
                             {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
                                 "allow": "groups",
-                                "groups": [
-                                    "write"
-                                ],
+                                "groupsField": "write",
                                 "operations": [
                                     "update",
                                     "delete"
-                                ]
+                                ],
+                                "groupField": "groups"
                             }
                         ]
                     }
@@ -1007,12 +1004,11 @@ export const schema = {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
                                 "allow": "groups",
-                                "groups": [
-                                    "read"
-                                ],
+                                "groupsField": "read",
                                 "operations": [
                                     "read"
-                                ]
+                                ],
+                                "groupField": "groups"
                             },
                             {
                                 "allow": "private",
@@ -1315,12 +1311,11 @@ export const schema = {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
                                 "allow": "groups",
-                                "groups": [
-                                    "read"
-                                ],
+                                "groupsField": "read",
                                 "operations": [
                                     "read"
-                                ]
+                                ],
+                                "groupField": "groups"
                             },
                             {
                                 "allow": "private",
@@ -1711,12 +1706,11 @@ export const schema = {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
                                 "allow": "groups",
-                                "groups": [
-                                    "read"
-                                ],
+                                "groupsField": "read",
                                 "operations": [
                                     "read"
-                                ]
+                                ],
+                                "groupField": "groups"
                             },
                             {
                                 "allow": "private",
@@ -1856,12 +1850,11 @@ export const schema = {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
                                 "allow": "groups",
-                                "groups": [
-                                    "read"
-                                ],
+                                "groupsField": "read",
                                 "operations": [
                                     "read"
-                                ]
+                                ],
+                                "groupField": "groups"
                             },
                             {
                                 "allow": "private",

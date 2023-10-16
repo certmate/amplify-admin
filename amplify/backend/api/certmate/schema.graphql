@@ -28,7 +28,7 @@ type Index @model @auth(rules: [
 type Base @model @auth(rules: [
 	{ allow: owner },
     { allow: public },
-	{ allow: groups, groups: ["read"], operations: [read] },
+	{ allow: groups, groupsField: "read", operations: [read] },
 	{ allow: private, operations: [read] }
 ]){
 	id: ID!
@@ -80,8 +80,8 @@ type Company @model @auth(rules: [
     { allow: public },
 	{ allow: groups, groups: ["SuperAdmin"], operations: [read, create, update, delete] },
 	{ allow: groups, groups: ["Admin"], operations: [read, update] },
-	{ allow: groups, groups: ["read"], operations: [read] },
-    { allow: groups, groups: ["write"], operations: [update, delete] }
+	{ allow: groups, groupsField: "read", operations: [read] },
+    { allow: groups, groupsField: "write", operations: [update, delete] }
 ]){
 	id: ID!
 	name: String
@@ -102,7 +102,7 @@ type Vehicle @model @auth(rules: [
     { allow: public },
 	{ allow: groups, groups: ["SuperAdmin"], operations: [read, create, update, delete] },
 	{ allow: groups, groups: ["Admin"], operations: [read, update] },
-	{ allow: groups, groups: ["read"], operations: [read] },
+	{ allow: groups, groupsField: "read", operations: [read] },
 	{ allow: private, operations: [read] }
 ]){
 	id: ID!
@@ -125,7 +125,7 @@ type Cert @model @auth(rules: [
     { allow: public },
 	{ allow: groups, groups: ["SuperAdmin"], operations: [read, create, update, delete] },
 	{ allow: groups, groups: ["Admin"], operations: [read, update] },
-	{ allow: groups, groups: ["read"], operations: [read] },
+	{ allow: groups, groupsField: "read", operations: [read] },
 	{ allow: private, operations: [read] }
 ]){
 	id: ID!
@@ -178,7 +178,7 @@ type Client @model @auth(rules: [
     { allow: public },
 	{ allow: groups, groups: ["SuperAdmin"], operations: [read, create, update, delete] },
 	{ allow: groups, groups: ["Admin"], operations: [read, update] },
-	{ allow: groups, groups: ["read"], operations: [read] },
+	{ allow: groups, groupsField: "read", operations: [read] },
 	{ allow: private, operations: [read] }
 ]){
 	id: ID!
@@ -197,7 +197,7 @@ type Shared @model @auth(rules: [
     { allow: public },
 	{ allow: groups, groups: ["SuperAdmin"], operations: [read, create, update, delete] },
 	{ allow: groups, groups: ["Admin"], operations: [read, update] },
-	{ allow: groups, groups: ["read"], operations: [read] },
+	{ allow: groups, groupsField: "read", operations: [read] },
 	{ allow: private, operations: [read] }
 ]){
 	id: ID!

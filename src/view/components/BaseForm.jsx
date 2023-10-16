@@ -155,6 +155,8 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                     else{
                         schema.id.createValue && (payload.id = values[schema.id.createValue]);
                         schema.id.write && (payload.write = [payload.id]);
+                        // Always adding base to read
+                        payload.read = [user.appsync.base];
                     }
                 }
 

@@ -16,19 +16,19 @@ export default function Menu({ }) {
 
     const notifOrIcon = (key, icon) => notifs?.[key] ? <Badge count={notifs[key]} /> : icon;
 
-    const items = useMemo(() => menu.map(({ node, children }) => {
+    const items = useMemo(() => menu.filter(({ roles, routes }) => RoleRouteFilter(roles, [], user, null)).map(({ node, children }) => {
         const { title, icon, roles } = routes[node];
         let item = { label: title, key: node, roles, icon: notifOrIcon('', icon) }
         if (children) {
-            item.children = children.map(c => {
-                const [path, filter] = c.split('?filter=');
+            item.children = children.filter(({ roles }) => RoleRouteFilter(roles, [], user, null)).map(({ node }) => {
+                const [path, filter] = node.split('?filter=');
                 const child = routes[path];
                 const { filters } = routes[path];
 
                 return {
                     label: filter ? startCase(filters[filter].name) : child.title,
-                    key: c,
-                    roles: c.roles,
+                    key: node,
+                    roles: node.roles,
                     icon: notifOrIcon('', child.icon || icon),
                     onClick: () => navigate(c)
                 }
@@ -39,7 +39,7 @@ export default function Menu({ }) {
         }
 
         return item;
-    }).filter(({ roles, routes }) => RoleRouteFilter(roles, [], user, null)), [notifs])
+    }), [notifs])
 
     useEffect(() => {
         setNotifs(notifications);

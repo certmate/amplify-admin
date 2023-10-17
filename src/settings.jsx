@@ -20,11 +20,11 @@ export const routes = {
         title: "Certificates",
         model: "Cert",
         filters: {
-            all: { name: 'Certs' },
-            active: { filter: { status: { eq: "A" } }, name: 'Active' },
-            pending: { filter: { status: { eq: "P" } }, name: 'Pending' },
-            rejected: { filter: { status: { eq: "R" } }, name: 'Rejected' },
-            expired: { filter: { status: { eq: "E" } }, name: 'Expired' },
+            all: { name: 'Certs', roles: ['Owner', 'Inspector'] },
+            active: { filter: { status: { eq: "A" } }, name: 'Active', roles: ['Owner', 'Inspector'] },
+            pending: { filter: { status: { eq: "P" } }, name: 'Pending', roles: ['Owner', 'Inspector'] },
+            rejected: { filter: { status: { eq: "R" } }, name: 'Rejected', roles: ['Owner', 'Inspector'] },
+            expired: { filter: { status: { eq: "E" } }, name: 'Expired', roles: ['Owner', 'Inspector'] },
         },
         icon: <DocumentText1 />,
         form: {
@@ -47,15 +47,15 @@ export const routes = {
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
-                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'status', 'number']
+                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'status', 'number'],
+                button: {
+                    label: 'Create Cert'
+                },
+                roles: ['Owner', 'Inspector', 'Driver']
             },
             read: {
                 fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name', 'company.id,name,logo'],
-                actions: [actions.delete, actions.update, shareCert, approveRejectCert, downloadCert]
-            }
-        },
-        access: {
-            read: {
+                actions: [actions.delete, actions.update, shareCert, approveRejectCert, downloadCert],
                 roles: ['Owner', 'Inspector', 'Driver']
             }
         },
@@ -167,6 +167,7 @@ export const routes = {
             },
             create: {
                 fields: ['make', 'model', 'rego', 'category', 'assetId', 'companyID'],
+                roles: ['Owner']
             },
             read: {
                 fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo'],

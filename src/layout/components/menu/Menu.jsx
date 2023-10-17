@@ -28,9 +28,8 @@ export default function Menu({ }) {
                 return {
                     label: filter ? startCase(filters[filter].name) : child.title,
                     key: node,
-                    roles: node.roles,
                     icon: notifOrIcon('', child.icon || icon),
-                    onClick: () => navigate(c)
+                    onClick: () => navigate(node)
                 }
             });
         }

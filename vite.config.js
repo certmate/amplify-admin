@@ -15,6 +15,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      registerType: 'autoUpdate',
       manifest: {
         name: 'CertMate',
         short_name: 'certmate',

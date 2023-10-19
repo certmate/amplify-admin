@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CertMate</string>
+    <string name="title_activity_main">CertMate</string>
+    <string name="package_name">au.com.certmate.app</string>
+    <string name="custom_url_scheme">au.com.certmate.app</string>
+</resources>

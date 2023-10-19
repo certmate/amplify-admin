@@ -1,0 +1,8 @@
+{
+  "appId": "au.com.certmate.app",
+  "appName": "CertMate",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}

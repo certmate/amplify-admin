@@ -1,9 +1,9 @@
 // TODO Write your custom callbacks here
 
-import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChildNode } from "../helpers";
+import { cleanEmptyConnections, cleanNull } from "../helpers";
 import { API, graphqlOperation } from 'aws-amplify';
-import { concat, uniqBy, omit, pick } from "lodash";
-import { getUserFromAppSync, readData } from "../common";
+import { concat, uniqBy, omit } from "lodash";
+import { getData, getUserFromAppSync } from "../common";
 import { updateUser } from "../graphql/mutations";
 import { v4 } from "uuid";
 
@@ -33,7 +33,7 @@ export const createFleetForUser = async ({ model, values, fields, user, readFiel
         fleets: uniqBy(concat(
             // Set id if id field
             [cleanNull({ ...omit(values, ['parent']), id: fields.includes('id') ? values.id || v4() : null })],
-            (await readData({ user, filter: null, model: 'User', fields: ['fleets.id,name,vehicles'] })).fleets
+            (await getData({ model: 'User', fields: ['fleets.id,name,vehicles'], id: user.appsync.id }))?.fleets
         ).filter(Boolean), 'id')
     };
 
@@ -44,3 +44,5 @@ export const createFleetForUser = async ({ model, values, fields, user, readFiel
 
     return;
 }
+
+export const listFleetsOfUser = async ({ user }) => (await getData({ model: 'User', fields: ['fleets.id,name,vehicles'], id: user.appsync.id }))?.fleets;

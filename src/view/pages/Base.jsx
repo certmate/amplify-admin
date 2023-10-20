@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { Divider, Skeleton } from "antd";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import BaseBreadcrumb from "../components/BaseBreadcrumb";
@@ -6,8 +6,7 @@ import BaseHeader from "../components/BaseHeader";
 import BaseTable from "../components/BaseTable";
 import { useSelector } from "react-redux";
 import { readData } from "../../common";
-import { entries, first, isObject, isString, keys } from "lodash";
-import { schema } from "../../models/schema";
+import { concat, first, isFunction, isObject, isString } from "lodash";
 
 export default function Base({ title, filters = [], model, form, data }) {
     // Hooks
@@ -20,7 +19,17 @@ export default function Base({ title, filters = [], model, form, data }) {
     const sort = useMemo(() => searchParams.get('sort'), [searchParams]);
     // State
     const [tableData, setTableData] = useState([]);
-    const getTableData = useCallback(async () => await readData({ user, filter: filter?.filter || null, model, fields: form?.read?.fields.map(f => first(f.split(/(:@)/))) || [] }), [model, user, filter]);
+    /**
+     * 1.   Return model data
+     * 2.   Any extra data to be returned by custom functions
+     * 
+     */
+    const getTableData = useCallback(async () => {
+        return concat(
+            isFunction(form.read.extraTableData) && await form.read.extraTableData({ user, filter: filter?.filter || null, model }),
+            await readData({ user, filter: filter?.filter || null, model, fields: form?.read?.fields.map(f => first(f.split(/(:@)/))) || [] })
+        ).filter(Boolean);
+    }, [model, user, filter]);
     /**
      * Path fragments
      */

@@ -3,7 +3,7 @@ import { array, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 import * as CustomComponent from "./view/components/custom";
-import { createFleetForUser, deleteInvitationCallback } from "./custom/callbackFunctions";
+import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser } from "./custom/callbackFunctions";
 import { shareCert, approveRejectCert, downloadCert } from "./custom/actions";
 
 export const appName = "CertMate";
@@ -209,6 +209,7 @@ export const routes = {
             },
             read: {
                 fields: ['id', 'name', 'vehicles:@Vehicle.id,make,model,rego'],
+                extraTableData: listFleetsOfUser,
                 actions: [
                     {...actions.update, roles: ['Owner']}, 
                     {...actions.delete, roles: ['Owner']}, 

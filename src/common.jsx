@@ -86,7 +86,7 @@ const getQueryFieldsAndChildNode = ({ model, fields }) => {
             field = field.split(/[^a-zA-Z]/)[0];
             // 
             // Check if model
-            console.log({ modelSchema, field })
+            // console.log({ modelSchema, field })
             const { type, isArray } = modelSchema.fields[field];
             if (type === 'model' && isArray) {
                 return `

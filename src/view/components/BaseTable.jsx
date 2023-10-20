@@ -1,10 +1,10 @@
 import { Table, Space } from "antd";
-import { has, isFunction, isObject, startCase, set, find, isEmpty } from "lodash";
+import { has, isFunction, isObject, startCase, set, find } from "lodash";
 import { RoleRouteFilter, ConditionalFilter, getFieldsOfParentModel, getParentModel, hasArrayOfValues } from "../../helpers";
 import { useSelector } from "react-redux";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
-import { useEffect, useMemo, useState } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { readData } from "../../common";
 
 export const deriveComponent = (type, data) => {
@@ -22,8 +22,6 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
     const { pathname, search } = useLocation();
     const [tableData, setTableData] = useState(data || []);
     const [tableColumns, setTableColumns] = useState([]);
-    const navigate = useNavigate();
-    const [modalData, setModalData] = useState(null);
     const [searchParams] = useSearchParams();
 
     useEffect(() => { data && setTableData(data) }, [data]);

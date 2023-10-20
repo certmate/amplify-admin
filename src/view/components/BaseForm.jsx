@@ -4,19 +4,19 @@ import { ErrorMessage, Field, Formik } from "formik";
 import { object } from "yup";
 import { Form } from 'antd';
 import { StorageManager } from "@aws-amplify/ui-react-storage";
-import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChildNode } from "../../helpers";
+import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChildNode, role } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
-import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get, isEmpty, isUndefined, isFunction } from "lodash";
+import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get, isEmpty, isUndefined, isFunction, keys } from "lodash";
 import { getData, readData } from "../../common";
 import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
 import * as mutations from "../../graphql/mutations";
 import { deriveComponent } from "./BaseTable";
 
-export default function BaseForm({ model, schema, fields, readFields, onSubmit, values }) {
+export default function BaseForm({ model, schema, fields, readFields, onSubmit, values, form }) {
     const user = useSelector(state => state.user);
-    const [form] = Form.useForm();
+    const [antForm] = Form.useForm();
     const [options, setOptions] = useState({});
     const [formValues, setFormValues] = useState(values);
     const formIs = useMemo(() => Boolean(formValues?._version) ? 'update' : 'create', [formValues]);
@@ -125,43 +125,55 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
         enableReinitialize={true}
         onSubmit={async (values, { resetForm }) => {
             values = cleanNull(values);
+            // Formatting values
+            keys(values).forEach(k => schema[k]?.formComponent?.formatter && (values[k] = schema[k]?.formComponent?.formatter(values[k])) )
+            // Formatting
             try {
-                let query, payload;
-                if (isChildNode(model)) {
-                    query = mutations[`update${getParentModel(model)}`];
-                    /**
-                     * Structure payload
-                     */
-                    payload = {
-                        // id, _version of model
-                        id: values.parent.id,
-                        _version: values.parent._version,
-                        // New + Existing
-                        [getChildModel(model)]: uniqBy(concat(
-                            // Set id if id field
-                            [cleanNull({ ...omit(values, ['parent']), id: fields.includes('id') ? values.id || v4() : null })],
-                            (await readData({ user, filter: null, model, fields: readFields })).filter(r => r[getParentModel(model)].id === values.parent.id).map(d => pick(d, fields))
-                        ), 'id')
-                    };
+                // Check for user specific function
+                if(form.create.onSubmit?.[role(user)]){
+                    await form.create.onSubmit?.[role(user)]({ values, model, fields, user, readFields });   
                 }
-                else {
-                    query = mutations[`${formIs}${model}`];
-                    payload = {  ...values,  base: user.appsync.base };
-                    
-                    if(isEqual(formIs, 'update')){
-                        payload.id = formValues.id;
-                        payload._version = formValues._version;
+                else{
+                    let query, payload;
+                    if (isChildNode(model)) {
+                        query = mutations[`update${getParentModel(model)}`];
+                        /**
+                         * Structure payload
+                         */
+                        payload = {
+                            // id, _version of model
+                            id: values.parent.id,
+                            _version: values.parent._version,
+                            // New + Existing
+                            [getChildModel(model)]: uniqBy(concat(
+                                // Set id if id field
+                                [cleanNull({ ...omit(values, ['parent']), id: fields.includes('id') ? values.id || v4() : null })],
+                                (await readData({ user, filter: null, model, fields: readFields })).filter(r => r[getParentModel(model)].id === values.parent.id).map(d => pick(d, fields))
+                            ), 'id')
+                        };
                     }
-                    else{
-                        schema.id.createValue && (payload.id = values[schema.id.createValue]);
-                        schema.id.write && (payload.write = [payload.id]);
-                        // Always adding base to read
-                        payload.read = [user.appsync.base];
+                    else {
+                        query = mutations[`${formIs}${model}`];
+                        payload = {  ...values,  base: user.appsync.base };
+                        
+                        if(isEqual(formIs, 'update')){
+                            payload.id = formValues.id;
+                            payload._version = formValues._version;
+                        }
+                        else{
+                            if(schema.id.createValue){
+                                payload.id = schema.id.createValue.split('-').map(p => payload[p]).join('-');
+                            }
+                            schema.id.write && (payload.write = [payload.id]);
+                            // Always adding base to read
+                            payload.read = [user.appsync.base];
+                        }
                     }
+    
+                    // console.log({ query, payload, formValues }); return;
+                    await API.graphql(graphqlOperation(query, { input: cleanEmptyConnections(payload) }));
                 }
-
-                // console.log({ query, payload, formValues }); return;
-                await API.graphql(graphqlOperation(query, { input: cleanEmptyConnections(payload) }));
+                
                 resetForm();
                 onSubmit();
             }
@@ -180,7 +192,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
             resetForm,
             setFieldValue
         }) => (<>
-            <Form form={form} layout="vertical" onSubmitCapture={handleSubmit}>
+            <Form form={antForm} layout="vertical" onSubmitCapture={handleSubmit}>
                 {/* 
                     If child node, parent should be picked
                 */}

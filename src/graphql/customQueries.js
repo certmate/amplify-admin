@@ -1,10 +1,10 @@
-export const getNotifications = /* GraphQL */ `
-    query GetNotifications(
+// export const getNotifications = /* GraphQL */ `
+//     query GetNotifications(
         
-    ){
+//     ){
 
-    }
-`;
+//     }
+// `;
 
 export const getUser = /* GraphQL */ `
     query GetUser(

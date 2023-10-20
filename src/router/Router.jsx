@@ -40,7 +40,7 @@ export default function Router() {
 			}
 		}
 		let d = await get(cognitoUser);
-        console.log({d});
+
 		if (!d.data.getUser) {
 			try {
                 const base = v4();

@@ -85,7 +85,7 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
                 </>
             })),
             // actions
-            {
+            actions.filter(({ roles, routes, condition }) => RoleRouteFilter(roles, routes, user, pathname + search) && ConditionalFilter(condition, data)).length ? {
                 title: 'Actions',
                 key: 'actions',
                 render: data => <Space size="large">
@@ -100,7 +100,7 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
                         </a>
                     ))}
                 </Space>
-            }
+            } : []
         ]
     }
         scroll={{ x: 1000 }} />

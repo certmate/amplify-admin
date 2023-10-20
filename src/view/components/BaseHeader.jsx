@@ -34,7 +34,7 @@ export default function BaseHeader({ title, model, form, filters, createCallback
         <Filters filters={filters} />
         {/* Modals */}
         <BaseModal modal={{ title, showModal, hideModal: () => setShowModal(false) }} form={{
-            model, schema: form?.schema, fields: form?.create?.fields, readFields: form?.read?.fields, onSubmit: async () => {
+            model, form, schema: form?.schema, fields: form?.create?.fields, readFields: form?.read?.fields, onSubmit: async () => {
                 try {
                     setShowModal(false);
                     createCallback();

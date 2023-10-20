@@ -27,6 +27,7 @@ export default function HeaderUser() {
 				menu={{
 					items,
 				}}
+				trigger="click"
 			>
 				<a onClick={(e) => e.preventDefault()}>
 					<Profile variant="TwoTone" size={32} color="#4735df" />

@@ -10,6 +10,7 @@ import { getChildModel, getParentModel, hasArrayOfValues, isChildNode } from "./
 import SweetAlert from 'sweetalert2';
 import BaseUpdateButton from "./view/components/BaseUpdateButton";
 import BaseDeleteButton from "./view/components/BaseDeleteButton";
+import { getUser } from "./graphql/customQueries";
 
 export const actions = {
     update: {
@@ -18,6 +19,48 @@ export const actions = {
     delete: {
         component: ({ data, model, callback }) => <BaseDeleteButton data={data} model={model} callback={callback} />,
     }
+}
+
+// TODO Specify user fields
+export const getUserFromAppSync = async cognitoUser => {
+    const get = async cognitoUser => {
+        try {
+            return await API.graphql(
+                graphqlOperation(getUser, {
+                    id: cognitoUser.attributes.email,
+                })
+            );
+        }
+        catch (e) {
+            return e;
+        }
+    }
+    let d = await get(cognitoUser);
+
+    if (!d.data.getUser) {
+        try {
+            const base = v4();
+
+            await API.graphql(
+                graphqlOperation(createUserAndBase, {
+                    user: {
+                        id: cognitoUser.attributes.email,
+                        email: cognitoUser.attributes.email,
+                        base: base
+                    },
+                    base: {
+                        id: base
+                    }
+                })
+            );
+            d = await get(cognitoUser);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    return { ...d.data.getUser };
 }
 
 const getQueryFieldsAndChildNode = ({ model, fields }) => {

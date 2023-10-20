@@ -3,7 +3,7 @@ import { array, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 import * as CustomComponent from "./view/components/custom";
-import { deleteInvitationCallback } from "./custom/callbackFunctions";
+import { createFleetForUser, deleteInvitationCallback } from "./custom/callbackFunctions";
 import { shareCert, approveRejectCert, downloadCert } from "./custom/actions";
 
 export const appName = "CertMate";
@@ -129,7 +129,7 @@ export const routes = {
              * Keys are names of schema field
              */
             schema: {
-                id: { label: 'id', formComponent: null },
+                id: { label: 'id', formComponent: null, hidden: true },
                 _version: { hidden: true },
                 name: { label: 'Client name', validation: string().required(), formComponent: { component: 'input' } },
                 logo: { label: 'Client logo', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
@@ -139,11 +139,15 @@ export const routes = {
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
-                fields: ['name', 'logo', 'companyID']
+                fields: ['name', 'logo', 'companyID'],
+                roles: ['Owner']
             },
             read: {
                 fields: ['id', 'name', 'logo', '_version', 'company.id,name,logo'],
-                actions: [actions.delete, actions.update]
+                actions: [
+                    {...actions.delete, roles: ['Owner']}, 
+                    {...actions.update, roles: ['Owner']}
+                ]
             }
         }
     },
@@ -153,11 +157,11 @@ export const routes = {
         icon: <Truck />,
         form: {
             schema: {
-                id: { label: 'id', hidden: true, formComponent: null },
+                id: { label: 'id', hidden: true, createValue: 'base-rego', formComponent: null },
                 _version: { hidden: true },
                 make: { label: 'Make', validation: string().required(), formComponent: { component: 'input' } },
                 model: { label: 'Model', validation: string().required(), formComponent: { component: 'input' } },
-                rego: { label: 'Rego', validation: string().required(), formComponent: { component: 'input' } },
+                rego: { label: 'Rego', validation: string().required(), formComponent: { component: 'input', formatter: s => s.replace(/\s+/g, '') } },
                 category: { label: 'Category', validation: string().required(), formComponent: { component: 'select', select: { options: vehicleCategories } } },
                 assetId: { label: 'Asset ID', validation: string().required(), formComponent: { component: 'input' } },
                 // @model.valueField:labelField
@@ -171,7 +175,10 @@ export const routes = {
             },
             read: {
                 fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo'],
-                actions: [actions.delete, actions.update]
+                actions: [
+                    {...actions.delete, roles: ['Owner']}, 
+                    {...actions.update, roles: ['Owner']}
+                ]
             }
         }
     },
@@ -195,39 +202,45 @@ export const routes = {
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
-                fields: ['name', 'vehicles', 'id']
+                fields: ['name', 'vehicles', 'id'],
+                onSubmit: {
+                    ['Driver']: createFleetForUser
+                }
             },
             read: {
                 fields: ['id', 'name', 'vehicles:@Vehicle.id,make,model,rego'],
-                actions: [actions.delete, actions.update]
+                actions: [
+                    {...actions.update, roles: ['Owner']}, 
+                    {...actions.delete, roles: ['Owner']}, 
+                ]
             }
         }
     },
-    ['/access']: {
-        title: "Access Control",
-        model: "Notification",
-        icon: <Colorfilter />,
-        form: {
-            schema: {
-                id: { label: 'id', hidden: true, formComponent: null },
-                _version: { hidden: true },
-                type: { label: 'Type of Access', validation: string().required(), formComponent: { component: 'select', select: { options: ['SHARE'] } } },
-                resourceID: { label: 'Resource', validation: string().required(), formComponent: { component: (data, record) => <CustomComponent.ShareResourceSelector {...data} /> } },
-                accessLevel: { label: 'Type of Access', validation: string().required(), formComponent: { component: 'select', select: { options: ['READ', 'WRITE'] } } },
-                toUserID: { label: 'Email address of User', validation: string().required(), formComponent: { component: 'input' } },
-                // Example of custom component - used to display in table
-                to: { label: 'User', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
-            },
-            create: {
-                fields: ['type', 'resourceID', 'accessLevel', 'toUserID'],
-                button: { label: 'Provide Access' }
-            },
-            read: {
-                fields: ['id', '_version', 'type', 'resourceID', 'accessLevel', 'to.name,email'],
-                actions: [actions.delete, actions.update]
-            }
-        }
-    }
+    // ['/access']: {
+    //     title: "Access Control",
+    //     model: "Notification",
+    //     icon: <Colorfilter />,
+    //     form: {
+    //         schema: {
+    //             id: { label: 'id', hidden: true, formComponent: null },
+    //             _version: { hidden: true },
+    //             type: { label: 'Type of Access', validation: string().required(), formComponent: { component: 'select', select: { options: ['SHARE'] } } },
+    //             resourceID: { label: 'Resource', validation: string().required(), formComponent: { component: (data, record) => <CustomComponent.ShareResourceSelector {...data} /> } },
+    //             accessLevel: { label: 'Type of Access', validation: string().required(), formComponent: { component: 'select', select: { options: ['READ', 'WRITE'] } } },
+    //             toUserID: { label: 'Email address of User', validation: string().required(), formComponent: { component: 'input' } },
+    //             // Example of custom component - used to display in table
+    //             to: { label: 'User', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
+    //         },
+    //         create: {
+    //             fields: ['type', 'resourceID', 'accessLevel', 'toUserID'],
+    //             button: { label: 'Provide Access' }
+    //         },
+    //         read: {
+    //             fields: ['id', '_version', 'type', 'resourceID', 'accessLevel', 'to.name,email'],
+    //             actions: [actions.delete, actions.update]
+    //         }
+    //     }
+    // }
 }
 
 export const menu = [

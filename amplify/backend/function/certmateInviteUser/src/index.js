@@ -5,6 +5,9 @@ const { invite } = require('./helpers');
  */
 exports.handler = async (event) => {
     console.log(`EVENT: ${JSON.stringify(event)}`);
+    const { to, company } = JSON.parse(event.body);
+
+    await invite({ to, company });
     /**
      * Epecting
      * to

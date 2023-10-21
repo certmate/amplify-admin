@@ -4,8 +4,7 @@ TODO Cert PDF creation / update
 TODO Invite > User accepts invite > User added to company
 
 TODO Start sending app emails
-TODO Begin app development
-TODO Role based access
+TODO Secure lambdas with accessToken check - https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html
 
 Note - Capacitor
 1.  Add ios device to Provisioning Profile

@@ -1,21 +1,20 @@
 module.exports = {
-    invite: async function ({to, code, company: { name, owner, email }}) {
-        return await new Promise(async(resolve) => {
+    invite: async function ({ to, company }) {
+        return await new Promise(async (resolve) => {
             const aws = require('aws-sdk');
             const nodemailer = require("nodemailer");
             const transporter = nodemailer.createTransport({
                 SES: new aws.SES({ region: 'ap-southeast-2', apiVersion: "2010-12-01" })
             });
-    
+
             try {
-                const joiningLink = `https://main.d1azskzge9qb63.amplifyapp.com/?code=${code}`;
                 transporter.sendMail({
                     from: `CertMate <admin@certmate.com.au>`,
                     // to: `${event.organiser.name} <${event.organiser.email}>`,
                     bcc: to,
                     replyTo: `No Reply <no-reply@certmate.com.au>`,
-                    subject: `[CertMate] Invitation to join company - ${name}`, // Subject line
-                    text: `[CertMate] Invitation to join company - ${name}`, // plaintext version
+                    subject: `[CertMate] Invitation to join company - ${company}`, // Subject line
+                    text: `[CertMate] Invitation to join company - ${company}`, // plaintext version
                     html: `
                         <!doctype html>
                         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
@@ -155,14 +154,9 @@ module.exports = {
                                                                         style="font-size:0px;padding:10px 25px;padding-bottom:10px;word-break:break-word;">
                                                                         <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">
                                                                         Hi!<br /><br />
-                                                                        You have been invited to join the company ${name} on CertMate.<br /><br />
+                                                                        You have been invited to join the company ${company} on CertMate.<br /><br />
                                                                         <br /><br />
-                                                                        Yours sincerely,<br />
-                                                                        ${owner}<br />
-                                                                        ${email}<br />
-                                                                        <br />
-                                                                        <br /><br />
-                                                                        <i>For more information about CertMate, visit www.certmate.com.au.</i><br /><br />
+                                                                        <i>For more information about CertMate, visit <a href="www.certmate.com.au">www.certmate.com.au</a>.</i><br /><br />
                                                                         </div>
                                                                     </td>
                                                                 </tr>
@@ -183,9 +177,9 @@ module.exports = {
                                                                             <tr>
                                                                                 <td align="center" bgcolor="#4703D7" role="presentation"
                                                                                     style="border:none;border-radius:24px;cursor:auto;mso-padding-alt:10px 25px;background:#4703D7;"
-                                                                                    valign="middle"><a href="${event.link}"
+                                                                                    valign="middle"><a href="https://admin.certmate.com.au"
                                                                                         style="display:inline-block;background:#4703D7;color:#ffffff;font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:24px;"
-                                                                                        target="_blank">View Event</a></td>
+                                                                                        target="_blank">Join company on CertMate</a></td>
                                                                             </tr>
                                                                         </table>
                                                                     </td>
@@ -193,28 +187,6 @@ module.exports = {
                                                             </tbody>
                                                         </table>
                                                     </div>
-                                                    <!--[if mso | IE]></td><td class="" style="vertical-align:top;width:598px;" ><![endif]-->
-                                                    <div class="mj-column-per-100 mj-outlook-group-fix"
-                                                        style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-                                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                                                            style="vertical-align:top;" width="100%">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td align="center"
-                                                                        style="font-size:0px;padding:10px 25px;padding-top:50px;padding-bottom:10px;word-break:break-word;">
-                                                                        <div
-                                                                            style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:center;color:#000000;">
-                                                                            You can also copy+paste the link below in your browser<br><br><a
-                                                                                href="${event.link}"
-                                                                                style="color: #4703D7">${event.link}</a><br><br>If you believe
-                                                                            you have received this email in error, please reply to this email
-                                                                            with your concern.<br><br></div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!--[if mso | IE]></td></tr></table><![endif]-->
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -261,7 +233,7 @@ module.exports = {
             catch (e) {
                 console.log(e);
                 resolve();
-            } 
+            }
         });
     },
 }

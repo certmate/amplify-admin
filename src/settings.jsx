@@ -3,7 +3,7 @@ import { array, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 import * as CustomComponent from "./view/components/custom";
-import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser } from "./custom/callbackFunctions";
+import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser, sendInvitationEmailToMember } from "./custom/callbackFunctions";
 import { shareCert, approveRejectCert, downloadCert } from "./custom/actions";
 
 export const appName = "CertMate";
@@ -109,8 +109,11 @@ export const routes = {
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
-                routes: ['/companies/members?filter=members'],
-                fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID']
+                button: {
+                    label: 'Invite User'
+                },
+                fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID'],
+                afterSubmit: sendInvitationEmailToMember
             },
             read: {
                 fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'company.id,name,logo'],

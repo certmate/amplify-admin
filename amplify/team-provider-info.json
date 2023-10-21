@@ -44,7 +44,7 @@
         },
         "certmateInviteUser": {
           "deploymentBucketName": "amplify-certmate-dev-153406-deployment",
-          "s3Key": "amplify-builds/certmateInviteUser-7343374d5577756e6839-build.zip"
+          "s3Key": "amplify-builds/certmateInviteUser-634e7647544f31375131-build.zip"
         }
       },
       "api": {

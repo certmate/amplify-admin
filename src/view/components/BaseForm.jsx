@@ -174,6 +174,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                     await API.graphql(graphqlOperation(query, { input: cleanEmptyConnections(payload) }));
                 }
                 
+                await form.create.afterSubmit?.({ user, values });
                 resetForm();
                 onSubmit();
             }

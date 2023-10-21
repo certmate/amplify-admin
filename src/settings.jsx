@@ -1,5 +1,5 @@
 import { Building, Colorfilter, DocumentText1, Profile, Profile2User, Share, Truck } from "iconsax-react";
-import { array, string } from "yup";
+import { array, object, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 import * as CustomComponent from "./view/components/custom";
@@ -45,9 +45,10 @@ export const routes = {
                 driver: { label: 'Driver', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
                 inspector: { label: 'Inspector', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
+                auditSections: { label: 'Sections', validation: array().of(object().shape({ id: string(), heading: string(), items: array().of(string()) })) , formComponent: { component: data => <CustomComponent.CreateAuditSections {...data} /> } },
             },
             create: {
-                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'status', 'number'],
+                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections'],
                 button: {
                     label: 'Create Cert'
                 },

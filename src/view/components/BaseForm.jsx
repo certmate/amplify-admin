@@ -22,28 +22,33 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
     const formIs = useMemo(() => Boolean(formValues?._version) ? 'update' : 'create', [formValues]);
 
     const [initialValues, validationSchema] = useMemo(() => {
+        const getInitialValues = validation => {
+            switch (validation.type) {
+                case "string":
+                    return '';
+
+                case "array":
+                    return [getInitialValues(validation.innerType)].filter(Boolean);
+
+                case "object":
+                    let o = {};
+                    keys(validation.fields).forEach(f => {
+                        o[f] = getInitialValues(validation.fields[f]);
+                    });
+                    return o;
+
+                default:
+                    console.log(`Unknown validation type: ${validation.type}`);
+                    return null;
+            }
+        }
         let i = {}, v = {};
         // Fields from settings
         fields.map(f => {
             const { validation } = schema[f];
             if (validation) {
                 v[f] = validation;
-                switch (validation.type) {
-                    case "string":
-                        i[f] = formValues?.[f] || '';
-                        break;
-
-                    case "array":
-                        i[f] = formValues?.[f] || [
-                            validation.innerType?.type === 'object' ? {}
-                                : null
-                        ].filter(Boolean);
-                        break;
-
-                    default:
-                        console.log(`Unknown validation type: ${validation.type}`);
-                        break;
-                }
+                i[f] = formValues?.[f] || getInitialValues(validation); // Upsert
             }
         })
 
@@ -126,14 +131,14 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
         onSubmit={async (values, { resetForm }) => {
             values = cleanNull(values);
             // Formatting values
-            keys(values).forEach(k => schema[k]?.formComponent?.formatter && (values[k] = schema[k]?.formComponent?.formatter(values[k])) )
+            keys(values).forEach(k => schema[k]?.formComponent?.formatter && (values[k] = schema[k]?.formComponent?.formatter(values[k])))
             // Formatting
             try {
                 // Check for user specific function
-                if(form.create.onSubmit?.[role(user)]){
-                    await form.create.onSubmit?.[role(user)]({ values, model, fields, user, readFields });   
+                if (form.create.onSubmit?.[role(user)]) {
+                    await form.create.onSubmit?.[role(user)]({ values, model, fields, user, readFields });
                 }
-                else{
+                else {
                     let query, payload;
                     if (isChildNode(model)) {
                         query = mutations[`update${getParentModel(model)}`];
@@ -154,14 +159,14 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                     }
                     else {
                         query = mutations[`${formIs}${model}`];
-                        payload = {  ...values,  base: user.appsync.base };
-                        
-                        if(isEqual(formIs, 'update')){
+                        payload = { ...values, base: user.appsync.base };
+
+                        if (isEqual(formIs, 'update')) {
                             payload.id = formValues.id;
                             payload._version = formValues._version;
                         }
-                        else{
-                            if(schema.id.createValue){
+                        else {
+                            if (schema.id.createValue) {
                                 payload.id = schema.id.createValue.split('-').map(p => payload[p]).join('-');
                             }
                             schema.id.write && (payload.write = [payload.id]);
@@ -169,11 +174,11 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                             payload.read = [user.appsync.base];
                         }
                     }
-    
+
                     // console.log({ query, payload, formValues }); return;
                     await API.graphql(graphqlOperation(query, { input: cleanEmptyConnections(payload) }));
                 }
-                
+
                 await form.create.afterSubmit?.({ user, values });
                 resetForm();
                 onSubmit();
@@ -206,7 +211,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         }
                         else {
                             const { component } = formComponent;
-                            return <Field name={f} key={`form-${k}`}>
+                            return isFunction(component) ? <div key={`form-${k}`}>{component({ label, validation, field: f, handleChange })}</div> : <Field name={f} key={`form-${k}`}>
                                 {({ field }) => (
                                     <div className="hp-mb-16">
                                         <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{label}</span>
@@ -235,6 +240,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         </Button>
                     </Form.Item>
                 </>}
+                <pre>{JSON.stringify({ initialValues, schema: schema['auditSections'] }, false, 4)}</pre>
                 {/* <pre>{JSON.stringify({ values, errors, initialValues, schema }, false, 4)}</pre> */}
 
             </Form>

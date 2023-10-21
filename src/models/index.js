@@ -4,7 +4,7 @@ import { schema } from './schema';
 
 
 
-const { Index, Base, User, Company, Vehicle, Cert, Notification, Client, Shared, CertCheckList, Fleet } = initSchema(schema);
+const { Index, Base, User, Company, Vehicle, Cert, Notification, Client, Shared, CertCheckList, Fleet, AuditSection } = initSchema(schema);
 
 export {
   Index,
@@ -17,5 +17,6 @@ export {
   Client,
   Shared,
   CertCheckList,
-  Fleet
+  Fleet,
+  AuditSection
 };

@@ -117,6 +117,7 @@ export const onCreateIndex = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -312,6 +313,7 @@ export const onUpdateIndex = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -507,6 +509,7 @@ export const onDeleteIndex = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -629,6 +632,7 @@ export const onCreateBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -657,6 +661,7 @@ export const onCreateBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -862,6 +867,7 @@ export const onCreateBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -1020,6 +1026,7 @@ export const onCreateBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -1265,6 +1272,14 @@ export const onCreateBase = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -1501,6 +1516,7 @@ export const onUpdateBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -1529,6 +1545,7 @@ export const onUpdateBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -1734,6 +1751,7 @@ export const onUpdateBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -1892,6 +1910,7 @@ export const onUpdateBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -2137,6 +2156,14 @@ export const onUpdateBase = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -2373,6 +2400,7 @@ export const onDeleteBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -2401,6 +2429,7 @@ export const onDeleteBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -2606,6 +2635,7 @@ export const onDeleteBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -2764,6 +2794,7 @@ export const onDeleteBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -3009,6 +3040,14 @@ export const onDeleteBase = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -3442,6 +3481,14 @@ export const onCreateUser = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -3673,6 +3720,14 @@ export const onCreateUser = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -4227,6 +4282,14 @@ export const onCreateUser = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -4510,6 +4573,14 @@ export const onUpdateUser = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -4741,6 +4812,14 @@ export const onUpdateUser = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -5295,6 +5374,14 @@ export const onUpdateUser = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -5578,6 +5665,14 @@ export const onDeleteUser = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -5809,6 +5904,14 @@ export const onDeleteUser = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -6363,6 +6466,14 @@ export const onDeleteUser = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -6447,6 +6558,7 @@ export const onCreateCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -6475,6 +6587,7 @@ export const onCreateCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -6654,6 +6767,7 @@ export const onCreateCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -6959,6 +7073,14 @@ export const onCreateCompany = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -7034,6 +7156,7 @@ export const onUpdateCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -7062,6 +7185,7 @@ export const onUpdateCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -7241,6 +7365,7 @@ export const onUpdateCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -7546,6 +7671,14 @@ export const onUpdateCompany = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -7621,6 +7754,7 @@ export const onDeleteCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -7649,6 +7783,7 @@ export const onDeleteCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -7828,6 +7963,7 @@ export const onDeleteCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -8133,6 +8269,14 @@ export const onDeleteCompany = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -8413,6 +8557,14 @@ export const onCreateVehicle = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -8666,6 +8818,14 @@ export const onCreateVehicle = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -8939,6 +9099,14 @@ export const onUpdateVehicle = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -9192,6 +9360,14 @@ export const onUpdateVehicle = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -9465,6 +9641,14 @@ export const onDeleteVehicle = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -9718,6 +9902,14 @@ export const onDeleteVehicle = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -9991,6 +10183,14 @@ export const onCreateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -10114,6 +10314,7 @@ export const onCreateCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -10242,6 +10443,14 @@ export const onCreateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -10378,6 +10587,14 @@ export const onCreateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -10484,6 +10701,14 @@ export const onCreateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -10727,6 +10952,7 @@ export const onCreateCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -10879,6 +11105,14 @@ export const onCreateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -10985,6 +11219,14 @@ export const onCreateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -11228,6 +11470,7 @@ export const onCreateCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11275,6 +11518,14 @@ export const onCreateCert = /* GraphQL */ `
       client
       operatingArea
       checkList
+      auditSections {
+        id
+        heading
+        result
+        items
+        __typename
+      }
+      comments
       status
       createdAt
       updatedAt
@@ -11534,6 +11785,14 @@ export const onUpdateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -11657,6 +11916,7 @@ export const onUpdateCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11785,6 +12045,14 @@ export const onUpdateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -11921,6 +12189,14 @@ export const onUpdateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -12027,6 +12303,14 @@ export const onUpdateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -12270,6 +12554,7 @@ export const onUpdateCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12422,6 +12707,14 @@ export const onUpdateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -12528,6 +12821,14 @@ export const onUpdateCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -12771,6 +13072,7 @@ export const onUpdateCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12818,6 +13120,14 @@ export const onUpdateCert = /* GraphQL */ `
       client
       operatingArea
       checkList
+      auditSections {
+        id
+        heading
+        result
+        items
+        __typename
+      }
+      comments
       status
       createdAt
       updatedAt
@@ -13077,6 +13387,14 @@ export const onDeleteCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -13200,6 +13518,7 @@ export const onDeleteCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13328,6 +13647,14 @@ export const onDeleteCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -13464,6 +13791,14 @@ export const onDeleteCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -13570,6 +13905,14 @@ export const onDeleteCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -13813,6 +14156,7 @@ export const onDeleteCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13965,6 +14309,14 @@ export const onDeleteCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -14071,6 +14423,14 @@ export const onDeleteCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -14314,6 +14674,7 @@ export const onDeleteCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -14361,6 +14722,14 @@ export const onDeleteCert = /* GraphQL */ `
       client
       operatingArea
       checkList
+      auditSections {
+        id
+        heading
+        result
+        items
+        __typename
+      }
+      comments
       status
       createdAt
       updatedAt
@@ -14498,6 +14867,14 @@ export const onCreateNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -14604,6 +14981,14 @@ export const onCreateNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -14847,6 +15232,7 @@ export const onCreateNotification = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -14999,6 +15385,14 @@ export const onCreateNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -15105,6 +15499,14 @@ export const onCreateNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -15348,6 +15750,7 @@ export const onCreateNotification = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -15524,6 +15927,14 @@ export const onUpdateNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -15630,6 +16041,14 @@ export const onUpdateNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -15873,6 +16292,7 @@ export const onUpdateNotification = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16025,6 +16445,14 @@ export const onUpdateNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -16131,6 +16559,14 @@ export const onUpdateNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -16374,6 +16810,7 @@ export const onUpdateNotification = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16550,6 +16987,14 @@ export const onDeleteNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -16656,6 +17101,14 @@ export const onDeleteNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -16899,6 +17352,7 @@ export const onDeleteNotification = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -17051,6 +17505,14 @@ export const onDeleteNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -17157,6 +17619,14 @@ export const onDeleteNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -17400,6 +17870,7 @@ export const onDeleteNotification = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -17698,6 +18169,14 @@ export const onCreateClient = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -17990,6 +18469,14 @@ export const onUpdateClient = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -18282,6 +18769,14 @@ export const onDeleteClient = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt

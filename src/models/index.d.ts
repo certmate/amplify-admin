@@ -38,6 +38,24 @@ export declare type Fleet = LazyLoading extends LazyLoadingDisabled ? EagerFleet
 
 export declare const Fleet: (new (init: ModelInit<Fleet>) => Fleet)
 
+type EagerAuditSection = {
+  readonly id?: string | null;
+  readonly heading?: string | null;
+  readonly result?: string | null;
+  readonly items?: (string | null)[] | null;
+}
+
+type LazyAuditSection = {
+  readonly id?: string | null;
+  readonly heading?: string | null;
+  readonly result?: string | null;
+  readonly items?: (string | null)[] | null;
+}
+
+export declare type AuditSection = LazyLoading extends LazyLoadingDisabled ? EagerAuditSection : LazyAuditSection
+
+export declare const AuditSection: (new (init: ModelInit<AuditSection>) => AuditSection)
+
 type EagerIndex = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Index, 'id'>;
@@ -279,6 +297,8 @@ type EagerCert = {
   readonly client?: string | null;
   readonly operatingArea?: string | null;
   readonly checkList?: (string | null)[] | null;
+  readonly auditSections?: (AuditSection | null)[] | null;
+  readonly comments?: string | null;
   readonly status?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -305,6 +325,8 @@ type LazyCert = {
   readonly client?: string | null;
   readonly operatingArea?: string | null;
   readonly checkList?: (string | null)[] | null;
+  readonly auditSections?: (AuditSection | null)[] | null;
+  readonly comments?: string | null;
   readonly status?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;

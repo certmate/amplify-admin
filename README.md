@@ -1,7 +1,6 @@
 TODO Validate a Inspector UI
 TODO Renew Certs - update location
 TODO Cert PDF creation / update
-TODO Invite > User accepts invite > User added to company
 
 TODO Start sending app emails
 TODO Secure lambdas with accessToken check - https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html

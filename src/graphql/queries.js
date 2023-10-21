@@ -114,6 +114,7 @@ export const getIndex = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -389,6 +390,7 @@ export const getBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -417,6 +419,7 @@ export const getBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -622,6 +625,7 @@ export const getBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -780,6 +784,7 @@ export const getBase = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -1025,6 +1030,14 @@ export const getBase = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -1510,6 +1523,14 @@ export const listBases = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -1925,6 +1946,14 @@ export const syncBases = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -2344,6 +2373,14 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -2698,6 +2735,14 @@ export const getUser = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -2929,6 +2974,14 @@ export const getUser = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -3483,6 +3536,14 @@ export const getUser = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -3643,6 +3704,14 @@ export const listUsers = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -3749,6 +3818,14 @@ export const listUsers = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -3992,6 +4069,7 @@ export const listUsers = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -4162,6 +4240,14 @@ export const syncUsers = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -4268,6 +4354,14 @@ export const syncUsers = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -4511,6 +4605,7 @@ export const syncUsers = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -4685,6 +4780,14 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -4791,6 +4894,14 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -5034,6 +5145,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -5208,6 +5320,14 @@ export const usersByBaseAndName = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -5314,6 +5434,14 @@ export const usersByBaseAndName = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -5557,6 +5685,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -5642,6 +5771,7 @@ export const getCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -5670,6 +5800,7 @@ export const getCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -5849,6 +5980,7 @@ export const getCompany = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -6154,6 +6286,14 @@ export const getCompany = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -6433,6 +6573,14 @@ export const listCompanies = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -6722,6 +6870,14 @@ export const syncCompanies = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -7015,6 +7171,14 @@ export const companiesByBaseAndName = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -7296,6 +7460,14 @@ export const getVehicle = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -7549,6 +7721,14 @@ export const getVehicle = /* GraphQL */ `
           client
           operatingArea
           checkList
+          auditSections {
+            id
+            heading
+            result
+            items
+            __typename
+          }
+          comments
           status
           createdAt
           updatedAt
@@ -7673,6 +7853,7 @@ export const listVehicles = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -7801,6 +7982,14 @@ export const listVehicles = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -7935,6 +8124,7 @@ export const syncVehicles = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -8063,6 +8253,14 @@ export const syncVehicles = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -8201,6 +8399,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -8329,6 +8528,14 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -8467,6 +8674,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -8595,6 +8803,14 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -8869,6 +9085,14 @@ export const getCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -8992,6 +9216,7 @@ export const getCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -9120,6 +9345,14 @@ export const getCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -9256,6 +9489,14 @@ export const getCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -9362,6 +9603,14 @@ export const getCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -9605,6 +9854,7 @@ export const getCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -9757,6 +10007,14 @@ export const getCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -9863,6 +10121,14 @@ export const getCert = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -10106,6 +10372,7 @@ export const getCert = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -10153,6 +10420,14 @@ export const getCert = /* GraphQL */ `
       client
       operatingArea
       checkList
+      auditSections {
+        id
+        heading
+        result
+        items
+        __typename
+      }
+      comments
       status
       createdAt
       updatedAt
@@ -10263,6 +10538,7 @@ export const listCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -10357,6 +10633,7 @@ export const listCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -10415,6 +10692,7 @@ export const listCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -10443,6 +10721,7 @@ export const listCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -10589,6 +10868,7 @@ export const listCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -10617,6 +10897,7 @@ export const listCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -10736,6 +11017,14 @@ export const listCerts = /* GraphQL */ `
         client
         operatingArea
         checkList
+        auditSections {
+          id
+          heading
+          result
+          items
+          __typename
+        }
+        comments
         status
         createdAt
         updatedAt
@@ -10856,6 +11145,7 @@ export const syncCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -10950,6 +11240,7 @@ export const syncCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11008,6 +11299,7 @@ export const syncCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11036,6 +11328,7 @@ export const syncCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11182,6 +11475,7 @@ export const syncCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11210,6 +11504,7 @@ export const syncCerts = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11329,6 +11624,14 @@ export const syncCerts = /* GraphQL */ `
         client
         operatingArea
         checkList
+        auditSections {
+          id
+          heading
+          result
+          items
+          __typename
+        }
+        comments
         status
         createdAt
         updatedAt
@@ -11453,6 +11756,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11547,6 +11851,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11605,6 +11910,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11633,6 +11939,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11779,6 +12086,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11807,6 +12115,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -11926,6 +12235,14 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
         client
         operatingArea
         checkList
+        auditSections {
+          id
+          heading
+          result
+          items
+          __typename
+        }
+        comments
         status
         createdAt
         updatedAt
@@ -12050,6 +12367,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12144,6 +12462,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12202,6 +12521,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12230,6 +12550,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12376,6 +12697,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12404,6 +12726,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12523,6 +12846,14 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
         client
         operatingArea
         checkList
+        auditSections {
+          id
+          heading
+          result
+          items
+          __typename
+        }
+        comments
         status
         createdAt
         updatedAt
@@ -12647,6 +12978,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12741,6 +13073,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12799,6 +13132,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12827,6 +13161,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -12973,6 +13308,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13001,6 +13337,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13120,6 +13457,14 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
         client
         operatingArea
         checkList
+        auditSections {
+          id
+          heading
+          result
+          items
+          __typename
+        }
+        comments
         status
         createdAt
         updatedAt
@@ -13244,6 +13589,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13338,6 +13684,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13396,6 +13743,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13424,6 +13772,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13570,6 +13919,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13598,6 +13948,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13717,6 +14068,14 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
         client
         operatingArea
         checkList
+        auditSections {
+          id
+          heading
+          result
+          items
+          __typename
+        }
+        comments
         status
         createdAt
         updatedAt
@@ -13841,6 +14200,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13935,6 +14295,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -13993,6 +14354,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -14021,6 +14383,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -14167,6 +14530,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -14195,6 +14559,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -14314,6 +14679,14 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
         client
         operatingArea
         checkList
+        auditSections {
+          id
+          heading
+          result
+          items
+          __typename
+        }
+        comments
         status
         createdAt
         updatedAt
@@ -14452,6 +14825,14 @@ export const getNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -14558,6 +14939,14 @@ export const getNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -14801,6 +15190,7 @@ export const getNotification = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -14953,6 +15343,14 @@ export const getNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -15059,6 +15457,14 @@ export const getNotification = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -15302,6 +15708,7 @@ export const getNotification = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -15402,6 +15809,7 @@ export const listNotifications = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -15430,6 +15838,7 @@ export const listNotifications = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -15576,6 +15985,7 @@ export const listNotifications = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -15604,6 +16014,7 @@ export const listNotifications = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -15786,6 +16197,7 @@ export const syncNotifications = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -15814,6 +16226,7 @@ export const syncNotifications = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -15960,6 +16373,7 @@ export const syncNotifications = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -15988,6 +16402,7 @@ export const syncNotifications = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16174,6 +16589,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16202,6 +16618,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16348,6 +16765,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16376,6 +16794,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16562,6 +16981,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16590,6 +17010,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16736,6 +17157,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16764,6 +17186,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16950,6 +17373,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -16978,6 +17402,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -17124,6 +17549,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -17152,6 +17578,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -17523,6 +17950,14 @@ export const getClient = /* GraphQL */ `
             client
             operatingArea
             checkList
+            auditSections {
+              id
+              heading
+              result
+              items
+              __typename
+            }
+            comments
             status
             createdAt
             updatedAt
@@ -17666,6 +18101,7 @@ export const listClients = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -17819,6 +18255,7 @@ export const syncClients = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -17976,6 +18413,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt
@@ -18133,6 +18571,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               client
               operatingArea
               checkList
+              comments
               status
               createdAt
               updatedAt

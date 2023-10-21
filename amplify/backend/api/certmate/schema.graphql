@@ -143,6 +143,8 @@ type Cert @model @auth(rules: [
 	client: String # Arrow Energy, Orion, etc...
 	operatingArea: String
 	checkList: [String] # Checklist of items to mark as clean/fail (TCC JD)
+	auditSections: [AuditSection]
+	comments: String
 	status: String @default(value: "P") # Pending, Active, Rejected
 	createdAt: String
 	updatedAt: String
@@ -219,4 +221,11 @@ type Fleet @aws_api_key @aws_cognito_user_pools @aws_iam{
 	id: String
     name: String # Name of Fleet
 	vehicles: [String] # VehicleIDs
+}
+
+type AuditSection @aws_api_key @aws_cognito_user_pools @aws_iam{
+	id: String
+    heading: String # Audit Section Heading
+	result: String # Clean / Fail
+	items: [String] # VehicleIDs
 }

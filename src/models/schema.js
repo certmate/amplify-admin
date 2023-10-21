@@ -1162,6 +1162,23 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
+                "auditSections": {
+                    "name": "auditSections",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "AuditSection"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "comments": {
+                    "name": "comments",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "status": {
                     "name": "status",
                     "isArray": false,
@@ -1930,8 +1947,42 @@ export const schema = {
                     "isArrayNullable": true
                 }
             }
+        },
+        "AuditSection": {
+            "name": "AuditSection",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "heading": {
+                    "name": "heading",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "result": {
+                    "name": "result",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "items": {
+                    "name": "items",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                }
+            }
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "d76dadfba6144ef97e5470ac04fdc410"
+    "version": "90730d994c271eb295657b8b90295ce9"
 };

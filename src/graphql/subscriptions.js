@@ -33,6 +33,7 @@ export const onCreateIndex = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -229,6 +230,7 @@ export const onUpdateIndex = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -425,6 +427,7 @@ export const onDeleteIndex = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -770,6 +773,7 @@ export const onCreateBase = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -802,6 +806,7 @@ export const onCreateBase = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -1197,6 +1202,7 @@ export const onCreateBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -1261,6 +1267,7 @@ export const onCreateBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -1364,6 +1371,7 @@ export const onCreateBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -1428,6 +1436,7 @@ export const onCreateBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -1655,6 +1664,7 @@ export const onUpdateBase = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -1687,6 +1697,7 @@ export const onUpdateBase = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -2082,6 +2093,7 @@ export const onUpdateBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -2146,6 +2158,7 @@ export const onUpdateBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -2249,6 +2262,7 @@ export const onUpdateBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -2313,6 +2327,7 @@ export const onUpdateBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -2540,6 +2555,7 @@ export const onDeleteBase = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -2572,6 +2588,7 @@ export const onDeleteBase = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -2967,6 +2984,7 @@ export const onDeleteBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3031,6 +3049,7 @@ export const onDeleteBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3134,6 +3153,7 @@ export const onDeleteBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3198,6 +3218,7 @@ export const onDeleteBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3409,6 +3430,7 @@ export const onCreateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3473,6 +3495,7 @@ export const onCreateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3649,6 +3672,7 @@ export const onCreateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3713,6 +3737,7 @@ export const onCreateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3816,6 +3841,7 @@ export const onCreateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3880,6 +3906,7 @@ export const onCreateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3966,6 +3993,7 @@ export const onCreateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -4030,6 +4058,7 @@ export const onCreateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -4111,6 +4140,7 @@ export const onCreateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -4252,6 +4282,7 @@ export const onCreateUser = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4276,6 +4307,7 @@ export const onCreateUser = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4332,6 +4364,7 @@ export const onCreateUser = /* GraphQL */ `
       read
       write
       owner
+      approveInspector
       _version
       _deleted
       _lastChangedAt
@@ -4504,6 +4537,7 @@ export const onUpdateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -4568,6 +4602,7 @@ export const onUpdateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -4744,6 +4779,7 @@ export const onUpdateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -4808,6 +4844,7 @@ export const onUpdateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -4911,6 +4948,7 @@ export const onUpdateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -4975,6 +5013,7 @@ export const onUpdateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -5061,6 +5100,7 @@ export const onUpdateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -5125,6 +5165,7 @@ export const onUpdateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -5206,6 +5247,7 @@ export const onUpdateUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -5347,6 +5389,7 @@ export const onUpdateUser = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5371,6 +5414,7 @@ export const onUpdateUser = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5427,6 +5471,7 @@ export const onUpdateUser = /* GraphQL */ `
       read
       write
       owner
+      approveInspector
       _version
       _deleted
       _lastChangedAt
@@ -5599,6 +5644,7 @@ export const onDeleteUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -5663,6 +5709,7 @@ export const onDeleteUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -5839,6 +5886,7 @@ export const onDeleteUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -5903,6 +5951,7 @@ export const onDeleteUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -6006,6 +6055,7 @@ export const onDeleteUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -6070,6 +6120,7 @@ export const onDeleteUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -6156,6 +6207,7 @@ export const onDeleteUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -6220,6 +6272,7 @@ export const onDeleteUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -6301,6 +6354,7 @@ export const onDeleteUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -6442,6 +6496,7 @@ export const onDeleteUser = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -6466,6 +6521,7 @@ export const onDeleteUser = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -6522,6 +6578,7 @@ export const onDeleteUser = /* GraphQL */ `
       read
       write
       owner
+      approveInspector
       _version
       _deleted
       _lastChangedAt
@@ -6708,6 +6765,7 @@ export const onCreateCompany = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -7010,6 +7068,7 @@ export const onCreateCompany = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -7074,6 +7133,7 @@ export const onCreateCompany = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -7307,6 +7367,7 @@ export const onUpdateCompany = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -7609,6 +7670,7 @@ export const onUpdateCompany = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -7673,6 +7735,7 @@ export const onUpdateCompany = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -7906,6 +7969,7 @@ export const onDeleteCompany = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -8208,6 +8272,7 @@ export const onDeleteCompany = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -8272,6 +8337,7 @@ export const onDeleteCompany = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -8396,6 +8462,7 @@ export const onCreateVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -8537,6 +8604,7 @@ export const onCreateVehicle = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8561,6 +8629,7 @@ export const onCreateVehicle = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8759,6 +8828,7 @@ export const onCreateVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -8823,6 +8893,7 @@ export const onCreateVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -8940,6 +9011,7 @@ export const onUpdateVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -9081,6 +9153,7 @@ export const onUpdateVehicle = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9105,6 +9178,7 @@ export const onUpdateVehicle = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9303,6 +9377,7 @@ export const onUpdateVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -9367,6 +9442,7 @@ export const onUpdateVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -9484,6 +9560,7 @@ export const onDeleteVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -9625,6 +9702,7 @@ export const onDeleteVehicle = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9649,6 +9727,7 @@ export const onDeleteVehicle = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9847,6 +9926,7 @@ export const onDeleteVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -9911,6 +9991,7 @@ export const onDeleteVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -10028,6 +10109,7 @@ export const onCreateCert = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -10169,6 +10251,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10193,6 +10276,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10271,6 +10355,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10430,6 +10515,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10454,6 +10540,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10575,6 +10662,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10599,6 +10687,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10690,6 +10779,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10714,6 +10804,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10777,6 +10868,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10801,6 +10893,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10847,6 +10940,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10871,6 +10965,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10912,6 +11007,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11014,6 +11110,7 @@ export const onCreateCert = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -11095,6 +11192,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11119,6 +11217,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11210,6 +11309,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11234,6 +11334,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11297,6 +11398,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11321,6 +11423,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11367,6 +11470,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11391,6 +11495,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11432,6 +11537,7 @@ export const onCreateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11534,6 +11640,7 @@ export const onCreateCert = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -11637,6 +11744,7 @@ export const onUpdateCert = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -11778,6 +11886,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11802,6 +11911,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11880,6 +11990,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12039,6 +12150,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12063,6 +12175,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12184,6 +12297,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12208,6 +12322,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12299,6 +12414,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12323,6 +12439,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12386,6 +12503,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12410,6 +12528,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12456,6 +12575,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12480,6 +12600,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12521,6 +12642,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12623,6 +12745,7 @@ export const onUpdateCert = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -12704,6 +12827,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12728,6 +12852,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12819,6 +12944,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12843,6 +12969,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12906,6 +13033,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12930,6 +13058,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12976,6 +13105,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13000,6 +13130,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13041,6 +13172,7 @@ export const onUpdateCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13143,6 +13275,7 @@ export const onUpdateCert = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -13246,6 +13379,7 @@ export const onDeleteCert = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -13387,6 +13521,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13411,6 +13546,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13489,6 +13625,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13648,6 +13785,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13672,6 +13810,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13793,6 +13932,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13817,6 +13957,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13908,6 +14049,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13932,6 +14074,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13995,6 +14138,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14019,6 +14163,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14065,6 +14210,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14089,6 +14235,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14130,6 +14277,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14232,6 +14380,7 @@ export const onDeleteCert = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -14313,6 +14462,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14337,6 +14487,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14428,6 +14579,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14452,6 +14604,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14515,6 +14668,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14539,6 +14693,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14585,6 +14740,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14609,6 +14765,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14650,6 +14807,7 @@ export const onDeleteCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14752,6 +14910,7 @@ export const onDeleteCert = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -14874,6 +15033,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14898,6 +15058,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14989,6 +15150,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15013,6 +15175,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15076,6 +15239,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15100,6 +15264,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15146,6 +15311,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15170,6 +15336,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15211,6 +15378,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15313,6 +15481,7 @@ export const onCreateNotification = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -15394,6 +15563,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15418,6 +15588,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15509,6 +15680,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15533,6 +15705,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15596,6 +15769,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15620,6 +15794,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15666,6 +15841,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15690,6 +15866,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15731,6 +15908,7 @@ export const onCreateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15833,6 +16011,7 @@ export const onCreateNotification = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -15938,6 +16117,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15962,6 +16142,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16053,6 +16234,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16077,6 +16259,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16140,6 +16323,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16164,6 +16348,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16210,6 +16395,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16234,6 +16420,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16275,6 +16462,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16377,6 +16565,7 @@ export const onUpdateNotification = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -16458,6 +16647,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16482,6 +16672,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16573,6 +16764,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16597,6 +16789,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16660,6 +16853,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16684,6 +16878,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16730,6 +16925,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16754,6 +16950,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16795,6 +16992,7 @@ export const onUpdateNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -16897,6 +17095,7 @@ export const onUpdateNotification = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -17002,6 +17201,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17026,6 +17226,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17117,6 +17318,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17141,6 +17343,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17204,6 +17407,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17228,6 +17432,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17274,6 +17479,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17298,6 +17504,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17339,6 +17546,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17441,6 +17649,7 @@ export const onDeleteNotification = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -17522,6 +17731,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17546,6 +17756,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17637,6 +17848,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17661,6 +17873,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17724,6 +17937,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17748,6 +17962,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17794,6 +18009,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17818,6 +18034,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17859,6 +18076,7 @@ export const onDeleteNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17961,6 +18179,7 @@ export const onDeleteNotification = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -18047,6 +18266,7 @@ export const onCreateClient = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -18188,6 +18408,7 @@ export const onCreateClient = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -18212,6 +18433,7 @@ export const onCreateClient = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -18348,6 +18570,7 @@ export const onUpdateClient = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -18489,6 +18712,7 @@ export const onUpdateClient = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -18513,6 +18737,7 @@ export const onUpdateClient = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -18649,6 +18874,7 @@ export const onDeleteClient = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -18790,6 +19016,7 @@ export const onDeleteClient = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -18814,6 +19041,7 @@ export const onDeleteClient = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt

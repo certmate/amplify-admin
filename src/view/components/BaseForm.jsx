@@ -1,4 +1,4 @@
-import { Button, Input, Select } from "antd";
+import { Button, Input, Select, Switch } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import { ErrorMessage, Field, Formik } from "formik";
 import { object } from "yup";
@@ -218,16 +218,17 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                                         {
                                             component === 'input' ? <Field name={f} className='ant-input' disabled={isSubmitting} />
                                                 : component === 'textarea' ? <Field as='textarea' name={f} className='ant-input' disabled={isSubmitting} />
-                                                    : component === 'upload' ? <>
-                                                        <StorageManager {...field} accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
-                                                        {values?.[f] && deriveComponent('image', values?.[f])}
-                                                    </>
-                                                        : component === 'select' ? (
-                                                            validation?.type === 'array' ? <Select {...field} mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
-                                                                : <Select {...field} onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
-                                                        )
-                                                            : isFunction(component) ? component({ field, setFieldValue, isSubmitting })
-                                                                : null
+                                                    : component === 'switch' ? <Switch checkedChildren="Yes" unCheckedChildren="No" disabled={isSubmitting || !schema[f].write || !schema[f].write.includes(role(user)) } />
+                                                        : component === 'upload' ? <>
+                                                            <StorageManager {...field} accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
+                                                            {values?.[f] && deriveComponent('image', values?.[f])}
+                                                        </>
+                                                            : component === 'select' ? (
+                                                                validation?.type === 'array' ? <Select {...field} mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
+                                                                    : <Select {...field} onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
+                                                            )
+                                                                : isFunction(component) ? component({ field, setFieldValue, isSubmitting })
+                                                                    : null
                                         }
                                         <ErrorMessage name={f} render={m => <span className="hp-text-color-danger-1">{m}</span>} />
                                     </div>

@@ -516,6 +516,13 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
+                },
+                "approveInspector": {
+                    "name": "approveInspector",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
                 }
             },
             "syncable": true,
@@ -1991,5 +1998,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "227826585cf467108d3c1123e48c3df8"
+    "version": "792eab3fbd7e54a93bcf409940fff6de"
 };

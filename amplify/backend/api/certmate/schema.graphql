@@ -73,6 +73,7 @@ type User @model @auth(rules: [
 	read: [String]
 	write: [String]
 	owner: String
+	approveInspector: Boolean
 }
 
 type Company @model @auth(rules: [

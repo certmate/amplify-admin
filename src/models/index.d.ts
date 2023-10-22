@@ -157,6 +157,7 @@ type EagerUser = {
   readonly read?: (string | null)[] | null;
   readonly write?: (string | null)[] | null;
   readonly owner?: string | null;
+  readonly approveInspector?: boolean | null;
 }
 
 type LazyUser = {
@@ -186,6 +187,7 @@ type LazyUser = {
   readonly read?: (string | null)[] | null;
   readonly write?: (string | null)[] | null;
   readonly owner?: string | null;
+  readonly approveInspector?: boolean | null;
 }
 
 export declare type User = LazyLoading extends LazyLoadingDisabled ? EagerUser : LazyUser

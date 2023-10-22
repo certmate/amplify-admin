@@ -30,6 +30,7 @@ export const getIndex = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -528,6 +529,7 @@ export const getBase = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -560,6 +562,7 @@ export const getBase = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -955,6 +958,7 @@ export const getBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -1019,6 +1023,7 @@ export const getBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -1122,6 +1127,7 @@ export const getBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -1186,6 +1192,7 @@ export const getBase = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -1303,6 +1310,7 @@ export const listBases = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -1489,6 +1497,7 @@ export const listBases = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -1513,6 +1522,7 @@ export const listBases = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -1576,6 +1586,7 @@ export const listBases = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -1600,6 +1611,7 @@ export const listBases = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -1727,6 +1739,7 @@ export const syncBases = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -1913,6 +1926,7 @@ export const syncBases = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -1937,6 +1951,7 @@ export const syncBases = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -2000,6 +2015,7 @@ export const syncBases = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -2024,6 +2040,7 @@ export const syncBases = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -2155,6 +2172,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -2341,6 +2359,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -2365,6 +2384,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -2428,6 +2448,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -2452,6 +2473,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -2664,6 +2686,7 @@ export const getUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -2728,6 +2751,7 @@ export const getUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -2904,6 +2928,7 @@ export const getUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -2968,6 +2993,7 @@ export const getUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3071,6 +3097,7 @@ export const getUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3135,6 +3162,7 @@ export const getUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3221,6 +3249,7 @@ export const getUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3285,6 +3314,7 @@ export const getUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3366,6 +3396,7 @@ export const getUser = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -3507,6 +3538,7 @@ export const getUser = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -3531,6 +3563,7 @@ export const getUser = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -3587,6 +3620,7 @@ export const getUser = /* GraphQL */ `
       read
       write
       owner
+      approveInspector
       _version
       _deleted
       _lastChangedAt
@@ -3676,6 +3710,7 @@ export const listUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -3700,6 +3735,7 @@ export const listUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -3791,6 +3827,7 @@ export const listUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -3815,6 +3852,7 @@ export const listUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -3878,6 +3916,7 @@ export const listUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -3902,6 +3941,7 @@ export const listUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -3948,6 +3988,7 @@ export const listUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -3972,6 +4013,7 @@ export const listUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4013,6 +4055,7 @@ export const listUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4115,6 +4158,7 @@ export const listUsers = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -4214,6 +4258,7 @@ export const syncUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4238,6 +4283,7 @@ export const syncUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4329,6 +4375,7 @@ export const syncUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4353,6 +4400,7 @@ export const syncUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4416,6 +4464,7 @@ export const syncUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4440,6 +4489,7 @@ export const syncUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4486,6 +4536,7 @@ export const syncUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4510,6 +4561,7 @@ export const syncUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4551,6 +4603,7 @@ export const syncUsers = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4653,6 +4706,7 @@ export const syncUsers = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -4756,6 +4810,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4780,6 +4835,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4871,6 +4927,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4895,6 +4952,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4958,6 +5016,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -4982,6 +5041,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5028,6 +5088,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5052,6 +5113,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5093,6 +5155,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5195,6 +5258,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -5298,6 +5362,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5322,6 +5387,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5413,6 +5479,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5437,6 +5504,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5500,6 +5568,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5524,6 +5593,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5570,6 +5640,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5594,6 +5665,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5635,6 +5707,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -5737,6 +5810,7 @@ export const usersByBaseAndName = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -5924,6 +5998,7 @@ export const getCompany = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -6226,6 +6301,7 @@ export const getCompany = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -6290,6 +6366,7 @@ export const getCompany = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -6413,6 +6490,7 @@ export const listCompanies = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -6554,6 +6632,7 @@ export const listCompanies = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -6578,6 +6657,7 @@ export const listCompanies = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -6711,6 +6791,7 @@ export const syncCompanies = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -6852,6 +6933,7 @@ export const syncCompanies = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -6876,6 +6958,7 @@ export const syncCompanies = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -7013,6 +7096,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -7154,6 +7238,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -7178,6 +7263,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -7303,6 +7389,7 @@ export const getVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -7444,6 +7531,7 @@ export const getVehicle = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -7468,6 +7556,7 @@ export const getVehicle = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -7666,6 +7755,7 @@ export const getVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -7730,6 +7820,7 @@ export const getVehicle = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -7809,6 +7900,7 @@ export const listVehicles = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -7968,6 +8060,7 @@ export const listVehicles = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -7992,6 +8085,7 @@ export const listVehicles = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8081,6 +8175,7 @@ export const syncVehicles = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8240,6 +8335,7 @@ export const syncVehicles = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8264,6 +8360,7 @@ export const syncVehicles = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8357,6 +8454,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8516,6 +8614,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8540,6 +8639,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8633,6 +8733,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8792,6 +8893,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8816,6 +8918,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -8934,6 +9037,7 @@ export const getCert = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -9075,6 +9179,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9099,6 +9204,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9177,6 +9283,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9336,6 +9443,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9360,6 +9468,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9481,6 +9590,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9505,6 +9615,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9596,6 +9707,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9620,6 +9732,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9683,6 +9796,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9707,6 +9821,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9753,6 +9868,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9777,6 +9893,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9818,6 +9935,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -9920,6 +10038,7 @@ export const getCert = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -10001,6 +10120,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10025,6 +10145,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10116,6 +10237,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10140,6 +10262,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10203,6 +10326,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10227,6 +10351,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10273,6 +10398,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10297,6 +10423,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10338,6 +10465,7 @@ export const getCert = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10440,6 +10568,7 @@ export const getCert = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -10505,6 +10634,7 @@ export const listCerts = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -10862,6 +10992,7 @@ export const listCerts = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -11038,6 +11169,7 @@ export const listCerts = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -11113,6 +11245,7 @@ export const syncCerts = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -11470,6 +11603,7 @@ export const syncCerts = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -11646,6 +11780,7 @@ export const syncCerts = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -11725,6 +11860,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12082,6 +12218,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -12258,6 +12395,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -12337,6 +12475,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -12694,6 +12833,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -12870,6 +13010,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -12949,6 +13090,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13306,6 +13448,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -13482,6 +13625,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -13561,6 +13705,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -13918,6 +14063,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -14094,6 +14240,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -14173,6 +14320,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14530,6 +14678,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -14706,6 +14855,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -14829,6 +14979,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14853,6 +15004,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14944,6 +15096,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -14968,6 +15121,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15031,6 +15185,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15055,6 +15210,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15101,6 +15257,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15125,6 +15282,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15166,6 +15324,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15268,6 +15427,7 @@ export const getNotification = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -15349,6 +15509,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15373,6 +15534,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15464,6 +15626,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15488,6 +15651,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15551,6 +15715,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15575,6 +15740,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15621,6 +15787,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15645,6 +15812,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15686,6 +15854,7 @@ export const getNotification = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -15788,6 +15957,7 @@ export const getNotification = /* GraphQL */ `
         read
         write
         owner
+        approveInspector
         _version
         _deleted
         _lastChangedAt
@@ -15990,6 +16160,7 @@ export const listNotifications = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -16166,6 +16337,7 @@ export const listNotifications = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -16378,6 +16550,7 @@ export const syncNotifications = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -16554,6 +16727,7 @@ export const syncNotifications = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -16770,6 +16944,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -16946,6 +17121,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -17162,6 +17338,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -17338,6 +17515,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -17554,6 +17732,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -17730,6 +17909,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
           read
           write
           owner
+          approveInspector
           _version
           _deleted
           _lastChangedAt
@@ -17817,6 +17997,7 @@ export const getClient = /* GraphQL */ `
             read
             write
             owner
+            approveInspector
             _version
             _deleted
             _lastChangedAt
@@ -17958,6 +18139,7 @@ export const getClient = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -17982,6 +18164,7 @@ export const getClient = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -18080,6 +18263,7 @@ export const listClients = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -18234,6 +18418,7 @@ export const syncClients = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -18392,6 +18577,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt
@@ -18550,6 +18736,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               read
               write
               owner
+              approveInspector
               _version
               _deleted
               _lastChangedAt

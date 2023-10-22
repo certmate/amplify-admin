@@ -27,45 +27,45 @@ export default function Router() {
     const { pathname, search, hash } = useLocation();
 
     const userFromAppSync = async cognitoUser => {
-		const get = async cognitoUser => {
-			try {
-				return await API.graphql(
-					graphqlOperation(getUser, {
-						id: cognitoUser.attributes.email,
-					})
-				);
-			}
-			catch (e) {
-				return e;
-			}
-		}
-		let d = await get(cognitoUser);
+        const get = async cognitoUser => {
+            try {
+                return await API.graphql(
+                    graphqlOperation(getUser, {
+                        id: cognitoUser.attributes.email,
+                    })
+                );
+            }
+            catch (e) {
+                return e;
+            }
+        }
+        let d = await get(cognitoUser);
 
-		if (!d.data.getUser) {
-			try {
+        if (!d.data.getUser) {
+            try {
                 const base = v4();
 
-				await API.graphql(
-					graphqlOperation(createUserAndBase, {
-						user: {
-							id: cognitoUser.attributes.email,
-							email: cognitoUser.attributes.email,
+                await API.graphql(
+                    graphqlOperation(createUserAndBase, {
+                        user: {
+                            id: cognitoUser.attributes.email,
+                            email: cognitoUser.attributes.email,
                             base: base
-						},
+                        },
                         base: {
                             id: base
                         }
-					})
-				);
-				d = await get(cognitoUser);
-			}
-			catch (e) {
-				console.log(e);
-			}
-		}
+                    })
+                );
+                d = await get(cognitoUser);
+            }
+            catch (e) {
+                console.log(e);
+            }
+        }
 
-		return { ...d.data.getUser };
-	}
+        return { ...d.data.getUser };
+    }
 
     useEffect(() => {
         user && (async () => {
@@ -83,7 +83,7 @@ export default function Router() {
                 /**
                  * Check which models have settings
                  */
-            // console.log({ schema, d: graphqlSchema.data.__schema.types.find(({ name }) => name === 'CreateUserInput') });
+                // console.log({ schema, d: graphqlSchema.data.__schema.types.find(({ name }) => name === 'CreateUserInput') });
                 // const query = `query GetNotifications{
                 //     user: getUser(id: "${user.cognito.username}"){
                 //         ${keys(routes).map(r => {
@@ -115,7 +115,11 @@ export default function Router() {
     return (
         <Routes >
             {/* Routes > settings.json */}
-            {entries(routes).map(([route, { title, model, filters, form, data }]) => <Route id={route} key={uniqueId()} path={route} element={<VerticalLayout><Base route={route} title={title} filters={filters} model={model} form={form} data={data} /></VerticalLayout>} />)}
+            {entries(routes).map(([route, { title, model, filters, form, data, component }]) => <Route id={route} key={uniqueId()} path={route} element={
+                <VerticalLayout>
+                    {component?.({ form }) || <Base route={route} title={title} filters={filters} model={model} form={form} data={data} />}
+                </VerticalLayout>
+            } />)}
 
             {/* Home Page */}
             <Route exact path='/' element={<Navigate to='/certs' />} />

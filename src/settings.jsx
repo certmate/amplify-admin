@@ -1,10 +1,11 @@
-import { Building, Colorfilter, DocumentText1, Profile, Profile2User, Share, Truck } from "iconsax-react";
-import { array, object, string } from "yup";
+import { Building, Colorfilter, DocumentText1, Profile, Profile2User, SecurityUser, Share, Truck } from "iconsax-react";
+import { array, boolean, object, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 import * as CustomComponent from "./view/components/custom";
 import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser, sendInvitationEmailToMember } from "./custom/callbackFunctions";
 import { shareCert, approveRejectCert, downloadCert } from "./custom/actions";
+import BaseAccount from "./view/components/BaseAccount";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -37,7 +38,7 @@ export const routes = {
                 inspectorID: { label: 'Inspector', validation: string(), formComponent: { component: 'select', select: { options: '@User.id:name', filter: { roles: { contains: "Inspector" } } } } },
                 number: { label: 'Certificate Number', validation: string().required(), formComponent: { component: 'input' } },
                 type: { label: 'Type', validation: string().required(), formComponent: { component: 'select', select: { options: ['Vehicle Hygiene Certificate', 'Self Declaration'] } }, table: { columnProps: { width: 250 } } },
-                odometer: { label: 'Odometer', validation: string().required(), formComponent: { component: 'input' } },
+                odometer: { label: 'Odometer', validation: string().required().max(7), formComponent: { component: 'input' } },
                 operatingArea: { label: 'Operating Area', validation: string().required(), formComponent: { component: 'input' } },
                 checkList: { label: 'Checklist', validation: string().required(), formComponent: { component: 'input' } },
                 status: { label: 'Status', validation: string(), formComponent: { component: 'select', select: { options: ['Pending', 'Approved', 'Rejected'] } }, table: { component: (data, record) => <CustomComponent.CertStatus data={data} record={record} /> } },
@@ -58,10 +59,10 @@ export const routes = {
             read: {
                 fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name', 'company.id,name,logo'],
                 actions: [
-                    actions.delete, 
-                    actions.update, 
-                    shareCert, 
-                    approveRejectCert, 
+                    actions.delete,
+                    actions.update,
+                    shareCert,
+                    approveRejectCert,
                     downloadCert
                 ],
                 roles: ['Owner', 'Inspector', 'Driver']
@@ -228,6 +229,28 @@ export const routes = {
             }
         }
     },
+    ['/account']: {
+        title: "Account",
+        model: "User",
+        icon: <SecurityUser />,
+        component: data => <BaseAccount {...data} />,
+        form: {
+            schema: {
+                id: { label: 'id', hidden: true, formComponent: null },
+                _version: { hidden: true },
+                name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
+                email: { label: 'Email', validation: string().required().email(), formComponent: { component: 'input' } },
+                phone: { label: 'Phone', validation: string().required(), formComponent: { component: 'input' } },
+                roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } } },
+                acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: { component: 'input' } },
+                acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
+                approveInspector: { label: 'Inspector Approval', validation: boolean(), formComponent: { component: 'switch' }, write: ['Owner'] },
+            },
+            create: {
+                fields: ['id', '_version', 'name', 'email', 'phone', 'roles', 'acN', 'acnDoc', 'approveInspector'],
+            }
+        }
+    }
     // ['/access']: {
     //     title: "Access Control",
     //     model: "Notification",
@@ -282,5 +305,8 @@ export const menu = [
     },
     {
         node: '/fleets'
+    },
+    {
+        node: '/account'
     }
 ]

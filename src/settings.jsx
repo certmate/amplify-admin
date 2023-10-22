@@ -4,7 +4,7 @@ import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 import * as CustomComponent from "./view/components/custom";
 import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser, sendInvitationEmailToMember } from "./custom/callbackFunctions";
-import { shareCert, approveRejectCert, downloadCert } from "./custom/actions";
+import { shareCert, approveRejectCert, downloadCert, approveDisapproveAsInspector } from "./custom/actions";
 import BaseAccount from "./view/components/BaseAccount";
 
 export const appName = "CertMate";
@@ -116,6 +116,7 @@ export const routes = {
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
+                approveInspector: { label: 'Inspector Approval', routes: ['/companies/members?filter=members'], validation: boolean(), formComponent: { component: 'switch' } },
             },
             create: {
                 button: {
@@ -125,9 +126,11 @@ export const routes = {
                 afterSubmit: sendInvitationEmailToMember
             },
             read: {
-                fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'company.id,name,logo'],
+                fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'company.id,name,logo', 'approveInspector'],
                 actions: [
-                    { ...actions.delete, routes: ['/companies/members?filter=invitations'], fx: deleteInvitationCallback }
+                    { ...actions.delete, routes: ['/companies/members?filter=invitations'], fx: deleteInvitationCallback },
+                    { ...actions.delete, routes: ['/companies/members?filter=members'] },
+                    { ...approveDisapproveAsInspector, routes: ['/companies/members?filter=members'] },
                 ]
             }
         }

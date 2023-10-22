@@ -48,7 +48,8 @@ type Base @model @auth(rules: [
 type User @model @auth(rules: [
 	{ allow: owner },
     { allow: public },
-    { allow: groups, groupsField: "write", operations: [read, update, delete] }
+    { allow: groups, groupsField: "write", operations: [read, update, delete] },
+    { allow: groups, groupsField: "read", operations: [read] },
 ]){
 	id: ID!
 	name: String
@@ -124,7 +125,7 @@ type Vehicle @model @auth(rules: [
 type Cert @model @auth(rules: [
 	{ allow: owner },
     { allow: public },
-	{ allow: groups, groups: ["SuperAdmin"], operations: [read, create, update, delete] },
+	{ allow: groups, groups: ["SuperAdmin", "Inspector"], operations: [read, create, update, delete] },
 	{ allow: groups, groups: ["Admin"], operations: [read, update] },
 	{ allow: groups, groupsField: "read", operations: [read] },
 	{ allow: private, operations: [read] }

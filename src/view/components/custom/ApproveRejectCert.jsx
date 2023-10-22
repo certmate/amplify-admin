@@ -4,14 +4,14 @@ import { useState } from "react";
 import { updateCert } from "../../../graphql/mutations";
 import { API, graphqlOperation } from "aws-amplify";
 import SweetAlert from 'sweetalert2';
+import { useSelector } from "react-redux";
 
 export default function ApproveRejectCert({ data, callback }) {
-    const [showShareModal, setShowShareModal] = useState(false);
-    const [initialValues, setInitialValues] = useState({ email: '' });
+    const user = useSelector(state => state.user);
 
     return <Popconfirm
         title="Accept/Rejecct a Certificate"
-        description="Are you sure to delete this task?"
+        description="Are you sure to approve this certificate?"
         onConfirm={async () => {
             try {
                 /**
@@ -20,18 +20,19 @@ export default function ApproveRejectCert({ data, callback }) {
                  * 2.   append
                  */
                 const { id, _version } = data;
-                await API.graphql(graphqlOperation(updateCert, { input: {
-                    id,
-                    _version,
-                    status: 'A'
-                } }));
-    
+                await API.graphql(graphqlOperation(updateCert, {
+                    input: {
+                        id,
+                        _version,
+                        status: 'A',
+                        inspectorID: user.appsync.id
+                    }
+                }));
+
                 await callback();
                 await SweetAlert.fire({ title: 'Done', icon: 'success' });
-                resetForm();
-                setShowShareModal(false);
             } catch (error) {
-                console.log({error});
+                console.log({ error });
             }
         }}
         onCancel={async () => {
@@ -42,24 +43,26 @@ export default function ApproveRejectCert({ data, callback }) {
                  * 2.   append
                  */
                 const { id, _version } = data;
-                await API.graphql(graphqlOperation(updateCert, { input: {
-                    id,
-                    _version,
-                    status: 'R'
-                } }));
-    
+                await API.graphql(graphqlOperation(updateCert, {
+                    input: {
+                        id,
+                        _version,
+                        status: 'R',
+                        inspectorID: user.appsync.id
+                    }
+                }));
+
                 await callback();
                 await SweetAlert.fire({ title: 'Done', icon: 'success' });
                 resetForm();
-                setShowShareModal(false);
             } catch (error) {
-                console.log({error});
+                console.log({ error });
             }
         }}
         okText="Approve"
         cancelText="Reject"
     >
-        <Space onClick={() => setShowShareModal(true)}><TickSquare size={24} /> Approve/Reject</Space>
+        <Space><TickSquare size={24} /> Approve/Reject</Space>
     </Popconfirm>
 
 }

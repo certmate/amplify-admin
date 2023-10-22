@@ -588,6 +588,16 @@ export const schema = {
                                     "delete"
                                 ],
                                 "groupField": "groups"
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groupsField": "read",
+                                "operations": [
+                                    "read"
+                                ],
+                                "groupField": "groups"
                             }
                         ]
                     }
@@ -1310,7 +1320,8 @@ export const schema = {
                                 "provider": "userPools",
                                 "allow": "groups",
                                 "groups": [
-                                    "SuperAdmin"
+                                    "SuperAdmin",
+                                    "Inspector"
                                 ],
                                 "operations": [
                                     "read",

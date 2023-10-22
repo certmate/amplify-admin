@@ -1,4 +1,3 @@
-TODO Renew Certs - update location
 TODO Cert PDF creation / update
 TODO Push Notifs - https://enappd.com/blog/firebase-push-notification-in-ionic-react-capacitor/111/
 

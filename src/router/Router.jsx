@@ -64,6 +64,32 @@ export default function Router() {
             }
         }
 
+        // Update user pushToken + status
+        if(d){
+            try{
+                await API.graphql(
+                    graphqlOperation(`
+                        mutation UpdateUser($input: UpdateUserInput!){
+                            updateUser(input: $input){
+                                id
+                            }
+                        }
+                    `, {
+                        input: {
+                            id: d.data.getUser.id,
+                            _version: d.data.getUser._version,
+                            status: 'A'
+                        }
+                    })
+                );
+
+                d = await get(cognitoUser);
+            }
+            catch(e){
+                console.log(e);
+            }
+        }
+
         return { ...d.data.getUser };
     }
 

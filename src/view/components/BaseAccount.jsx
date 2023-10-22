@@ -9,7 +9,7 @@ export default function BaseAccount({ form }) {
 
     useEffect(() => {
         user?.appsync && (async () => {
-            console.log({ user: await getData({ model: 'User', fields: form.create.fields, id: user.appsync.id }) })
+            setValues(await getData({ model: 'User', fields: form.create.fields, id: user.appsync.id }))
         })();
     }, [user]);
     return <>

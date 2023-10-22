@@ -4,7 +4,7 @@ import { ErrorMessage, Field, Formik } from "formik";
 import { object } from "yup";
 import { Form } from 'antd';
 import { StorageManager } from "@aws-amplify/ui-react-storage";
-import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChildNode, role } from "../../helpers";
+import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChildNode, isDisabled, role } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
 import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get, isEmpty, isUndefined, isFunction, keys } from "lodash";
@@ -218,14 +218,14 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                                         {
                                             component === 'input' ? <Field name={f} className='ant-input' disabled={isSubmitting} />
                                                 : component === 'textarea' ? <Field as='textarea' name={f} className='ant-input' disabled={isSubmitting} />
-                                                    : component === 'switch' ? <Switch checkedChildren="Yes" unCheckedChildren="No" disabled={isSubmitting || !schema[f].write || !schema[f].write.includes(role(user)) } />
+                                                    : component === 'switch' ? <Switch checkedChildren="Yes" unCheckedChildren="No" disabled={isSubmitting || isDisabled(schema, f, user) } />
                                                         : component === 'upload' ? <>
                                                             <StorageManager {...field} accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
                                                             {values?.[f] && deriveComponent('image', values?.[f])}
                                                         </>
                                                             : component === 'select' ? (
-                                                                validation?.type === 'array' ? <Select {...field} mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
-                                                                    : <Select {...field} onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
+                                                                validation?.type === 'array' ? <Select {...field} mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} disabled={isSubmitting || isDisabled(schema, f, user) } />
+                                                                    : <Select {...field} onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} disabled={isSubmitting || isDisabled(schema, f, user) } />
                                                             )
                                                                 : isFunction(component) ? component({ field, setFieldValue, isSubmitting })
                                                                     : null

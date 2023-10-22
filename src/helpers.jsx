@@ -159,3 +159,5 @@ export const getFieldsOfParentModel = model => last(model.split('.')).split(',')
 export const getChildModel = model => last(model.slice(1).split('.'));
 
 export const hasArrayOfValues = model => model.includes(":@")
+
+export const isDisabled = (schema, field, user) => schema[field]?.write?.includes(role(user));

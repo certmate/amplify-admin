@@ -244,7 +244,7 @@ export const routes = {
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
                 email: { label: 'Email', validation: string().required().email(), formComponent: { component: 'input' } },
                 phone: { label: 'Phone', validation: string().required(), formComponent: { component: 'input' } },
-                roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } } },
+                roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } }, write: ['Owner'] },
                 acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: { component: 'input' } },
                 acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
                 approveInspector: { label: 'Inspector Approval', validation: boolean(), formComponent: { component: 'switch' }, write: ['Owner'] },

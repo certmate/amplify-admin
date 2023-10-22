@@ -11,7 +11,7 @@ export default function BaseUpdateButton({ data, model, form, schema, callback }
     return <>
         <Space onClick={() => setModalData(data)}><Edit size={24} /> Update</Space>
         <BaseModal modal={{ title: `Update ${model}`, showModal: Boolean(modalData), hideModal: () => setModalData(null) }} form={{
-            model, schema, fields: form?.create?.fields, readFields: form?.read?.fields, values: modalData, onSubmit: async () => {
+            model, form, schema, fields: form?.create?.fields, readFields: form?.read?.fields, values: modalData, onSubmit: async () => {
                 try {
                     setModalData(null);
                     callback();

@@ -50,7 +50,7 @@ export const routes = {
                 comments: { label: 'Comments', validation: string(), formComponent: { component: 'textarea' } },
             },
             create: {
-                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections', 'comments'],
+                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments'],
                 button: {
                     label: 'Create Cert'
                 },

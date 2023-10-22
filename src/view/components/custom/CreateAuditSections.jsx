@@ -20,7 +20,7 @@ export default function CreateAuditSections({ field, values, ...data }) {
                             <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">Result</span>
                             <Switch checkedChildren="Pass" unCheckedChildren="Fail" className="hp-mb-8" />
                             <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">Items</span>
-                            <Field as="textarea" name={`${field}.${index}.items[0]`} className='ant-input hp-mb-8' />
+                            <Field as="textarea" name={`${field}.${index}.description`} className='ant-input hp-mb-8' />
 
                             <button type="button" onClick={() => remove(index)}>
                                 Remove Section

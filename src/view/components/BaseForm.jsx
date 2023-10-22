@@ -7,7 +7,7 @@ import { StorageManager } from "@aws-amplify/ui-react-storage";
 import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChildNode, isDisabled, role } from "../../helpers";
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
-import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get, isEmpty, isUndefined, isFunction, keys } from "lodash";
+import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get, isEmpty, isUndefined, isFunction, keys, first } from "lodash";
 import { getData, readData } from "../../common";
 import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
@@ -45,10 +45,11 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
         let i = {}, v = {};
         // Fields from settings
         fields.map(f => {
-            const { validation } = schema[f];
+            const field = first(f.split('.'))
+            const { validation } = schema[field];
             if (validation) {
-                v[f] = validation;
-                i[f] = formValues?.[f] || getInitialValues(validation); // Upsert
+                v[field] = validation;
+                i[field] = formValues?.[field] || getInitialValues(validation); // Upsert
             }
         })
 
@@ -135,7 +136,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
             // Formatting
             try {
                 // Check for role specific function
-                if (form[formIs].onSubmit?.[role(user)]) {
+                if (form[formIs]?.onSubmit?.[role(user)]) {
                     await form[formIs].onSubmit?.[role(user)]({ values, model, fields, user, readFields });
                 }
                 else {
@@ -179,7 +180,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                     await API.graphql(graphqlOperation(query, { input: cleanEmptyConnections(payload) }));
                 }
 
-                await form.create.afterSubmit?.({ user, values });
+                await form[formIs]?.afterSubmit?.({ user, values });
                 resetForm();
                 onSubmit();
             }
@@ -204,7 +205,8 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                 */}
                 {isChildNode(model) && <ParentPicker model={model} parent={values.parent} onPick={(parent) => ['id', '_version', 'name', 'logo'].forEach(p => setFieldValue(`parent.${p}`, parent[p]))} />}
                 {isChildNode(model) && (!values.parent?.id || !values.parent?._version) ? <></> : <>
-                    {fields.map((f, k) => {
+                    {fields.map((field, k) => {
+                        const f = first(field.split('.'))
                         const { label, formComponent, validation } = schema[f];
                         if (isUndefined(formComponent?.component)) {
                             return null
@@ -242,7 +244,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         </Button>
                     </Form.Item>
                 </>}
-                {/* <pre>{JSON.stringify({ values, errors, ini{tialValues, schema }, false, 4)}</pre> */}
+                {/* <pre>{JSON.stringify({ values, errors, initialValues, schema }, false, 4)}</pre> */}
 
             </Form>
         </>)}

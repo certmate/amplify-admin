@@ -227,5 +227,6 @@ type AuditSection @aws_api_key @aws_cognito_user_pools @aws_iam{
 	id: String
     heading: String # Audit Section Heading
 	result: String # Clean / Fail
+	description: String # TextArea
 	items: [String] # VehicleIDs
 }

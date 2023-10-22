@@ -21,8 +21,8 @@ export const routes = {
         model: "Cert",
         filters: {
             all: { name: 'Certs', roles: ['Owner', 'Inspector'] },
-            active: { filter: { status: { eq: "A" } }, name: 'Active', roles: ['Owner', 'Inspector'] },
-            pending: { filter: { status: { eq: "P" } }, name: 'Pending', roles: ['Owner', 'Inspector'] },
+            active: { filter: { status: { eq: "A" } }, name: 'Active', roles: ['Owner', 'Inspector', 'Driver'] },
+            pending: { filter: { status: { eq: "P" } }, name: 'Pending', roles: ['Owner', 'Inspector', 'Driver'] },
             rejected: { filter: { status: { eq: "R" } }, name: 'Rejected', roles: ['Owner', 'Inspector'] },
             expired: { filter: { status: { eq: "E" } }, name: 'Expired', roles: ['Owner', 'Inspector'] },
         },
@@ -45,10 +45,11 @@ export const routes = {
                 driver: { label: 'Driver', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
                 inspector: { label: 'Inspector', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
-                auditSections: { label: 'Sections', validation: array().of(object().shape({ id: string(), heading: string(), items: array().of(string()) })) , formComponent: { component: data => <CustomComponent.CreateAuditSections {...data} /> } },
+                auditSections: { label: 'Sections', validation: array().of(object().shape({ id: string(), heading: string(), description: string() })), formComponent: { component: data => <CustomComponent.CreateAuditSections {...data} /> } },
+                comments: { label: 'Comments', validation: string(), formComponent: { component: 'textarea' } },
             },
             create: {
-                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections'],
+                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections', 'comments'],
                 button: {
                     label: 'Create Cert'
                 },
@@ -56,7 +57,13 @@ export const routes = {
             },
             read: {
                 fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name', 'company.id,name,logo'],
-                actions: [actions.delete, actions.update, shareCert, approveRejectCert, downloadCert],
+                actions: [
+                    actions.delete, 
+                    actions.update, 
+                    shareCert, 
+                    approveRejectCert, 
+                    downloadCert
+                ],
                 roles: ['Owner', 'Inspector', 'Driver']
             }
         },
@@ -149,8 +156,8 @@ export const routes = {
             read: {
                 fields: ['id', 'name', 'logo', '_version', 'company.id,name,logo'],
                 actions: [
-                    {...actions.delete, roles: ['Owner']}, 
-                    {...actions.update, roles: ['Owner']}
+                    { ...actions.delete, roles: ['Owner'] },
+                    { ...actions.update, roles: ['Owner'] }
                 ]
             }
         }
@@ -180,8 +187,8 @@ export const routes = {
             read: {
                 fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo'],
                 actions: [
-                    {...actions.delete, roles: ['Owner']}, 
-                    {...actions.update, roles: ['Owner']}
+                    { ...actions.delete, roles: ['Owner'] },
+                    { ...actions.update, roles: ['Owner'] }
                 ]
             }
         }
@@ -215,8 +222,8 @@ export const routes = {
                 fields: ['id', 'name', 'vehicles:@Vehicle.id,make,model,rego'],
                 extraTableData: listFleetsOfUser,
                 actions: [
-                    {...actions.update, roles: ['Owner']}, 
-                    {...actions.delete, roles: ['Owner']}, 
+                    { ...actions.update, roles: ['Owner'] },
+                    { ...actions.delete, roles: ['Owner'] },
                 ]
             }
         }
@@ -252,18 +259,18 @@ export const menu = [
     {
         node: '/certs',
         children: [
-            { node: `/certs?filter=all`, roles: ['Owner'] }, 
-            { node: `/certs?filter=active`, roles: ['Owner', 'Driver'] }, 
-            { node: `/certs?filter=pending`, roles: ['Owner', 'Inspector'] }, 
-            { node: `/certs?filter=rejected`, roles: ['Owner', 'Inspector'] }, 
+            { node: `/certs?filter=all`, roles: ['Owner'] },
+            { node: `/certs?filter=active`, roles: ['Owner', 'Driver'] },
+            { node: `/certs?filter=pending`, roles: ['Owner', 'Inspector', 'Driver'] },
+            { node: `/certs?filter=rejected`, roles: ['Owner', 'Inspector'] },
             { node: `/certs?filter=expired`, roles: ['Owner', 'Inspector'] }
         ]
     },
     {
         node: '/companies',
         children: [
-            { node: `/companies/members?filter=members` }, 
-            { node: `/companies/members?filter=invitations` }, 
+            { node: `/companies/members?filter=members` },
+            { node: `/companies/members?filter=invitations` },
         ],
         roles: ['Owner']
     },

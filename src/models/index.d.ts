@@ -42,6 +42,7 @@ type EagerAuditSection = {
   readonly id?: string | null;
   readonly heading?: string | null;
   readonly result?: string | null;
+  readonly description?: string | null;
   readonly items?: (string | null)[] | null;
 }
 
@@ -49,6 +50,7 @@ type LazyAuditSection = {
   readonly id?: string | null;
   readonly heading?: string | null;
   readonly result?: string | null;
+  readonly description?: string | null;
   readonly items?: (string | null)[] | null;
 }
 

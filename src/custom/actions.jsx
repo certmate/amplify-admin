@@ -10,7 +10,7 @@ import DownloadCert from "../view/components/custom/DownloadCert";
 
 export const shareCert = {
     component: ({ data, model, callback }) => <ShareCert data={data} model={model} callback={callback} />,
-    condition: ({ inspector }) => true || !isNull(inspector),
+    condition: ({ inspector }) => !isNull(inspector),
 }
 
 export const approveRejectCert = {
@@ -20,5 +20,6 @@ export const approveRejectCert = {
 }
 
 export const downloadCert = {
-    component: ({ data, callback }) => <DownloadCert data={data} callback={callback} />
+    component: ({ data, callback }) => <DownloadCert data={data} callback={callback} />,
+    condition: ({ inspector }) => !isNull(inspector)
 }

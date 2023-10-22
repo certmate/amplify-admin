@@ -1034,6 +1034,7 @@ export const getBase = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -1527,6 +1528,7 @@ export const listBases = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -1950,6 +1952,7 @@ export const syncBases = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -2377,6 +2380,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -2739,6 +2743,7 @@ export const getUser = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -2978,6 +2983,7 @@ export const getUser = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -3540,6 +3546,7 @@ export const getUser = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -3708,6 +3715,7 @@ export const listUsers = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -3822,6 +3830,7 @@ export const listUsers = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -4244,6 +4253,7 @@ export const syncUsers = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -4358,6 +4368,7 @@ export const syncUsers = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -4784,6 +4795,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -4898,6 +4910,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -5324,6 +5337,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -5438,6 +5452,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -6290,6 +6305,7 @@ export const getCompany = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -6577,6 +6593,7 @@ export const listCompanies = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -6874,6 +6891,7 @@ export const syncCompanies = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -7175,6 +7193,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -7464,6 +7483,7 @@ export const getVehicle = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -7725,6 +7745,7 @@ export const getVehicle = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -7986,6 +8007,7 @@ export const listVehicles = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -8257,6 +8279,7 @@ export const syncVehicles = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -8532,6 +8555,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -8807,6 +8831,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -9089,6 +9114,7 @@ export const getCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -9349,6 +9375,7 @@ export const getCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -9493,6 +9520,7 @@ export const getCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -9607,6 +9635,7 @@ export const getCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -10011,6 +10040,7 @@ export const getCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -10125,6 +10155,7 @@ export const getCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -10424,6 +10455,7 @@ export const getCert = /* GraphQL */ `
         id
         heading
         result
+        description
         items
         __typename
       }
@@ -11021,6 +11053,7 @@ export const listCerts = /* GraphQL */ `
           id
           heading
           result
+          description
           items
           __typename
         }
@@ -11628,6 +11661,7 @@ export const syncCerts = /* GraphQL */ `
           id
           heading
           result
+          description
           items
           __typename
         }
@@ -12239,6 +12273,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           id
           heading
           result
+          description
           items
           __typename
         }
@@ -12850,6 +12885,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           id
           heading
           result
+          description
           items
           __typename
         }
@@ -13461,6 +13497,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           id
           heading
           result
+          description
           items
           __typename
         }
@@ -14072,6 +14109,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           id
           heading
           result
+          description
           items
           __typename
         }
@@ -14683,6 +14721,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           id
           heading
           result
+          description
           items
           __typename
         }
@@ -14829,6 +14868,7 @@ export const getNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -14943,6 +14983,7 @@ export const getNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -15347,6 +15388,7 @@ export const getNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -15461,6 +15503,7 @@ export const getNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -17954,6 +17997,7 @@ export const getClient = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }

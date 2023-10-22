@@ -134,9 +134,9 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
             keys(values).forEach(k => schema[k]?.formComponent?.formatter && (values[k] = schema[k]?.formComponent?.formatter(values[k])))
             // Formatting
             try {
-                // Check for user specific function
-                if (form.create.onSubmit?.[role(user)]) {
-                    await form.create.onSubmit?.[role(user)]({ values, model, fields, user, readFields });
+                // Check for role specific function
+                if (form[formIs].onSubmit?.[role(user)]) {
+                    await form[formIs].onSubmit?.[role(user)]({ values, model, fields, user, readFields });
                 }
                 else {
                     let query, payload;
@@ -211,22 +211,23 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         }
                         else {
                             const { component } = formComponent;
-                            return isFunction(component) ? <div key={`form-${k}`}>{component({ label, validation, field: f, handleChange })}</div> : <Field name={f} key={`form-${k}`}>
+                            return isFunction(component) ? <div key={`form-${k}`}>{component({ label, values, validation, field: f, handleChange })}</div> : <Field name={f} key={`form-${k}`}>
                                 {({ field }) => (
                                     <div className="hp-mb-16">
                                         <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{label}</span>
                                         {
-                                            component === 'input' ? <Input {...field} onChange={handleChange(f)} disabled={isSubmitting} />
-                                                : component === 'upload' ? <>
-                                                    <StorageManager {...field} accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
-                                                    {values?.[f] && deriveComponent('image', values?.[f])}
-                                                </>
-                                                    : component === 'select' ? (
-                                                        validation?.type === 'array' ? <Select {...field} mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
-                                                            : <Select {...field} onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
-                                                    )
-                                                        : isFunction(component) ? component({ field, setFieldValue, isSubmitting })
-                                                            : null
+                                            component === 'input' ? <Field name={f} className='ant-input' disabled={isSubmitting} />
+                                                : component === 'textarea' ? <Field as='textarea' name={f} className='ant-input' disabled={isSubmitting} />
+                                                    : component === 'upload' ? <>
+                                                        <StorageManager {...field} accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />
+                                                        {values?.[f] && deriveComponent('image', values?.[f])}
+                                                    </>
+                                                        : component === 'select' ? (
+                                                            validation?.type === 'array' ? <Select {...field} mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} />
+                                                                : <Select {...field} onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} />
+                                                        )
+                                                            : isFunction(component) ? component({ field, setFieldValue, isSubmitting })
+                                                                : null
                                         }
                                         <ErrorMessage name={f} render={m => <span className="hp-text-color-danger-1">{m}</span>} />
                                     </div>
@@ -240,8 +241,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                         </Button>
                     </Form.Item>
                 </>}
-                <pre>{JSON.stringify({ initialValues, schema: schema['auditSections'] }, false, 4)}</pre>
-                {/* <pre>{JSON.stringify({ values, errors, initialValues, schema }, false, 4)}</pre> */}
+                {/* <pre>{JSON.stringify({ values, errors, ini{tialValues, schema }, false, 4)}</pre> */}
 
             </Form>
         </>)}

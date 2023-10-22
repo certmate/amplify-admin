@@ -1276,6 +1276,7 @@ export const createBase = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -2160,6 +2161,7 @@ export const updateBase = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -3044,6 +3046,7 @@ export const deleteBase = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -3485,6 +3488,7 @@ export const createUser = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -3724,6 +3728,7 @@ export const createUser = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -4286,6 +4291,7 @@ export const createUser = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -4577,6 +4583,7 @@ export const updateUser = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -4816,6 +4823,7 @@ export const updateUser = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -5378,6 +5386,7 @@ export const updateUser = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -5669,6 +5678,7 @@ export const deleteUser = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -5908,6 +5918,7 @@ export const deleteUser = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -6470,6 +6481,7 @@ export const deleteUser = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -7077,6 +7089,7 @@ export const createCompany = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -7675,6 +7688,7 @@ export const updateCompany = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -8273,6 +8287,7 @@ export const deleteCompany = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -8561,6 +8576,7 @@ export const createVehicle = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -8822,6 +8838,7 @@ export const createVehicle = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -9103,6 +9120,7 @@ export const updateVehicle = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -9364,6 +9382,7 @@ export const updateVehicle = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -9645,6 +9664,7 @@ export const deleteVehicle = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -9906,6 +9926,7 @@ export const deleteVehicle = /* GraphQL */ `
             id
             heading
             result
+            description
             items
             __typename
           }
@@ -10187,6 +10208,7 @@ export const createCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -10447,6 +10469,7 @@ export const createCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -10591,6 +10614,7 @@ export const createCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -10705,6 +10729,7 @@ export const createCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -11109,6 +11134,7 @@ export const createCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -11223,6 +11249,7 @@ export const createCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -11522,6 +11549,7 @@ export const createCert = /* GraphQL */ `
         id
         heading
         result
+        description
         items
         __typename
       }
@@ -11789,6 +11817,7 @@ export const updateCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -12049,6 +12078,7 @@ export const updateCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -12193,6 +12223,7 @@ export const updateCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -12307,6 +12338,7 @@ export const updateCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -12711,6 +12743,7 @@ export const updateCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -12825,6 +12858,7 @@ export const updateCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -13124,6 +13158,7 @@ export const updateCert = /* GraphQL */ `
         id
         heading
         result
+        description
         items
         __typename
       }
@@ -13391,6 +13426,7 @@ export const deleteCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -13651,6 +13687,7 @@ export const deleteCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -13795,6 +13832,7 @@ export const deleteCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -13909,6 +13947,7 @@ export const deleteCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -14313,6 +14352,7 @@ export const deleteCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -14427,6 +14467,7 @@ export const deleteCert = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -14726,6 +14767,7 @@ export const deleteCert = /* GraphQL */ `
         id
         heading
         result
+        description
         items
         __typename
       }
@@ -14871,6 +14913,7 @@ export const createNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -14985,6 +15028,7 @@ export const createNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -15389,6 +15433,7 @@ export const createNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -15503,6 +15548,7 @@ export const createNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -15931,6 +15977,7 @@ export const updateNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -16045,6 +16092,7 @@ export const updateNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -16449,6 +16497,7 @@ export const updateNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -16563,6 +16612,7 @@ export const updateNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -16991,6 +17041,7 @@ export const deleteNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -17105,6 +17156,7 @@ export const deleteNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -17509,6 +17561,7 @@ export const deleteNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -17623,6 +17676,7 @@ export const deleteNotification = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -18173,6 +18227,7 @@ export const createClient = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -18473,6 +18528,7 @@ export const updateClient = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }
@@ -18773,6 +18829,7 @@ export const deleteClient = /* GraphQL */ `
               id
               heading
               result
+              description
               items
               __typename
             }

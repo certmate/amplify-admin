@@ -1972,6 +1972,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "description": {
+                    "name": "description",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "items": {
                     "name": "items",
                     "isArray": true,
@@ -1984,5 +1991,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "90730d994c271eb295657b8b90295ce9"
+    "version": "227826585cf467108d3c1123e48c3df8"
 };

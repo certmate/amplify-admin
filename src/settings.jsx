@@ -6,6 +6,7 @@ import * as CustomComponent from "./view/components/custom";
 import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser, sendInvitationEmailToMember } from "./custom/callbackFunctions";
 import { shareCert, approveRejectCert, downloadCert, approveDisapproveAsInspector } from "./custom/actions";
 import BaseAccount from "./view/components/BaseAccount";
+import { toUpper, upperCase } from "lodash";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -48,9 +49,10 @@ export const routes = {
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
                 auditSections: { label: 'Sections', validation: array().of(object().shape({ id: string(), heading: string(), description: string() })), formComponent: { component: data => <CustomComponent.CreateAuditSections {...data} /> } },
                 comments: { label: 'Comments', validation: string(), formComponent: { component: 'textarea' } },
+                vehiclePics: { label: 'Vehicle Pics', validation: string(), formComponent: { component: 'upload-multiple' }, table: { component: 'image' } },
             },
             create: {
-                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments'],
+                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments', 'vehiclePics'],
                 button: {
                     label: 'Create Cert'
                 },
@@ -59,7 +61,7 @@ export const routes = {
             read: {
                 fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name', 'company.id,name,logo'],
                 actions: [
-                    actions.delete,
+                    { ...actions.delete, routes: ['/certs?filter=pending'] },
                     actions.update,
                     shareCert,
                     approveRejectCert,
@@ -155,7 +157,7 @@ export const routes = {
             },
             create: {
                 fields: ['name', 'logo', 'companyID'],
-                roles: ['Owner']
+                roles: ['Owner', 'Driver', 'Inspector']
             },
             read: {
                 fields: ['id', 'name', 'logo', '_version', 'company.id,name,logo'],
@@ -176,7 +178,8 @@ export const routes = {
                 _version: { hidden: true },
                 make: { label: 'Make', validation: string().required(), formComponent: { component: 'input' } },
                 model: { label: 'Model', validation: string().required(), formComponent: { component: 'input' } },
-                rego: { label: 'Rego', validation: string().required(), formComponent: { component: 'input', formatter: s => s.replace(/\s+/g, '') } },
+                pic: { label: 'Picture', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
+                rego: { label: 'Rego', validation: string().required(), formComponent: { component: 'input', formatter: s => toUpper(s.replace(/\s+/g, '')) } },
                 category: { label: 'Category', validation: string().required(), formComponent: { component: 'select', select: { options: vehicleCategories } } },
                 assetId: { label: 'Asset ID', validation: string().required(), formComponent: { component: 'input' } },
                 // @model.valueField:labelField
@@ -185,8 +188,8 @@ export const routes = {
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
-                fields: ['make', 'model', 'rego', 'category', 'assetId', 'companyID'],
-                roles: ['Owner']
+                fields: ['make', 'model', 'rego', 'pic', 'category', 'assetId', 'companyID'],
+                roles: ['Owner', 'Driver']
             },
             read: {
                 fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo'],
@@ -244,13 +247,15 @@ export const routes = {
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
                 email: { label: 'Email', validation: string().required().email(), formComponent: { component: 'input' } },
                 phone: { label: 'Phone', validation: string().required(), formComponent: { component: 'input' } },
+                profilePic: { label: 'Your Photo', validation: string().required(), formComponent: { component: 'upload' } },
+                signature: { label: 'Signature', validation: string().required(), formComponent: { component: 'signature' } },
                 roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } }, write: ['Owner'] },
                 acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: { component: 'input' } },
                 acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
-                approveInspector: { label: 'Inspector Approval', validation: boolean(), formComponent: { component: 'switch' }, write: ['Owner'] },
+                approveInspector: { label: 'Inspector Approval', validation: boolean().nullable(), formComponent: { component: 'switch' }, write: ['Owner'] },
             },
             create: {
-                fields: ['id', '_version', 'name', 'email', 'phone', 'roles', 'acN', 'acnDoc', 'approveInspector'],
+                fields: ['id', '_version', 'name', 'email', 'phone', 'profilePic', 'signature', 'roles', 'acN', 'acnDoc', 'approveInspector'],
             }
         }
     }
@@ -285,11 +290,11 @@ export const menu = [
     {
         node: '/certs',
         children: [
-            { node: `/certs?filter=all`, roles: ['Owner'] },
-            { node: `/certs?filter=active`, roles: ['Owner', 'Driver'] },
+            { node: `/certs?filter=all`, roles: ['Owner', 'Inspector', 'Driver'] },
+            { node: `/certs?filter=active`, roles: ['Owner', 'Inspector', 'Driver'] },
             { node: `/certs?filter=pending`, roles: ['Owner', 'Inspector', 'Driver'] },
-            { node: `/certs?filter=rejected`, roles: ['Owner', 'Inspector'] },
-            { node: `/certs?filter=expired`, roles: ['Owner', 'Inspector'] }
+            { node: `/certs?filter=rejected`, roles: ['Owner', 'Inspector', 'Driver'] },
+            { node: `/certs?filter=expired`, roles: ['Owner', 'Inspector', 'Driver'] }
         ]
     },
     {

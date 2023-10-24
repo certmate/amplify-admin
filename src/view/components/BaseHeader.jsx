@@ -1,9 +1,8 @@
-import { Row, Col, Button, Space, Modal, Card } from "antd";
+import { Row, Col, Button, Space } from "antd";
 import { AddCircle } from "iconsax-react";
-import { get, isEmpty, startCase } from "lodash";
+import { get, isEmpty } from "lodash";
 import Filters from "./Filters";
 import { useState } from "react";
-import BaseForm from "./BaseForm";
 import SweetAlert from 'sweetalert2';
 import { useSelector } from "react-redux";
 import { RoleRouteFilter } from "../../helpers";

@@ -340,6 +340,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "profilePic": {
+                    "name": "profilePic",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "signature": {
+                    "name": "signature",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "roles": {
                     "name": "roles",
                     "isArray": true,
@@ -879,6 +893,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "pic": {
+                    "name": "pic",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "category": {
                     "name": "category",
                     "isArray": false,
@@ -1216,6 +1237,14 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
+                },
+                "vehiclePics": {
+                    "name": "vehiclePics",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "base": {
                     "name": "base",
@@ -2009,5 +2038,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "792eab3fbd7e54a93bcf409940fff6de"
+    "version": "00c74479281a2d7fc2d60767e534bd0f"
 };

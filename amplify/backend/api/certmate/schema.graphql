@@ -56,6 +56,8 @@ type User @model @auth(rules: [
 	pushToken: String
 	email: String
 	phone: String
+	profilePic: String
+	signature: String
 	roles: [String] # inspector, driver, admin
 	acN: String # Inspector Accreditation Number
 	acnDoc: String # ACN uploaded doc
@@ -113,6 +115,7 @@ type Vehicle @model @auth(rules: [
 	make: String
 	model: String
 	rego: String
+	pic: String
 	category: String # Light, Prime Mover, etc.
 	assetId: String
 	certs: [Cert] @hasMany(indexName: "certsOfVehicle", fields: ["id"])
@@ -150,6 +153,7 @@ type Cert @model @auth(rules: [
 	status: String @default(value: "P") # Pending, Active, Rejected
 	createdAt: String
 	updatedAt: String
+	vehiclePics: [String]
 	base: ID! @index(name: "certsInCertMate", sortKeyFields: ["updatedAt"])
 	read: [String]
 }

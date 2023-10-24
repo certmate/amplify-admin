@@ -139,6 +139,8 @@ type EagerUser = {
   readonly pushToken?: string | null;
   readonly email?: string | null;
   readonly phone?: string | null;
+  readonly profilePic?: string | null;
+  readonly signature?: string | null;
   readonly roles?: (string | null)[] | null;
   readonly acN?: string | null;
   readonly acnDoc?: string | null;
@@ -169,6 +171,8 @@ type LazyUser = {
   readonly pushToken?: string | null;
   readonly email?: string | null;
   readonly phone?: string | null;
+  readonly profilePic?: string | null;
+  readonly signature?: string | null;
   readonly roles?: (string | null)[] | null;
   readonly acN?: string | null;
   readonly acnDoc?: string | null;
@@ -248,6 +252,7 @@ type EagerVehicle = {
   readonly make?: string | null;
   readonly model?: string | null;
   readonly rego?: string | null;
+  readonly pic?: string | null;
   readonly category?: string | null;
   readonly assetId?: string | null;
   readonly certs?: (Cert | null)[] | null;
@@ -267,6 +272,7 @@ type LazyVehicle = {
   readonly make?: string | null;
   readonly model?: string | null;
   readonly rego?: string | null;
+  readonly pic?: string | null;
   readonly category?: string | null;
   readonly assetId?: string | null;
   readonly certs: AsyncCollection<Cert>;
@@ -306,6 +312,7 @@ type EagerCert = {
   readonly status?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
+  readonly vehiclePics?: (string | null)[] | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
 }
@@ -334,6 +341,7 @@ type LazyCert = {
   readonly status?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
+  readonly vehiclePics?: (string | null)[] | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
 }

@@ -277,7 +277,7 @@ export default function DownloadCert({ data, callback }) {
                             </View>
                         </View>
                     </View>
-                    <Text style={styles.WatermarkText}>Expired</Text>
+                    {data.status !== 'A' ? <Text style={styles.WatermarkText}>Expired</Text> : <Text></Text>}
                     <Text style={styles.footerText} render={({ pageNumber, totalPages }) => (
                         <Text style={styles.footerText}>
                             This Vehicle / Plant Weed Hygiene Inspection Certificate has been created [TIME / DATE STAMP] by Aevi Tech Pty Ltd and stored in the Certmate Cloud Server (Terms & Conditions available in CertMate application). Document uncontrolled when printed.

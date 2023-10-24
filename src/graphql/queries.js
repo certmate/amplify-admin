@@ -18,6 +18,8 @@ export const getIndex = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -86,6 +88,7 @@ export const getIndex = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -119,6 +122,7 @@ export const getIndex = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -365,6 +369,8 @@ export const getBase = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -395,6 +401,7 @@ export const getBase = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -424,6 +431,7 @@ export const getBase = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -550,6 +558,8 @@ export const getBase = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -579,6 +589,7 @@ export const getBase = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -632,6 +643,7 @@ export const getBase = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -772,6 +784,7 @@ export const getBase = /* GraphQL */ `
           make
           model
           rego
+          pic
           category
           assetId
           certs {
@@ -791,6 +804,7 @@ export const getBase = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -882,6 +896,7 @@ export const getBase = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -906,6 +921,8 @@ export const getBase = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -971,6 +988,8 @@ export const getBase = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -1047,6 +1066,7 @@ export const getBase = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          vehiclePics
           base
           read
           _version
@@ -1075,6 +1095,8 @@ export const getBase = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -1140,6 +1162,8 @@ export const getBase = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -1258,6 +1282,8 @@ export const listBases = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -1420,6 +1446,7 @@ export const listBases = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -1466,6 +1493,7 @@ export const listBases = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -1485,6 +1513,8 @@ export const listBases = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -1510,6 +1540,8 @@ export const listBases = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -1546,6 +1578,7 @@ export const listBases = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -1574,6 +1607,8 @@ export const listBases = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -1599,6 +1634,8 @@ export const listBases = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -1687,6 +1724,8 @@ export const syncBases = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -1849,6 +1888,7 @@ export const syncBases = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -1895,6 +1935,7 @@ export const syncBases = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -1914,6 +1955,8 @@ export const syncBases = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -1939,6 +1982,8 @@ export const syncBases = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -1975,6 +2020,7 @@ export const syncBases = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -2003,6 +2049,8 @@ export const syncBases = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -2028,6 +2076,8 @@ export const syncBases = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -2120,6 +2170,8 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -2282,6 +2334,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -2328,6 +2381,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -2347,6 +2401,8 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -2372,6 +2428,8 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -2408,6 +2466,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -2436,6 +2495,8 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -2461,6 +2522,8 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -2532,6 +2595,8 @@ export const getUser = /* GraphQL */ `
       pushToken
       email
       phone
+      profilePic
+      signature
       roles
       acN
       acnDoc
@@ -2610,6 +2675,7 @@ export const getUser = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -2634,6 +2700,8 @@ export const getUser = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -2699,6 +2767,8 @@ export const getUser = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -2775,6 +2845,7 @@ export const getUser = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          vehiclePics
           base
           read
           _version
@@ -2852,6 +2923,7 @@ export const getUser = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -2876,6 +2948,8 @@ export const getUser = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -2941,6 +3015,8 @@ export const getUser = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -3017,6 +3093,7 @@ export const getUser = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          vehiclePics
           base
           read
           _version
@@ -3045,6 +3122,8 @@ export const getUser = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -3110,6 +3189,8 @@ export const getUser = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -3197,6 +3278,8 @@ export const getUser = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -3262,6 +3345,8 @@ export const getUser = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -3344,6 +3429,8 @@ export const getUser = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -3427,6 +3514,7 @@ export const getUser = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -3507,6 +3595,7 @@ export const getUser = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -3526,6 +3615,8 @@ export const getUser = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -3551,6 +3642,8 @@ export const getUser = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -3587,6 +3680,7 @@ export const getUser = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -3641,6 +3735,8 @@ export const listUsers = /* GraphQL */ `
         pushToken
         email
         phone
+        profilePic
+        signature
         roles
         acN
         acnDoc
@@ -3679,6 +3775,7 @@ export const listUsers = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -3698,6 +3795,8 @@ export const listUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -3723,6 +3822,8 @@ export const listUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -3759,6 +3860,7 @@ export const listUsers = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -3796,6 +3898,7 @@ export const listUsers = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -3815,6 +3918,8 @@ export const listUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -3840,6 +3945,8 @@ export const listUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -3876,6 +3983,7 @@ export const listUsers = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -3904,6 +4012,8 @@ export const listUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -3929,6 +4039,8 @@ export const listUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -3976,6 +4088,8 @@ export const listUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4001,6 +4115,8 @@ export const listUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4043,6 +4159,8 @@ export const listUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4072,6 +4190,7 @@ export const listUsers = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -4125,6 +4244,7 @@ export const listUsers = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -4189,6 +4309,8 @@ export const syncUsers = /* GraphQL */ `
         pushToken
         email
         phone
+        profilePic
+        signature
         roles
         acN
         acnDoc
@@ -4227,6 +4349,7 @@ export const syncUsers = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -4246,6 +4369,8 @@ export const syncUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4271,6 +4396,8 @@ export const syncUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4307,6 +4434,7 @@ export const syncUsers = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -4344,6 +4472,7 @@ export const syncUsers = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -4363,6 +4492,8 @@ export const syncUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4388,6 +4519,8 @@ export const syncUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4424,6 +4557,7 @@ export const syncUsers = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -4452,6 +4586,8 @@ export const syncUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4477,6 +4613,8 @@ export const syncUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4524,6 +4662,8 @@ export const syncUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4549,6 +4689,8 @@ export const syncUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4591,6 +4733,8 @@ export const syncUsers = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4620,6 +4764,7 @@ export const syncUsers = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -4673,6 +4818,7 @@ export const syncUsers = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -4741,6 +4887,8 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
         pushToken
         email
         phone
+        profilePic
+        signature
         roles
         acN
         acnDoc
@@ -4779,6 +4927,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -4798,6 +4947,8 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4823,6 +4974,8 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4859,6 +5012,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -4896,6 +5050,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -4915,6 +5070,8 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4940,6 +5097,8 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -4976,6 +5135,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -5004,6 +5164,8 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5029,6 +5191,8 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5076,6 +5240,8 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5101,6 +5267,8 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5143,6 +5311,8 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5172,6 +5342,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -5225,6 +5396,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -5293,6 +5465,8 @@ export const usersByBaseAndName = /* GraphQL */ `
         pushToken
         email
         phone
+        profilePic
+        signature
         roles
         acN
         acnDoc
@@ -5331,6 +5505,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -5350,6 +5525,8 @@ export const usersByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5375,6 +5552,8 @@ export const usersByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5411,6 +5590,7 @@ export const usersByBaseAndName = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -5448,6 +5628,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -5467,6 +5648,8 @@ export const usersByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5492,6 +5675,8 @@ export const usersByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5528,6 +5713,7 @@ export const usersByBaseAndName = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -5556,6 +5742,8 @@ export const usersByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5581,6 +5769,8 @@ export const usersByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5628,6 +5818,8 @@ export const usersByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5653,6 +5845,8 @@ export const usersByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5695,6 +5889,8 @@ export const usersByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -5724,6 +5920,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -5777,6 +5974,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -5834,6 +6032,8 @@ export const getCompany = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -5864,6 +6064,7 @@ export const getCompany = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -5893,6 +6094,7 @@ export const getCompany = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -6055,6 +6257,7 @@ export const getCompany = /* GraphQL */ `
           make
           model
           rego
+          pic
           category
           assetId
           certs {
@@ -6074,6 +6277,7 @@ export const getCompany = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -6225,6 +6429,7 @@ export const getCompany = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -6249,6 +6454,8 @@ export const getCompany = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -6314,6 +6521,8 @@ export const getCompany = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -6390,6 +6599,7 @@ export const getCompany = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          vehiclePics
           base
           read
           _version
@@ -6438,6 +6648,8 @@ export const listCompanies = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -6521,6 +6733,7 @@ export const listCompanies = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -6601,6 +6814,7 @@ export const listCompanies = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -6620,6 +6834,8 @@ export const listCompanies = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -6645,6 +6861,8 @@ export const listCompanies = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -6681,6 +6899,7 @@ export const listCompanies = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -6739,6 +6958,8 @@ export const syncCompanies = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -6822,6 +7043,7 @@ export const syncCompanies = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -6902,6 +7124,7 @@ export const syncCompanies = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -6921,6 +7144,8 @@ export const syncCompanies = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -6946,6 +7171,8 @@ export const syncCompanies = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -6982,6 +7209,7 @@ export const syncCompanies = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -7044,6 +7272,8 @@ export const companiesByBaseAndName = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -7127,6 +7357,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -7207,6 +7438,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -7226,6 +7458,8 @@ export const companiesByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -7251,6 +7485,8 @@ export const companiesByBaseAndName = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -7287,6 +7523,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -7337,6 +7574,8 @@ export const getVehicle = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -7420,6 +7659,7 @@ export const getVehicle = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -7500,6 +7740,7 @@ export const getVehicle = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -7519,6 +7760,8 @@ export const getVehicle = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -7544,6 +7787,8 @@ export const getVehicle = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -7580,6 +7825,7 @@ export const getVehicle = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -7612,6 +7858,7 @@ export const getVehicle = /* GraphQL */ `
       make
       model
       rego
+      pic
       category
       assetId
       certs {
@@ -7679,6 +7926,7 @@ export const getVehicle = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -7703,6 +7951,8 @@ export const getVehicle = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -7768,6 +8018,8 @@ export const getVehicle = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -7844,6 +8096,7 @@ export const getVehicle = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          vehiclePics
           base
           read
           _version
@@ -7888,6 +8141,8 @@ export const listVehicles = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -7917,6 +8172,7 @@ export const listVehicles = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -7970,6 +8226,7 @@ export const listVehicles = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -8002,6 +8259,7 @@ export const listVehicles = /* GraphQL */ `
         make
         model
         rego
+        pic
         category
         assetId
         certs {
@@ -8029,6 +8287,7 @@ export const listVehicles = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -8048,6 +8307,8 @@ export const listVehicles = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8073,6 +8334,8 @@ export const listVehicles = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8109,6 +8372,7 @@ export const listVehicles = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -8163,6 +8427,8 @@ export const syncVehicles = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8192,6 +8458,7 @@ export const syncVehicles = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -8245,6 +8512,7 @@ export const syncVehicles = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -8277,6 +8545,7 @@ export const syncVehicles = /* GraphQL */ `
         make
         model
         rego
+        pic
         category
         assetId
         certs {
@@ -8304,6 +8573,7 @@ export const syncVehicles = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -8323,6 +8593,8 @@ export const syncVehicles = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8348,6 +8620,8 @@ export const syncVehicles = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8384,6 +8658,7 @@ export const syncVehicles = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -8442,6 +8717,8 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8471,6 +8748,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -8524,6 +8802,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -8556,6 +8835,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
         make
         model
         rego
+        pic
         category
         assetId
         certs {
@@ -8583,6 +8863,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -8602,6 +8883,8 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8627,6 +8910,8 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8663,6 +8948,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -8721,6 +9007,8 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8750,6 +9038,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -8803,6 +9092,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -8835,6 +9125,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
         make
         model
         rego
+        pic
         category
         assetId
         certs {
@@ -8862,6 +9153,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -8881,6 +9173,8 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8906,6 +9200,8 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -8942,6 +9238,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -8985,6 +9282,8 @@ export const getCert = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -9068,6 +9367,7 @@ export const getCert = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -9148,6 +9448,7 @@ export const getCert = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -9167,6 +9468,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9192,6 +9495,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9228,6 +9533,7 @@ export const getCert = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -9271,6 +9577,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9300,6 +9608,7 @@ export const getCert = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -9353,6 +9662,7 @@ export const getCert = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -9385,6 +9695,7 @@ export const getCert = /* GraphQL */ `
         make
         model
         rego
+        pic
         category
         assetId
         certs {
@@ -9412,6 +9723,7 @@ export const getCert = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -9431,6 +9743,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9456,6 +9770,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9492,6 +9808,7 @@ export const getCert = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -9521,6 +9838,8 @@ export const getCert = /* GraphQL */ `
         pushToken
         email
         phone
+        profilePic
+        signature
         roles
         acN
         acnDoc
@@ -9559,6 +9878,7 @@ export const getCert = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -9578,6 +9898,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9603,6 +9925,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9639,6 +9963,7 @@ export const getCert = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -9676,6 +10001,7 @@ export const getCert = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -9695,6 +10021,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9720,6 +10048,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9756,6 +10086,7 @@ export const getCert = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -9784,6 +10115,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9809,6 +10142,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9856,6 +10191,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9881,6 +10218,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9923,6 +10262,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -9952,6 +10293,7 @@ export const getCert = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -10005,6 +10347,7 @@ export const getCert = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -10051,6 +10394,8 @@ export const getCert = /* GraphQL */ `
         pushToken
         email
         phone
+        profilePic
+        signature
         roles
         acN
         acnDoc
@@ -10089,6 +10434,7 @@ export const getCert = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -10108,6 +10454,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -10133,6 +10481,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -10169,6 +10519,7 @@ export const getCert = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -10206,6 +10557,7 @@ export const getCert = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -10225,6 +10577,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -10250,6 +10604,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -10286,6 +10642,7 @@ export const getCert = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -10314,6 +10671,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -10339,6 +10698,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -10386,6 +10747,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -10411,6 +10774,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -10453,6 +10818,8 @@ export const getCert = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -10482,6 +10849,7 @@ export const getCert = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -10535,6 +10903,7 @@ export const getCert = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -10592,6 +10961,7 @@ export const getCert = /* GraphQL */ `
       status
       createdAt
       updatedAt
+      vehiclePics
       base
       read
       _version
@@ -10622,6 +10992,8 @@ export const listCerts = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -10651,6 +11023,7 @@ export const listCerts = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -10704,6 +11077,7 @@ export const listCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -10780,6 +11154,7 @@ export const listCerts = /* GraphQL */ `
           make
           model
           rego
+          pic
           category
           assetId
           certs {
@@ -10799,6 +11174,7 @@ export const listCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -10828,6 +11204,8 @@ export const listCerts = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -10858,6 +11236,7 @@ export const listCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -10887,6 +11266,7 @@ export const listCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -11005,6 +11385,8 @@ export const listCerts = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -11035,6 +11417,7 @@ export const listCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -11064,6 +11447,7 @@ export const listCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -11193,6 +11577,7 @@ export const listCerts = /* GraphQL */ `
         status
         createdAt
         updatedAt
+        vehiclePics
         base
         read
         _version
@@ -11233,6 +11618,8 @@ export const syncCerts = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -11262,6 +11649,7 @@ export const syncCerts = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -11315,6 +11703,7 @@ export const syncCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -11391,6 +11780,7 @@ export const syncCerts = /* GraphQL */ `
           make
           model
           rego
+          pic
           category
           assetId
           certs {
@@ -11410,6 +11800,7 @@ export const syncCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -11439,6 +11830,8 @@ export const syncCerts = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -11469,6 +11862,7 @@ export const syncCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -11498,6 +11892,7 @@ export const syncCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -11616,6 +12011,8 @@ export const syncCerts = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -11646,6 +12043,7 @@ export const syncCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -11675,6 +12073,7 @@ export const syncCerts = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -11804,6 +12203,7 @@ export const syncCerts = /* GraphQL */ `
         status
         createdAt
         updatedAt
+        vehiclePics
         base
         read
         _version
@@ -11848,6 +12248,8 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -11877,6 +12279,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -11930,6 +12333,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12006,6 +12410,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           make
           model
           rego
+          pic
           category
           assetId
           certs {
@@ -12025,6 +12430,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12054,6 +12460,8 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -12084,6 +12492,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12113,6 +12522,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12231,6 +12641,8 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -12261,6 +12673,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12290,6 +12703,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12419,6 +12833,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
         status
         createdAt
         updatedAt
+        vehiclePics
         base
         read
         _version
@@ -12463,6 +12878,8 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -12492,6 +12909,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -12545,6 +12963,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12621,6 +13040,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           make
           model
           rego
+          pic
           category
           assetId
           certs {
@@ -12640,6 +13060,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12669,6 +13090,8 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -12699,6 +13122,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12728,6 +13152,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12846,6 +13271,8 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -12876,6 +13303,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -12905,6 +13333,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -13034,6 +13463,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
         status
         createdAt
         updatedAt
+        vehiclePics
         base
         read
         _version
@@ -13078,6 +13508,8 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -13107,6 +13539,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -13160,6 +13593,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -13236,6 +13670,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           make
           model
           rego
+          pic
           category
           assetId
           certs {
@@ -13255,6 +13690,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -13284,6 +13720,8 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -13314,6 +13752,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -13343,6 +13782,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -13461,6 +13901,8 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -13491,6 +13933,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -13520,6 +13963,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -13649,6 +14093,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
         status
         createdAt
         updatedAt
+        vehiclePics
         base
         read
         _version
@@ -13693,6 +14138,8 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -13722,6 +14169,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -13775,6 +14223,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -13851,6 +14300,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           make
           model
           rego
+          pic
           category
           assetId
           certs {
@@ -13870,6 +14320,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -13899,6 +14350,8 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -13929,6 +14382,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -13958,6 +14412,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -14076,6 +14531,8 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -14106,6 +14563,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -14135,6 +14593,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -14264,6 +14723,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
         status
         createdAt
         updatedAt
+        vehiclePics
         base
         read
         _version
@@ -14308,6 +14768,8 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -14337,6 +14799,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -14390,6 +14853,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -14466,6 +14930,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           make
           model
           rego
+          pic
           category
           assetId
           certs {
@@ -14485,6 +14950,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -14514,6 +14980,8 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -14544,6 +15012,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -14573,6 +15042,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -14691,6 +15161,8 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -14721,6 +15193,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -14750,6 +15223,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -14879,6 +15353,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
         status
         createdAt
         updatedAt
+        vehiclePics
         base
         read
         _version
@@ -14910,6 +15385,8 @@ export const getNotification = /* GraphQL */ `
         pushToken
         email
         phone
+        profilePic
+        signature
         roles
         acN
         acnDoc
@@ -14948,6 +15425,7 @@ export const getNotification = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -14967,6 +15445,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -14992,6 +15472,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15028,6 +15510,7 @@ export const getNotification = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -15065,6 +15548,7 @@ export const getNotification = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -15084,6 +15568,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15109,6 +15595,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15145,6 +15633,7 @@ export const getNotification = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -15173,6 +15662,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15198,6 +15689,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15245,6 +15738,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15270,6 +15765,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15312,6 +15809,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15341,6 +15840,7 @@ export const getNotification = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -15394,6 +15894,7 @@ export const getNotification = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -15440,6 +15941,8 @@ export const getNotification = /* GraphQL */ `
         pushToken
         email
         phone
+        profilePic
+        signature
         roles
         acN
         acnDoc
@@ -15478,6 +15981,7 @@ export const getNotification = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -15497,6 +16001,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15522,6 +16028,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15558,6 +16066,7 @@ export const getNotification = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -15595,6 +16104,7 @@ export const getNotification = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -15614,6 +16124,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15639,6 +16151,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15675,6 +16189,7 @@ export const getNotification = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -15703,6 +16218,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15728,6 +16245,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15775,6 +16294,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15800,6 +16321,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15842,6 +16365,8 @@ export const getNotification = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -15871,6 +16396,7 @@ export const getNotification = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -15924,6 +16450,7 @@ export const getNotification = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -15996,6 +16523,8 @@ export const listNotifications = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -16026,6 +16555,7 @@ export const listNotifications = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -16055,6 +16585,7 @@ export const listNotifications = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -16173,6 +16704,8 @@ export const listNotifications = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -16203,6 +16736,7 @@ export const listNotifications = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -16232,6 +16766,7 @@ export const listNotifications = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -16386,6 +16921,8 @@ export const syncNotifications = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -16416,6 +16953,7 @@ export const syncNotifications = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -16445,6 +16983,7 @@ export const syncNotifications = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -16563,6 +17102,8 @@ export const syncNotifications = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -16593,6 +17134,7 @@ export const syncNotifications = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -16622,6 +17164,7 @@ export const syncNotifications = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -16780,6 +17323,8 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -16810,6 +17355,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -16839,6 +17385,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -16957,6 +17504,8 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -16987,6 +17536,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -17016,6 +17566,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -17174,6 +17725,8 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -17204,6 +17757,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -17233,6 +17787,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -17351,6 +17906,8 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -17381,6 +17938,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -17410,6 +17968,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -17568,6 +18127,8 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -17598,6 +18159,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -17627,6 +18189,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -17745,6 +18308,8 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
           pushToken
           email
           phone
+          profilePic
+          signature
           roles
           acN
           acnDoc
@@ -17775,6 +18340,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -17804,6 +18370,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -17945,6 +18512,8 @@ export const getClient = /* GraphQL */ `
             pushToken
             email
             phone
+            profilePic
+            signature
             roles
             acN
             acnDoc
@@ -18028,6 +18597,7 @@ export const getClient = /* GraphQL */ `
             make
             model
             rego
+            pic
             category
             assetId
             certs {
@@ -18108,6 +18678,7 @@ export const getClient = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -18127,6 +18698,8 @@ export const getClient = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -18152,6 +18725,8 @@ export const getClient = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -18188,6 +18763,7 @@ export const getClient = /* GraphQL */ `
             status
             createdAt
             updatedAt
+            vehiclePics
             base
             read
             _version
@@ -18251,6 +18827,8 @@ export const listClients = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -18280,6 +18858,7 @@ export const listClients = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -18333,6 +18912,7 @@ export const listClients = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -18406,6 +18986,8 @@ export const syncClients = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -18435,6 +19017,7 @@ export const syncClients = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -18488,6 +19071,7 @@ export const syncClients = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -18565,6 +19149,8 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -18594,6 +19180,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -18647,6 +19234,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version
@@ -18724,6 +19312,8 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               pushToken
               email
               phone
+              profilePic
+              signature
               roles
               acN
               acnDoc
@@ -18753,6 +19343,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               make
               model
               rego
+              pic
               category
               assetId
               createdAt
@@ -18806,6 +19397,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               status
               createdAt
               updatedAt
+              vehiclePics
               base
               read
               _version

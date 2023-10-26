@@ -20,6 +20,7 @@ import Base from "../view/pages/Base";
 import { v4 } from "uuid";
 import { createUserAndBase, getUser } from "../graphql/customQueries";
 import BaseSearch from "../view/components/BaseSearch";
+import BaseDashboard from "../view/components/BaseDashboard";
 
 export default function Router() {
     // Redux
@@ -149,7 +150,7 @@ export default function Router() {
             } />)}
 
             {/* Home Page */}
-            <Route exact path='/' element={<Navigate to='/certs' />} />
+            <Route exact path='/' element={<VerticalLayout><BaseDashboard /></VerticalLayout>} />
 
             {/* Search Page */}
             <Route exact id='search' key={uniqueId()} path='/search' element={

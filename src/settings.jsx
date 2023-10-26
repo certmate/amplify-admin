@@ -39,7 +39,10 @@ export const models = {
             },
             route: '/clients'
         }
-    }
+    },
+    Vehicle: {},
+    User: {},
+    Company: {}
 }
 /**
  * Routes
@@ -129,7 +132,7 @@ export const routes = {
             }
         }
     },
-    ['/companies/members']: {
+    ['/users']: {
         title: "Members",
         model: "User",
         icon: <Profile />,
@@ -150,7 +153,7 @@ export const routes = {
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
-                approveInspector: { label: 'Inspector Approval', routes: ['/companies/members?filter=members'], validation: boolean(), formComponent: { component: 'switch' } },
+                approveInspector: { label: 'Inspector Approval', routes: ['/users?filter=members'], validation: boolean(), formComponent: { component: 'switch' } },
             },
             create: {
                 button: {
@@ -162,9 +165,9 @@ export const routes = {
             read: {
                 fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'company.id,name,logo', 'approveInspector'],
                 actions: [
-                    { ...actions.delete, routes: ['/companies/members?filter=invitations'], fx: deleteInvitationCallback },
-                    { ...actions.delete, routes: ['/companies/members?filter=members'] },
-                    { ...approveDisapproveAsInspector, routes: ['/companies/members?filter=members'] },
+                    { ...actions.delete, routes: ['/users?filter=invitations'], fx: deleteInvitationCallback },
+                    { ...actions.delete, routes: ['/users?filter=members'] },
+                    { ...approveDisapproveAsInspector, routes: ['/users?filter=members'] },
                 ]
             }
         }
@@ -323,8 +326,8 @@ export const menu = [
     {
         node: '/companies',
         children: [
-            { node: `/companies/members?filter=members` },
-            { node: `/companies/members?filter=invitations` },
+            { node: `/users?filter=members` },
+            { node: `/users?filter=invitations` },
         ],
         roles: ['Owner']
     },

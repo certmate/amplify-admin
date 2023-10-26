@@ -13,6 +13,7 @@ export default function BaseAccount({ form }) {
             setValues(await getData({ model: 'User', fields: form.create.fields, id: user.appsync.id }))
         })();
     }, [user]);
+    
     return <BaseForm model='User' schema={form.schema} fields={form.create.fields} values={values} form={form} onSubmit={async () => {
         await SweetAlert.fire({ title: 'Done', text: `Account Updated`, icon: 'success' });
     }} />

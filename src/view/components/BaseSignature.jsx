@@ -18,8 +18,6 @@ export default function BaseSignature({ defaultValue, onChange }) {
                     fetch(result)
                         .then(response => response.blob())
                         .then(blob => {
-                            // Use the blob as needed
-                            console.log('Blob:', blob);
                             // Convert the blob to a base64 encoded string if required
                             const reader = new FileReader();
                             reader.onload = () => {

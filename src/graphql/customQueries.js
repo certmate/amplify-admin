@@ -1,6 +1,6 @@
 // export const getNotifications = /* GraphQL */ `
 //     query GetNotifications(
-        
+
 //     ){
 
 //     }
@@ -30,4 +30,64 @@ export const createUserAndBase = /* GraphQL */ `
         id
     }
   }
-`
+`;
+
+// TODO Enter Search query
+export const searchResources = /* GraphQL */ `
+  query SearchResources(
+    $base: ID!
+    $q: String
+  ){
+    getBase(id: $base){
+      certs(filter: {
+        or: [
+          { number: { contains: $q } },
+          { type: { contains: $q } },
+          { operatingArea: { contains: $q } },
+          { client: { contains: $q } },
+        ]
+      }){
+        items{
+          id
+          number
+          type
+          operatingArea
+          client
+          company{
+            name
+          }
+        }
+      }
+      vehicles(filter: {
+        or: [
+          { make: { contains: $q } },
+          { model: { contains: $q } },
+          { rego: { contains: $q } },
+          { category: { contains: $q } },
+          { assetId: { contains: $q } },
+        ]
+      }){
+        items{
+          id
+          make
+          model
+          rego
+          category
+          company{
+            name
+          }
+        }
+      }
+      clients(filter: {
+        or: [
+          { name: { contains: $q } }
+        ]
+      }){
+        items{
+          id
+          name
+        }
+      }
+    }
+  }
+`;

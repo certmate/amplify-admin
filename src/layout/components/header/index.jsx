@@ -1,38 +1,29 @@
 import React, { useRef, useState } from "react";
 
 import { Layout, Button, Row, Col } from "antd";
-import { Menu, SearchNormal1 } from 'iconsax-react';
+import { CloseSquare, Menu, SearchNormal, SearchNormal1 } from 'iconsax-react';
 import { motion } from 'framer-motion';
 
+import HeaderSearch from './HeaderSearch';
 import HeaderUser from "./HeaderUser";
 import HeaderNotifications from "./HeaderNotifications";
 import HeaderText from "./HeaderText";
+import { useNavigate } from "react-router-dom";
 
 const { Header } = Layout;
 
 export default function MenuHeader(props) {
   const { setVisible } = props;
+  const navigate = useNavigate();
 
   const [searchHeader, setSearchHeader] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
-
-  // Focus
-  const inputFocusRef = useRef(null);
-  const inputFocusProp = {
-    ref: inputFocusRef,
-  };
 
   // Search Active
   setTimeout(() => setSearchActive(searchHeader), 100);
 
   const searchClick = () => {
     setSearchHeader(true)
-
-    setTimeout(() => {
-      inputFocusRef.current.focus({
-        cursor: 'start',
-      });
-    }, 200);
   }
 
   // Mobile Sidebar
@@ -55,15 +46,8 @@ export default function MenuHeader(props) {
             ghost
             className="hp-mobile-sidebar-button hp-border-none"
             onClick={showDrawer}
-            icon={<Menu size={24} color="#000"/>}
+            icon={<Menu size={24} color="#000" />}
           />
-        </Col>
-
-        <Col
-          flex="1"
-          style={{ display: !searchHeader ? 'none' : 'block' }}
-          className={`hp-mr-md-0 hp-mr-16 hp-pr-0 hp-header-search ${searchActive && "hp-header-search-active"}`}
-        >
         </Col>
 
         {!searchHeader && (
@@ -72,6 +56,9 @@ export default function MenuHeader(props) {
 
         <Col>
           <Row align="middle">
+            <Col style={{marginRight: 12}}>
+              <SearchNormal variant="TwoTone" size={28} color="#4735df" onClick={() => navigate('/search')} />
+            </Col>
             <HeaderUser />
           </Row>
         </Col>

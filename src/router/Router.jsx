@@ -19,6 +19,7 @@ import { entries, uniqueId } from "lodash";
 import Base from "../view/pages/Base";
 import { v4 } from "uuid";
 import { createUserAndBase, getUser } from "../graphql/customQueries";
+import BaseSearch from "../view/components/BaseSearch";
 
 export default function Router() {
     // Redux
@@ -149,6 +150,13 @@ export default function Router() {
 
             {/* Home Page */}
             <Route exact path='/' element={<Navigate to='/certs' />} />
+
+            {/* Search Page */}
+            <Route exact id='search' key={uniqueId()} path='/search' element={
+                <VerticalLayout>
+                    <BaseSearch />
+                </VerticalLayout>
+            } />
 
             {/* NotFound */}
             <Route path='*' element={<Error404 />} />

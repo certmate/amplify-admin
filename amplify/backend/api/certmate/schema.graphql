@@ -77,6 +77,7 @@ type User @model @auth(rules: [
 	write: [String]
 	owner: String
 	approveInspector: Boolean
+	tags: String # lowercase, Used for searching
 }
 
 type Company @model @auth(rules: [
@@ -99,6 +100,7 @@ type Company @model @auth(rules: [
 	logo: String
 	base: ID! @index(name: "companiesInCertMate", sortKeyFields: ["name"])
 	read: [String]
+	tags: String # lowercase, Used for searching
 }
 
 type Vehicle @model @auth(rules: [
@@ -123,6 +125,7 @@ type Vehicle @model @auth(rules: [
 	updatedAt: String
 	base: ID! @index(name: "vehiclesInCertMate", sortKeyFields: ["updatedAt"])
 	read: [String]
+	tags: String # lowercase, Used for searching
 }
 
 type Cert @model @auth(rules: [
@@ -156,6 +159,7 @@ type Cert @model @auth(rules: [
 	vehiclePics: [String]
 	base: ID! @index(name: "certsInCertMate", sortKeyFields: ["updatedAt"])
 	read: [String]
+	tags: String # lowercase, Used for searching
 }
 
 type Notification @model @auth(rules: [
@@ -179,6 +183,7 @@ type Notification @model @auth(rules: [
 	base: ID! @index(name: "notificationsInCertMate", sortKeyFields: ["updatedAt"])
 	createdAt: String
 	updatedAt: String
+	tags: String # lowercase, Used for searching
 }
 
 type Client @model @auth(rules: [
@@ -198,6 +203,7 @@ type Client @model @auth(rules: [
 	updatedAt: String
 	base: ID! @index(name: "clientsInCertMate", sortKeyFields: ["updatedAt"])
 	read: [String]
+	tags: String # lowercase, Used for searching
 }
 
 type Shared @model @auth(rules: [

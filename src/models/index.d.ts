@@ -160,6 +160,7 @@ type EagerUser = {
   readonly write?: (string | null)[] | null;
   readonly owner?: string | null;
   readonly approveInspector?: boolean | null;
+  readonly tags?: string | null;
 }
 
 type LazyUser = {
@@ -192,6 +193,7 @@ type LazyUser = {
   readonly write?: (string | null)[] | null;
   readonly owner?: string | null;
   readonly approveInspector?: boolean | null;
+  readonly tags?: string | null;
 }
 
 export declare type User = LazyLoading extends LazyLoadingDisabled ? EagerUser : LazyUser
@@ -216,6 +218,7 @@ type EagerCompany = {
   readonly logo?: string | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
+  readonly tags?: string | null;
 }
 
 type LazyCompany = {
@@ -234,6 +237,7 @@ type LazyCompany = {
   readonly logo?: string | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
+  readonly tags?: string | null;
 }
 
 export declare type Company = LazyLoading extends LazyLoadingDisabled ? EagerCompany : LazyCompany
@@ -260,6 +264,7 @@ type EagerVehicle = {
   readonly updatedAt?: string | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
+  readonly tags?: string | null;
 }
 
 type LazyVehicle = {
@@ -280,6 +285,7 @@ type LazyVehicle = {
   readonly updatedAt?: string | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
+  readonly tags?: string | null;
 }
 
 export declare type Vehicle = LazyLoading extends LazyLoadingDisabled ? EagerVehicle : LazyVehicle
@@ -315,6 +321,7 @@ type EagerCert = {
   readonly vehiclePics?: (string | null)[] | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
+  readonly tags?: string | null;
 }
 
 type LazyCert = {
@@ -344,6 +351,7 @@ type LazyCert = {
   readonly vehiclePics?: (string | null)[] | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
+  readonly tags?: string | null;
 }
 
 export declare type Cert = LazyLoading extends LazyLoadingDisabled ? EagerCert : LazyCert
@@ -370,6 +378,7 @@ type EagerNotification = {
   readonly base: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
+  readonly tags?: string | null;
 }
 
 type LazyNotification = {
@@ -390,6 +399,7 @@ type LazyNotification = {
   readonly base: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
+  readonly tags?: string | null;
 }
 
 export declare type Notification = LazyLoading extends LazyLoadingDisabled ? EagerNotification : LazyNotification
@@ -411,6 +421,7 @@ type EagerClient = {
   readonly updatedAt?: string | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
+  readonly tags?: string | null;
 }
 
 type LazyClient = {
@@ -426,6 +437,7 @@ type LazyClient = {
   readonly updatedAt?: string | null;
   readonly base: string;
   readonly read?: (string | null)[] | null;
+  readonly tags?: string | null;
 }
 
 export declare type Client = LazyLoading extends LazyLoadingDisabled ? EagerClient : LazyClient

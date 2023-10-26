@@ -1,13 +1,10 @@
 // TODO Enter common actions here
-import { Space } from "antd";
-import { Edit, Trash } from "iconsax-react";
 
 import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
-import { isArray, isString, isUndefined, lowerCase, omit, values, first, keys } from "lodash";
+import { isArray, isString, lowerCase, omit, values, first } from "lodash";
 import { routes } from "./settings";
-import { getChildModel, getParentModel, hasArrayOfValues, isChildNode } from "./helpers";
-import SweetAlert from 'sweetalert2';
+import { hasArrayOfValues } from "./helpers";
 import BaseUpdateButton from "./view/components/BaseUpdateButton";
 import BaseDeleteButton from "./view/components/BaseDeleteButton";
 import { getUser } from "./graphql/customQueries";

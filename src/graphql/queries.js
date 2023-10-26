@@ -33,6 +33,7 @@ export const getIndex = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -51,6 +52,7 @@ export const getIndex = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -71,6 +73,7 @@ export const getIndex = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -95,6 +98,7 @@ export const getIndex = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -125,6 +129,7 @@ export const getIndex = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -149,6 +154,7 @@ export const getIndex = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -404,6 +410,7 @@ export const getBase = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -434,6 +441,7 @@ export const getBase = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -458,6 +466,7 @@ export const getBase = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -482,6 +491,7 @@ export const getBase = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -527,6 +537,7 @@ export const getBase = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -538,6 +549,7 @@ export const getBase = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -573,6 +585,7 @@ export const getBase = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -596,6 +609,7 @@ export const getBase = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -616,6 +630,7 @@ export const getBase = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -646,6 +661,7 @@ export const getBase = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -667,6 +683,7 @@ export const getBase = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -715,6 +732,7 @@ export const getBase = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -727,6 +745,7 @@ export const getBase = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -775,6 +794,7 @@ export const getBase = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -807,6 +827,7 @@ export const getBase = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -821,6 +842,7 @@ export const getBase = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -869,6 +891,7 @@ export const getBase = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -887,6 +910,7 @@ export const getBase = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -908,6 +932,7 @@ export const getBase = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -965,6 +990,7 @@ export const getBase = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -976,6 +1002,7 @@ export const getBase = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1032,6 +1059,7 @@ export const getBase = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1043,6 +1071,7 @@ export const getBase = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1069,6 +1098,7 @@ export const getBase = /* GraphQL */ `
           vehiclePics
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -1139,6 +1169,7 @@ export const getBase = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1150,6 +1181,7 @@ export const getBase = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1206,6 +1238,7 @@ export const getBase = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1217,6 +1250,7 @@ export const getBase = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1225,6 +1259,7 @@ export const getBase = /* GraphQL */ `
           base
           createdAt
           updatedAt
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -1326,6 +1361,7 @@ export const listBases = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1337,6 +1373,7 @@ export const listBases = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1381,6 +1418,7 @@ export const listBases = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1403,6 +1441,7 @@ export const listBases = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1415,6 +1454,7 @@ export const listBases = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1437,6 +1477,7 @@ export const listBases = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1458,6 +1499,7 @@ export const listBases = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1480,6 +1522,7 @@ export const listBases = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1500,6 +1543,7 @@ export const listBases = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1528,6 +1572,7 @@ export const listBases = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1555,6 +1600,7 @@ export const listBases = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1581,6 +1627,7 @@ export const listBases = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1622,6 +1669,7 @@ export const listBases = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1649,6 +1697,7 @@ export const listBases = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1657,6 +1706,7 @@ export const listBases = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1768,6 +1818,7 @@ export const syncBases = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1779,6 +1830,7 @@ export const syncBases = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1823,6 +1875,7 @@ export const syncBases = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1845,6 +1898,7 @@ export const syncBases = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1857,6 +1911,7 @@ export const syncBases = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1879,6 +1934,7 @@ export const syncBases = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1900,6 +1956,7 @@ export const syncBases = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -1922,6 +1979,7 @@ export const syncBases = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1942,6 +2000,7 @@ export const syncBases = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1970,6 +2029,7 @@ export const syncBases = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -1997,6 +2057,7 @@ export const syncBases = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2023,6 +2084,7 @@ export const syncBases = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2064,6 +2126,7 @@ export const syncBases = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2091,6 +2154,7 @@ export const syncBases = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2099,6 +2163,7 @@ export const syncBases = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2214,6 +2279,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2225,6 +2291,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2269,6 +2336,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2291,6 +2359,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2303,6 +2372,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2325,6 +2395,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2346,6 +2417,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2368,6 +2440,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2388,6 +2461,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2416,6 +2490,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2443,6 +2518,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2469,6 +2545,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2510,6 +2587,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2537,6 +2615,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2545,6 +2624,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2648,6 +2728,7 @@ export const getUser = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2666,6 +2747,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2687,6 +2769,7 @@ export const getUser = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2744,6 +2827,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2755,6 +2839,7 @@ export const getUser = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2811,6 +2896,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2822,6 +2908,7 @@ export const getUser = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2848,6 +2935,7 @@ export const getUser = /* GraphQL */ `
           vehiclePics
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -2896,6 +2984,7 @@ export const getUser = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2914,6 +3003,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -2935,6 +3025,7 @@ export const getUser = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -2992,6 +3083,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3003,6 +3095,7 @@ export const getUser = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3059,6 +3152,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3070,6 +3164,7 @@ export const getUser = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3096,6 +3191,7 @@ export const getUser = /* GraphQL */ `
           vehiclePics
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -3166,6 +3262,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3177,6 +3274,7 @@ export const getUser = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3233,6 +3331,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3244,6 +3343,7 @@ export const getUser = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3252,6 +3352,7 @@ export const getUser = /* GraphQL */ `
           base
           createdAt
           updatedAt
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -3322,6 +3423,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3333,6 +3435,7 @@ export const getUser = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3389,6 +3492,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3400,6 +3504,7 @@ export const getUser = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3408,6 +3513,7 @@ export const getUser = /* GraphQL */ `
           base
           createdAt
           updatedAt
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -3473,6 +3579,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3484,6 +3591,7 @@ export const getUser = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3505,6 +3613,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3526,6 +3635,7 @@ export const getUser = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3548,6 +3658,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3560,6 +3671,7 @@ export const getUser = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3582,6 +3694,7 @@ export const getUser = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3602,6 +3715,7 @@ export const getUser = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3630,6 +3744,7 @@ export const getUser = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3657,6 +3772,7 @@ export const getUser = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3683,6 +3799,7 @@ export const getUser = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3704,6 +3821,7 @@ export const getUser = /* GraphQL */ `
         logo
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -3715,6 +3833,7 @@ export const getUser = /* GraphQL */ `
       write
       owner
       approveInspector
+      tags
       _version
       _deleted
       _lastChangedAt
@@ -3762,6 +3881,7 @@ export const listUsers = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3782,6 +3902,7 @@ export const listUsers = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3810,6 +3931,7 @@ export const listUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3837,6 +3959,7 @@ export const listUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3863,6 +3986,7 @@ export const listUsers = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -3885,6 +4009,7 @@ export const listUsers = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3905,6 +4030,7 @@ export const listUsers = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3933,6 +4059,7 @@ export const listUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3960,6 +4087,7 @@ export const listUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -3986,6 +4114,7 @@ export const listUsers = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -4027,6 +4156,7 @@ export const listUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4054,6 +4184,7 @@ export const listUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4062,6 +4193,7 @@ export const listUsers = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -4103,6 +4235,7 @@ export const listUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4130,6 +4263,7 @@ export const listUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4138,6 +4272,7 @@ export const listUsers = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -4174,6 +4309,7 @@ export const listUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4197,6 +4333,7 @@ export const listUsers = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4217,6 +4354,7 @@ export const listUsers = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4247,6 +4385,7 @@ export const listUsers = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4268,6 +4407,7 @@ export const listUsers = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -4279,6 +4419,7 @@ export const listUsers = /* GraphQL */ `
         write
         owner
         approveInspector
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -4336,6 +4477,7 @@ export const syncUsers = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4356,6 +4498,7 @@ export const syncUsers = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4384,6 +4527,7 @@ export const syncUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4411,6 +4555,7 @@ export const syncUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4437,6 +4582,7 @@ export const syncUsers = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -4459,6 +4605,7 @@ export const syncUsers = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4479,6 +4626,7 @@ export const syncUsers = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4507,6 +4655,7 @@ export const syncUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4534,6 +4683,7 @@ export const syncUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4560,6 +4710,7 @@ export const syncUsers = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -4601,6 +4752,7 @@ export const syncUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4628,6 +4780,7 @@ export const syncUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4636,6 +4789,7 @@ export const syncUsers = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -4677,6 +4831,7 @@ export const syncUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4704,6 +4859,7 @@ export const syncUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4712,6 +4868,7 @@ export const syncUsers = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -4748,6 +4905,7 @@ export const syncUsers = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4771,6 +4929,7 @@ export const syncUsers = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4791,6 +4950,7 @@ export const syncUsers = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4821,6 +4981,7 @@ export const syncUsers = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4842,6 +5003,7 @@ export const syncUsers = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -4853,6 +5015,7 @@ export const syncUsers = /* GraphQL */ `
         write
         owner
         approveInspector
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -4914,6 +5077,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4934,6 +5098,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4962,6 +5127,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -4989,6 +5155,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5015,6 +5182,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -5037,6 +5205,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5057,6 +5226,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5085,6 +5255,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5112,6 +5283,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5138,6 +5310,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -5179,6 +5352,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5206,6 +5380,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5214,6 +5389,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -5255,6 +5431,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5282,6 +5459,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5290,6 +5468,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -5326,6 +5505,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5349,6 +5529,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5369,6 +5550,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5399,6 +5581,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5420,6 +5603,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -5431,6 +5615,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
         write
         owner
         approveInspector
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -5492,6 +5677,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5512,6 +5698,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5540,6 +5727,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5567,6 +5755,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5593,6 +5782,7 @@ export const usersByBaseAndName = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -5615,6 +5805,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5635,6 +5826,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5663,6 +5855,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5690,6 +5883,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5716,6 +5910,7 @@ export const usersByBaseAndName = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -5757,6 +5952,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5784,6 +5980,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5792,6 +5989,7 @@ export const usersByBaseAndName = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -5833,6 +6031,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5860,6 +6059,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5868,6 +6068,7 @@ export const usersByBaseAndName = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -5904,6 +6105,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5927,6 +6129,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5947,6 +6150,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5977,6 +6181,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -5998,6 +6203,7 @@ export const usersByBaseAndName = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -6009,6 +6215,7 @@ export const usersByBaseAndName = /* GraphQL */ `
         write
         owner
         approveInspector
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -6067,6 +6274,7 @@ export const getCompany = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6097,6 +6305,7 @@ export const getCompany = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6121,6 +6330,7 @@ export const getCompany = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6145,6 +6355,7 @@ export const getCompany = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6190,6 +6401,7 @@ export const getCompany = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6201,6 +6413,7 @@ export const getCompany = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -6248,6 +6461,7 @@ export const getCompany = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6280,6 +6494,7 @@ export const getCompany = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6294,6 +6509,7 @@ export const getCompany = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -6342,6 +6558,7 @@ export const getCompany = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6354,6 +6571,7 @@ export const getCompany = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -6402,6 +6620,7 @@ export const getCompany = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6420,6 +6639,7 @@ export const getCompany = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6441,6 +6661,7 @@ export const getCompany = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6498,6 +6719,7 @@ export const getCompany = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6509,6 +6731,7 @@ export const getCompany = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6565,6 +6788,7 @@ export const getCompany = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6576,6 +6800,7 @@ export const getCompany = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6602,6 +6827,7 @@ export const getCompany = /* GraphQL */ `
           vehiclePics
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -6623,6 +6849,7 @@ export const getCompany = /* GraphQL */ `
       logo
       base
       read
+      tags
       _version
       _deleted
       _lastChangedAt
@@ -6692,6 +6919,7 @@ export const listCompanies = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6703,6 +6931,7 @@ export const listCompanies = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6724,6 +6953,7 @@ export const listCompanies = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6745,6 +6975,7 @@ export const listCompanies = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6767,6 +6998,7 @@ export const listCompanies = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6779,6 +7011,7 @@ export const listCompanies = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6801,6 +7034,7 @@ export const listCompanies = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6821,6 +7055,7 @@ export const listCompanies = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6849,6 +7084,7 @@ export const listCompanies = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6876,6 +7112,7 @@ export const listCompanies = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -6902,6 +7139,7 @@ export const listCompanies = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -6923,6 +7161,7 @@ export const listCompanies = /* GraphQL */ `
         logo
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -7002,6 +7241,7 @@ export const syncCompanies = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7013,6 +7253,7 @@ export const syncCompanies = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7034,6 +7275,7 @@ export const syncCompanies = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7055,6 +7297,7 @@ export const syncCompanies = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7077,6 +7320,7 @@ export const syncCompanies = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7089,6 +7333,7 @@ export const syncCompanies = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7111,6 +7356,7 @@ export const syncCompanies = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7131,6 +7377,7 @@ export const syncCompanies = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7159,6 +7406,7 @@ export const syncCompanies = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7186,6 +7434,7 @@ export const syncCompanies = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7212,6 +7461,7 @@ export const syncCompanies = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7233,6 +7483,7 @@ export const syncCompanies = /* GraphQL */ `
         logo
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -7316,6 +7567,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7327,6 +7579,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7348,6 +7601,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7369,6 +7623,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7391,6 +7646,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7403,6 +7659,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7425,6 +7682,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7445,6 +7703,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7473,6 +7732,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7500,6 +7760,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7526,6 +7787,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7547,6 +7809,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
         logo
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -7618,6 +7881,7 @@ export const getVehicle = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7629,6 +7893,7 @@ export const getVehicle = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7650,6 +7915,7 @@ export const getVehicle = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7671,6 +7937,7 @@ export const getVehicle = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7693,6 +7960,7 @@ export const getVehicle = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7705,6 +7973,7 @@ export const getVehicle = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7727,6 +7996,7 @@ export const getVehicle = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7747,6 +8017,7 @@ export const getVehicle = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7775,6 +8046,7 @@ export const getVehicle = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7802,6 +8074,7 @@ export const getVehicle = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7828,6 +8101,7 @@ export const getVehicle = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7849,6 +8123,7 @@ export const getVehicle = /* GraphQL */ `
         logo
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -7899,6 +8174,7 @@ export const getVehicle = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7917,6 +8193,7 @@ export const getVehicle = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -7938,6 +8215,7 @@ export const getVehicle = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -7995,6 +8273,7 @@ export const getVehicle = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8006,6 +8285,7 @@ export const getVehicle = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -8062,6 +8342,7 @@ export const getVehicle = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8073,6 +8354,7 @@ export const getVehicle = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -8099,6 +8381,7 @@ export const getVehicle = /* GraphQL */ `
           vehiclePics
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -8113,6 +8396,7 @@ export const getVehicle = /* GraphQL */ `
       updatedAt
       base
       read
+      tags
       _version
       _deleted
       _lastChangedAt
@@ -8156,6 +8440,7 @@ export const listVehicles = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8179,6 +8464,7 @@ export const listVehicles = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8199,6 +8485,7 @@ export const listVehicles = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8229,6 +8516,7 @@ export const listVehicles = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8250,6 +8538,7 @@ export const listVehicles = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -8274,6 +8563,7 @@ export const listVehicles = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8294,6 +8584,7 @@ export const listVehicles = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8322,6 +8613,7 @@ export const listVehicles = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8349,6 +8641,7 @@ export const listVehicles = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8375,6 +8668,7 @@ export const listVehicles = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -8389,6 +8683,7 @@ export const listVehicles = /* GraphQL */ `
         updatedAt
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -8442,6 +8737,7 @@ export const syncVehicles = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8465,6 +8761,7 @@ export const syncVehicles = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8485,6 +8782,7 @@ export const syncVehicles = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8515,6 +8813,7 @@ export const syncVehicles = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8536,6 +8835,7 @@ export const syncVehicles = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -8560,6 +8860,7 @@ export const syncVehicles = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8580,6 +8881,7 @@ export const syncVehicles = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8608,6 +8910,7 @@ export const syncVehicles = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8635,6 +8938,7 @@ export const syncVehicles = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8661,6 +8965,7 @@ export const syncVehicles = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -8675,6 +8980,7 @@ export const syncVehicles = /* GraphQL */ `
         updatedAt
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -8732,6 +9038,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8755,6 +9062,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8775,6 +9083,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8805,6 +9114,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8826,6 +9136,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -8850,6 +9161,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8870,6 +9182,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8898,6 +9211,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8925,6 +9239,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -8951,6 +9266,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -8965,6 +9281,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
         updatedAt
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -9022,6 +9339,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9045,6 +9363,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9065,6 +9384,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9095,6 +9415,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9116,6 +9437,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -9140,6 +9462,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9160,6 +9483,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9188,6 +9512,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9215,6 +9540,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9241,6 +9567,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -9255,6 +9582,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
         updatedAt
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -9326,6 +9654,7 @@ export const getCert = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9337,6 +9666,7 @@ export const getCert = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -9358,6 +9688,7 @@ export const getCert = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9379,6 +9710,7 @@ export const getCert = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -9401,6 +9733,7 @@ export const getCert = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9413,6 +9746,7 @@ export const getCert = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -9435,6 +9769,7 @@ export const getCert = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9455,6 +9790,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9483,6 +9819,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9510,6 +9847,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9536,6 +9874,7 @@ export const getCert = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -9557,6 +9896,7 @@ export const getCert = /* GraphQL */ `
         logo
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -9592,6 +9932,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9615,6 +9956,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9635,6 +9977,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9665,6 +10008,7 @@ export const getCert = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9686,6 +10030,7 @@ export const getCert = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -9710,6 +10055,7 @@ export const getCert = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9730,6 +10076,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9758,6 +10105,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9785,6 +10133,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9811,6 +10160,7 @@ export const getCert = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -9825,6 +10175,7 @@ export const getCert = /* GraphQL */ `
         updatedAt
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -9865,6 +10216,7 @@ export const getCert = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9885,6 +10237,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9913,6 +10266,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9940,6 +10294,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -9966,6 +10321,7 @@ export const getCert = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -9988,6 +10344,7 @@ export const getCert = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10008,6 +10365,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10036,6 +10394,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10063,6 +10422,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10089,6 +10449,7 @@ export const getCert = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -10130,6 +10491,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10157,6 +10519,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10165,6 +10528,7 @@ export const getCert = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -10206,6 +10570,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10233,6 +10598,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10241,6 +10607,7 @@ export const getCert = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -10277,6 +10644,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10300,6 +10668,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10320,6 +10689,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10350,6 +10720,7 @@ export const getCert = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10371,6 +10742,7 @@ export const getCert = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -10382,6 +10754,7 @@ export const getCert = /* GraphQL */ `
         write
         owner
         approveInspector
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -10421,6 +10794,7 @@ export const getCert = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10441,6 +10815,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10469,6 +10844,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10496,6 +10872,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10522,6 +10899,7 @@ export const getCert = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -10544,6 +10922,7 @@ export const getCert = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10564,6 +10943,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10592,6 +10972,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10619,6 +11000,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10645,6 +11027,7 @@ export const getCert = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -10686,6 +11069,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10713,6 +11097,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10721,6 +11106,7 @@ export const getCert = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -10762,6 +11148,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10789,6 +11176,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10797,6 +11185,7 @@ export const getCert = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -10833,6 +11222,7 @@ export const getCert = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10856,6 +11246,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10876,6 +11267,7 @@ export const getCert = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10906,6 +11298,7 @@ export const getCert = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -10927,6 +11320,7 @@ export const getCert = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -10938,6 +11332,7 @@ export const getCert = /* GraphQL */ `
         write
         owner
         approveInspector
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -10964,6 +11359,7 @@ export const getCert = /* GraphQL */ `
       vehiclePics
       base
       read
+      tags
       _version
       _deleted
       _lastChangedAt
@@ -11007,6 +11403,7 @@ export const listCerts = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11030,6 +11427,7 @@ export const listCerts = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11050,6 +11448,7 @@ export const listCerts = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11080,6 +11479,7 @@ export const listCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11101,6 +11501,7 @@ export const listCerts = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -11145,6 +11546,7 @@ export const listCerts = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -11177,6 +11579,7 @@ export const listCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11191,6 +11594,7 @@ export const listCerts = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -11239,6 +11643,7 @@ export const listCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11269,6 +11674,7 @@ export const listCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11293,6 +11699,7 @@ export const listCerts = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11317,6 +11724,7 @@ export const listCerts = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11362,6 +11770,7 @@ export const listCerts = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -11373,6 +11782,7 @@ export const listCerts = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -11420,6 +11830,7 @@ export const listCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11450,6 +11861,7 @@ export const listCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11474,6 +11886,7 @@ export const listCerts = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11498,6 +11911,7 @@ export const listCerts = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11543,6 +11957,7 @@ export const listCerts = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -11554,6 +11969,7 @@ export const listCerts = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -11580,6 +11996,7 @@ export const listCerts = /* GraphQL */ `
         vehiclePics
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -11633,6 +12050,7 @@ export const syncCerts = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11656,6 +12074,7 @@ export const syncCerts = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11676,6 +12095,7 @@ export const syncCerts = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11706,6 +12126,7 @@ export const syncCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11727,6 +12148,7 @@ export const syncCerts = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -11771,6 +12193,7 @@ export const syncCerts = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -11803,6 +12226,7 @@ export const syncCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11817,6 +12241,7 @@ export const syncCerts = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -11865,6 +12290,7 @@ export const syncCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11895,6 +12321,7 @@ export const syncCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11919,6 +12346,7 @@ export const syncCerts = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11943,6 +12371,7 @@ export const syncCerts = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -11988,6 +12417,7 @@ export const syncCerts = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -11999,6 +12429,7 @@ export const syncCerts = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -12046,6 +12477,7 @@ export const syncCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12076,6 +12508,7 @@ export const syncCerts = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12100,6 +12533,7 @@ export const syncCerts = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12124,6 +12558,7 @@ export const syncCerts = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12169,6 +12604,7 @@ export const syncCerts = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -12180,6 +12616,7 @@ export const syncCerts = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -12206,6 +12643,7 @@ export const syncCerts = /* GraphQL */ `
         vehiclePics
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -12263,6 +12701,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12286,6 +12725,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12306,6 +12746,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12336,6 +12777,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12357,6 +12799,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -12401,6 +12844,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -12433,6 +12877,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12447,6 +12892,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -12495,6 +12941,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12525,6 +12972,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12549,6 +12997,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12573,6 +13022,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12618,6 +13068,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -12629,6 +13080,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -12676,6 +13128,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12706,6 +13159,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12730,6 +13184,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12754,6 +13209,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12799,6 +13255,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -12810,6 +13267,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -12836,6 +13294,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
         vehiclePics
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -12893,6 +13352,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12916,6 +13376,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12936,6 +13397,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12966,6 +13428,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -12987,6 +13450,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -13031,6 +13495,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -13063,6 +13528,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13077,6 +13543,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -13125,6 +13592,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13155,6 +13623,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13179,6 +13648,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13203,6 +13673,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13248,6 +13719,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -13259,6 +13731,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -13306,6 +13779,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13336,6 +13810,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13360,6 +13835,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13384,6 +13860,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13429,6 +13906,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -13440,6 +13918,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -13466,6 +13945,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
         vehiclePics
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -13523,6 +14003,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13546,6 +14027,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13566,6 +14048,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13596,6 +14079,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13617,6 +14101,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -13661,6 +14146,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -13693,6 +14179,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13707,6 +14194,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -13755,6 +14243,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13785,6 +14274,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13809,6 +14299,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13833,6 +14324,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13878,6 +14370,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -13889,6 +14382,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -13936,6 +14430,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13966,6 +14461,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -13990,6 +14486,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14014,6 +14511,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14059,6 +14557,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -14070,6 +14569,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -14096,6 +14596,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
         vehiclePics
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -14153,6 +14654,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14176,6 +14678,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14196,6 +14699,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14226,6 +14730,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14247,6 +14752,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -14291,6 +14797,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -14323,6 +14830,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14337,6 +14845,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -14385,6 +14894,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14415,6 +14925,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14439,6 +14950,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14463,6 +14975,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14508,6 +15021,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -14519,6 +15033,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -14566,6 +15081,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14596,6 +15112,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14620,6 +15137,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14644,6 +15162,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14689,6 +15208,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -14700,6 +15220,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -14726,6 +15247,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
         vehiclePics
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -14783,6 +15305,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14806,6 +15329,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14826,6 +15350,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14856,6 +15381,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14877,6 +15403,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -14921,6 +15448,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -14953,6 +15481,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -14967,6 +15496,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           updatedAt
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -15015,6 +15545,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15045,6 +15576,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15069,6 +15601,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15093,6 +15626,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15138,6 +15672,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -15149,6 +15684,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -15196,6 +15732,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15226,6 +15763,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15250,6 +15788,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15274,6 +15813,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15319,6 +15859,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -15330,6 +15871,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -15356,6 +15898,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
         vehiclePics
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -15412,6 +15955,7 @@ export const getNotification = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15432,6 +15976,7 @@ export const getNotification = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15460,6 +16005,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15487,6 +16033,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15513,6 +16060,7 @@ export const getNotification = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -15535,6 +16083,7 @@ export const getNotification = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15555,6 +16104,7 @@ export const getNotification = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15583,6 +16133,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15610,6 +16161,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15636,6 +16188,7 @@ export const getNotification = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -15677,6 +16230,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15704,6 +16258,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15712,6 +16267,7 @@ export const getNotification = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -15753,6 +16309,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15780,6 +16337,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15788,6 +16346,7 @@ export const getNotification = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -15824,6 +16383,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15847,6 +16407,7 @@ export const getNotification = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15867,6 +16428,7 @@ export const getNotification = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15897,6 +16459,7 @@ export const getNotification = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15918,6 +16481,7 @@ export const getNotification = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -15929,6 +16493,7 @@ export const getNotification = /* GraphQL */ `
         write
         owner
         approveInspector
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -15968,6 +16533,7 @@ export const getNotification = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -15988,6 +16554,7 @@ export const getNotification = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16016,6 +16583,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16043,6 +16611,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16069,6 +16638,7 @@ export const getNotification = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -16091,6 +16661,7 @@ export const getNotification = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16111,6 +16682,7 @@ export const getNotification = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16139,6 +16711,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16166,6 +16739,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16192,6 +16766,7 @@ export const getNotification = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -16233,6 +16808,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16260,6 +16836,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16268,6 +16845,7 @@ export const getNotification = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -16309,6 +16887,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16336,6 +16915,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16344,6 +16924,7 @@ export const getNotification = /* GraphQL */ `
             base
             createdAt
             updatedAt
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -16380,6 +16961,7 @@ export const getNotification = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16403,6 +16985,7 @@ export const getNotification = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16423,6 +17006,7 @@ export const getNotification = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16453,6 +17037,7 @@ export const getNotification = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16474,6 +17059,7 @@ export const getNotification = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -16485,6 +17071,7 @@ export const getNotification = /* GraphQL */ `
         write
         owner
         approveInspector
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -16493,6 +17080,7 @@ export const getNotification = /* GraphQL */ `
       base
       createdAt
       updatedAt
+      tags
       _version
       _deleted
       _lastChangedAt
@@ -16558,6 +17146,7 @@ export const listNotifications = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16588,6 +17177,7 @@ export const listNotifications = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16612,6 +17202,7 @@ export const listNotifications = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16636,6 +17227,7 @@ export const listNotifications = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16681,6 +17273,7 @@ export const listNotifications = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -16692,6 +17285,7 @@ export const listNotifications = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -16739,6 +17333,7 @@ export const listNotifications = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16769,6 +17364,7 @@ export const listNotifications = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16793,6 +17389,7 @@ export const listNotifications = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16817,6 +17414,7 @@ export const listNotifications = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16862,6 +17460,7 @@ export const listNotifications = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -16873,6 +17472,7 @@ export const listNotifications = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -16881,6 +17481,7 @@ export const listNotifications = /* GraphQL */ `
         base
         createdAt
         updatedAt
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -16956,6 +17557,7 @@ export const syncNotifications = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -16986,6 +17588,7 @@ export const syncNotifications = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17010,6 +17613,7 @@ export const syncNotifications = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17034,6 +17638,7 @@ export const syncNotifications = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17079,6 +17684,7 @@ export const syncNotifications = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -17090,6 +17696,7 @@ export const syncNotifications = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -17137,6 +17744,7 @@ export const syncNotifications = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17167,6 +17775,7 @@ export const syncNotifications = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17191,6 +17800,7 @@ export const syncNotifications = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17215,6 +17825,7 @@ export const syncNotifications = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17260,6 +17871,7 @@ export const syncNotifications = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -17271,6 +17883,7 @@ export const syncNotifications = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -17279,6 +17892,7 @@ export const syncNotifications = /* GraphQL */ `
         base
         createdAt
         updatedAt
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -17358,6 +17972,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17388,6 +18003,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17412,6 +18028,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17436,6 +18053,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17481,6 +18099,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -17492,6 +18111,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -17539,6 +18159,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17569,6 +18190,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17593,6 +18215,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17617,6 +18240,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17662,6 +18286,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -17673,6 +18298,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -17681,6 +18307,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
         base
         createdAt
         updatedAt
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -17760,6 +18387,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17790,6 +18418,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17814,6 +18443,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17838,6 +18468,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17883,6 +18514,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -17894,6 +18526,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -17941,6 +18574,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17971,6 +18605,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -17995,6 +18630,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18019,6 +18655,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18064,6 +18701,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -18075,6 +18713,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -18083,6 +18722,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
         base
         createdAt
         updatedAt
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -18162,6 +18802,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18192,6 +18833,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18216,6 +18858,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18240,6 +18883,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18285,6 +18929,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -18296,6 +18941,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -18343,6 +18989,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18373,6 +19020,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18397,6 +19045,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18421,6 +19070,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
               base
               createdAt
               updatedAt
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18466,6 +19116,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
             logo
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -18477,6 +19128,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
           write
           owner
           approveInspector
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -18485,6 +19137,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
         base
         createdAt
         updatedAt
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -18556,6 +19209,7 @@ export const getClient = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18567,6 +19221,7 @@ export const getClient = /* GraphQL */ `
             write
             owner
             approveInspector
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -18588,6 +19243,7 @@ export const getClient = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18609,6 +19265,7 @@ export const getClient = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -18631,6 +19288,7 @@ export const getClient = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18643,6 +19301,7 @@ export const getClient = /* GraphQL */ `
             updatedAt
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -18665,6 +19324,7 @@ export const getClient = /* GraphQL */ `
               logo
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18685,6 +19345,7 @@ export const getClient = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18713,6 +19374,7 @@ export const getClient = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18740,6 +19402,7 @@ export const getClient = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18766,6 +19429,7 @@ export const getClient = /* GraphQL */ `
             vehiclePics
             base
             read
+            tags
             _version
             _deleted
             _lastChangedAt
@@ -18787,6 +19451,7 @@ export const getClient = /* GraphQL */ `
         logo
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -18799,6 +19464,7 @@ export const getClient = /* GraphQL */ `
       updatedAt
       base
       read
+      tags
       _version
       _deleted
       _lastChangedAt
@@ -18842,6 +19508,7 @@ export const listClients = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18865,6 +19532,7 @@ export const listClients = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18885,6 +19553,7 @@ export const listClients = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18915,6 +19584,7 @@ export const listClients = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -18936,6 +19606,7 @@ export const listClients = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -18948,6 +19619,7 @@ export const listClients = /* GraphQL */ `
         updatedAt
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -19001,6 +19673,7 @@ export const syncClients = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19024,6 +19697,7 @@ export const syncClients = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19044,6 +19718,7 @@ export const syncClients = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19074,6 +19749,7 @@ export const syncClients = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19095,6 +19771,7 @@ export const syncClients = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -19107,6 +19784,7 @@ export const syncClients = /* GraphQL */ `
         updatedAt
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -19164,6 +19842,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19187,6 +19866,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19207,6 +19887,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19237,6 +19918,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19258,6 +19940,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -19270,6 +19953,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
         updatedAt
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt
@@ -19327,6 +20011,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               write
               owner
               approveInspector
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19350,6 +20035,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19370,6 +20056,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               updatedAt
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19400,6 +20087,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               vehiclePics
               base
               read
+              tags
               _version
               _deleted
               _lastChangedAt
@@ -19421,6 +20109,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
           logo
           base
           read
+          tags
           _version
           _deleted
           _lastChangedAt
@@ -19433,6 +20122,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
         updatedAt
         base
         read
+        tags
         _version
         _deleted
         _lastChangedAt

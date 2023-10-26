@@ -1,75 +1,81 @@
 import { Col, Input, List, Row } from "antd";
 import { useSelector } from "react-redux";
-import { searchPlaceholder } from "../../settings";
+import { models, searchPlaceholder } from "../../settings";
 import { useState } from "react";
 import { searchResources } from "../../graphql/customQueries";
 import { API, graphqlOperation } from 'aws-amplify';
 import { routes } from "../../settings";
-import { entries, isEmpty, lowerCase, values } from "lodash";
+import { chain, entries, find, isEmpty, keys, lowerCase, values } from "lodash";
 import { schema } from "../../models/schema";
+import { Link } from "react-router-dom";
 
 export default function BaseSearch() {
     const user = useSelector(state => state.user);
     const [searching, setSearching] = useState(false);
-    const [results, setResults] = useState(['ABC', 'DEF']);
+    const [results, setResults] = useState();
 
     // TODO Search child models
     const search = async q => {
+        /**
+         * Get Search Fields
+         */
+        const searchableFields = values(routes).map(({ model, form: { schema } }) => ({ model, fields: entries(schema).map(([key, { searchable }]) => searchable && key).filter(Boolean) })).filter(({ fields }) => !isEmpty(fields));
+
+        const query = `
+            query SearchResources(
+                $base: ID!
+                $q: String
+            ){
+                getBase(id: $base){
+                    ${searchableFields.map(({ model, fields }) => {
+                        const { pluralName } = schema.models[model];
+                        return `
+                            ${lowerCase(pluralName)}(
+                                filter: {
+                                    tags: { contains: $q }
+                                }
+                            ){
+                                items{
+                                    id
+                                    ${fields.join('\n')}
+                                }
+                            }
+                        `
+                    })}
+                }
+            }
+        `;
+
         setSearching(true);
-        
         (async () => {
             try {
-                const searchableFields = values(routes).map(({ model, form: { schema } }) => ({ model, fields: entries(schema).map(([key, { searchable }]) => searchable && key).filter(Boolean) })).filter(({ fields }) => !isEmpty(fields));
-
-                const query = `
-                    query SearchResources(
-                        $base: ID!
-                        $q: String
-                    ){
-                        getBase(id: $base){
-                            ${searchableFields.map(({ model, fields }) => {
-                                const {pluralName, attributes} = schema.models[model];
-                                /**
-                                 * Check if field is a key
-                                 */
-                                let filters = [], keys = [];
-                                fields.forEach(f => {
-                                    if(isEmpty(attributes.filter(({ type, properties }) => type === 'key' && properties.fields.includes(f)))){
-                                        // Not a key
-                                        filters.push(f);
-                                    }
-                                    else{
-                                        // Is a key
-                                        keys.push(f);
-                                    }
-                                });
-                                return `
-                                    ${lowerCase(pluralName)}
-                                        ${!isEmpty(filters) ? `(filter: {
-                                            or: [
-                                                ${filters.map(f => `{ ${f}: { contains: $q } }`).join(`\n`)}
-                                            ]
-                                        })` : ''}
-                                    {
-                                        items{
-                                            id
-                                            ${fields.join('\n')}
-                                        }
-                                    }
-                                `
-                            })}
-                        }
-                    }
-                `;
-                console.log(query);
                 const { data: { getBase } } = await API.graphql(
                     graphqlOperation(query, {
                         base: user.appsync.base,
-                        q
+                        q: chain(q).deburr().camelCase().toLower()
                     })
                 );
 
-                console.log(getBase);
+                // console.log(getBase);
+                let results = entries(getBase)
+                    .filter(([_, { items }]) => !isEmpty(items))
+                    .map(([type, { items }]) => {
+                        const { name } = values(schema.models).filter(({ pluralName }) => lowerCase(pluralName) === type)?.[0];
+                        const { search: { component: { title }, route }, ...modelData } = models[name];
+
+                        return items.map(fields => {
+                            return {
+                                id: fields.id,
+                                title,
+                                type: name,
+                                route,
+                                description: keys(fields).map(field => `${modelData.schema[field].label}: ${fields[field]}` ).join(" / ")
+                            }
+                        });
+                        
+                    }).flat();
+
+                setResults(results);
                 setSearching(false);
             }
             catch (e) {
@@ -96,13 +102,13 @@ export default function BaseSearch() {
             loading={searching}
             itemLayout="horizontal"
             dataSource={results}
-            renderItem={item => (
+            renderItem={({ title, description, type, route, id }) => (
                 <List.Item
-                    actions={[<a key="list-loadmore-edit">View</a>]}
+                    actions={[<Link to={`${route}?id=${id}`}>View</Link>]}
                 >
                     <List.Item.Meta
-                        title={<a href="https://ant.design">{item}</a>}
-                        description="Certificate"
+                        title={`${title} (${type})`}
+                        description={description}
                     />
                 </List.Item>
             )}

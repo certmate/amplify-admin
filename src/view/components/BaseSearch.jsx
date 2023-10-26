@@ -1,11 +1,9 @@
 import { Col, Input, List, Row } from "antd";
 import { useSelector } from "react-redux";
-import { models, searchPlaceholder } from "../../settings";
+import { searchPlaceholder, routes } from "../../settings";
 import { useState } from "react";
-import { searchResources } from "../../graphql/customQueries";
 import { API, graphqlOperation } from 'aws-amplify';
-import { routes } from "../../settings";
-import { chain, entries, find, isEmpty, keys, lowerCase, values } from "lodash";
+import { chain, entries, isEmpty, keys, lowerCase, values } from "lodash";
 import { schema } from "../../models/schema";
 import { Link } from "react-router-dom";
 
@@ -60,16 +58,16 @@ export default function BaseSearch() {
                 let results = entries(getBase)
                     .filter(([_, { items }]) => !isEmpty(items))
                     .map(([type, { items }]) => {
-                        const { name } = values(schema.models).filter(({ pluralName }) => lowerCase(pluralName) === type)?.[0];
-                        const { search: { component: { title }, route }, ...modelData } = models[name];
+                        const route = `/${type}`;
+                        const { form: { schema, read: { search: { component: { title } } } }, ...modelData } = routes[route];
 
                         return items.map(fields => {
                             return {
                                 id: fields.id,
-                                title,
-                                type: name,
+                                title: fields[title],
+                                type,
                                 route,
-                                description: keys(fields).map(field => `${modelData.schema[field].label}: ${fields[field]}` ).join(" / ")
+                                description: keys(fields).map(field => `${schema[field].label}: ${fields[field]}` ).join(" / ")
                             }
                         });
                         

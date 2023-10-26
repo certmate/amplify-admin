@@ -15,37 +15,9 @@ export const tagline = "Digital Vehicle Biosecurity Management";
 export const searchPlaceholder = "Search for Certs, Vehicles, Clients, Companies & more...";
 export const appRoles = { owner: ["SuperAdmin", "Admin", "Support"], users: ["Inspector", "Driver", "LandOwner"] };
 export const roles = [...appRoles.owner, ...appRoles.users];
+export const excludeModelsFromDashboardStats = ['Base', 'Index', 'Shared'];
 /**
- * Models
- */
-export const models = {
-    Cert: {
-
-    },
-    Client: {
-        schema: {
-            id: { label: 'id', formComponent: null, hidden: true },
-            _version: { hidden: true },
-            name: { label: 'Client name', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
-            logo: { label: 'Client logo', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
-            // @model.valueField:labelField
-            companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
-            // Example of custom component
-            company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
-        },
-        search: {
-            component: {
-                title: 'name'
-            },
-            route: '/clients'
-        }
-    },
-    Vehicle: {},
-    User: {},
-    Company: {}
-}
-/**
- * Routes
+ * Routes - names are plurals of models
  */
 export const routes = {
     ['/certs']: {
@@ -180,7 +152,16 @@ export const routes = {
             /**
              * Keys are names of schema field
              */
-            schema: models.Client.schema,
+            schema: {
+                id: { label: 'id', formComponent: null, hidden: true },
+                _version: { hidden: true },
+                name: { label: 'Client name', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
+                logo: { label: 'Client logo', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
+                // @model.valueField:labelField
+                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
+                // Example of custom component
+                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
+            },
             create: {
                 fields: ['name', 'logo', 'companyID'],
                 roles: ['Owner', 'Driver', 'Inspector']
@@ -190,7 +171,13 @@ export const routes = {
                 actions: [
                     { ...actions.delete, roles: ['Owner'] },
                     { ...actions.update, roles: ['Owner'] }
-                ]
+                ],
+                search: {
+                    component: {
+                        title: 'name'
+                    },
+                    route: '/clients'
+                }
             }
         }
     },

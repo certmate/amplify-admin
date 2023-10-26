@@ -3,12 +3,12 @@ import BaseForm from "./BaseForm";
 import { useEffect, useState } from "react";
 import { getData } from "../../common";
 import SweetAlert from 'sweetalert2';
-import { entries, keys, lowerCase, startCase } from "lodash";
-import { models } from "../../settings";
+import { entries, keys, lowerCase, startCase, values } from "lodash";
 import { schema } from "../../models/schema";
 import { API, graphqlOperation } from "aws-amplify";
 import { Card, Col, Row, Skeleton } from "antd";
 import { useNavigate } from "react-router-dom";
+import { excludeModelsFromDashboardStats, routes } from "../../settings";
 
 export default function BaseDashboard() {
     const user = useSelector(state => state.user);
@@ -18,10 +18,11 @@ export default function BaseDashboard() {
     useEffect(() => {
         user?.appsync && (async () => {
             try {
+                
                 const query = `
                     query GetStats{
                         getBase(id: "${user.appsync.base}"){
-                            ${keys(models).map(m => `${lowerCase(schema.models[m].pluralName)} { items { id } }`).join('\n')}
+                            ${values(schema.models).map(({ name, pluralName }) => !excludeModelsFromDashboardStats.includes(name) && `${lowerCase(pluralName)} { items { id } }`).filter(Boolean).join('\n')}
                         }
                     }
                 `;

@@ -13,43 +13,57 @@ export default function BaseSearch() {
     const [searching, setSearching] = useState(false);
     const [results, setResults] = useState(['ABC', 'DEF']);
 
+    // TODO Search child models
     const search = async q => {
-        console.log(q, user.appsync.base);
-        /**
-         * Get Search Fields
-         */
-        const searchableFields = values(routes).map(({ model, form: { schema } }) => ({ model, fields: entries(schema).map(([key, { searchable }]) => searchable && key).filter(Boolean) })).filter(({ fields }) => !isEmpty(fields));
-
-        const query = `
-            query SearchResources(
-                $base: ID!
-                $q: String
-            ){
-                getBase(id: $base){
-                    ${searchableFields.map(({ model, fields }) => `
-                        ${lowerCase(schema.models[model].pluralName)}(
-                            filter: {
-                                or: [
-                                    ${fields.map(f => `{ ${f}: { contains: $q } }`).join(`\n`)}
-                                ]
-                            }
-                        ){
-                            items{
-                                id
-                                ${fields.join('\n')}
-                            }
-                        }
-                    `)}
-                }
-            }
-        `;
-        console.log(query);
-
         setSearching(true);
+        
         (async () => {
             try {
+                const searchableFields = values(routes).map(({ model, form: { schema } }) => ({ model, fields: entries(schema).map(([key, { searchable }]) => searchable && key).filter(Boolean) })).filter(({ fields }) => !isEmpty(fields));
+
+                const query = `
+                    query SearchResources(
+                        $base: ID!
+                        $q: String
+                    ){
+                        getBase(id: $base){
+                            ${searchableFields.map(({ model, fields }) => {
+                                const {pluralName, attributes} = schema.models[model];
+                                /**
+                                 * Check if field is a key
+                                 */
+                                let filters = [], keys = [];
+                                fields.forEach(f => {
+                                    if(isEmpty(attributes.filter(({ type, properties }) => type === 'key' && properties.fields.includes(f)))){
+                                        // Not a key
+                                        filters.push(f);
+                                    }
+                                    else{
+                                        // Is a key
+                                        keys.push(f);
+                                    }
+                                });
+                                return `
+                                    ${lowerCase(pluralName)}
+                                        ${!isEmpty(filters) ? `(filter: {
+                                            or: [
+                                                ${filters.map(f => `{ ${f}: { contains: $q } }`).join(`\n`)}
+                                            ]
+                                        })` : ''}
+                                    {
+                                        items{
+                                            id
+                                            ${fields.join('\n')}
+                                        }
+                                    }
+                                `
+                            })}
+                        }
+                    }
+                `;
+                console.log(query);
                 const { data: { getBase } } = await API.graphql(
-                    graphqlOperation(searchResources, {
+                    graphqlOperation(query, {
                         base: user.appsync.base,
                         q
                     })

@@ -4,7 +4,7 @@ import { Share, TickCircle } from "iconsax-react";
 import { useState } from "react";
 import { object, string } from "yup";
 import { updateCert } from "../../../graphql/mutations";
-import { getData } from "../../../common";
+import { getData, upsertData } from "../../../common";
 import { API, graphqlOperation } from "aws-amplify";
 import SweetAlert from 'sweetalert2';
 import { uniq } from "lodash";
@@ -14,7 +14,7 @@ export default function ApproveDisapproveAsInspector({ data, model, callback }) 
     const [initialValues, setInitialValues] = useState({ email: '' });
 
     return <Space onClick={async () => {
-        console.log('Approve!', { data })
+        console.log('Approve!', { data });
         try{
             await API.graphql(
                 graphqlOperation(`

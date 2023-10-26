@@ -2,9 +2,9 @@
 
 import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
-import { isArray, isString, lowerCase, omit, values, first } from "lodash";
+import { isArray, isString, lowerCase, omit, values, first, deburr, chain, entries, isEmpty } from "lodash";
 import { routes } from "./settings";
-import { hasArrayOfValues } from "./helpers";
+import { cleanEmptyConnections, hasArrayOfValues } from "./helpers";
 import BaseUpdateButton from "./view/components/BaseUpdateButton";
 import BaseDeleteButton from "./view/components/BaseDeleteButton";
 import { getUser } from "./graphql/customQueries";
@@ -198,6 +198,30 @@ export const getData = async ({ model, fields, id }) => {
         console.log(e);
         return [];
     }
+}
+
+export const upsertData = async ({ query, payload, schema }) => {
+    /**
+     * Check searchable fields
+     */
+    if(schema){
+        const searchableFields = entries(schema).filter(([ _, { searchable } ]) => searchable);
+        if(!isEmpty(searchableFields)){
+            const tags = [];
+            entries(searchableFields).forEach(([_, [field]]) => {
+                payload[field] && tags.push(chain(JSON.stringify(payload[field])).deburr().camelCase().toLower())
+            });
+            payload.tags = tags.join('');
+        }
+    }
+    
+    try{
+        await API.graphql(graphqlOperation(query, { input: cleanEmptyConnections(payload) }));
+    }
+    catch(e){
+        console.log(e)
+    }
+
 }
 
 /**

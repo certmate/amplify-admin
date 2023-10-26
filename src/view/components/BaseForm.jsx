@@ -8,7 +8,7 @@ import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChil
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
 import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get, isEmpty, isUndefined, isFunction, keys, first } from "lodash";
-import { getData, readData } from "../../common";
+import { getData, readData, upsertData } from "../../common";
 import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
 import * as mutations from "../../graphql/mutations";
@@ -179,7 +179,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                     }
 
                     // console.log({ query, payload, formValues }); return;
-                    await API.graphql(graphqlOperation(query, { input: cleanEmptyConnections(payload) }));
+                    upsertData({ query, payload, schema });
                 }
 
                 await form[formIs]?.afterSubmit?.({ user, values });

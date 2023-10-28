@@ -6,7 +6,7 @@ import * as CustomComponent from "./view/components/custom";
 import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser, sendInvitationEmailToMember } from "./custom/callbackFunctions";
 import { shareCert, approveRejectCert, downloadCert, approveDisapproveAsInspector } from "./custom/actions";
 import BaseAccount from "./view/components/BaseAccount";
-import { toUpper, upperCase } from "lodash";
+import { isEmpty, toUpper, upperCase } from "lodash";
 import CreateCertWizard from "./view/components/custom/CreateCertWizard";
 
 export const appName = "CertMate";
@@ -65,7 +65,7 @@ export const routes = {
                 fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name', 'company.id,name,logo'],
                 actions: [
                     { ...actions.delete, routes: ['/certs?filter=pending'] },
-                    actions.update,
+                    { ...actions.update, condition: ({ status }) => isEmpty(status) || ['A', 'P'].includes(status)},
                     shareCert,
                     approveRejectCert,
                     downloadCert

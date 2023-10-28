@@ -88,7 +88,7 @@ export default function CreateCertWizard({ callback }) {
         return object().shape({ ...v });
     }, [form]);
 
-    const initialValues = useMemo(() => ({ auditSections: [], vehiclePics: [], number: generateRandomString(), supercede: false }), [])
+    const initialValues = useMemo(() => ({ auditSections: [], vehiclePics: [], number: generateRandomString(), supercede: false, ...(role(user) === 'Inspector' ? {inspectorID: user.appsync.id, status: 'A'} : role(user) === 'Driver' ? {driverID: user.appsync.id} : {}) }), [])
 
     const [selectOptions, setSelectOptions] = useState({});
 
@@ -256,7 +256,7 @@ export default function CreateCertWizard({ callback }) {
                                     <span className="hp-text-color-danger-1">{errors?.vehiclePics}</span>
                                 </div>
                                 {/* If driver, show inspector; vice versa */}
-                                {role(user) === 'Driver' || role(user) === 'Owner' ? (
+                                {role(user) === 'Owner' ? (
                                     <div className="hp-mb-16">
                                         <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{form.schema.inspectorID.label}</span>
                                         <Select onChange={handleChange('inspectorID')} options={selectOptions?.inspectors || [{ label: '', value: '' }]} />

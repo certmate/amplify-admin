@@ -10,7 +10,7 @@ export default function ApproveRejectCert({ data, callback }) {
     const user = useSelector(state => state.user);
 
     return <Popconfirm
-        title="Accept/Rejecct a Certificate"
+        title="Accept/Reject a Certificate"
         description="Are you sure to approve this certificate?"
         onConfirm={async () => {
             try {

@@ -119,12 +119,14 @@ export const createIndex = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -326,12 +328,14 @@ export const updateIndex = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -533,12 +537,14 @@ export const deleteIndex = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -661,12 +667,14 @@ export const createBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -692,12 +700,14 @@ export const createBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -912,12 +922,14 @@ export const createBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -1008,6 +1020,39 @@ export const createBase = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              clientID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              auditSections
+              comments
+              status
+              createdAt
+              updatedAt
+              vehiclePics
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           read
           tags
           _version
@@ -1078,12 +1123,14 @@ export const createBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -1341,20 +1388,50 @@ export const createBase = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -1601,12 +1678,14 @@ export const updateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -1632,12 +1711,14 @@ export const updateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -1852,12 +1933,14 @@ export const updateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -1948,6 +2031,39 @@ export const updateBase = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              clientID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              auditSections
+              comments
+              status
+              createdAt
+              updatedAt
+              vehiclePics
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           read
           tags
           _version
@@ -2018,12 +2134,14 @@ export const updateBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -2281,20 +2399,50 @@ export const updateBase = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -2541,12 +2689,14 @@ export const deleteBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -2572,12 +2722,14 @@ export const deleteBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -2792,12 +2944,14 @@ export const deleteBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -2888,6 +3042,39 @@ export const deleteBase = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              clientID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              auditSections
+              comments
+              status
+              createdAt
+              updatedAt
+              vehiclePics
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           read
           tags
           _version
@@ -2958,12 +3145,14 @@ export const deleteBase = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -3221,20 +3410,50 @@ export const deleteBase = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -3692,20 +3911,50 @@ export const createUser = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -3948,20 +4197,50 @@ export const createUser = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -4448,6 +4727,11 @@ export const createUser = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -4556,20 +4840,30 @@ export const createUser = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -4869,20 +5163,50 @@ export const updateUser = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -5125,20 +5449,50 @@ export const updateUser = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -5625,6 +5979,11 @@ export const updateUser = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -5733,20 +6092,30 @@ export const updateUser = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -6046,20 +6415,50 @@ export const deleteUser = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -6302,20 +6701,50 @@ export const deleteUser = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -6802,6 +7231,11 @@ export const deleteUser = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -6910,20 +7344,30 @@ export const deleteUser = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -7010,12 +7454,14 @@ export const createCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -7041,12 +7487,14 @@ export const createCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -7230,12 +7678,14 @@ export const createCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -7319,6 +7769,39 @@ export const createCompany = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              clientID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              auditSections
+              comments
+              status
+              createdAt
+              updatedAt
+              vehiclePics
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           read
           tags
           _version
@@ -7555,20 +8038,50 @@ export const createCompany = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -7644,12 +8157,14 @@ export const updateCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -7675,12 +8190,14 @@ export const updateCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -7864,12 +8381,14 @@ export const updateCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -7953,6 +8472,39 @@ export const updateCompany = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              clientID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              auditSections
+              comments
+              status
+              createdAt
+              updatedAt
+              vehiclePics
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           read
           tags
           _version
@@ -8189,20 +8741,50 @@ export const updateCompany = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -8278,12 +8860,14 @@ export const deleteCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -8309,12 +8893,14 @@ export const deleteCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -8498,12 +9084,14 @@ export const deleteCompany = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -8587,6 +9175,39 @@ export const deleteCompany = /* GraphQL */ `
           createdAt
           updatedAt
           base
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              clientID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              auditSections
+              comments
+              status
+              createdAt
+              updatedAt
+              vehiclePics
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
           read
           tags
           _version
@@ -8823,20 +9444,50 @@ export const deleteCompany = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -9028,6 +9679,11 @@ export const createVehicle = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -9136,20 +9792,30 @@ export const createVehicle = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -9416,20 +10082,50 @@ export const createVehicle = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -9614,6 +10310,11 @@ export const updateVehicle = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -9722,20 +10423,30 @@ export const updateVehicle = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -10002,20 +10713,50 @@ export const updateVehicle = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -10200,6 +10941,11 @@ export const deleteVehicle = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -10308,20 +11054,30 @@ export const deleteVehicle = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -10588,20 +11344,50 @@ export const deleteVehicle = /* GraphQL */ `
             _lastChangedAt
             __typename
           }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
           number
           type
           odometer
           client
           operatingArea
           checkList
-          auditSections {
-            id
-            heading
-            result
-            description
-            items
-            __typename
-          }
+          auditSections
           comments
           status
           createdAt
@@ -10786,6 +11572,11 @@ export const createCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -10894,20 +11685,30 @@ export const createCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -11036,12 +11837,14 @@ export const createCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -11180,20 +11983,30 @@ export const createCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -11341,20 +12154,30 @@ export const createCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -11469,20 +12292,30 @@ export const createCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -11748,12 +12581,14 @@ export const createCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -11919,20 +12754,30 @@ export const createCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -12047,20 +12892,30 @@ export const createCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -12326,12 +13181,14 @@ export const createCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -12379,20 +13236,300 @@ export const createCert = /* GraphQL */ `
         _lastChangedAt
         __typename
       }
+      clientID
+      Client {
+        id
+        companyID
+        company {
+          id
+          name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              profilePic
+              signature
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              write
+              owner
+              approveInspector
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              pic
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          clients {
+            items {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              clientID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              auditSections
+              comments
+              status
+              createdAt
+              updatedAt
+              vehiclePics
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          createdAt
+          updatedAt
+          logo
+          base
+          read
+          tags
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        name
+        logo
+        createdAt
+        updatedAt
+        base
+        certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              pic
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              profilePic
+              signature
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              write
+              owner
+              approveInspector
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              profilePic
+              signature
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              write
+              owner
+              approveInspector
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              __typename
+            }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            number
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            auditSections
+            comments
+            status
+            createdAt
+            updatedAt
+            vehiclePics
+            base
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        read
+        tags
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
       number
       type
       odometer
       client
       operatingArea
       checkList
-      auditSections {
-        id
-        heading
-        result
-        description
-        items
-        __typename
-      }
+      auditSections
       comments
       status
       createdAt
@@ -12562,6 +13699,11 @@ export const updateCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -12670,20 +13812,30 @@ export const updateCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -12812,12 +13964,14 @@ export const updateCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -12956,20 +14110,30 @@ export const updateCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -13117,20 +14281,30 @@ export const updateCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -13245,20 +14419,30 @@ export const updateCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -13524,12 +14708,14 @@ export const updateCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -13695,20 +14881,30 @@ export const updateCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -13823,20 +15019,30 @@ export const updateCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -14102,12 +15308,14 @@ export const updateCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -14155,20 +15363,300 @@ export const updateCert = /* GraphQL */ `
         _lastChangedAt
         __typename
       }
+      clientID
+      Client {
+        id
+        companyID
+        company {
+          id
+          name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              profilePic
+              signature
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              write
+              owner
+              approveInspector
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              pic
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          clients {
+            items {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              clientID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              auditSections
+              comments
+              status
+              createdAt
+              updatedAt
+              vehiclePics
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          createdAt
+          updatedAt
+          logo
+          base
+          read
+          tags
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        name
+        logo
+        createdAt
+        updatedAt
+        base
+        certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              pic
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              profilePic
+              signature
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              write
+              owner
+              approveInspector
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              profilePic
+              signature
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              write
+              owner
+              approveInspector
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              __typename
+            }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            number
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            auditSections
+            comments
+            status
+            createdAt
+            updatedAt
+            vehiclePics
+            base
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        read
+        tags
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
       number
       type
       odometer
       client
       operatingArea
       checkList
-      auditSections {
-        id
-        heading
-        result
-        description
-        items
-        __typename
-      }
+      auditSections
       comments
       status
       createdAt
@@ -14338,6 +15826,11 @@ export const deleteCert = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -14446,20 +15939,30 @@ export const deleteCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -14588,12 +16091,14 @@ export const deleteCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -14732,20 +16237,30 @@ export const deleteCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -14893,20 +16408,30 @@ export const deleteCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -15021,20 +16546,30 @@ export const deleteCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -15300,12 +16835,14 @@ export const deleteCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -15471,20 +17008,30 @@ export const deleteCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -15599,20 +17146,30 @@ export const deleteCert = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -15878,12 +17435,14 @@ export const deleteCert = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -15931,20 +17490,300 @@ export const deleteCert = /* GraphQL */ `
         _lastChangedAt
         __typename
       }
+      clientID
+      Client {
+        id
+        companyID
+        company {
+          id
+          name
+          users {
+            items {
+              id
+              name
+              pushToken
+              email
+              phone
+              profilePic
+              signature
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              write
+              owner
+              approveInspector
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          vehicles {
+            items {
+              id
+              companyID
+              make
+              model
+              rego
+              pic
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          clients {
+            items {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          certs {
+            items {
+              id
+              companyID
+              vehicleID
+              driverID
+              inspectorID
+              clientID
+              number
+              type
+              odometer
+              client
+              operatingArea
+              checkList
+              auditSections
+              comments
+              status
+              createdAt
+              updatedAt
+              vehiclePics
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            nextToken
+            startedAt
+            __typename
+          }
+          fleets {
+            id
+            name
+            vehicles
+            __typename
+          }
+          createdAt
+          updatedAt
+          logo
+          base
+          read
+          tags
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        name
+        logo
+        createdAt
+        updatedAt
+        base
+        certs {
+          items {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            vehicleID
+            vehicle {
+              id
+              companyID
+              make
+              model
+              rego
+              pic
+              category
+              assetId
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            driverID
+            driver {
+              id
+              name
+              pushToken
+              email
+              phone
+              profilePic
+              signature
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              write
+              owner
+              approveInspector
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              __typename
+            }
+            inspectorID
+            inspector {
+              id
+              name
+              pushToken
+              email
+              phone
+              profilePic
+              signature
+              roles
+              acN
+              acnDoc
+              createdAt
+              updatedAt
+              favouriteCerts
+              status
+              companyID
+              base
+              read
+              write
+              owner
+              approveInspector
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              __typename
+            }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            number
+            type
+            odometer
+            client
+            operatingArea
+            checkList
+            auditSections
+            comments
+            status
+            createdAt
+            updatedAt
+            vehiclePics
+            base
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          nextToken
+          startedAt
+          __typename
+        }
+        read
+        tags
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
       number
       type
       odometer
       client
       operatingArea
       checkList
-      auditSections {
-        id
-        heading
-        result
-        description
-        items
-        __typename
-      }
+      auditSections
       comments
       status
       createdAt
@@ -16092,20 +17931,30 @@ export const createNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -16220,20 +18069,30 @@ export const createNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -16499,12 +18358,14 @@ export const createNotification = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -16670,20 +18531,30 @@ export const createNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -16798,20 +18669,30 @@ export const createNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -17077,12 +18958,14 @@ export const createNotification = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -17273,20 +19156,30 @@ export const updateNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -17401,20 +19294,30 @@ export const updateNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -17680,12 +19583,14 @@ export const updateNotification = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -17851,20 +19756,30 @@ export const updateNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -17979,20 +19894,30 @@ export const updateNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -18258,12 +20183,14 @@ export const updateNotification = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -18454,20 +20381,30 @@ export const deleteNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -18582,20 +20519,30 @@ export const deleteNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -18861,12 +20808,14 @@ export const deleteNotification = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -19032,20 +20981,30 @@ export const deleteNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -19160,20 +21119,30 @@ export const deleteNotification = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -19439,12 +21408,14 @@ export const deleteNotification = /* GraphQL */ `
               vehicleID
               driverID
               inspectorID
+              clientID
               number
               type
               odometer
               client
               operatingArea
               checkList
+              auditSections
               comments
               status
               createdAt
@@ -19657,6 +21628,11 @@ export const createClient = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -19765,20 +21741,30 @@ export const createClient = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -19820,6 +21806,292 @@ export const createClient = /* GraphQL */ `
       createdAt
       updatedAt
       base
+      certs {
+        items {
+          id
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            clients {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          vehicleID
+          vehicle {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            pic
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          driverID
+          driver {
+            id
+            name
+            pushToken
+            email
+            phone
+            profilePic
+            signature
+            roles
+            acN
+            acnDoc
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            read
+            write
+            owner
+            approveInspector
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            __typename
+          }
+          inspectorID
+          inspector {
+            id
+            name
+            pushToken
+            email
+            phone
+            profilePic
+            signature
+            roles
+            acN
+            acnDoc
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            read
+            write
+            owner
+            approveInspector
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            __typename
+          }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          number
+          type
+          odometer
+          client
+          operatingArea
+          checkList
+          auditSections
+          comments
+          status
+          createdAt
+          updatedAt
+          vehiclePics
+          base
+          read
+          tags
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        nextToken
+        startedAt
+        __typename
+      }
       read
       tags
       _version
@@ -19983,6 +22255,11 @@ export const updateClient = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -20091,20 +22368,30 @@ export const updateClient = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -20146,6 +22433,292 @@ export const updateClient = /* GraphQL */ `
       createdAt
       updatedAt
       base
+      certs {
+        items {
+          id
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            clients {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          vehicleID
+          vehicle {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            pic
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          driverID
+          driver {
+            id
+            name
+            pushToken
+            email
+            phone
+            profilePic
+            signature
+            roles
+            acN
+            acnDoc
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            read
+            write
+            owner
+            approveInspector
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            __typename
+          }
+          inspectorID
+          inspector {
+            id
+            name
+            pushToken
+            email
+            phone
+            profilePic
+            signature
+            roles
+            acN
+            acnDoc
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            read
+            write
+            owner
+            approveInspector
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            __typename
+          }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          number
+          type
+          odometer
+          client
+          operatingArea
+          checkList
+          auditSections
+          comments
+          status
+          createdAt
+          updatedAt
+          vehiclePics
+          base
+          read
+          tags
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        nextToken
+        startedAt
+        __typename
+      }
       read
       tags
       _version
@@ -20309,6 +22882,11 @@ export const deleteClient = /* GraphQL */ `
             createdAt
             updatedAt
             base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
             read
             tags
             _version
@@ -20417,20 +22995,30 @@ export const deleteClient = /* GraphQL */ `
               _lastChangedAt
               __typename
             }
+            clientID
+            Client {
+              id
+              companyID
+              name
+              logo
+              createdAt
+              updatedAt
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
             number
             type
             odometer
             client
             operatingArea
             checkList
-            auditSections {
-              id
-              heading
-              result
-              description
-              items
-              __typename
-            }
+            auditSections
             comments
             status
             createdAt
@@ -20472,6 +23060,292 @@ export const deleteClient = /* GraphQL */ `
       createdAt
       updatedAt
       base
+      certs {
+        items {
+          id
+          companyID
+          company {
+            id
+            name
+            users {
+              nextToken
+              startedAt
+              __typename
+            }
+            vehicles {
+              nextToken
+              startedAt
+              __typename
+            }
+            clients {
+              nextToken
+              startedAt
+              __typename
+            }
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            createdAt
+            updatedAt
+            logo
+            base
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          vehicleID
+          vehicle {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            make
+            model
+            rego
+            pic
+            category
+            assetId
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            createdAt
+            updatedAt
+            base
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          driverID
+          driver {
+            id
+            name
+            pushToken
+            email
+            phone
+            profilePic
+            signature
+            roles
+            acN
+            acnDoc
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            read
+            write
+            owner
+            approveInspector
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            __typename
+          }
+          inspectorID
+          inspector {
+            id
+            name
+            pushToken
+            email
+            phone
+            profilePic
+            signature
+            roles
+            acN
+            acnDoc
+            createdAt
+            updatedAt
+            favouriteCerts
+            fleets {
+              id
+              name
+              vehicles
+              __typename
+            }
+            status
+            driverCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            inspectorCerts {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsFrom {
+              nextToken
+              startedAt
+              __typename
+            }
+            notificationsTo {
+              nextToken
+              startedAt
+              __typename
+            }
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            base
+            read
+            write
+            owner
+            approveInspector
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            __typename
+          }
+          clientID
+          Client {
+            id
+            companyID
+            company {
+              id
+              name
+              createdAt
+              updatedAt
+              logo
+              base
+              read
+              tags
+              _version
+              _deleted
+              _lastChangedAt
+              owner
+              __typename
+            }
+            name
+            logo
+            createdAt
+            updatedAt
+            base
+            certs {
+              nextToken
+              startedAt
+              __typename
+            }
+            read
+            tags
+            _version
+            _deleted
+            _lastChangedAt
+            owner
+            __typename
+          }
+          number
+          type
+          odometer
+          client
+          operatingArea
+          checkList
+          auditSections
+          comments
+          status
+          createdAt
+          updatedAt
+          vehiclePics
+          base
+          read
+          tags
+          _version
+          _deleted
+          _lastChangedAt
+          owner
+          __typename
+        }
+        nextToken
+        startedAt
+        __typename
+      }
       read
       tags
       _version

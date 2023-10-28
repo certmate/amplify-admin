@@ -145,13 +145,15 @@ type Cert @model @auth(rules: [
     driver: User @belongsTo(fields: ["driverID"])
 	inspectorID: ID @index(name: "certsOfInspector", sortKeyFields: ["updatedAt"])
     inspector: User @belongsTo(fields: ["inspectorID"])
+	clientID: ID @index(name: "certsOfClient", sortKeyFields: ["updatedAt"])
+    Client: Client @belongsTo(fields: ["clientID"])
 	number: String # Cert number
 	type: String # Self Declaration, Hygiene
 	odometer: String # 8 places
 	client: String # Arrow Energy, Orion, etc...
 	operatingArea: String
 	checkList: [String] # Checklist of items to mark as clean/fail (TCC JD)
-	auditSections: [AuditSection]
+	auditSections: AWSJSON
 	comments: String
 	status: String @default(value: "P") # Pending, Active, Rejected
 	createdAt: String
@@ -202,6 +204,7 @@ type Client @model @auth(rules: [
 	createdAt: String
 	updatedAt: String
 	base: ID! @index(name: "clientsInCertMate", sortKeyFields: ["updatedAt"])
+	certs: [Cert] @hasMany(indexName: "certsOfClient", fields: ["id"])
 	read: [String]
 	tags: String # lowercase, Used for searching
 }

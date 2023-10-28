@@ -136,6 +136,18 @@ export const getDomain = v => {
 
 export const isVisible = el => el.offsetWidth > 0 && el.offsetHeight > 0;
 
+export const generateRandomString = (len = 10) => {
+    const alphanumeric = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let randomString = '';
+
+    for (let i = 0; i < len; i++) {
+        const randomIndex = Math.floor(Math.random() * alphanumeric.length);
+        randomString += alphanumeric.charAt(randomIndex);
+    }
+
+    return randomString;
+}
+
 /**
  * 
  * @param {Array} roles Array of roles for which this column is to be shown. If _.isEmpty, column is shown for all users ["superadmin", "admin", "delivery"]

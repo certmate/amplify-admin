@@ -2,12 +2,13 @@
 
 import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
-import { isArray, isString, lowerCase, omit, values, first, deburr, chain, entries, isEmpty } from "lodash";
+import { isArray, isString, lowerCase, omit, values, first, deburr, chain, entries, isEmpty, get } from "lodash";
 import { routes } from "./settings";
 import { cleanEmptyConnections, hasArrayOfValues } from "./helpers";
 import BaseUpdateButton from "./view/components/BaseUpdateButton";
 import BaseDeleteButton from "./view/components/BaseDeleteButton";
 import { getUser } from "./graphql/customQueries";
+import { v4 } from "uuid";
 
 export const actions = {
     update: {
@@ -200,7 +201,7 @@ export const getData = async ({ model, fields, id }) => {
     }
 }
 
-export const upsertData = async ({ query, payload, schema }) => {
+export const upsertData = async ({ query, payload, schema, user }) => {
     /**
      * Check searchable fields
      */
@@ -213,6 +214,15 @@ export const upsertData = async ({ query, payload, schema }) => {
             });
             payload.tags = tags.join('');
         }
+    }
+    /**
+     * Check base & read & id
+     */
+    if(!payload._version){
+        // Is create
+        payload.id = get(payload, 'id', v4());
+        payload.base = get(payload, 'base', user.appsync.base);
+        payload.read = get(payload, 'read', [user.appsync.base]);
     }
     
     try{

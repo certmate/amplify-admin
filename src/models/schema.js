@@ -1178,6 +1178,28 @@ export const schema = {
                         ]
                     }
                 },
+                "clientID": {
+                    "name": "clientID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Client": {
+                    "name": "Client",
+                    "isArray": false,
+                    "type": {
+                        "model": "Client"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetNames": [
+                            "clientID"
+                        ]
+                    }
+                },
                 "number": {
                     "name": "number",
                     "isArray": false,
@@ -1223,13 +1245,10 @@ export const schema = {
                 },
                 "auditSections": {
                     "name": "auditSections",
-                    "isArray": true,
-                    "type": {
-                        "nonModel": "AuditSection"
-                    },
+                    "isArray": false,
+                    "type": "AWSJSON",
                     "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
+                    "attributes": []
                 },
                 "comments": {
                     "name": "comments",
@@ -1333,6 +1352,16 @@ export const schema = {
                         "name": "certsOfInspector",
                         "fields": [
                             "inspectorID",
+                            "updatedAt"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "certsOfClient",
+                        "fields": [
+                            "clientID",
                             "updatedAt"
                         ]
                     }
@@ -1714,6 +1743,22 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "certs": {
+                    "name": "certs",
+                    "isArray": true,
+                    "type": {
+                        "model": "Cert"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "Client"
+                        ]
+                    }
+                },
                 "read": {
                     "name": "read",
                     "isArray": true,
@@ -2080,5 +2125,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "f3cd07ef497869cb07cc65565b2b1e05"
+    "version": "3c924430eab358cdb42cbe382064cae5"
 };

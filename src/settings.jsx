@@ -7,6 +7,7 @@ import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser, sendInv
 import { shareCert, approveRejectCert, downloadCert, approveDisapproveAsInspector } from "./custom/actions";
 import BaseAccount from "./view/components/BaseAccount";
 import { toUpper, upperCase } from "lodash";
+import CreateCertWizard from "./view/components/custom/CreateCertWizard";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -36,6 +37,7 @@ export const routes = {
                 id: { label: 'id', hidden: true, formComponent: null },
                 _version: { hidden: true },
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
+                clientID: { label: 'Client', validation: string().required(), formComponent: { component: 'select', select: { options: '@Client.id:name' } } },
                 vehicleID: { label: 'Vehicle', validation: string().required(), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } } },
                 driverID: { label: 'Driver', validation: string().required(), formComponent: { component: 'select', select: { options: '@User.id:name' } } },
                 inspectorID: { label: 'Inspector', validation: string(), formComponent: { component: 'select', select: { options: '@User.id:name', filter: { roles: { contains: "Inspector" } } } } },
@@ -48,16 +50,15 @@ export const routes = {
                 vehicle: { label: 'Vehicle', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Vehicle {...data} /> } },
                 driver: { label: 'Driver', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
                 inspector: { label: 'Inspector', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
+                client: { label: 'Client', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
-                auditSections: { label: 'Sections', validation: array().of(object().shape({ id: string(), heading: string(), description: string() })), formComponent: { component: data => <CustomComponent.CreateAuditSections {...data} /> } },
+                auditSections: { label: 'Sections', validation: array().min(2), formComponent: { component: data => <CustomComponent.CreateAuditSections {...data} /> } },
                 comments: { label: 'Comments', validation: string(), formComponent: { component: 'textarea' } },
-                vehiclePics: { label: 'Vehicle Pics', validation: string(), formComponent: { component: 'upload-multiple' }, table: { component: 'image' } },
+                vehiclePics: { label: 'Vehicle Pics', validation: array().of(string()), formComponent: { component: 'upload-multiple' }, table: { component: 'image' } },
             },
             create: {
-                fields: ['companyID', 'vehicleID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments', 'vehiclePics'],
-                button: {
-                    label: 'Create Cert'
-                },
+                fields: ['companyID', 'vehicleID', 'clientID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments', 'vehiclePics'],
+                component: () => <CreateCertWizard />,
                 roles: ['Owner', 'Inspector', 'Driver']
             },
             read: {

@@ -1,14 +1,11 @@
 import { useSelector } from "react-redux";
-import BaseForm from "./BaseForm";
 import { useEffect, useState } from "react";
-import { getData } from "../../common";
-import SweetAlert from 'sweetalert2';
-import { entries, keys, lowerCase, startCase, values } from "lodash";
+import { entries, lowerCase, startCase, values } from "lodash";
 import { schema } from "../../models/schema";
 import { API, graphqlOperation } from "aws-amplify";
 import { Card, Col, Row, Skeleton } from "antd";
 import { useNavigate } from "react-router-dom";
-import { excludeModelsFromDashboardStats, routes } from "../../settings";
+import { excludeModelsFromDashboardStats } from "../../settings";
 
 export default function BaseDashboard() {
     const user = useSelector(state => state.user);

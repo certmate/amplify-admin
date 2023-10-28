@@ -86,7 +86,7 @@ const getQueryFieldsAndChildNode = ({ model, fields }) => {
             // Check if model
             // console.log({ modelSchema, field })
             const { type, isArray } = modelSchema.fields[field];
-            if (type === 'model' && isArray) {
+            if (type?.model && isArray) {
                 return `
                     ${field}{
                         items{

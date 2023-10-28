@@ -58,7 +58,7 @@ export const routes = {
             },
             create: {
                 fields: ['companyID', 'vehicleID', 'clientID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments', 'vehiclePics'],
-                component: () => <CreateCertWizard />,
+                component: ({ callback }) => <CreateCertWizard callback={callback} />,
                 roles: ['Owner', 'Inspector', 'Driver']
             },
             read: {

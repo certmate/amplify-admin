@@ -65,7 +65,7 @@ export default function CreateCertWizard({ callback }) {
 
     const getExistingCert = useCallback(async id => {
         try {
-            let cert = get(await getData({ model: 'Vehicle', fields: ['id', 'certs.id,_version'], id }), 'certs.items', []);
+            let cert = get(await getData({ model: 'Vehicle', fields: ['id', {field: 'certs.id,_version', filter: `{ status: { eq: "A" } }`}], id }), 'certs.items', []);
             setCheckingRego(false);
             return isEmpty(cert) ? false : cert[0];
         }

@@ -192,7 +192,7 @@ export const routes = {
                 _version: { hidden: true },
                 make: { label: 'Make', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
                 model: { label: 'Model', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
-                pic: { label: 'Picture', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
+                pic: { label: 'Picture', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image', columnProps: { width: 250 } } },
                 rego: { label: 'Rego', searchable: true, validation: string().required(), formComponent: { component: 'input', formatter: s => toUpper(s.replace(/\s+/g, '')) } },
                 category: { label: 'Category', searchable: true, validation: string().required(), formComponent: { component: 'select', select: { options: vehicleCategories } } },
                 assetId: { label: 'Asset ID', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
@@ -200,13 +200,14 @@ export const routes = {
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component - used to display in table
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
+                certs: { label: 'Cert', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.VehicleCert {...data} /> }  }
             },
             create: {
                 fields: ['make', 'model', 'rego', 'pic', 'category', 'assetId', 'companyID'],
                 roles: ['Owner', 'Driver']
             },
             read: {
-                fields: ['id', '_version', 'make', 'model', 'rego', 'category', 'assetId', 'company.id,name,logo'],
+                fields: ['id', '_version', 'make', 'model', 'pic', 'rego', 'category', 'assetId', 'company.id,name,logo', 'certs.id,status,number'],
                 actions: [
                     { ...actions.delete, roles: ['Owner'] },
                     { ...actions.update, roles: ['Owner'] }

@@ -2,7 +2,7 @@
 
 import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
-import { isArray, isString, lowerCase, omit, values, first, deburr, chain, entries, isEmpty, get } from "lodash";
+import { isArray, isString, lowerCase, omit, values, first, deburr, chain, entries, isEmpty, get, isObject } from "lodash";
 import { routes } from "./settings";
 import { cleanEmptyConnections, hasArrayOfValues } from "./helpers";
 import BaseUpdateButton from "./view/components/BaseUpdateButton";
@@ -74,11 +74,16 @@ const getQueryFieldsAndChildNode = ({ model, fields }) => {
 
     // Check for nested fields - pick selected fields of model
     fields = fields.map(f => {
-        if (hasArrayOfValues(f)) {
-            return f.split(':@')[0];
+        // 
+        // 
+        // Check if field is an object
+        let filter = f.filter, fld = f.field || f;
+        
+        if (hasArrayOfValues(fld)) {
+            return fld.split(':@')[0];
         }
-        else if (f.includes('.')) {
-            let [field, columns] = f.split('.');
+        else if (fld.includes('.')) {
+            let [field, columns] = fld.split('.');
             // 
             // 
             field = field.split(/[^a-zA-Z]/)[0];
@@ -88,7 +93,7 @@ const getQueryFieldsAndChildNode = ({ model, fields }) => {
             const { type, isArray } = modelSchema.fields[field];
             if (type?.model && isArray) {
                 return `
-                    ${field}{
+                    ${field}${filter ? `(filter: ${filter})` : ''}{
                         items{
                             ${columns.split(',').join('\n')}
                         }
@@ -104,7 +109,7 @@ const getQueryFieldsAndChildNode = ({ model, fields }) => {
             }
         }
         else {
-            return f;
+            return fld;
         }
     });
 

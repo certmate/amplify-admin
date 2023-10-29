@@ -51,9 +51,11 @@ export const routes = {
                 driver: { label: 'Driver', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
                 inspector: { label: 'Inspector', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
                 client: { label: 'Client', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
+                Client: { label: 'Client', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
                 auditSections: { label: 'Sections', validation: array().min(2), formComponent: { component: data => <CustomComponent.CreateAuditSections {...data} /> } },
                 comments: { label: 'Comments', validation: string(), formComponent: { component: 'textarea' } },
+                createdAt: { label: 'Created At' },
                 vehiclePics: { label: 'Vehicle Pics', validation: array().of(string()), formComponent: { component: 'upload-multiple' }, table: { component: 'image' } },
             },
             create: {
@@ -62,7 +64,7 @@ export const routes = {
                 roles: ['Owner', 'Inspector', 'Driver']
             },
             read: {
-                fields: ['id', '_version', 'type', 'status', 'vehicle.rego,make,model,category', 'odometer', 'driver.id,name', 'inspector.id,name', 'company.id,name,logo'],
+                fields: ['id', '_version', 'number', 'type', 'status', 'vehicle.rego,make,model,category,assetId,pic', 'auditSections', 'odometer', 'driver.id,name', 'inspector.id,name,phone,acN,signature', 'company.id,name,logo', 'Client.id,name,logo', 'operatingArea', 'createdAt'],
                 actions: [
                     { ...actions.delete, routes: ['/certs?filter=pending'] },
                     { ...actions.update, condition: ({ status }) => isEmpty(status) || ['A', 'P'].includes(status)},
@@ -262,7 +264,7 @@ export const routes = {
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
                 email: { label: 'Email', validation: string().required().email(), formComponent: { component: 'input' } },
                 phone: { label: 'Phone', validation: string().required(), formComponent: { component: 'input' } },
-                profilePic: { label: 'Your Photo', validation: string().required(), formComponent: { component: 'upload' } },
+                profilePic: { label: 'Your Photo', validation: string(), formComponent: { component: 'upload' } },
                 signature: { label: 'Signature', validation: string().required(), formComponent: { component: 'signature' } },
                 roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } }, write: ['Owner'] },
                 acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: { component: 'input' } },

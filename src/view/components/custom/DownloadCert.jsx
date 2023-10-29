@@ -1,9 +1,30 @@
 import { Space } from "antd";
-import { DocumentDownload } from "iconsax-react";
+import { DocumentDownload, TagCross, TickSquare } from "iconsax-react";
 import { pdf, Document, Page, Text, Image, View, Font, StyleSheet, Link } from '@react-pdf/renderer';
 import RobotoRegular from '../../../assets/fonts/Roboto-Regular.ttf';
 import RobotoBold from '../../../assets/fonts/Roboto-Bold.ttf';
 import { saveAs } from 'file-saver';
+import { round } from "lodash";
+import clean from '../../../assets/Clean.png';
+import fail from '../../../assets/Fail.png';
+import { Storage } from 'aws-amplify';
+
+function getImageUrlAndConvertToBase64(key) {
+    return Storage.get(key, { level: 'public' })
+        .then(url => {
+            return fetch(url);
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+            });
+        });
+}
+
 
 export default function DownloadCert({ data, callback }) {
 
@@ -75,10 +96,6 @@ export default function DownloadCert({ data, callback }) {
                 fontFamily: 'RobotoBold',
                 color: '#c1c1c1',
             },
-            domain: {
-                fontSize: 20,
-                textAlign: 'center'
-            },
             question: {
                 fontWeight: "bold",
                 margin: 12,
@@ -141,11 +158,8 @@ export default function DownloadCert({ data, callback }) {
                 display: "table",
                 width: "auto",
                 borderStyle: 'solid',
-                borderColor: '#9b9b9b',
+                borderColor: '#000000',
                 borderWidth: 1,
-                borderRightWidth: 0,
-                borderLeftWidth: 0,
-                borderBottomWidth: 0,
                 fontSize: 10
             },
             tableRow: {
@@ -156,8 +170,8 @@ export default function DownloadCert({ data, callback }) {
             },
             tableColHeader: {
                 borderStyle: 'solid',
-                borderColor: '#9b9b9b',
-                borderBottomColor: '#000',
+                borderColor: '#000000',
+                borderBottomColor: '#000000',
                 borderWidth: 1,
                 borderLeftWidth: 0,
                 borderRightWidth: 0,
@@ -169,7 +183,7 @@ export default function DownloadCert({ data, callback }) {
             },
             tableCol: {
                 borderStyle: 'solid',
-                borderColor: '#9b9b9b',
+                borderColor: '#000000',
                 borderBottomColor: '#000',
                 borderWidth: 1,
                 borderLeftWidth: 0,
@@ -185,99 +199,170 @@ export default function DownloadCert({ data, callback }) {
             }
         });
 
+        const auditSections = JSON.parse(data.auditSections || '[]');
 
+        const inspectorSignature = await getImageUrlAndConvertToBase64(data.inspector.signature);
+        const driverSignature = await getImageUrlAndConvertToBase64(data.driver.signature);
+        
         const DocumentPdf = (attrs) => (
             <Document>
                 <Page size="A4" style={styles.body}>
-                    <Text style={{ fontFamily: 'RobotoBold', color: '#e3221c', marginBottom: 6 }}>Introduction</Text>
-                    <Text style={{ fontSize: 12, marginBottom: 6 }}>
-                        Business continuity, sustainability, profitability and growth can be affected by a wide range of factors. The purpose of our Business Assessment Tool (BAT) is to provide you with deeper insights into your ‘Business Health’ that will form the basis of creating an ongoing BAT Action Plan.
-                    </Text>
-                    <Text style={{ fontSize: 12 }}>
-                        The BAT Action Plan will include recommendations and advice around the blind spot areas of your business that should be addressed. Additional to the BAT Action Plan you will also receive ideas and resources to provide oversight assisting maintenance of continuous and sustainable Business Improvement. The objective and desired outcome is to maximise your strengths while mitigating risk around identified weaknesses and threats.
-                    </Text>
-                    <Text style={{ fontFamily: 'RobotoBold', color: '#e3221c', marginBottom: 6, marginTop: 24 }}>Business Profile</Text>
-                    {/* <View style={{...tableStyles.table, ...{borderWidth: 0}}}>
-                        <View style={tableStyles.tableRow}>
-                            <View style={{ ...{ width: '50%', padding: 5 } }}>
-                                <View style={tableStyles.table}>
-                                    {[
-                                        { field: "Business Name", value: assessment.business_name },
-                                        { field: "Advisor", value: assessment.advisor },
-                                        { field: "NZBN", value: assessment.nzbn },
-                                        { field: "Business Structure", value: assessment.business_structure },
-                                        { field: "Staff Count", value: assessment.staff_count },
-                                        { field: "Turn Over", value: assessment.turnover === 120000 ? 'Less than $120,000' : assessment.turnover === 249000 ? 'Between $120,001 - $249,000' : assessment.turnover === 499999 ? 'Between $250,000 - $499,999' : assessment.turnover === 599999 ? 'Between $500,000 - $599,999' : assessment.turnover === 1000000 ? 'Between $600,000 - $1,000,000' : assessment.turnover === 2000000 ? 'Between $1,000,000 - $2,000,000' : 'Above $2,000,000'},
-                                    ].map( (c,cc)=> (
-                                        <View style={tableStyles.tableRow} key={cc}>
-                                            <View style={{ ...tableStyles.tableColHeader, ...{ width: '50%' } }}>
-                                                <Text style={tableStyles.tableCell}>{c.field}</Text>
-                                            </View>
-                                            <View style={{ ...tableStyles.tableCol, ...{ width: '50%' } }}>
-                                                <Text style={tableStyles.tableCell}>{c.value}</Text>
-                                            </View>
-                                        </View>
-                                    ) )}                        
-                                </View>
-                            </View>
-                            <View style={{ ...{ width: '50%', padding: 5 } }}>
-                                <View style={tableStyles.table}>
-                                    {[
-                                        { field: "First Name", value: assessment.first_name },
-                                        { field: "Last Name", value: assessment.last_name },
-                                        { field: "Gender", value: _.startCase(assessment.gender) },
-                                        { field: "Email", value: assessment.business_email },
-                                        { field: "Business Region", value: assessment.business_region },
-                                        { field: "Business Sector", value: assessment.business_sector },
-                                        { field: "Business Identification", value: assessment.business_identification },
-                                    ].map( (c,cc)=> (
-                                        <View style={tableStyles.tableRow} key={cc}>
-                                            <View style={{ ...tableStyles.tableColHeader, ...{ width: '50%' } }}>
-                                                <Text style={tableStyles.tableCell}>{c.field}</Text>
-                                            </View>
-                                            <View style={{ ...tableStyles.tableCol, ...{ width: '50%' } }}>
-                                                <Text style={tableStyles.tableCell}>{c.value}</Text>
-                                            </View>
-                                        </View>
-                                    ) )}                        
-                                </View>
-                            </View>
-                        </View>                        
-                    </View> */}
-                    <Text style={{ fontFamily: 'RobotoBold', color: '#e3221c', marginBottom: 6, marginTop: 24 }}>
-                        Disclaimer & Acknowledgement
-                    </Text>
                     <View style={{ ...tableStyles.table, ...{ borderWidth: 0 } }}>
-                        <View style={{ ...tableStyles.tableRow, ...{ marginBottom: 0, paddingBottom: 0 } }}>
-                            <View style={{ ...{ width: '50%', padding: 5, paddingBottom: 0, marginBottom: 0 } }}>
-                                <Text style={{ fontFamily: 'RobotoBold', fontSize: 8, color: '#000000', marginBottom: 6, marginTop: 12 }}>
-                                    Assumptions
-                                </Text>
-                                <Text style={{ fontSize: 7 }}>
-                                    This report has been prepared on the basis that you have provided us with a full and frank disclosure of all information and other material facts which may affect the preparation of this Report. HTK Group Limited accept no responsibility or liability where full disclosure has not been made.
-                                </Text>
-                                <Text style={{ fontFamily: 'RobotoBold', fontSize: 8, color: '#000000', marginBottom: 6, marginTop: 12 }}>Copyright</Text>
-                                <Text style={{ fontSize: 7 }}>
-                                    Unless otherwise stated, copyright for all information on this site belongs to HTK Group Limited. HTK Group Limited grants you a limited licence to use this information for the specific purpose of providing an indicative assessment of your business health profile and to make high level recommendations as to appropriate next steps. Information in this report may not be reproduced in any other format or media with the express written permission of HTK Group Limited.
-                                </Text>
-                                <Text style={{ fontFamily: 'RobotoBold', fontSize: 8, color: '#000000', marginBottom: 6, marginTop: 12 }}>Liability</Text>
-                                <Text style={{ fontSize: 7 }}>While every effort has been made to ensure the accuracy of the information and advice in the report, no liability is accepted for any incorrect statement or information within. HTK Group Limited disclaim and exclude all liability for any action, claim, loss, demand or damage of any kind (including for negligence) arising out of, or in connection with the use of this assessment and report.</Text>
-                                <Text style={{ fontFamily: 'RobotoBold', fontSize: 8, color: '#000000', marginBottom: 6, marginTop: 12 }}>Privacy</Text>
-                                <Text style={{ fontSize: 7 }}>We collect personal information from you, including information about your name, contact information, location, general business information. We collect your personal information in order to prepare the report and communicate with you from time to time as to our services including for marketing purposes.</Text>
-
+                        <View style={{ ...tableStyles.tableRow, fontSize: 16 }}>
+                            <View style={{ width: '70%' }}>
+                                <Text style={{ fontFamily: 'RobotoBold', color: '#000000' }}>{data.type}</Text>
                             </View>
-                            <View style={{ ...{ width: '50%', padding: 5, paddingBottom: 0, marginBottom: 0 } }}>
-                                <Text style={{ fontSize: 7 }}>
-                                    Providing some information is optional. If you choose not to enter certain information requested, we'll be unable to provide the full assessment and final report. You have the right to ask for a copy of any personal information we hold about you, and to ask for it to be corrected if you think it is wrong. If you’d like to ask for a copy of your information, or to have it corrected, please contact us at info@htkgroup.co.nz or HTK Group Limited Head office, Kahakura Building, Level 1, Moorhouse Avenue, Christchurch Central, Christchurch, 8011, New Zealand. The business assessment tool also contains links to other sites that provide appropriate information. HTK Group Limited is not responsible for the privacy practices or the content of such third-party web sites.
-                                </Text>
-                                <Text style={{ fontFamily: 'RobotoBold', fontSize: 8, color: '#000000', marginBottom: 6, marginTop: 12 }}>Purpose</Text>
-                                <Text style={{ fontSize: 7 }}>This report has been completed for the specific purpose of providing an assessment of your business health profile and to make high level recommendations as to appropriate next steps. No responsibility is accepted in the event that this report is used for any other purpose.</Text>
-                                <Text style={{ fontFamily: 'RobotoBold', fontSize: 8, color: '#000000', marginBottom: 6, marginTop: 12 }}>Responsibility to Third Party</Text>
-                                <Text style={{ fontSize: 7 }}>Our responsibility in relation to this report is limited to you to whom the report is addressed and to you only. We accept no liability to any other party, without first obtaining the written consent of HTK Group Limited. HTK Group Limited reserves the right to alter, amend, explain or limit any information given to any other party.</Text>
+                            <View style={{ width: '30%', textAlign: 'right' }}>
+                                <Text style={{ fontFamily: 'RobotoBold', color: '#000000' }}>#{data.number}</Text>
                             </View>
                         </View>
                     </View>
-                    {data.status !== 'A' ? <Text style={styles.WatermarkText}>Expired</Text> : <Text></Text>}
+                    <View style={{ ...tableStyles.table, ...{ borderWidth: 0 } }}>
+                        <View style={tableStyles.tableRow}>
+                            <View style={{ ...{ width: '50%' } }}>
+                                <View style={{ ...tableStyles.table, borderRightWidth: 0, borderBottomWidth: 0 }}>
+                                    {[
+                                        { field: "Company Name", value: data.company.name },
+                                        { field: "Operating For", value: data.Client.name },
+                                        { field: "Operating Area", value: data.operatingArea },
+                                        { field: "Vehicle Type", value: data.vehicle.category },
+                                        { field: "Asset ID Number", value: data.vehicle.assetId },
+                                        { field: "Make", value: data.vehicle.make },
+                                    ].map(({ field, value }, cc) => (
+                                        <View style={tableStyles.tableRow} key={cc}>
+                                            <View style={{ ...tableStyles.tableColHeader, ...{ width: '50%', borderBottomWidth: field === 'Make' ? 0 : 1 } }}>
+                                                <Text style={tableStyles.tableCell}>{field}</Text>
+                                            </View>
+                                            <View style={{ ...tableStyles.tableCol, ...{ width: '50%', borderBottomWidth: field === 'Make' ? 0 : 1 } }}>
+                                                <Text style={tableStyles.tableCell}>{value}</Text>
+                                            </View>
+                                        </View>
+                                    ))}
+                                </View>
+                            </View>
+                            <View style={{ ...{ width: '50%' } }}>
+                                <View style={{ ...tableStyles.table, borderBottomWidth: 0 }}>
+                                    {[
+                                        { field: "Date Created", value: data.company.name },
+                                        { field: "Expiry Date", value: data.Client.name },
+                                        { value: data.vehicle.pic },
+                                        { field: "Odometer", value: data.odometer },
+                                        { field: "Model", value: data.vehicle.model },
+                                    ].map(({ field, value }, cc) => (
+                                        <View style={tableStyles.tableRow} key={cc}>
+                                            {field ? <>
+                                                <View style={{ ...tableStyles.tableColHeader, ...{ width: '50%', borderBottomWidth: field === 'Model' ? 0 : 1 } }}>
+                                                    <Text style={tableStyles.tableCell}>{field}</Text>
+                                                </View>
+                                                <View style={{ ...tableStyles.tableCol, ...{ width: '50%', borderBottomWidth: field === 'Model' ? 0 : 1 } }}>
+                                                    <Text style={tableStyles.tableCell}>{value}</Text>
+                                                </View>
+                                            </> : <View style={{ ...tableStyles.tableColHeader, ...{ width: '100%' } }}>
+                                                <Text style={tableStyles.tableCell}>{value}</Text>
+                                            </View>}
+                                        </View>
+                                    ))}
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={{ ...tableStyles.table, borderBottomWidth: 0 }}>
+                        <View style={tableStyles.tableRow}>
+                            {auditSections.map(({ title, items, result }, key) => (
+                                <View key={key} style={{ width: `${100 / auditSections.length}%`, borderBottomWidth: 1, borderRightWidth: key !== auditSections.length - 1 ? 1 : 0 }}>
+                                    {/* 
+                                        Each audit section title + result
+                                    */}
+                                    <Text style={{ ...tableStyles.tableCell, fontFamily: 'RobotoBold' }}>{title}</Text>
+                                    <Text style={tableStyles.tableCell}>{items.map(i => `${result === 'Clean' ? `o` : `x`} ${i}`).join('\n')}</Text>
+                                </View>
+                            ))}
+                        </View>
+                    </View>
+                    <View style={{ ...tableStyles.table }}>
+                        <View style={tableStyles.tableRow}>
+                            <View style={{ backgroundColor: data.auditSections.includes('Fail') ? 'red' : 'green' }}>
+                                <Text style={{ ...tableStyles.tableCell, color: 'white', textAlign: 'center' }}>
+                                    This vehicle has been cleaned and inspected by a certified inspector,  and has been deemed clean and free of organic material.
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                    {/* 
+                        Inspector details
+                    */}
+                    <View style={{ ...tableStyles.table, borderBottomWidth: 0 }}>
+                        <View style={tableStyles.tableRow}>
+                            <View style={{ width: `50%`, borderRightWidth: 1 }}>
+                                <View>
+                                    <Text style={{ ...tableStyles.tableCell, fontFamily: 'RobotoBold' }}>Inspected & Verified by,</Text>
+                                </View>
+                                <Text style={tableStyles.tableCell}>
+                                    Name: {data.inspector.name}{`\n`}
+                                    Phone: {data.inspector.phone}{`\n`}
+                                    Certification No: {data.inspector.acN}{`\n`}
+                                    Company: {data.company.name}{`\n`}
+                                </Text>
+                            </View>
+                            <View style={{ width: `50%`, borderRightWidth: 0, justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                                <Image src={inspectorSignature} style={{ height: 60, width: 60*2.5 }} />
+                            </View>
+                        </View>
+                    </View>
+                    {/* Comments */}
+                    <View style={{ ...tableStyles.table, borderBottomWidth: 0 }}>
+                        <View style={tableStyles.tableRow}>
+                            <View style={{ width: `100%` }}>
+                                <View>
+                                    <Text style={{ ...tableStyles.tableCell, fontFamily: 'RobotoBold' }}>Inspector Comments</Text>
+                                </View>
+                                <Text style={tableStyles.tableCell}>
+                                    {data.comments || 'No Comments'}
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                    {/* 
+                        Driver details
+                    */}
+                    <View style={{ ...tableStyles.table, borderBottomWidth: 0 }}>
+                        <View style={tableStyles.tableRow}>
+                            <View style={{ width: `50%`, borderRightWidth: 1 }}>
+                                <View>
+                                    <Text style={{ ...tableStyles.tableCell, fontFamily: 'RobotoBold' }}>Driver Information</Text>
+                                </View>
+                                <Text style={tableStyles.tableCell}>
+                                    Name: {data.driver.name}{`\n`}
+                                    Phone: {data.driver.phone}{`\n`}
+                                    Certification No: {data.driver.acN}{`\n`}
+                                    Company: {data.company.name}{`\n`}
+                                </Text>
+                            </View>
+                            <View style={{ width: `50%`, borderRightWidth: 0, justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                                <Image src={driverSignature} style={{ height: 60, width: 60*2.5 }} />
+                            </View>
+                        </View>
+                    </View>
+                    {/* Conditions */}
+                    <View style={{ ...tableStyles.table, borderBottomWidth: 1 }}>
+                        <View style={tableStyles.tableRow}>
+                            <View style={{ width: `100%`, borderRightWidth: 0, borderBottomWidth: 0 }}>
+                                <View>
+                                    <Text style={{ ...tableStyles.tableCell, fontFamily: 'RobotoBold', color: '#ccc', fontSize: 6 }}>Conditions</Text>
+                                </View>
+                                <Text style={{...tableStyles.tableCell, color: '#ccc', fontSize: 6}}>
+                                    With a verified vehicle/plant weed hygiene inspection certificate, the driver/operator is authorised to enter worksites as long as a valid copy of this report is kept within the vehicle and/or mobile plant. This report shall be available to view upon request in the CertMate application or if printed.{`\n`}
+                                    This report may be declared void if any land owner or authorised representative of land owner declares that the vehicle/mobile plant can no longer be deemed to be clean and free from organic materials.{`\n`}
+                                    This report remains valid as long as the following conditions are met:{`\n`}
+                                    1. The Vehicle and/or Mobile Plant does not travel off formed roads.{`\n`}
+                                    2. The Vehicle and/or Mobile Plant if operating off road stays within the designated work area.{`\n`}
+                                    3. The Vehicle and/or Mobile Plant does not come into direct contact with declared weeds.{`\n`}
+                                    4. The driver/operator does not operate the Vehicle and/or Mobile Plant after coming into direct contact with declared weeds.{`\n`}
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                    {data.status === 'E' ? <Text style={styles.WatermarkText}>Expired</Text> : <Text></Text>}
                     <Text style={styles.footerText} render={({ pageNumber, totalPages }) => (
                         <Text style={styles.footerText}>
                             This Vehicle / Plant Weed Hygiene Inspection Certificate has been created [TIME / DATE STAMP] by Aevi Tech Pty Ltd and stored in the Certmate Cloud Server (Terms & Conditions available in CertMate application). Document uncontrolled when printed.

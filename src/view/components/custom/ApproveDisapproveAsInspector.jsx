@@ -7,7 +7,7 @@ import { updateCert } from "../../../graphql/mutations";
 import { getData, upsertData } from "../../../common";
 import { API, graphqlOperation } from "aws-amplify";
 import SweetAlert from 'sweetalert2';
-import { uniq } from "lodash";
+import { omit, uniq } from "lodash";
 
 export default function ApproveDisapproveAsInspector({ data, model, callback }) {
     const [showShareModal, setShowShareModal] = useState(false);
@@ -15,6 +15,7 @@ export default function ApproveDisapproveAsInspector({ data, model, callback }) 
 
     return <Space onClick={async () => {
         console.log('Approve!', { data });
+        const roles = !data.approveInspector ? [...data.roles, 'Inspector'] : data.roles.filter(f => f !== 'Inspector');
         try{
             await API.graphql(
                 graphqlOperation(`
@@ -27,7 +28,8 @@ export default function ApproveDisapproveAsInspector({ data, model, callback }) 
                     input: {
                         id: data.id,
                         _version: data._version,
-                        approveInspector: !data.approveInspector
+                        approveInspector: !data.approveInspector,
+                        roles: uniq(roles)
                     }
                 })
             );

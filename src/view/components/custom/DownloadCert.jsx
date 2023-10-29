@@ -8,6 +8,7 @@ import { round } from "lodash";
 import clean from '../../../assets/Clean.png';
 import fail from '../../../assets/Fail.png';
 import { Storage } from 'aws-amplify';
+import dayjs from "dayjs";
 
 function getImageUrlAndConvertToBase64(key) {
     return Storage.get(key, { level: 'public' })
@@ -203,6 +204,7 @@ export default function DownloadCert({ data, callback }) {
 
         const inspectorSignature = await getImageUrlAndConvertToBase64(data.inspector.signature);
         const driverSignature = await getImageUrlAndConvertToBase64(data.driver.signature);
+        const vehiclePic = await getImageUrlAndConvertToBase64(data.vehiclePics?.[0]);
         
         const DocumentPdf = (attrs) => (
             <Document>
@@ -243,14 +245,14 @@ export default function DownloadCert({ data, callback }) {
                             <View style={{ ...{ width: '50%' } }}>
                                 <View style={{ ...tableStyles.table, borderBottomWidth: 0 }}>
                                     {[
-                                        { field: "Date Created", value: data.company.name },
-                                        { field: "Expiry Date", value: data.Client.name },
-                                        { value: data.vehicle.pic },
+                                        { field: "Date Created", value: dayjs(data.createdAt).format('DD/MM/YYYY') },
+                                        { field: "Expiry Date", value: dayjs(data.createdAt).format('DD/MM/YYYY') },
+                                        { field: "Vehicle Pic" },
                                         { field: "Odometer", value: data.odometer },
                                         { field: "Model", value: data.vehicle.model },
                                     ].map(({ field, value }, cc) => (
                                         <View style={tableStyles.tableRow} key={cc}>
-                                            {field ? <>
+                                            {field !== 'Vehicle Pic' ? <>
                                                 <View style={{ ...tableStyles.tableColHeader, ...{ width: '50%', borderBottomWidth: field === 'Model' ? 0 : 1 } }}>
                                                     <Text style={tableStyles.tableCell}>{field}</Text>
                                                 </View>
@@ -258,7 +260,7 @@ export default function DownloadCert({ data, callback }) {
                                                     <Text style={tableStyles.tableCell}>{value}</Text>
                                                 </View>
                                             </> : <View style={{ ...tableStyles.tableColHeader, ...{ width: '100%' } }}>
-                                                <Text style={tableStyles.tableCell}>{value}</Text>
+                                                <Image src={vehiclePic} style={{ height: 44.5, width: 90 }} />
                                             </View>}
                                         </View>
                                     ))}

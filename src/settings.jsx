@@ -266,10 +266,10 @@ export const routes = {
                 phone: { label: 'Phone', validation: string().required(), formComponent: { component: 'input' } },
                 profilePic: { label: 'Your Photo', validation: string(), formComponent: { component: 'upload' } },
                 signature: { label: 'Signature', validation: string().required(), formComponent: { component: 'signature' } },
-                roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } }, write: ['Owner'] },
+                roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } }, roles: { write: ['Owner'] } },
                 acN: { label: 'Inspector Accreditation Number', validation: string().min(3), formComponent: { component: 'input' } },
                 acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
-                approveInspector: { label: 'Inspector Approval', validation: boolean().nullable(), formComponent: { component: 'switch' }, write: ['Owner'] },
+                approveInspector: { label: 'Inspector Approval', validation: boolean().nullable(), formComponent: { component: 'switch' }, roles: { write: ['Owner'] } },
             },
             create: {
                 fields: ['id', '_version', 'name', 'email', 'phone', 'profilePic', 'signature', 'roles', 'acN', 'acnDoc', 'approveInspector'],

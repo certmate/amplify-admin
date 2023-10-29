@@ -1,4 +1,3 @@
-TODO Cert PDF creation / update
 TODO Export Data = Vehicles, Certs
 TODO Push Notifs - https://enappd.com/blog/firebase-push-notification-in-ionic-react-capacitor/111/
 TODO Favourite Certs, Vehicles etc.

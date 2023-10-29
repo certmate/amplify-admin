@@ -11,7 +11,7 @@ export const deriveComponent = (type, data) => {
     switch (type) {
         case "image":
             console.log('image', data);
-            return data ? <StorageImage height={100} width={100} imgKey={data} fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" accessLevel="public" /> : <img height={100} width={100} src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
+            return data ? <StorageImage height={100} width={100} onClick={e => window.open(e.target.src, '_blank')} imgKey={data} fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" accessLevel="public" /> : <img height={100} width={100} src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
 
         default:
             return <p className="hp-mb-0">{isObject(data) ? JSON.stringify(data) : data}</p>;

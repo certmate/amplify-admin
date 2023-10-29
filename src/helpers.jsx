@@ -172,4 +172,11 @@ export const getChildModel = model => last(model.slice(1).split('.'));
 
 export const hasArrayOfValues = model => model.includes(":@")
 
-export const isDisabled = (schema, field, user) => schema[field]?.write?.includes(role(user));
+export const isDisabled = (schema, field, user) => {
+    if(Boolean(!schema[field]?.roles?.write)){
+        return false;
+    }
+    else if(!schema[field]?.roles?.write?.includes(role(user))){
+        return true;
+    }
+};

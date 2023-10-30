@@ -1,4 +1,4 @@
-package au.com.certmate.app;
+package com.AeviTech.Certmate;
 
 import com.getcapacitor.BridgeActivity;
 

@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "au.com.certmate.app"
+    namespace "com.AeviTech.Certmate"
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "au.com.certmate.app"
+        applicationId "com.AeviTech.Certmate"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

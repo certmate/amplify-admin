@@ -9,23 +9,20 @@ import clean from '../../../assets/Clean.png';
 import fail from '../../../assets/Fail.png';
 import { Storage } from 'aws-amplify';
 import dayjs from "dayjs";
+import { Directory, Encoding, Filesystem } from '@capacitor/filesystem';
+import { Device } from '@capacitor/device';
 
-function getImageUrlAndConvertToBase64(key) {
-    return Storage.get(key, { level: 'public' })
-        .then(url => {
-            return fetch(url);
-        })
-        .then(response => response.blob())
-        .then(blob => {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onloadend = () => resolve(reader.result);
-                reader.onerror = reject;
-                reader.readAsDataURL(blob);
-            });
-        });
+async function getImageUrlAndConvertToBase64(key) {
+    const url = await Storage.get(key, { level: 'public' });
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+    });
 }
-
 
 export default function DownloadCert({ data, callback }) {
 
@@ -205,7 +202,7 @@ export default function DownloadCert({ data, callback }) {
         const inspectorSignature = await getImageUrlAndConvertToBase64(data.inspector.signature);
         const driverSignature = await getImageUrlAndConvertToBase64(data.driver.signature);
         const vehiclePic = await getImageUrlAndConvertToBase64(data.vehiclePics?.[0]);
-        
+
         const DocumentPdf = (attrs) => (
             <Document>
                 <Page size="A4" style={styles.body}>
@@ -307,7 +304,7 @@ export default function DownloadCert({ data, callback }) {
                                 </Text>
                             </View>
                             <View style={{ width: `50%`, borderRightWidth: 0, justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                                <Image src={inspectorSignature} style={{ height: 60, width: 60*2.5 }} />
+                                <Image src={inspectorSignature} style={{ height: 60, width: 60 * 2.5 }} />
                             </View>
                         </View>
                     </View>
@@ -341,7 +338,7 @@ export default function DownloadCert({ data, callback }) {
                                 </Text>
                             </View>
                             <View style={{ width: `50%`, borderRightWidth: 0, justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                                <Image src={driverSignature} style={{ height: 60, width: 60*2.5 }} />
+                                <Image src={driverSignature} style={{ height: 60, width: 60 * 2.5 }} />
                             </View>
                         </View>
                     </View>
@@ -352,7 +349,7 @@ export default function DownloadCert({ data, callback }) {
                                 <View>
                                     <Text style={{ ...tableStyles.tableCell, fontFamily: 'RobotoBold', color: '#ccc', fontSize: 6 }}>Conditions</Text>
                                 </View>
-                                <Text style={{...tableStyles.tableCell, color: '#ccc', fontSize: 6}}>
+                                <Text style={{ ...tableStyles.tableCell, color: '#ccc', fontSize: 6 }}>
                                     With a verified vehicle/plant weed hygiene inspection certificate, the driver/operator is authorised to enter worksites as long as a valid copy of this report is kept within the vehicle and/or mobile plant. This report shall be available to view upon request in the CertMate application or if printed.{`\n`}
                                     This report may be declared void if any land owner or authorised representative of land owner declares that the vehicle/mobile plant can no longer be deemed to be clean and free from organic materials.{`\n`}
                                     This report remains valid as long as the following conditions are met:{`\n`}
@@ -374,11 +371,36 @@ export default function DownloadCert({ data, callback }) {
             </Document>
         );
 
-        const doc = <DocumentPdf {...data} />;
-        const asPdf = pdf([]); // {} is important, throws without an argument
-        asPdf.updateContainer(doc);
-        const blob = await asPdf.toBlob();
-        saveAs(blob, `Certificate.pdf`);
+        try {
+            const doc = <DocumentPdf {...data} />;
+            const asPdf = pdf([]); // {} is important, throws without an argument
+            asPdf.updateContainer(doc);
+            // 
+            // 
+            // Check device
+            if ((await Device.getInfo()).platform === 'web') {
+                saveAs(await asPdf.toBlob(), `Certificate.pdf`);
+            }
+            else {
+                try{
+                    await Filesystem.writeFile({
+                        path: 'certs/Certificate.pdf',
+                        data: await asPdf.toString(),
+                        directory: Directory.Documents,
+                        encoding: Encoding.UTF8,
+                        recursive: true
+                    });
+                }
+                catch(e){
+                    console.log('String fail');
+                }
+
+                console.log(r);
+            }
+        }
+        catch (e) {
+            console.log('>>', e);
+        }
     }
 
     return <Space onClick={download}><DocumentDownload size={24} /> Download</Space>

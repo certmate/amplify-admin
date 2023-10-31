@@ -1,16 +1,20 @@
-import { Space } from "antd";
+import { Button, Modal, Space } from "antd";
 import { DocumentDownload, TagCross, TickSquare } from "iconsax-react";
 import { pdf, Document, Page, Text, Image, View, Font, StyleSheet, Link } from '@react-pdf/renderer';
 import RobotoRegular from '../../../assets/fonts/Roboto-Regular.ttf';
 import RobotoBold from '../../../assets/fonts/Roboto-Bold.ttf';
 import { saveAs } from 'file-saver';
-import { round } from "lodash";
+import { round, unescape } from "lodash";
 import clean from '../../../assets/Clean.png';
 import fail from '../../../assets/Fail.png';
 import { Storage } from 'aws-amplify';
 import dayjs from "dayjs";
 import { Directory, Encoding, Filesystem } from '@capacitor/filesystem';
 import { Device } from '@capacitor/device';
+import QRCode from "qrcode";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
+import { useEffect, useRef, useState } from "react";
 
 async function getImageUrlAndConvertToBase64(key) {
     const url = await Storage.get(key, { level: 'public' });
@@ -25,6 +29,9 @@ async function getImageUrlAndConvertToBase64(key) {
 }
 
 export default function DownloadCert({ data, callback }) {
+
+    const btnRef = useRef(null);
+    const [qrCode, setQrCode] = useState(null);
 
     const download = async () => {
         console.log('Downloading', data);
@@ -201,7 +208,22 @@ export default function DownloadCert({ data, callback }) {
 
         const inspectorSignature = await getImageUrlAndConvertToBase64(data.inspector.signature);
         const driverSignature = await getImageUrlAndConvertToBase64(data.driver.signature);
-        const vehiclePic = await getImageUrlAndConvertToBase64(data.vehiclePics?.[0]);
+
+        saveAs((await html2canvas(btnRef.current)).toDataURL('image/png'), `document.png`);
+        // try {
+        //     await Filesystem.writeFile({
+        //         path: 'certs/Document-utf8.png',
+        //         data: (await html2canvas(document.body)).toDataURL('image/png'),
+        //         directory: Directory.Documents,
+        //         // encoding: Encoding.UTF8,
+        //         recursive: true
+        //     });
+        // }
+        // catch (e) {
+        //     console.log('utf8 fail', e);
+        // }
+        return;
+        // const vehiclePic = await getImageUrlAndConvertToBase64(data.vehiclePics?.[0]);
 
         const DocumentPdf = (attrs) => (
             <Document>
@@ -378,21 +400,22 @@ export default function DownloadCert({ data, callback }) {
             // 
             // 
             // Check device
+
             if ((await Device.getInfo()).platform === 'web') {
                 saveAs(await asPdf.toBlob(), `Certificate.pdf`);
             }
             else {
-                try{
+                try {
                     await Filesystem.writeFile({
-                        path: 'certs/Certificate.pdf',
+                        path: 'certs/Certificate-utf8.pdf',
                         data: await asPdf.toString(),
                         directory: Directory.Documents,
-                        encoding: Encoding.UTF8,
+                        // encoding: Encoding.UTF8,
                         recursive: true
                     });
                 }
-                catch(e){
-                    console.log('String fail');
+                catch (e) {
+                    console.log('utf8 fail', e);
                 }
 
                 console.log(r);
@@ -403,6 +426,44 @@ export default function DownloadCert({ data, callback }) {
         }
     }
 
-    return <Space onClick={download}><DocumentDownload size={24} /> Download</Space>
+    useEffect(() => {
+        (async () => {
+            const vehiclePic = await QRCode.toDataURL('https://www.certmate.com.au');
+            setQrCode(vehiclePic);
+        })()
+    }, []);
+
+    return <>
+        <Space onClick={download}><DocumentDownload size={24} /> Download</Space>
+        <Modal
+            title={<h4 className='hp-mb-0'>Download Cert</h4>}
+            open={true}
+            // onCancel={hideModal}
+            footer={[
+                <Button key="back" onClick={async () => {
+                    // saveAs((await html2canvas(btnRef.current)).toDataURL('image/png'), `document.png`);
+                    try {
+                        await Filesystem.writeFile({
+                            path: 'certs/Document-utf8.png',
+                            data: (await html2canvas(btnRef.current)).toDataURL('image/png'),
+                            directory: Directory.Documents,
+                            // encoding: Encoding.UTF8,
+                            recursive: true
+                        });
+                    }
+                    catch (e) {
+                        console.log('utf8 fail', e);
+                    }
+                }}>
+                    download
+                </Button>
+            ]}
+        >
+            <div id="nik" ref={btnRef}>
+                <div class="ant-card-body"><div class="ant-row ant-row-space-between"><div class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-xl-12"><img src={qrCode} /></div><div class="ant-col"><p class="hp-p1-body hp-mb-16">INVOICE NUMBER #125863478945</p></div><div class="ant-col"><p>Company name</p><p>1065 Mandan Road, Columbia MO, Missouri. (123)-65202</p><p>demo@gmail.com</p><p>+91 919-91-91-919</p></div></div><div class="ant-divider ant-divider-horizontal" role="separator"></div><div class="ant-row ant-row-space-bewtween"><div class="ant-col hp-pb-16 hp-print-info ant-col-xs-24 ant-col-md-8"><p class="hp-text-color-black-100 hp-text-color-dark-0 hp-input-label">CLIENT INFORMATION:</p><p>Edward Yildirim</p><p>1065 Atasehir/Istanbul </p><p>(123)-65202</p><p>(1234) - 567891</p><p>demo@gmail.com</p></div><div class="ant-col hp-pb-16 hp-print-info ant-col-xs-24 ant-col-md-8"><p class="hp-text-color-black-100 hp-text-color-dark-0 hp-input-label">ORDER INFORMATION:</p><p>Date: November 14</p><p>Status: Pending</p><p>Id : #146859</p></div><div class="ant-col hp-text-sm-left hp-text-right hp-print-info ant-col-xs-24 ant-col-md-8"><p>Date Issue: 08/10/2019</p><p>Date Due: 08/10/2019</p></div></div><div class="ant-divider ant-divider-horizontal" role="separator"></div><div class="ant-table-wrapper"><div class="ant-spin-nested-loading"><div class="ant-spin-container"><div class="ant-table"><div class="ant-table-container"><div class="ant-table-content"><table ><colgroup></colgroup><thead class="ant-table-thead"><tr><th class="ant-table-cell">Item</th><th class="ant-table-cell">Description</th><th class="ant-table-cell">Cost</th><th class="ant-table-cell" >QTY</th><th class="ant-table-cell" >Price</th></tr></thead><tbody class="ant-table-tbody"><tr data-row-key="1" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell"><p>Yoda Admin</p></td><td class="ant-table-cell"><p>HTML Admin Template</p></td><td class="ant-table-cell"><p>28 $</p></td><td class="ant-table-cell" ><p>1</p></td><td class="ant-table-cell" ><h5 class="hp-text-align-right">$ 28</h5></td></tr><tr data-row-key="2" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell"><p>Logo Design</p></td><td class="ant-table-cell"><p>Guideline, Idea,Color Combinations,LogoTYPE</p></td><td class="ant-table-cell"><p>220 $</p></td><td class="ant-table-cell" ><p>1</p></td><td class="ant-table-cell" ><h5 class="hp-text-align-right">$ 220</h5></td></tr></tbody></table></div></div></div></div></div></div><div class="ant-divider ant-divider-horizontal" role="separator"></div><div class="ant-row ant-row-end"><div class="ant-col hp-pb-16 hp-print-checkout ant-col-xs-24 ant-col-sm-12 ant-col-md-6"><div class="ant-row ant-row-space-between ant-row-middle"><p class="hp-badge-text">Subtotal</p><h5 class="hp-mb-4">$ 248.00</h5></div><div class="ant-row ant-row-space-between ant-row-middle"><p class="hp-badge-text">Discount %10 </p><h5 class="hp-mb-4">-$ 24.80 </h5></div><div class="ant-row ant-row-space-between ant-row-middle"><p class="hp-badge-text">Tax %20</p><h5>$ 49.60</h5></div><div class="ant-divider ant-divider-horizontal" role="separator"></div><div class="ant-row ant-row-space-between ant-row-middle"><h5 class="hp-text-color-primary-1">Total</h5><h5 class="hp-text-color-primary-1">$ 272.80</h5></div></div></div></div>
+
+            </div>
+        </Modal>
+    </>
 
 }

@@ -17,6 +17,7 @@ export const createIndex = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -226,6 +227,7 @@ export const updateIndex = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -435,6 +437,7 @@ export const deleteIndex = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -641,6 +644,7 @@ export const createBase = /* GraphQL */ `
       users {
         items {
           id
+          inspectorNumber
           name
           pushToken
           email
@@ -840,6 +844,7 @@ export const createBase = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -1253,6 +1258,7 @@ export const createBase = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -1322,6 +1328,7 @@ export const createBase = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -1462,6 +1469,7 @@ export const createBase = /* GraphQL */ `
           fromUserID
           from {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -1531,6 +1539,7 @@ export const createBase = /* GraphQL */ `
           toUserID
           to {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -1652,6 +1661,7 @@ export const updateBase = /* GraphQL */ `
       users {
         items {
           id
+          inspectorNumber
           name
           pushToken
           email
@@ -1851,6 +1861,7 @@ export const updateBase = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -2264,6 +2275,7 @@ export const updateBase = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -2333,6 +2345,7 @@ export const updateBase = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -2473,6 +2486,7 @@ export const updateBase = /* GraphQL */ `
           fromUserID
           from {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -2542,6 +2556,7 @@ export const updateBase = /* GraphQL */ `
           toUserID
           to {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -2663,6 +2678,7 @@ export const deleteBase = /* GraphQL */ `
       users {
         items {
           id
+          inspectorNumber
           name
           pushToken
           email
@@ -2862,6 +2878,7 @@ export const deleteBase = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -3275,6 +3292,7 @@ export const deleteBase = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -3344,6 +3362,7 @@ export const deleteBase = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -3484,6 +3503,7 @@ export const deleteBase = /* GraphQL */ `
           fromUserID
           from {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -3553,6 +3573,7 @@ export const deleteBase = /* GraphQL */ `
           toUserID
           to {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -3668,6 +3689,7 @@ export const createUser = /* GraphQL */ `
   ) {
     createUser(input: $input, condition: $condition) {
       id
+      inspectorNumber
       name
       pushToken
       email
@@ -3776,6 +3798,7 @@ export const createUser = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -3845,6 +3868,7 @@ export const createUser = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -4062,6 +4086,7 @@ export const createUser = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -4131,6 +4156,7 @@ export const createUser = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -4271,6 +4297,7 @@ export const createUser = /* GraphQL */ `
           fromUserID
           from {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -4340,6 +4367,7 @@ export const createUser = /* GraphQL */ `
           toUserID
           to {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -4432,6 +4460,7 @@ export const createUser = /* GraphQL */ `
           fromUserID
           from {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -4501,6 +4530,7 @@ export const createUser = /* GraphQL */ `
           toUserID
           to {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -4588,6 +4618,7 @@ export const createUser = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -4787,6 +4818,7 @@ export const createUser = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -4815,6 +4847,7 @@ export const createUser = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -4920,6 +4953,7 @@ export const updateUser = /* GraphQL */ `
   ) {
     updateUser(input: $input, condition: $condition) {
       id
+      inspectorNumber
       name
       pushToken
       email
@@ -5028,6 +5062,7 @@ export const updateUser = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -5097,6 +5132,7 @@ export const updateUser = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -5314,6 +5350,7 @@ export const updateUser = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -5383,6 +5420,7 @@ export const updateUser = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -5523,6 +5561,7 @@ export const updateUser = /* GraphQL */ `
           fromUserID
           from {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -5592,6 +5631,7 @@ export const updateUser = /* GraphQL */ `
           toUserID
           to {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -5684,6 +5724,7 @@ export const updateUser = /* GraphQL */ `
           fromUserID
           from {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -5753,6 +5794,7 @@ export const updateUser = /* GraphQL */ `
           toUserID
           to {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -5840,6 +5882,7 @@ export const updateUser = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -6039,6 +6082,7 @@ export const updateUser = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -6067,6 +6111,7 @@ export const updateUser = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -6172,6 +6217,7 @@ export const deleteUser = /* GraphQL */ `
   ) {
     deleteUser(input: $input, condition: $condition) {
       id
+      inspectorNumber
       name
       pushToken
       email
@@ -6280,6 +6326,7 @@ export const deleteUser = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -6349,6 +6396,7 @@ export const deleteUser = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -6566,6 +6614,7 @@ export const deleteUser = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -6635,6 +6684,7 @@ export const deleteUser = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -6775,6 +6825,7 @@ export const deleteUser = /* GraphQL */ `
           fromUserID
           from {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -6844,6 +6895,7 @@ export const deleteUser = /* GraphQL */ `
           toUserID
           to {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -6936,6 +6988,7 @@ export const deleteUser = /* GraphQL */ `
           fromUserID
           from {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -7005,6 +7058,7 @@ export const deleteUser = /* GraphQL */ `
           toUserID
           to {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -7092,6 +7146,7 @@ export const deleteUser = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -7291,6 +7346,7 @@ export const deleteUser = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -7319,6 +7375,7 @@ export const deleteUser = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -7428,6 +7485,7 @@ export const createCompany = /* GraphQL */ `
       users {
         items {
           id
+          inspectorNumber
           name
           pushToken
           email
@@ -7903,6 +7961,7 @@ export const createCompany = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -7972,6 +8031,7 @@ export const createCompany = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -8131,6 +8191,7 @@ export const updateCompany = /* GraphQL */ `
       users {
         items {
           id
+          inspectorNumber
           name
           pushToken
           email
@@ -8606,6 +8667,7 @@ export const updateCompany = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -8675,6 +8737,7 @@ export const updateCompany = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -8834,6 +8897,7 @@ export const deleteCompany = /* GraphQL */ `
       users {
         items {
           id
+          inspectorNumber
           name
           pushToken
           email
@@ -9309,6 +9373,7 @@ export const deleteCompany = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -9378,6 +9443,7 @@ export const deleteCompany = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -9540,6 +9606,7 @@ export const createVehicle = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -9739,6 +9806,7 @@ export const createVehicle = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -9767,6 +9835,7 @@ export const createVehicle = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -9947,6 +10016,7 @@ export const createVehicle = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -10016,6 +10086,7 @@ export const createVehicle = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -10171,6 +10242,7 @@ export const updateVehicle = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -10370,6 +10442,7 @@ export const updateVehicle = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -10398,6 +10471,7 @@ export const updateVehicle = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -10578,6 +10652,7 @@ export const updateVehicle = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -10647,6 +10722,7 @@ export const updateVehicle = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -10802,6 +10878,7 @@ export const deleteVehicle = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -11001,6 +11078,7 @@ export const deleteVehicle = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -11029,6 +11107,7 @@ export const deleteVehicle = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -11209,6 +11288,7 @@ export const deleteVehicle = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -11278,6 +11358,7 @@ export const deleteVehicle = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -11433,6 +11514,7 @@ export const createCert = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -11632,6 +11714,7 @@ export const createCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -11660,6 +11743,7 @@ export const createCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -11755,6 +11839,7 @@ export const createCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -11930,6 +12015,7 @@ export const createCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -11958,6 +12044,7 @@ export const createCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12039,6 +12126,7 @@ export const createCert = /* GraphQL */ `
       driverID
       driver {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -12101,6 +12189,7 @@ export const createCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12129,6 +12218,7 @@ export const createCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12239,6 +12329,7 @@ export const createCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12267,6 +12358,7 @@ export const createCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12346,6 +12438,7 @@ export const createCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12374,6 +12467,7 @@ export const createCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12425,6 +12519,7 @@ export const createCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12453,6 +12548,7 @@ export const createCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12499,6 +12595,7 @@ export const createCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12639,6 +12736,7 @@ export const createCert = /* GraphQL */ `
       inspectorID
       inspector {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -12701,6 +12799,7 @@ export const createCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12729,6 +12828,7 @@ export const createCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12839,6 +12939,7 @@ export const createCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12867,6 +12968,7 @@ export const createCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12946,6 +13048,7 @@ export const createCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -12974,6 +13077,7 @@ export const createCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -13025,6 +13129,7 @@ export const createCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -13053,6 +13158,7 @@ export const createCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -13099,6 +13205,7 @@ export const createCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -13246,6 +13353,7 @@ export const createCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -13420,6 +13528,7 @@ export const createCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -13448,6 +13557,7 @@ export const createCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -13560,6 +13670,7 @@ export const updateCert = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -13759,6 +13870,7 @@ export const updateCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -13787,6 +13899,7 @@ export const updateCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -13882,6 +13995,7 @@ export const updateCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14057,6 +14171,7 @@ export const updateCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14085,6 +14200,7 @@ export const updateCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14166,6 +14282,7 @@ export const updateCert = /* GraphQL */ `
       driverID
       driver {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -14228,6 +14345,7 @@ export const updateCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14256,6 +14374,7 @@ export const updateCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14366,6 +14485,7 @@ export const updateCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14394,6 +14514,7 @@ export const updateCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14473,6 +14594,7 @@ export const updateCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14501,6 +14623,7 @@ export const updateCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14552,6 +14675,7 @@ export const updateCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14580,6 +14704,7 @@ export const updateCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14626,6 +14751,7 @@ export const updateCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14766,6 +14892,7 @@ export const updateCert = /* GraphQL */ `
       inspectorID
       inspector {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -14828,6 +14955,7 @@ export const updateCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14856,6 +14984,7 @@ export const updateCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14966,6 +15095,7 @@ export const updateCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -14994,6 +15124,7 @@ export const updateCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -15073,6 +15204,7 @@ export const updateCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -15101,6 +15233,7 @@ export const updateCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -15152,6 +15285,7 @@ export const updateCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -15180,6 +15314,7 @@ export const updateCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -15226,6 +15361,7 @@ export const updateCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -15373,6 +15509,7 @@ export const updateCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -15547,6 +15684,7 @@ export const updateCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -15575,6 +15713,7 @@ export const updateCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -15687,6 +15826,7 @@ export const deleteCert = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -15886,6 +16026,7 @@ export const deleteCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -15914,6 +16055,7 @@ export const deleteCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16009,6 +16151,7 @@ export const deleteCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16184,6 +16327,7 @@ export const deleteCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16212,6 +16356,7 @@ export const deleteCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16293,6 +16438,7 @@ export const deleteCert = /* GraphQL */ `
       driverID
       driver {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -16355,6 +16501,7 @@ export const deleteCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16383,6 +16530,7 @@ export const deleteCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16493,6 +16641,7 @@ export const deleteCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16521,6 +16670,7 @@ export const deleteCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16600,6 +16750,7 @@ export const deleteCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16628,6 +16779,7 @@ export const deleteCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16679,6 +16831,7 @@ export const deleteCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16707,6 +16860,7 @@ export const deleteCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16753,6 +16907,7 @@ export const deleteCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16893,6 +17048,7 @@ export const deleteCert = /* GraphQL */ `
       inspectorID
       inspector {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -16955,6 +17111,7 @@ export const deleteCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -16983,6 +17140,7 @@ export const deleteCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17093,6 +17251,7 @@ export const deleteCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17121,6 +17280,7 @@ export const deleteCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17200,6 +17360,7 @@ export const deleteCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17228,6 +17389,7 @@ export const deleteCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17279,6 +17441,7 @@ export const deleteCert = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17307,6 +17470,7 @@ export const deleteCert = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17353,6 +17517,7 @@ export const deleteCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17500,6 +17665,7 @@ export const deleteCert = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17674,6 +17840,7 @@ export const deleteCert = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17702,6 +17869,7 @@ export const deleteCert = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17816,6 +17984,7 @@ export const createNotification = /* GraphQL */ `
       fromUserID
       from {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -17878,6 +18047,7 @@ export const createNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -17906,6 +18076,7 @@ export const createNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18016,6 +18187,7 @@ export const createNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18044,6 +18216,7 @@ export const createNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18123,6 +18296,7 @@ export const createNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18151,6 +18325,7 @@ export const createNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18202,6 +18377,7 @@ export const createNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18230,6 +18406,7 @@ export const createNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18276,6 +18453,7 @@ export const createNotification = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18416,6 +18594,7 @@ export const createNotification = /* GraphQL */ `
       toUserID
       to {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -18478,6 +18657,7 @@ export const createNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18506,6 +18686,7 @@ export const createNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18616,6 +18797,7 @@ export const createNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18644,6 +18826,7 @@ export const createNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18723,6 +18906,7 @@ export const createNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18751,6 +18935,7 @@ export const createNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18802,6 +18987,7 @@ export const createNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18830,6 +19016,7 @@ export const createNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -18876,6 +19063,7 @@ export const createNotification = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19041,6 +19229,7 @@ export const updateNotification = /* GraphQL */ `
       fromUserID
       from {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -19103,6 +19292,7 @@ export const updateNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19131,6 +19321,7 @@ export const updateNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19241,6 +19432,7 @@ export const updateNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19269,6 +19461,7 @@ export const updateNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19348,6 +19541,7 @@ export const updateNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19376,6 +19570,7 @@ export const updateNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19427,6 +19622,7 @@ export const updateNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19455,6 +19651,7 @@ export const updateNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19501,6 +19698,7 @@ export const updateNotification = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19641,6 +19839,7 @@ export const updateNotification = /* GraphQL */ `
       toUserID
       to {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -19703,6 +19902,7 @@ export const updateNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19731,6 +19931,7 @@ export const updateNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19841,6 +20042,7 @@ export const updateNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19869,6 +20071,7 @@ export const updateNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19948,6 +20151,7 @@ export const updateNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -19976,6 +20180,7 @@ export const updateNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20027,6 +20232,7 @@ export const updateNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20055,6 +20261,7 @@ export const updateNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20101,6 +20308,7 @@ export const updateNotification = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20266,6 +20474,7 @@ export const deleteNotification = /* GraphQL */ `
       fromUserID
       from {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -20328,6 +20537,7 @@ export const deleteNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20356,6 +20566,7 @@ export const deleteNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20466,6 +20677,7 @@ export const deleteNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20494,6 +20706,7 @@ export const deleteNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20573,6 +20786,7 @@ export const deleteNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20601,6 +20815,7 @@ export const deleteNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20652,6 +20867,7 @@ export const deleteNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20680,6 +20896,7 @@ export const deleteNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20726,6 +20943,7 @@ export const deleteNotification = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20866,6 +21084,7 @@ export const deleteNotification = /* GraphQL */ `
       toUserID
       to {
         id
+        inspectorNumber
         name
         pushToken
         email
@@ -20928,6 +21147,7 @@ export const deleteNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -20956,6 +21176,7 @@ export const deleteNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -21066,6 +21287,7 @@ export const deleteNotification = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -21094,6 +21316,7 @@ export const deleteNotification = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -21173,6 +21396,7 @@ export const deleteNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -21201,6 +21425,7 @@ export const deleteNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -21252,6 +21477,7 @@ export const deleteNotification = /* GraphQL */ `
             fromUserID
             from {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -21280,6 +21506,7 @@ export const deleteNotification = /* GraphQL */ `
             toUserID
             to {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -21326,6 +21553,7 @@ export const deleteNotification = /* GraphQL */ `
           users {
             items {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -21489,6 +21717,7 @@ export const createClient = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -21688,6 +21917,7 @@ export const createClient = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -21716,6 +21946,7 @@ export const createClient = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -21895,6 +22126,7 @@ export const createClient = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -21964,6 +22196,7 @@ export const createClient = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -22116,6 +22349,7 @@ export const updateClient = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -22315,6 +22549,7 @@ export const updateClient = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -22343,6 +22578,7 @@ export const updateClient = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -22522,6 +22758,7 @@ export const updateClient = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -22591,6 +22828,7 @@ export const updateClient = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -22743,6 +22981,7 @@ export const deleteClient = /* GraphQL */ `
         users {
           items {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -22942,6 +23181,7 @@ export const deleteClient = /* GraphQL */ `
             driverID
             driver {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -22970,6 +23210,7 @@ export const deleteClient = /* GraphQL */ `
             inspectorID
             inspector {
               id
+              inspectorNumber
               name
               pushToken
               email
@@ -23149,6 +23390,7 @@ export const deleteClient = /* GraphQL */ `
           driverID
           driver {
             id
+            inspectorNumber
             name
             pushToken
             email
@@ -23218,6 +23460,7 @@ export const deleteClient = /* GraphQL */ `
           inspectorID
           inspector {
             id
+            inspectorNumber
             name
             pushToken
             email

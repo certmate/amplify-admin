@@ -3,7 +3,7 @@ import { roles } from "./settings";
 
 export const role = user => {
     if (!user?.cognito)
-        return "user";
+        return "User";
 
     let groups = (user.cognito || user).signInUserSession.accessToken.payload['cognito:groups'];
     for (let i = 0; i < roles.length; i++) {
@@ -12,7 +12,7 @@ export const role = user => {
             return p
     }
 
-    return "Owner";
+    return "User";
 }
 
 export const uploadImages = async (Storage, images, image_name) => {
@@ -136,8 +136,8 @@ export const getDomain = v => {
 
 export const isVisible = el => el.offsetWidth > 0 && el.offsetHeight > 0;
 
-export const generateRandomString = (len = 10) => {
-    const alphanumeric = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+export const generateRandomString = ({len = 10, onlyNumbers = false, onlyLetters = false}) => {
+    const alphanumeric = onlyLetters ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : onlyNumbers ? '0123456789' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let randomString = '';
 
     for (let i = 0; i < len; i++) {

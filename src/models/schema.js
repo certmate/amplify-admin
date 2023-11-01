@@ -312,6 +312,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "inspectorNumber": {
+                    "name": "inspectorNumber",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "name": {
                     "name": "name",
                     "isArray": false,
@@ -2125,5 +2132,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "3c924430eab358cdb42cbe382064cae5"
+    "version": "43f81ff2c0c773dd4a6c67525b0fb06d"
 };

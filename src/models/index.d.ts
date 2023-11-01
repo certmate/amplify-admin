@@ -135,6 +135,7 @@ type EagerUser = {
     identifier: ManagedIdentifier<User, 'id'>;
   };
   readonly id: string;
+  readonly inspectorNumber?: string | null;
   readonly name?: string | null;
   readonly pushToken?: string | null;
   readonly email?: string | null;
@@ -168,6 +169,7 @@ type LazyUser = {
     identifier: ManagedIdentifier<User, 'id'>;
   };
   readonly id: string;
+  readonly inspectorNumber?: string | null;
   readonly name?: string | null;
   readonly pushToken?: string | null;
   readonly email?: string | null;

@@ -52,6 +52,7 @@ type User @model @auth(rules: [
     { allow: groups, groupsField: "read", operations: [read] },
 ]){
 	id: ID!
+	inspectorNumber: String
 	name: String
 	pushToken: String
 	email: String

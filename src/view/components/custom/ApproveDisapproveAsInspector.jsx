@@ -8,6 +8,7 @@ import { getData, upsertData } from "../../../common";
 import { API, graphqlOperation } from "aws-amplify";
 import SweetAlert from 'sweetalert2';
 import { omit, uniq } from "lodash";
+import { generateRandomString } from "../../../helpers";
 
 export default function ApproveDisapproveAsInspector({ data, model, callback }) {
     const [showShareModal, setShowShareModal] = useState(false);
@@ -29,6 +30,7 @@ export default function ApproveDisapproveAsInspector({ data, model, callback }) 
                         id: data.id,
                         _version: data._version,
                         approveInspector: !data.approveInspector,
+                        inspectorNumber: generateRandomString({ len: 6, onlyNumbers: true }),
                         roles: uniq(roles)
                     }
                 })

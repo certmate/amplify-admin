@@ -52,7 +52,8 @@ export default function Router() {
                         user: {
                             id: cognitoUser.attributes.email,
                             email: cognitoUser.attributes.email,
-                            base: base
+                            base: base,
+                            roles: ['Owner']
                         },
                         base: {
                             id: base

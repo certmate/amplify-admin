@@ -14,7 +14,7 @@ export const version = "0.1.1";
 export const appType = "OAA"; // OAA, UA
 export const tagline = "Digital Vehicle Biosecurity Management";
 export const searchPlaceholder = "Search for Certs, Vehicles, Clients, Companies & more...";
-export const appRoles = { owner: ["SuperAdmin", "Admin", "Support"], users: ["Inspector", "Driver", "LandOwner"] };
+export const appRoles = { owner: ["SuperAdmin", "Admin", "Support"], users: ["Owner", "Inspector", "Driver", "LandOwner"] };
 export const roles = [...appRoles.owner, ...appRoles.users];
 export const excludeModelsFromDashboardStats = ['Base', 'Index', 'Shared'];
 /**
@@ -122,27 +122,28 @@ export const routes = {
                 name: { label: 'Name', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
                 email: { label: 'Email', searchable: true, validation: string().email().required(), formComponent: { component: 'input' } },
                 roles: { label: 'Roles', searchable: true, validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } } },
+                inspectorNumber: { label: 'Inspector Number', searchable: true, validation: string().min(6), formComponent: { component: 'input' } },
                 acN: { label: 'Inspector Accreditation Number', searchable: true, validation: string().min(3), formComponent: { component: 'input' } },
                 acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
                 // @model.valueField:labelField
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 // Example of custom component
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
-                approveInspector: { label: 'Inspector Approval', routes: ['/users?filter=members'], validation: boolean(), formComponent: { component: 'switch' } },
+                approveInspector: { label: 'Inspector Approval', routes: ['/users', '/users?filter=members'], validation: boolean(), formComponent: { component: 'switch' } },
             },
             create: {
                 button: {
                     label: 'Invite User'
                 },
-                fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID'],
+                fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID', 'inspectorNumber'],
                 afterSubmit: sendInvitationEmailToMember
             },
             read: {
-                fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'company.id,name,logo', 'approveInspector'],
+                fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'inspectorNumber', 'company.id,name,logo', 'approveInspector'],
                 actions: [
                     { ...actions.delete, routes: ['/users?filter=invitations'], fx: deleteInvitationCallback },
                     { ...actions.delete, routes: ['/users?filter=members'] },
-                    { ...approveDisapproveAsInspector, routes: ['/users?filter=members'] },
+                    { ...approveDisapproveAsInspector, routes: ['/users', '/users?filter=members'] },
                 ]
             }
         }

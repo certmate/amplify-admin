@@ -220,7 +220,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
                                     <div className="hp-mb-16">
                                         <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{label}</span>
                                         {
-                                            component === 'input' ? <Field name={f} className='ant-input' disabled={isSubmitting} />
+                                            component === 'input' ? <Field name={f} className='ant-input' disabled={isSubmitting || isDisabled(schema, f, user)} />
                                                 : component === 'textarea' ? <Field as='textarea' name={f} className='ant-input' disabled={isSubmitting} />
                                                     : component === 'switch' ? <Switch checkedChildren="Yes" unCheckedChildren="No" disabled={isSubmitting || isDisabled(schema, f, user)} />
                                                         : component.includes('upload') ? <><StorageManager {...field} accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={component.includes('multiple') ? 10 : 1} isResumable processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; setFieldValue(f, key); return { file, key } }} />{values?.[f] && deriveComponent('image', values?.[f])}</>

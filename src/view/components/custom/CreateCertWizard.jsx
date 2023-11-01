@@ -76,6 +76,16 @@ export default function CreateCertWizard({ callback }) {
         }
     }, []);
 
+    const getInspectorID = useCallback(async number => {
+        try {
+            return get(await readData({ model: 'User', fields: ['id'], user, filter: { inspectorNumber: { eq: number } } }), '0.id', null);
+        }
+        catch (e) {
+            console.log(e);
+            return false;
+        }
+    }, []);
+
     const validationSchema = useMemo(() => {
         let v = {};
         fields.map(f => {
@@ -88,7 +98,7 @@ export default function CreateCertWizard({ callback }) {
         return object().shape({ ...v });
     }, [form]);
 
-    const initialValues = useMemo(() => ({ auditSections: [], vehiclePics: [], number: generateRandomString(), supercede: false, ...(role(user) === 'Inspector' ? {inspectorID: user.appsync.id, status: 'A'} : role(user) === 'Driver' ? {driverID: user.appsync.id} : {}) }), [])
+    const initialValues = useMemo(() => ({ auditSections: [], vehiclePics: [], number: generateRandomString({ len: 10 }), supercede: false, ...(role(user) === 'Inspector' ? {inspectorID: user.appsync.id, status: 'A'} : role(user) === 'Driver' ? {driverID: user.appsync.id} : {}) }), [])
 
     const [selectOptions, setSelectOptions] = useState({});
 
@@ -132,6 +142,20 @@ export default function CreateCertWizard({ callback }) {
                         onSubmit={async (values, { resetForm }) => {
                             values = cleanNull(values);
                             console.log({ values });
+                            // Check inspector number
+                            if(values.inspectorNumber){
+                                let inspectorID = await getInspectorID(values.inspectorNumber);
+                                // If inspectorID is empty, inspector number is wrong
+                                !inspectorID && SweetAlert.fire({
+                                    title: 'Inspector not found',
+                                    text: 'The inspector number you entered is incorrect',
+                                    showCancelButton: false,
+                                    confirmButtonText: 'Close',
+                                }).then((result) => {
+                                    /* Read more about isConfirmed, isDenied below */
+                                    return false;
+                                })
+                            }
                             try {
                                 if (values.supercede) {
                                     // Supercede old cert
@@ -256,6 +280,13 @@ export default function CreateCertWizard({ callback }) {
                                     <span className="hp-text-color-danger-1">{errors?.vehiclePics}</span>
                                 </div>
                                 {/* If driver, show inspector; vice versa */}
+                                {role(user) === 'Driver' ? (
+                                    <div className="hp-mb-16">
+                                        <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">Inspector Number</span>
+                                        <Field name='inspectorNumber' className='ant-input' disabled={isSubmitting} />
+                                        <span className="hp-text-color-danger-1">{errors?.inspectorNumber}</span>
+                                    </div>
+                                ) : null}
                                 {role(user) === 'Owner' ? (
                                     <div className="hp-mb-16">
                                         <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{form.schema.inspectorID.label}</span>

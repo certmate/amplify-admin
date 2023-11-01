@@ -265,6 +265,7 @@ export const routes = {
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
                 email: { label: 'Email', validation: string().required().email(), formComponent: { component: 'input' } },
                 phone: { label: 'Phone', validation: string().required(), formComponent: { component: 'input' } },
+                inspectorNumber: { label: 'Inspector Number', validation: string().required(), formComponent: { component: 'input' }, roles: { write: ['Owner'] } },
                 profilePic: { label: 'Your Photo', validation: string(), formComponent: { component: 'upload' } },
                 signature: { label: 'Signature', validation: string().required(), formComponent: { component: 'signature' } },
                 roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } }, roles: { write: ['Owner'] } },
@@ -273,7 +274,7 @@ export const routes = {
                 approveInspector: { label: 'Inspector Approval', validation: boolean().nullable(), formComponent: { component: 'switch' }, roles: { write: ['Owner'] } },
             },
             create: {
-                fields: ['id', '_version', 'name', 'email', 'phone', 'profilePic', 'signature', 'roles', 'acN', 'acnDoc', 'approveInspector'],
+                fields: ['id', '_version', 'name', 'email', 'phone', 'profilePic', 'signature', 'roles', 'acN', 'acnDoc', 'approveInspector', 'inspectorNumber'],
             }
         }
     }

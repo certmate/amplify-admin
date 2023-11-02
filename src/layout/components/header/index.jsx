@@ -56,7 +56,7 @@ export default function MenuHeader(props) {
 
         <Col>
           <Row align="middle">
-            <Col style={{marginRight: 12}}>
+            <Col style={{ marginRight: 12 }}>
               <SearchNormal variant="TwoTone" size={28} color="#4735df" onClick={() => navigate('/search')} />
             </Col>
             <HeaderUser />
@@ -67,7 +67,7 @@ export default function MenuHeader(props) {
   }
 
   return (
-    <Header>
+    <Header style={{ marginTop: "var(--safe-area-inset-top)", marginBottom: "var(--safe-area-inset-top)" }}>
       <Row justify="center" className="hp-w-100">
         <Col span={24}>
           <motion.div

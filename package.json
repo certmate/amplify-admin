@@ -7,7 +7,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "sync": "bun run build; npx cap sync;"
+    "sync": "bun run build; npx cap sync; cp -f ./Pods-App-frameworks.sh ./ios/App/Pods/Target\\ Support\\ Files/Pods-App/"
   },
   "dependencies": {
     "@aws-amplify/ui-components": "^1.9.40",
@@ -23,6 +23,7 @@
     "antd": "^4.16.11",
     "antd-mask-input": "^2.0.7",
     "aws-amplify": "^5.3.10",
+    "capacitor-plugin-safe-area": "^2.0.5",
     "dayjs": "^1.11.9",
     "file-saver": "^2.0.5",
     "formik": "^2.4.3",

@@ -9,7 +9,7 @@ export default function LeftContent() {
   // Redux
 
   return (
-    <Col lg={12} span={24} className="hp-p-0 hp-bg-color-black-20 hp-bg-color-dark-90 hp-position-relative">
+    <Col lg={12} span={24} style={{ paddingTop: "var(--safe-area-inset-top)" }} className="hp-p-0 hp-bg-color-black-20 hp-bg-color-dark-90 hp-position-relative">
       <Row className="hp-image-row hp-h-100 hp-pb-md-32">
         <Col className="hp-logo-item hp-m-sm-16 hp-m-md-32 hp-m-64">
           <MenuLogo />

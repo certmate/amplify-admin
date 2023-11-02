@@ -107,6 +107,8 @@ export const getDomain = v => {
     }
 }
 
+export const numberWithCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
 // export const getGenresFromAppSync = async (filter, sortDirection = 'ASC') => {
 //     let f = [];
 //     filter.forEach(ff => {

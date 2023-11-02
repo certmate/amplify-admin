@@ -17,7 +17,7 @@ export const shareCert = {
 export const approveRejectCert = {
     component: ({ data, model, callback }) => <ApproveRejectCert data={data} model={model} callback={callback} />,
     roles: ['SuperAdmin', 'Owner', 'Inspector'],
-    // condition: ({ inspector }) => true || !isNull(inspector),
+    condition: ({ inspector, status }) => !['E', 'A'].includes(status),
 }
 
 export const downloadCert = {

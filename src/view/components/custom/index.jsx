@@ -7,6 +7,7 @@ import FleetName from "./FleetName";
 import ShareResourceSelector from "./ShareResourceSelector";
 import CreateAuditSections from "./CreateAuditSections";
 import VehicleCert from "./VehicleCert";
+import AuditSections from "./AuditSections";
 
 export {
     Company,
@@ -17,5 +18,6 @@ export {
     FleetName,
     ShareResourceSelector,
     CreateAuditSections,
-    VehicleCert
+    VehicleCert,
+    AuditSections
 }

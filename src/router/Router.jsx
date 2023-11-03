@@ -1,17 +1,7 @@
-import { useEffect, useMemo } from "react";
-
-// Motion
-
-// Redux
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-// Router
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-
-// Layouts
+import { Route, Routes, useLocation } from "react-router-dom";
 import VerticalLayout from "../layout/VerticalLayout";
-
-// Components
 import Error404 from "../view/pages/404";
 import { API, graphqlOperation } from 'aws-amplify';
 import { routes } from '../settings';
@@ -23,10 +13,8 @@ import BaseSearch from "../view/components/BaseSearch";
 import BaseDashboard from "../view/components/BaseDashboard";
 
 export default function Router() {
-    // Redux
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
-    const { pathname, search, hash } = useLocation();
 
     const userFromAppSync = async cognitoUser => {
         const get = async cognitoUser => {
@@ -146,7 +134,7 @@ export default function Router() {
             {/* Routes > settings.json */}
             {entries(routes).map(([route, { title, model, filters, form, data, component }]) => <Route id={route} key={uniqueId()} path={route} element={
                 <VerticalLayout>
-                    {component?.({ form }) || <Base route={route} title={title} filters={filters} model={model} form={form} data={data} />}
+                    {component?.({ form, route, title, filters, model, data }) || <Base route={route} title={title} filters={filters} model={model} form={form} data={data} />}
                 </VerticalLayout>
             } />)}
 

@@ -8,6 +8,7 @@ import { shareCert, approveRejectCert, downloadCert, approveDisapproveAsInspecto
 import BaseAccount from "./view/components/BaseAccount";
 import { isEmpty, toUpper, upperCase } from "lodash";
 import CreateCertWizard from "./view/components/custom/CreateCertWizard";
+import * as RouteComponents from "./view/components/RouteComponents";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -24,6 +25,7 @@ export const routes = {
     ['/certs']: {
         title: "Certificates",
         model: "Cert",
+        component: data => <RouteComponents.Certs {...data} />,
         filters: {
             all: { name: 'Certs', roles: ['Owner', 'Inspector'] },
             active: { filter: { status: { eq: "A" } }, name: 'Active', roles: ['Owner', 'Inspector', 'Driver'] },
@@ -88,6 +90,7 @@ export const routes = {
         title: "Companies",
         model: "Company",
         icon: <Profile2User />,
+        component: data => <RouteComponents.Companies {...data} />,
         form: {
             /**
              * Keys are names of schema field
@@ -111,6 +114,7 @@ export const routes = {
         title: "Members",
         model: "User",
         icon: <Profile />,
+        component: data => <RouteComponents.Users {...data} />,
         filters: {
             invitations: { filter: { status: { eq: "I" } }, name: 'Invitations' },
             members: { filter: { status: { ne: "I" } }, name: 'Members' },
@@ -152,6 +156,7 @@ export const routes = {
         title: "Clients",
         model: "Client",
         icon: <Building />,
+        component: data => <RouteComponents.Clients {...data} />,
         form: {
             /**
              * Keys are names of schema field
@@ -189,6 +194,7 @@ export const routes = {
         title: "Vehicles",
         model: "Vehicle",
         icon: <Truck />,
+        component: data => <RouteComponents.Vehicles {...data} />,
         form: {
             schema: {
                 id: { label: 'id', hidden: true, createValue: 'base-rego', formComponent: null },
@@ -229,6 +235,7 @@ export const routes = {
         // Model is Company, CRUDS only for the field fleets
         model: "@Company.fleets",
         icon: <Truck />,
+        component: data => <RouteComponents.Fleets {...data} />,
         form: {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },

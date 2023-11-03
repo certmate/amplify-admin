@@ -6,7 +6,7 @@ import { RoleRouteFilter } from "../../../helpers";
 import { startCase } from "lodash";
 import { routes, menu } from "../../../settings";
 
-export default function Menu({ }) {
+export default function Menu({ onClose }) {
 
     // Redux
     const user = useSelector(state => state.user);
@@ -29,12 +29,18 @@ export default function Menu({ }) {
                     label: filter ? startCase(filters[filter].name) : child.title,
                     key: node,
                     icon: notifOrIcon('', child.icon || icon),
-                    onClick: () => navigate(node)
+                    onClick: () => {
+                        navigate(node);
+                        onClose();
+                    }
                 }
             });
         }
         else {
-            item.onClick = () => navigate(node);
+            item.onClick = () => {
+                navigate(node);
+                onClose();
+            }
         }
 
         return item;

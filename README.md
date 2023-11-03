@@ -21,3 +21,7 @@ source="$(readlink "${source}")"
 with:
 
 source="$(readlink -f "${source}")"
+
+5. /ios/App/App/Info.plist
+    CFBundleShortVersionString
+    CFBundleVersion

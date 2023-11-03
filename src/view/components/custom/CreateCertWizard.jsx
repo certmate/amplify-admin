@@ -12,48 +12,7 @@ import { StorageManager } from "@aws-amplify/ui-react-storage";
 import { v4 } from "uuid";
 import { createCert, updateCert } from "../../../graphql/mutations";
 import SweetAlert from 'sweetalert2';
-
-const checklists = {
-    'Rigid Truck/Tanker': [
-        {
-            title: 'External Areas, as applicable',
-            items: [
-                "Grill",
-                "Wiper recess",
-                "Gear box",
-                "Radiator",
-                "Engine bay",
-                "Side steps",
-                "Bumper bar / counterweight",
-                "Tray/tub",
-                "Toolboxes & batteries",
-                "Fuel tank guards",
-                "Tow point / draw bar",
-                "Winches",
-                "ropes & slings",
-                "Hydraulic & electric cables/connections",
-                "Light assembly",
-                "Power pack & power pack bay",
-                "Telescopic boom/mast/ladder",
-                "Hoses/valves",
-                "Slingers/Tubs/Piping/Pumps"
-            ]
-        },
-        {
-            title: 'Undercarriage, as applicable',
-            items: [
-                "Chassis Rails",
-                "Wheels & tyres (incl. spares)",
-                "Wheel arches",
-                "Tyre rims",
-                "Axles/Diffs",
-                "Mud flaps",
-                "Suspension",
-                "Stabilisers & stands"
-            ]
-        },
-    ]
-}
+import {checklists} from '../../../data/checklists';
 
 export default function CreateCertWizard({ callback }) {
     const user = useSelector(state => state.user);
@@ -227,6 +186,7 @@ export default function CreateCertWizard({ callback }) {
                                         }
                                         else {
                                             setFieldValue('vehicleID', f);
+                                            console.log(checklists[f]);
                                         }
                                         // Pop
                                     }} options={selectOptions?.vehicles || [{ label: '', value: '' }]} />

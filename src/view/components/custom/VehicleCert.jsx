@@ -4,7 +4,7 @@ import CertStatus from "./CertStatus";
 
 export default function VehicleCert({ items }) {
     return <Space direction="vertical">
-        {items.map(({ id, status, number }, key) => <Space key={id} className={key > 0 ? 'hp-mt-8' : ''}>{number} | <CertStatus record={{status}} /></Space>)}
+        {items?.map(({ id, status, number }, key) => <Space key={id} className={key > 0 ? 'hp-mt-8' : ''}>{number} | <CertStatus record={{status}} /></Space>)}
     </Space>
     // return <Space>
     //     {deriveComponent("image", logo)}

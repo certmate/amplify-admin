@@ -20,7 +20,18 @@ export default function Router() {
         const get = async cognitoUser => {
             try {
                 return await API.graphql(
-                    graphqlOperation(getUser, {
+                    graphqlOperation(`
+                        query GetUser(
+                        $id: ID!
+                        ){
+                            getUser(id: $id) {
+                                id
+                                _version
+                                base
+                                ${routes['/account'].form.onboardingFields.join(`\n`)}
+                            }
+                        }
+                    `, {
                         id: cognitoUser.attributes.email,
                     })
                 );
@@ -130,7 +141,7 @@ export default function Router() {
     }, []);
 
     return (
-        <Routes >
+        <Routes>
             {/* Routes > settings.json */}
             {entries(routes).map(([route, { title, model, filters, form, data, component }]) => <Route id={route} key={uniqueId()} path={route} element={
                 <VerticalLayout>

@@ -21,7 +21,7 @@ export default function MenuLogo(props) {
         className="hp-position-relative hp-d-flex"
       >
 
-        <div className="hp-position-absolute-top-left hp-bg-black-20 hp-bg-dark-90 hp-border-1 hp-border-color-black-0 hp-border-color-dark-90 hp-border-radius-round hp-d-flex-full-center" style={{ width: 18, height: 18, top: -5, left: 21, }}>
+        <div className="hp-position-absolute-top-left hp-bg-black-20 hp-bg-dark-90 hp-border-1 hp-border-color-black-0 hp-border-color-dark-90 hp-border-radius-round hp-d-flex-full-center" style={{ width: 64, height: 64, top: -5, left: 21, }}>
           <img className="hp-logo" src={logo} alt="logo" />
         </div>
       </Link>

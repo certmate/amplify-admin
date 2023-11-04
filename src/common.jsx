@@ -267,3 +267,17 @@ export const shareModelWithUser = async ({ data, model, user, shareWith, accessL
      */
     console.log('Sharing', { data, model, user, shareWith });
 }
+
+
+export const userHasOnboared = user => {
+    const fields = routes['/account'].form.onboardingFields;
+
+    for (let i = 0; i < fields.length; i++) {
+        const field = fields[i];
+        if(!get(user, field, false)){
+            return false;
+        }
+    }
+
+    return true;
+}

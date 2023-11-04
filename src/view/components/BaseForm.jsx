@@ -179,7 +179,7 @@ export default function BaseForm({ model, schema, fields, validateOnChange, read
                     }
 
                     // console.log({ query, payload, formValues }); return;
-                    upsertData({ query, payload, schema, user });
+                    await upsertData({ query, payload, schema, user });
                 }
 
                 await form[formIs]?.afterSubmit?.({ user, values });

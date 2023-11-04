@@ -282,7 +282,8 @@ export const routes = {
             },
             create: {
                 fields: ['id', '_version', 'name', 'email', 'phone', 'profilePic', 'signature', 'roles', 'acN', 'acnDoc', 'approveInspector', 'inspectorNumber'],
-            }
+            },
+            onboardingFields: ['name', 'phone', 'signature']
         }
     }
     // ['/access']: {

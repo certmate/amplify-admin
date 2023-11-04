@@ -13,11 +13,12 @@ export default function HeaderUser() {
 		{
 			key: '2',
 			label: (
-				<p onClick={() => Auth.signOut().then(() => window.location.href = '/')} className="hp-p1-body hp-font-weight-500 hp-hover-text-color-danger-2 hp-mb-0">
+				<p className="hp-p1-body hp-font-weight-500 hp-hover-text-color-danger-2 hp-mb-0">
 					Log out
 				</p>
 			),
 			icon: <Logout color="red" />,
+			onClick: () => Auth.signOut().then(() => window.location.href = '/')
 		}
 	];
 

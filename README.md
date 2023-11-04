@@ -2,8 +2,6 @@ TODO Export Data = Vehicles, Certs
 TODO Push Notifs - https://enappd.com/blog/firebase-push-notification-in-ionic-react-capacitor/111/
 TODO Favourite Certs, Vehicles etc. favourites go top
 TODO Offline Mode
-TODO Import vehicle checklists
-TODO Download cert - lite like covid qr
 TODO Signout user once and resign in on first create
 TODO Create company for user pre-signup - auto select company
 TODO Driver workflow > prompt to update account

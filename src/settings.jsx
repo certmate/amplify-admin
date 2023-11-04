@@ -66,7 +66,7 @@ export const routes = {
                 roles: ['Owner', 'Inspector', 'Driver']
             },
             read: {
-                fields: ['id', '_version', 'number', 'type', 'status', 'vehicle.rego,make,model,category,assetId,pic', 'auditSections', 'odometer', 'driver.id,name', 'inspector.id,name,phone,acN,signature', 'company.id,name,logo', 'Client.id,name,logo', 'operatingArea', 'createdAt', 'vehiclePics'],
+                fields: ['id', '_version', 'number', 'type', 'status', 'vehicle.rego,make,model,category,assetId,pic', 'auditSections', 'odometer', 'driver.id,name,signature', 'inspector.id,name,phone,acN,signature', 'company.id,name,logo', 'Client.id,name,logo', 'operatingArea', 'createdAt', 'vehiclePics'],
                 actions: [
                     { ...actions.delete, routes: ['/certs?filter=pending'] },
                     { ...actions.update, condition: ({ status }) => isEmpty(status) || ['A', 'P'].includes(status)},

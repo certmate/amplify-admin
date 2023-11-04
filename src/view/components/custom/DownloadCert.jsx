@@ -11,6 +11,7 @@ import './DownloadCert.less';
 import dayjs from "dayjs";
 import { numberWithCommas } from "../../../helpers";
 import { saveAs } from 'file-saver';
+import brandLogo from '../../../assets/brand.png';
 
 const a4Dimensions = {
     width: 2480,
@@ -35,6 +36,8 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
     const [qrCode, setQrCode] = useState(null);
     const [driverSignature, setDriverSignature] = useState("");
     const [inspectorSignature, setInspectorSignature] = useState("");
+    const [clientLogo, setClientLogo] = useState("");
+    const [companyLogo, setCompanyLogo] = useState("");
     const [showModal, setShowModal] = useState(null);
 
     useEffect(() => {
@@ -42,6 +45,8 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
             setQrCode(await QRCode.toDataURL(`https://admin.certmate.com.au/certs?id=${id}`));
             setDriverSignature(await getImageUrlAndConvertToBase64(driver.signature));
             setInspectorSignature(await getImageUrlAndConvertToBase64(inspector.signature));
+            setClientLogo(await getImageUrlAndConvertToBase64(Client.logo));
+            setCompanyLogo(await getImageUrlAndConvertToBase64(company.logo));
         })()
     }, []);
 
@@ -79,6 +84,9 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
             ]}
         >
             <div ref={btnRef} className="hp-bg-color-black-40 hp-p-24">
+                <div className="hp-text-center hp-mb-16">
+                    <img style={{height: 50}} src={brandLogo} />
+                </div>
                 <Card
                     className="hp-text-center hp-mb-16"
                     headStyle={{ backgroundColor: getStatusColorAndText(status)[0] }}
@@ -91,24 +99,26 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
                 </Card>
 
                 <Card className="hp-mb-16">
-                    <Card.Grid style={{ width: '50%' }}>
+                    <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Operating Area</p>
                         <h5 className="hp-mb-0">{operatingArea}</h5>
                     </Card.Grid>
-                    <Card.Grid style={{ width: '50%' }}>
+                    <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Odometer</p>
                         <h5 className="hp-mb-0">{numberWithCommas(odometer)}</h5>
                     </Card.Grid>
                 </Card>
 
                 <Card className="hp-mb-16">
-                    <Card.Grid style={{ width: '50%' }}>
+                    <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Company</p>
-                        <h5 className="hp-mb-16">{company.name} [logo]</h5>
+                        <h5 className="hp-mb-16">{company.name}</h5>
+                        <img className="hp-mb-32" style={{maxHeight: 60}} src={companyLogo} />
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Operating For</p>
-                        <h5 className="hp-mb-0">{Client.name} [logo]</h5>
+                        <h5 className="hp-mb-0">{Client.name}</h5>
+                        <img className="hp-mb-32" style={{maxHeight: 60}} src={clientLogo} />
                     </Card.Grid>
-                    <Card.Grid style={{ width: '50%' }}>
+                    <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Vehicle Rego, Make, Model</p>
                         <h5 className="hp-mb-16">{vehicle.rego}<br /> {vehicle.make}, {vehicle.model}</h5>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Vehicle Category</p>
@@ -117,7 +127,7 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
                 </Card>
 
                 <Card>
-                    <Card.Grid style={{ width: '50%' }}>
+                    <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Driver</p>
                         <h5 className="hp-mb-0">{driver.name}</h5>
                         <img className="hp-mb-32" src={driverSignature} />
@@ -126,7 +136,7 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Phone</p>
                         <h5 className="hp-mb-0">{inspector.phone}</h5>
                     </Card.Grid>
-                    <Card.Grid style={{ width: '50%' }}>
+                    <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Inspector</p>
                         <h5 className="hp-mb-0">{inspector.name}</h5>
                         <img className="hp-mb-32" src={inspectorSignature} />

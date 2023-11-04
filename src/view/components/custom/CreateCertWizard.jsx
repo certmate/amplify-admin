@@ -120,7 +120,7 @@ export default function CreateCertWizard({ callback }) {
                                     // Supercede old cert
                                     await upsertData({ query: updateCert, payload: { id: values.supercede.id, _version: values.supercede._version, status: "E" }, schema: form.schema, user });
                                 }
-                                await upsertData({ query: createCert, payload: omit({ ...values, auditSections: JSON.stringify(values.auditSections) }, ['supercede']), schema: form.schema, user });
+                                await upsertData({ query: createCert, payload: omit({ ...values, number: `CM${values.type.includes('elf') ? 'SD' : 'VH'}${values.number}`, auditSections: JSON.stringify(values.auditSections) }, ['supercede']), schema: form.schema, user });
                                 resetForm();
                                 callback?.();
                             }
@@ -268,7 +268,7 @@ export default function CreateCertWizard({ callback }) {
                                 <Button icon={null} type="primary" htmlType="submit" loading={isSubmitting}>
                                     Submit
                                 </Button>
-                                <pre>{JSON.stringify({ values, errors }, false, 4)}</pre>
+                                {/* <pre>{JSON.stringify({ values, errors }, false, 4)}</pre> */}
                             </Form>
                         </>)}
                     </Formik>

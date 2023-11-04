@@ -17,7 +17,7 @@ export const tagline = "Digital Vehicle Biosecurity Management";
 export const searchPlaceholder = "Search for Certs, Vehicles, Clients, Companies & more...";
 export const appRoles = { owner: ["SuperAdmin", "Admin", "Support"], users: ["Owner", "Inspector", "Driver", "LandOwner"] };
 export const roles = [...appRoles.owner, ...appRoles.users];
-export const excludeModelsFromDashboardStats = ['Base', 'Index', 'Shared'];
+export const excludeModelsFromDashboardStats = ['Base', 'Index', 'Shared', 'Company'];
 /**
  * Routes - names are plurals of models
  */
@@ -45,7 +45,7 @@ export const routes = {
                 inspectorID: { label: 'Inspector', validation: string(), formComponent: { component: 'select', select: { options: '@User.id:name', filter: { roles: { contains: "Inspector" } } } } },
                 number: { label: 'Certificate Number', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
                 type: { label: 'Type', searchable: true, validation: string().required(), formComponent: { component: 'select', select: { options: ['Vehicle Hygiene Certificate', 'Self Declaration'] } }, table: { columnProps: { width: 250 } } },
-                odometer: { label: 'Odometer', validation: string().required().max(7), formComponent: { component: 'input' } },
+                odometer: { label: 'Odometer', validation: string().max(7).nullable(), formComponent: { component: 'input' } },
                 operatingArea: { label: 'Operating Area', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
                 checkList: { label: 'Checklist', validation: string().required(), formComponent: { component: 'input' } },
                 status: { label: 'Status', validation: string(), formComponent: { component: 'select', select: { options: ['Pending', 'Approved', 'Rejected'] } }, table: { component: (data, record) => <CustomComponent.CertStatus data={data} record={record} /> } },
@@ -111,7 +111,7 @@ export const routes = {
         }
     },
     ['/users']: {
-        title: "Members",
+        title: "User Management",
         model: "User",
         icon: <Profile />,
         component: data => <RouteComponents.Users {...data} />,
@@ -126,7 +126,7 @@ export const routes = {
                 name: { label: 'Name', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
                 email: { label: 'Email', searchable: true, validation: string().email().required(), formComponent: { component: 'input' } },
                 roles: { label: 'Roles', searchable: true, validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } } },
-                inspectorNumber: { label: 'Inspector Number', searchable: true, validation: string().min(6), formComponent: { component: 'input' } },
+                inspectorNumber: { label: 'Inspector Passcode', searchable: true, validation: string().min(6).nullable(), formComponent: { component: 'input' } },
                 acN: { label: 'Inspector Accreditation Number', searchable: true, validation: string().min(3), formComponent: { component: 'input' } },
                 acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
                 // @model.valueField:labelField
@@ -137,7 +137,7 @@ export const routes = {
             },
             create: {
                 button: {
-                    label: 'Invite User'
+                    label: 'Add User'
                 },
                 fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID', 'inspectorNumber'],
                 afterSubmit: sendInvitationEmailToMember
@@ -272,7 +272,7 @@ export const routes = {
                 name: { label: 'Name', validation: string().required(), formComponent: { component: 'input' } },
                 email: { label: 'Email', validation: string().required().email(), formComponent: { component: 'input' } },
                 phone: { label: 'Phone', validation: string().required(), formComponent: { component: 'input' } },
-                inspectorNumber: { label: 'Inspector Number', validation: string().required(), formComponent: { component: 'input' }, roles: { write: ['Owner'] } },
+                inspectorNumber: { label: 'Inspector Passcode', validation: string().min(6).nullable(), formComponent: { component: 'input' }, roles: { write: ['Owner'] } },
                 profilePic: { label: 'Your Photo', validation: string(), formComponent: { component: 'upload' } },
                 signature: { label: 'Signature', validation: string().required(), formComponent: { component: 'signature' } },
                 roles: { label: 'Roles', validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } }, roles: { write: ['Owner'] } },
@@ -329,10 +329,19 @@ export const menu = [
             { node: `/users?filter=members` },
             { node: `/users?filter=invitations` },
         ],
+        roles: ['SuperAdmin']
+    },
+    {
+        node: '/users',
+        children: [
+            { node: `/users?filter=members` },
+            { node: `/users?filter=invitations` },
+        ],
         roles: ['Owner']
     },
     {
-        node: '/clients'
+        node: '/clients',
+        roles: ['Owner']
     },
     {
         node: '/vehicles'

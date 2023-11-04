@@ -61,7 +61,7 @@ export default function SignUp({ change }) {
 					name="basic"
 					className="hp-mt-sm-16 hp-mt-32"
 				>
-					<Form.Item label="Username" className="hp-mb-16" validateStatus={errors?.username ? 'error' : ''} help={errors?.username}>
+					<Form.Item label="Email" className="hp-mb-16" validateStatus={errors?.username ? 'error' : ''} help={errors?.username}>
 						<Input onChange={handleChange('username')} onBlur={handleBlur('username')} />
 					</Form.Item>
 

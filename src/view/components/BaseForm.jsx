@@ -16,7 +16,7 @@ import { deriveComponent } from "./BaseTable";
 import SignatureCanvas from 'react-signature-canvas'
 import BaseSignature from "./BaseSignature";
 
-export default function BaseForm({ model, schema, fields, readFields, onSubmit, values, form }) {
+export default function BaseForm({ model, schema, fields, validateOnChange, readFields, onSubmit, values, form }) {
     const user = useSelector(state => state.user);
     const [antForm] = Form.useForm();
     const [options, setOptions] = useState({});
@@ -128,7 +128,7 @@ export default function BaseForm({ model, schema, fields, readFields, onSubmit, 
     return <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        validateOnChange={false}
+        validateOnChange={validateOnChange || false}
         validateOnBlur={false}
         enableReinitialize={true}
         onSubmit={async (values, { resetForm }) => {

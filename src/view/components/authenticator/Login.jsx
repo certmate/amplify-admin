@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Row, Col, Form, Input, Button, Alert } from "antd";
 import LeftContent from "./leftContent";
 import Footer from "./footer";
@@ -12,6 +12,7 @@ import SweetAlert from 'sweetalert2';
 
 export default function Login({ change, loggedIn }) {
 	const [loginError, setLoginError] = useState(null);
+    const [searchParams] = useSearchParams();
 
 	const signIn = async function (data) {
 
@@ -55,7 +56,7 @@ export default function Login({ change, loggedIn }) {
 					name="basic"
 					className="hp-mt-sm-16 hp-mt-32"
 				>
-					<Form.Item label="Username" className="hp-mb-16">
+					<Form.Item label="Email" className="hp-mb-16">
 						<Input onChange={handleChange('username')} onBlur={handleBlur('username')} />
 					</Form.Item>
 
@@ -85,7 +86,7 @@ export default function Login({ change, loggedIn }) {
 			)}
 		</Formik>
 
-		<Col className="hp-form-info hp-text-center">
+		{searchParams.get('s') === 'yes' ? <Col className="hp-form-info hp-text-center">
 			<span className="hp-text-color-black-80 hp-text-color-dark-40 hp-caption hp-font-weight-400 hp-mr-16">
 				Don’t you have an account?
 			</span>
@@ -96,7 +97,7 @@ export default function Login({ change, loggedIn }) {
 			>
 				Create an account
 			</span>
-		</Col>
+		</Col> : null}
 		{loginError && <Alert
 			className="hp-mt-16"
 			message="Login Failed"

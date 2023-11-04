@@ -23,7 +23,7 @@
           "EMAILSUBJECT": "CertMate - Verify Your Account",
           "EMAILMESSAGE": "",
           "deploymentBucketName": "amplify-certmate-dev-153406-deployment",
-          "s3Key": "amplify-builds/certmateCustomMessage-553076725631622b3644-build.zip"
+          "s3Key": "amplify-builds/certmateCustomMessage-774a4c76316b6e653652-build.zip"
         },
         "certmatePostConfirmation": {
           "GROUP": "User",

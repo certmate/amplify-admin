@@ -104,9 +104,9 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
                 <Card className="hp-mb-16">
                     <Card.Grid style={{ width: '50%' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Company</p>
-                        <h5 className="hp-mb-16">{company.name}</h5>
+                        <h5 className="hp-mb-16">{company.name} [logo]</h5>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Operating For</p>
-                        <h5 className="hp-mb-0">{Client.name}</h5>
+                        <h5 className="hp-mb-0">{Client.name} [logo]</h5>
                     </Card.Grid>
                     <Card.Grid style={{ width: '50%' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Vehicle Rego, Make, Model</p>

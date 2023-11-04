@@ -36,6 +36,7 @@ export default function BaseDashboard() {
     return <>
         <Row gutter={[16, 16]} align="middle" className="hp-ecommerce-app hp-mb-16">
             <Col span={8}>
+                <h1 className="hp-mb-0">Santos (logo)</h1>
                 <h1 className="hp-mb-0">Dashboard</h1>
             </Col>
         </Row>

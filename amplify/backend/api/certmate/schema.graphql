@@ -64,7 +64,7 @@ type User @model @auth(rules: [
 	acnDoc: String # ACN uploaded doc
 	createdAt: String
 	updatedAt: String
-	favouriteCerts: [String]
+	favourites: AWSJSON
 	fleets: [Fleet]
 	status: String @default(value: "I") # INVITED, ACTIVE
 	driverCerts: [Cert] @hasMany(indexName: "certsOfDriver", fields: ["id"])

@@ -397,13 +397,12 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "favouriteCerts": {
-                    "name": "favouriteCerts",
-                    "isArray": true,
-                    "type": "String",
+                "favourites": {
+                    "name": "favourites",
+                    "isArray": false,
+                    "type": "AWSJSON",
                     "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
+                    "attributes": []
                 },
                 "fleets": {
                     "name": "fleets",
@@ -2132,5 +2131,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "43f81ff2c0c773dd4a6c67525b0fb06d"
+    "version": "c06b1f14ce59cfa6828e5a877f9185ef"
 };

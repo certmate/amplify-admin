@@ -43,8 +43,8 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
     useEffect(() => {
         (async () => {
             setQrCode(await QRCode.toDataURL(`https://admin.certmate.com.au/certs?id=${id}`));
-            setDriverSignature(await getImageUrlAndConvertToBase64(driver.signature));
-            setInspectorSignature(await getImageUrlAndConvertToBase64(inspector.signature));
+            setDriverSignature(await getImageUrlAndConvertToBase64(driver?.signature));
+            setInspectorSignature(await getImageUrlAndConvertToBase64(inspector?.signature));
             setClientLogo(await getImageUrlAndConvertToBase64(Client.logo));
             setCompanyLogo(await getImageUrlAndConvertToBase64(company.logo));
         })()
@@ -129,22 +129,22 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
                 <Card>
                     <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Driver</p>
-                        <h5 className="hp-mb-0">{driver.name}</h5>
+                        <h5 className="hp-mb-0">{driver?.name}</h5>
                         <img className="hp-mb-32" src={driverSignature} />
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Certification Number</p>
-                        <h5 className="hp-mb-16">{inspector.acN}</h5>
+                        <h5 className="hp-mb-16">{inspector?.acN}</h5>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Phone</p>
-                        <h5 className="hp-mb-0">{inspector.phone}</h5>
+                        <h5 className="hp-mb-0">{inspector?.phone}</h5>
                     </Card.Grid>
-                    <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
+                    {inspector && <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Inspector</p>
-                        <h5 className="hp-mb-0">{inspector.name}</h5>
+                        <h5 className="hp-mb-0">{inspector?.name}</h5>
                         <img className="hp-mb-32" src={inspectorSignature} />
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Certification Number</p>
-                        <h5 className="hp-mb-16">{inspector.acN}</h5>
+                        <h5 className="hp-mb-16">{inspector?.acN}</h5>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Phone</p>
-                        <h5 className="hp-mb-0">{inspector.phone}</h5>
-                    </Card.Grid>
+                        <h5 className="hp-mb-0">{inspector?.phone}</h5>
+                    </Card.Grid>}
                 </Card>
             </div>
         </Modal>

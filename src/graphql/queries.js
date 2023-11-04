@@ -26,7 +26,7 @@ export const getIndex = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -386,7 +386,7 @@ export const getBase = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -586,7 +586,7 @@ export const getBase = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -1000,7 +1000,7 @@ export const getBase = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -1070,7 +1070,7 @@ export const getBase = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -1211,7 +1211,7 @@ export const getBase = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -1281,7 +1281,7 @@ export const getBase = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -1405,7 +1405,7 @@ export const listBases = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -1651,7 +1651,7 @@ export const listBases = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -1680,7 +1680,7 @@ export const listBases = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -1760,7 +1760,7 @@ export const listBases = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -1789,7 +1789,7 @@ export const listBases = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -1882,7 +1882,7 @@ export const syncBases = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -2128,7 +2128,7 @@ export const syncBases = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -2157,7 +2157,7 @@ export const syncBases = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -2237,7 +2237,7 @@ export const syncBases = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -2266,7 +2266,7 @@ export const syncBases = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -2363,7 +2363,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -2609,7 +2609,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -2638,7 +2638,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -2718,7 +2718,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -2747,7 +2747,7 @@ export const basesByBIDAndCreatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -2823,7 +2823,7 @@ export const getUser = /* GraphQL */ `
       acnDoc
       createdAt
       updatedAt
-      favouriteCerts
+      favourites
       fleets {
         id
         name
@@ -2932,7 +2932,7 @@ export const getUser = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -3002,7 +3002,7 @@ export const getUser = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -3220,7 +3220,7 @@ export const getUser = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -3290,7 +3290,7 @@ export const getUser = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -3431,7 +3431,7 @@ export const getUser = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -3501,7 +3501,7 @@ export const getUser = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -3594,7 +3594,7 @@ export const getUser = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -3664,7 +3664,7 @@ export const getUser = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -3752,7 +3752,7 @@ export const getUser = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -3952,7 +3952,7 @@ export const getUser = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -3981,7 +3981,7 @@ export const getUser = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4089,7 +4089,7 @@ export const listUsers = /* GraphQL */ `
         acnDoc
         createdAt
         updatedAt
-        favouriteCerts
+        favourites
         fleets {
           id
           name
@@ -4152,7 +4152,7 @@ export const listUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4181,7 +4181,7 @@ export const listUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4292,7 +4292,7 @@ export const listUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4321,7 +4321,7 @@ export const listUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4401,7 +4401,7 @@ export const listUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4430,7 +4430,7 @@ export const listUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4482,7 +4482,7 @@ export const listUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4511,7 +4511,7 @@ export const listUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4558,7 +4558,7 @@ export const listUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4717,7 +4717,7 @@ export const syncUsers = /* GraphQL */ `
         acnDoc
         createdAt
         updatedAt
-        favouriteCerts
+        favourites
         fleets {
           id
           name
@@ -4780,7 +4780,7 @@ export const syncUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4809,7 +4809,7 @@ export const syncUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4920,7 +4920,7 @@ export const syncUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -4949,7 +4949,7 @@ export const syncUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5029,7 +5029,7 @@ export const syncUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5058,7 +5058,7 @@ export const syncUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5110,7 +5110,7 @@ export const syncUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5139,7 +5139,7 @@ export const syncUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5186,7 +5186,7 @@ export const syncUsers = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5349,7 +5349,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
         acnDoc
         createdAt
         updatedAt
-        favouriteCerts
+        favourites
         fleets {
           id
           name
@@ -5412,7 +5412,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5441,7 +5441,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5552,7 +5552,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5581,7 +5581,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5661,7 +5661,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5690,7 +5690,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5742,7 +5742,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5771,7 +5771,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5818,7 +5818,7 @@ export const usersByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -5981,7 +5981,7 @@ export const usersByBaseAndName = /* GraphQL */ `
         acnDoc
         createdAt
         updatedAt
-        favouriteCerts
+        favourites
         fleets {
           id
           name
@@ -6044,7 +6044,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -6073,7 +6073,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -6184,7 +6184,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -6213,7 +6213,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -6293,7 +6293,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -6322,7 +6322,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -6374,7 +6374,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -6403,7 +6403,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -6450,7 +6450,7 @@ export const usersByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -6602,7 +6602,7 @@ export const getCompany = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -7078,7 +7078,7 @@ export const getCompany = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -7148,7 +7148,7 @@ export const getCompany = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -7310,7 +7310,7 @@ export const listCompanies = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -7510,7 +7510,7 @@ export const listCompanies = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -7539,7 +7539,7 @@ export const listCompanies = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -7650,7 +7650,7 @@ export const syncCompanies = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -7850,7 +7850,7 @@ export const syncCompanies = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -7879,7 +7879,7 @@ export const syncCompanies = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -7994,7 +7994,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -8194,7 +8194,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -8223,7 +8223,7 @@ export const companiesByBaseAndName = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -8326,7 +8326,7 @@ export const getVehicle = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -8526,7 +8526,7 @@ export const getVehicle = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -8555,7 +8555,7 @@ export const getVehicle = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -8736,7 +8736,7 @@ export const getVehicle = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -8806,7 +8806,7 @@ export const getVehicle = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -8964,7 +8964,7 @@ export const listVehicles = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -9140,7 +9140,7 @@ export const listVehicles = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -9169,7 +9169,7 @@ export const listVehicles = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -9276,7 +9276,7 @@ export const syncVehicles = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -9452,7 +9452,7 @@ export const syncVehicles = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -9481,7 +9481,7 @@ export const syncVehicles = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -9592,7 +9592,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -9768,7 +9768,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -9797,7 +9797,7 @@ export const vehiclesByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -9908,7 +9908,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -10084,7 +10084,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -10113,7 +10113,7 @@ export const vehiclesByBaseAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -10209,7 +10209,7 @@ export const getCert = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -10409,7 +10409,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -10438,7 +10438,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -10534,7 +10534,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -10710,7 +10710,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -10739,7 +10739,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -10821,7 +10821,7 @@ export const getCert = /* GraphQL */ `
         acnDoc
         createdAt
         updatedAt
-        favouriteCerts
+        favourites
         fleets {
           id
           name
@@ -10884,7 +10884,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -10913,7 +10913,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11024,7 +11024,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11053,7 +11053,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11133,7 +11133,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11162,7 +11162,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11214,7 +11214,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11243,7 +11243,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11290,7 +11290,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11431,7 +11431,7 @@ export const getCert = /* GraphQL */ `
         acnDoc
         createdAt
         updatedAt
-        favouriteCerts
+        favourites
         fleets {
           id
           name
@@ -11494,7 +11494,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11523,7 +11523,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11634,7 +11634,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11663,7 +11663,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11743,7 +11743,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11772,7 +11772,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11824,7 +11824,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11853,7 +11853,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -11900,7 +11900,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -12048,7 +12048,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -12223,7 +12223,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -12252,7 +12252,7 @@ export const getCert = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -12367,7 +12367,7 @@ export const listCerts = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -12592,7 +12592,7 @@ export const listCerts = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -12784,7 +12784,7 @@ export const listCerts = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -13113,7 +13113,7 @@ export const syncCerts = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -13338,7 +13338,7 @@ export const syncCerts = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -13530,7 +13530,7 @@ export const syncCerts = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -13863,7 +13863,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -14088,7 +14088,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -14280,7 +14280,7 @@ export const certsByCompanyIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -14613,7 +14613,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -14838,7 +14838,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -15030,7 +15030,7 @@ export const certsByVehicleIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -15363,7 +15363,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -15588,7 +15588,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -15780,7 +15780,7 @@ export const certsByDriverIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -16113,7 +16113,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -16338,7 +16338,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -16530,7 +16530,7 @@ export const certsByInspectorIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -16863,7 +16863,7 @@ export const certsByClientIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -17088,7 +17088,7 @@ export const certsByClientIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -17280,7 +17280,7 @@ export const certsByClientIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -17613,7 +17613,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -17838,7 +17838,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -18030,7 +18030,7 @@ export const certsByBaseAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -18350,7 +18350,7 @@ export const getNotification = /* GraphQL */ `
         acnDoc
         createdAt
         updatedAt
-        favouriteCerts
+        favourites
         fleets {
           id
           name
@@ -18413,7 +18413,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -18442,7 +18442,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -18553,7 +18553,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -18582,7 +18582,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -18662,7 +18662,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -18691,7 +18691,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -18743,7 +18743,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -18772,7 +18772,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -18819,7 +18819,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -18960,7 +18960,7 @@ export const getNotification = /* GraphQL */ `
         acnDoc
         createdAt
         updatedAt
-        favouriteCerts
+        favourites
         fleets {
           id
           name
@@ -19023,7 +19023,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -19052,7 +19052,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -19163,7 +19163,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -19192,7 +19192,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -19272,7 +19272,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -19301,7 +19301,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -19353,7 +19353,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -19382,7 +19382,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -19429,7 +19429,7 @@ export const getNotification = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -19597,7 +19597,7 @@ export const listNotifications = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -19789,7 +19789,7 @@ export const listNotifications = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -20018,7 +20018,7 @@ export const syncNotifications = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -20210,7 +20210,7 @@ export const syncNotifications = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -20443,7 +20443,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -20635,7 +20635,7 @@ export const notificationsByFromUserIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -20868,7 +20868,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -21060,7 +21060,7 @@ export const notificationsByToUserIDAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -21293,7 +21293,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -21485,7 +21485,7 @@ export const notificationsByBaseAndUpdatedAt = /* GraphQL */ `
           acnDoc
           createdAt
           updatedAt
-          favouriteCerts
+          favourites
           fleets {
             id
             name
@@ -21701,7 +21701,7 @@ export const getClient = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -21901,7 +21901,7 @@ export const getClient = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -21930,7 +21930,7 @@ export const getClient = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -22110,7 +22110,7 @@ export const getClient = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -22180,7 +22180,7 @@ export const getClient = /* GraphQL */ `
             acnDoc
             createdAt
             updatedAt
-            favouriteCerts
+            favourites
             fleets {
               id
               name
@@ -22335,7 +22335,7 @@ export const listClients = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -22510,7 +22510,7 @@ export const listClients = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -22539,7 +22539,7 @@ export const listClients = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -22643,7 +22643,7 @@ export const syncClients = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -22818,7 +22818,7 @@ export const syncClients = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -22847,7 +22847,7 @@ export const syncClients = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -22955,7 +22955,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -23130,7 +23130,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -23159,7 +23159,7 @@ export const clientsByCompanyIDAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -23267,7 +23267,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -23442,7 +23442,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base
@@ -23471,7 +23471,7 @@ export const clientsByBaseAndUpdatedAt = /* GraphQL */ `
               acnDoc
               createdAt
               updatedAt
-              favouriteCerts
+              favourites
               status
               companyID
               base

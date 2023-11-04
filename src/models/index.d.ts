@@ -147,7 +147,7 @@ type EagerUser = {
   readonly acnDoc?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly favouriteCerts?: (string | null)[] | null;
+  readonly favourites?: string | null;
   readonly fleets?: (Fleet | null)[] | null;
   readonly status?: string | null;
   readonly driverCerts?: (Cert | null)[] | null;
@@ -181,7 +181,7 @@ type LazyUser = {
   readonly acnDoc?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly favouriteCerts?: (string | null)[] | null;
+  readonly favourites?: string | null;
   readonly fleets?: (Fleet | null)[] | null;
   readonly status?: string | null;
   readonly driverCerts: AsyncCollection<Cert>;

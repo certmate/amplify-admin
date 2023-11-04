@@ -192,7 +192,7 @@ export default function CreateCertWizard({ callback }) {
                                     }} options={selectOptions?.vehicles || [{ label: '', value: '' }]} />
                                     <span className="hp-text-color-danger-1">{errors?.vehicleID}</span>
                                 </div>
-                                {checklists[find(selectOptions.vehicles, { value: values.vehicleID })?.category] && <>
+                                {!values.type?.includes('elf') && checklists[find(selectOptions.vehicles, { value: values.vehicleID })?.category] && <>
                                     <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">Audit</span>
                                     <List dataSource={values.auditSections || []} renderItem={({ title, result }) => <List.Item>
                                         <List.Item.Meta
@@ -226,7 +226,7 @@ export default function CreateCertWizard({ callback }) {
                                 </>}
                                 <div className="hp-mb-16">
                                     <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{form.schema.odometer.label}</span>
-                                    <Field name='odometer' type='number' className='ant-input' disabled={isSubmitting} />
+                                    <Field name='odometer' className='ant-input' disabled={isSubmitting} />
                                     <span className="hp-text-color-danger-1">{errors?.odometer}</span>
                                 </div>
                                 <div className="hp-mb-16">
@@ -240,14 +240,14 @@ export default function CreateCertWizard({ callback }) {
                                     <span className="hp-text-color-danger-1">{errors?.vehiclePics}</span>
                                 </div>
                                 {/* If driver, show inspector; vice versa */}
-                                {role(user) === 'Driver' ? (
+                                {!values.type?.includes('elf') && role(user) === 'Driver' ? (
                                     <div className="hp-mb-16">
                                         <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">Inspector Number</span>
                                         <Field name='inspectorNumber' className='ant-input' disabled={isSubmitting} />
                                         <span className="hp-text-color-danger-1">{errors?.inspectorNumber}</span>
                                     </div>
                                 ) : null}
-                                {role(user) === 'Owner' ? (
+                                {!values.type?.includes('elf') && role(user) === 'Owner' ? (
                                     <div className="hp-mb-16">
                                         <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{form.schema.inspectorID.label}</span>
                                         <Select onChange={handleChange('inspectorID')} options={selectOptions?.inspectors || [{ label: '', value: '' }]} />

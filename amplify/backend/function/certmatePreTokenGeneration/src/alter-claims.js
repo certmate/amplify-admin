@@ -19,18 +19,24 @@ exports.handler = async event => {
       headers: { "x-api-key": process.env.GRAPHQL_API_KEY }
     });
 
-    console.log(JSON.stringify({getUser}));
+    /**
+     * If user exists, but roles are not set, make role as User
+     */
+    if(getUser){
+      if(getUser.roles){
+        getUser.roles.forEach(r => groups.push(r));
+      }
+      else{
+        groups.push('User');
+      }
 
-    // Adding roles to user
-    getUser?.roles?.forEach(r => groups.push(r));
-    // Adding base to user
-    getUser?.base && groups.push(getUser.base);
+      getUser?.base && groups.push(getUser.base);
+    }
   }
   catch(e){
     console.log(JSON.stringify(e));
   }
 
-  console.log({groups});
   event.response = {
     claimsOverrideDetails: {
       groupOverrideDetails: {

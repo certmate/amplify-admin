@@ -22,7 +22,7 @@ export const approveRejectCert = {
 
 export const downloadCert = {
     component: ({ data, callback }) => <DownloadCert data={data} callback={callback} />,
-    condition: ({ inspector }) => !isNull(inspector)
+    condition: ({ inspector, type }) => !isNull(inspector) || type.includes('elf')
 }
 
 export const approveDisapproveAsInspector = {

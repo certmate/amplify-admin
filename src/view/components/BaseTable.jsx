@@ -1,11 +1,13 @@
 import { Table, Space } from "antd";
 import { has, isFunction, isObject, startCase, set, find } from "lodash";
 import { RoleRouteFilter, ConditionalFilter, getFieldsOfParentModel, getParentModel, hasArrayOfValues } from "../../helpers";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
 import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
-import { readData } from "../../common";
+import { markFavouriteForUser, readData, getUserFromAppSync } from "../../common";
+import { Heart } from "iconsax-react";
+import { StarFilled, StarOutlined } from "@ant-design/icons";
 
 export const deriveComponent = (type, data) => {
     switch (type) {
@@ -19,6 +21,7 @@ export const deriveComponent = (type, data) => {
 
 export default function BaseTable({ data, columns, schema, actions, model, form, callback }) {
     const user = useSelector(state => state.user);
+    const dispatch = useDispatch();
     const { pathname, search } = useLocation();
     const [tableData, setTableData] = useState(data || []);
     const [tableColumns, setTableColumns] = useState([]);
@@ -73,6 +76,10 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
 
     return <Table dataSource={tableData.map((d, key) => ({ ...d, key }))} columns={
         [
+            form.read?.allowFavourites && {
+                key: 'fave',
+                render: ({ favourited, id }) => favourited ? <StarFilled style={{color: 'gold'}} /> : <StarOutlined onClick={async () => { await markFavouriteForUser({ model, id, user }); dispatch({ type: 'SET_USER_APPSYNC', data: await getUserFromAppSync(user.cognito) }); }} color="black" />
+            },
             // data columns
             ...tableColumns.map(({ label, column, table }) => ({
                 title: startCase(label),
@@ -91,15 +98,17 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
                     {actions.filter(({ roles, routes, condition }) => RoleRouteFilter(roles, routes, user, pathname + search) && ConditionalFilter(condition, data)).map(({ component, fx }, key) => (
                         <a key={`action-${key}`}>
                             {/* Render Component */}
-                            {component({ data, model, form, schema, callback: async () => { 
-                                // Check if custom fx is called and execute it on callback
-                                isFunction(fx) && await fx(); callback();  // Execute parent callback
-                            } })}
+                            {component({
+                                data, model, form, schema, callback: async () => {
+                                    // Check if custom fx is called and execute it on callback
+                                    isFunction(fx) && await fx(); callback();  // Execute parent callback
+                                }
+                            })}
                         </a>
                     ))}
                 </Space>
             } : []
-        ]
+        ].filter(Boolean)
     }
         scroll={{ x: 1000 }} />
 }

@@ -79,7 +79,8 @@ export const routes = {
                     component: {
                         title: 'number'
                     }
-                }
+                },
+                allowFavourites: true
             }
         },
         notificationFilter: {
@@ -220,7 +221,8 @@ export const routes = {
                 actions: [
                     { ...actions.delete, roles: ['Owner'] },
                     { ...actions.update, roles: ['Owner'] }
-                ]
+                ],
+                allowFavourites: true
             }
         }
     },

@@ -10,6 +10,7 @@
     "sync": "bun run build; npx cap sync; cp -f ./Pods-App-frameworks.sh ./ios/App/Pods/Target\\ Support\\ Files/Pods-App/"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
     "@aws-amplify/ui-components": "^1.9.40",
     "@aws-amplify/ui-react": "^5.2.0",
     "@aws-amplify/ui-react-storage": "^2.2.0",

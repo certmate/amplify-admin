@@ -11,89 +11,11 @@ import { v4 } from "uuid";
 import { createUserAndBase, getUser } from "../graphql/customQueries";
 import BaseSearch from "../view/components/BaseSearch";
 import BaseDashboard from "../view/components/BaseDashboard";
+import { getUserFromAppSync } from "../common";
 
 export default function Router() {
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
-
-    const userFromAppSync = async cognitoUser => {
-        const get = async cognitoUser => {
-            try {
-                return await API.graphql(
-                    graphqlOperation(`
-                        query GetUser(
-                        $id: ID!
-                        ){
-                            getUser(id: $id) {
-                                id
-                                _version
-                                base
-                                ${routes['/account'].form.onboardingFields.join(`\n`)}
-                            }
-                        }
-                    `, {
-                        id: cognitoUser.attributes.email,
-                    })
-                );
-            }
-            catch (e) {
-                return e;
-            }
-        }
-        let d = await get(cognitoUser);
-
-        if (!d.data.getUser) {
-            try {
-                const base = v4();
-
-                await API.graphql(
-                    graphqlOperation(createUserAndBase, {
-                        user: {
-                            id: cognitoUser.attributes.email,
-                            email: cognitoUser.attributes.email,
-                            base: base,
-                            roles: ['Owner']
-                        },
-                        base: {
-                            id: base
-                        }
-                    })
-                );
-                d = await get(cognitoUser);
-            }
-            catch (e) {
-                console.log(e);
-            }
-        }
-
-        // Update user pushToken + status
-        if(d){
-            try{
-                await API.graphql(
-                    graphqlOperation(`
-                        mutation UpdateUser($input: UpdateUserInput!){
-                            updateUser(input: $input){
-                                id
-                            }
-                        }
-                    `, {
-                        input: {
-                            id: d.data.getUser.id,
-                            _version: d.data.getUser._version,
-                            status: 'A'
-                        }
-                    })
-                );
-
-                d = await get(cognitoUser);
-            }
-            catch(e){
-                console.log(e);
-            }
-        }
-
-        return { ...d.data.getUser };
-    }
 
     useEffect(() => {
         user && (async () => {
@@ -105,7 +27,7 @@ export default function Router() {
                  * 3.   Check for notifications
                  */
                 // 1.
-                const data = await userFromAppSync(user.cognito);
+                const data = await getUserFromAppSync(user.cognito);
                 dispatch({ type: 'SET_USER_APPSYNC', data });
 
                 /**

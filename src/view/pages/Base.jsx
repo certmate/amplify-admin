@@ -6,7 +6,7 @@ import BaseHeader from "../components/BaseHeader";
 import BaseTable from "../components/BaseTable";
 import { useSelector } from "react-redux";
 import { readData } from "../../common";
-import { concat, first, isFunction, isObject, isString } from "lodash";
+import { concat, first, isFunction, isObject, isString, pickBy } from "lodash";
 
 export default function Base({ title, filters = [], model, form, data }) {
     // Hooks
@@ -25,10 +25,29 @@ export default function Base({ title, filters = [], model, form, data }) {
      * 
      */
     const getTableData = useCallback(async () => {
-        return concat(
+        // Favourites go top
+        const tableData = concat(
             isFunction(form.read.extraTableData) && await form.read.extraTableData({ user, filter: filter?.filter || null, model }),
             await readData({ user, filter: filter?.filter || null, model, fields: form?.read?.fields.map(f => first(f.split(/(:@)/))) || [] })
         ).filter(Boolean);
+
+        if(user.appsync.favourites){
+            try{
+                const favourites = JSON.parse(user.appsync.favourites)[model];
+                const favouriteData = [], otherData = [];
+                tableData.forEach(item => {
+                    favourites.includes(item.id) ? favouriteData.push({...item, favourited: true}) : otherData.push(item);
+                });
+
+                return [...favouriteData, ...otherData];
+            }
+            catch(e){
+                return tableData;
+            }
+        }
+        else{
+            return tableData;
+        }
     }, [model, user, filter]);
     /**
      * Path fragments

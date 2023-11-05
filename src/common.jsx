@@ -2,7 +2,7 @@
 
 import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
-import { isArray, isString, lowerCase, omit, values, first, deburr, chain, entries, isEmpty, get, isObject } from "lodash";
+import { isArray, isString, lowerCase, omit, values, first, deburr, chain, entries, isEmpty, get, isObject, uniq } from "lodash";
 import { routes } from "./settings";
 import { cleanEmptyConnections, hasArrayOfValues } from "./helpers";
 import BaseUpdateButton from "./view/components/BaseUpdateButton";
@@ -24,7 +24,19 @@ export const getUserFromAppSync = async cognitoUser => {
     const get = async cognitoUser => {
         try {
             return await API.graphql(
-                graphqlOperation(getUser, {
+                graphqlOperation(`
+                    query GetUser(
+                    $id: ID!
+                    ){
+                        getUser(id: $id) {
+                            id
+                            _version
+                            base
+                            favourites
+                            ${routes['/account'].form.onboardingFields.join(`\n`)}
+                        }
+                    }
+                `, {
                     id: cognitoUser.attributes.email,
                 })
             );
@@ -44,7 +56,8 @@ export const getUserFromAppSync = async cognitoUser => {
                     user: {
                         id: cognitoUser.attributes.email,
                         email: cognitoUser.attributes.email,
-                        base: base
+                        base: base,
+                        roles: ['Owner']
                     },
                     base: {
                         id: base
@@ -54,6 +67,32 @@ export const getUserFromAppSync = async cognitoUser => {
             d = await get(cognitoUser);
         }
         catch (e) {
+            console.log(e);
+        }
+    }
+
+    // Update user pushToken + status
+    if(d){
+        try{
+            await API.graphql(
+                graphqlOperation(`
+                    mutation UpdateUser($input: UpdateUserInput!){
+                        updateUser(input: $input){
+                            id
+                        }
+                    }
+                `, {
+                    input: {
+                        id: d.data.getUser.id,
+                        _version: d.data.getUser._version,
+                        status: 'A'
+                    }
+                })
+            );
+
+            d = await get(cognitoUser);
+        }
+        catch(e){
             console.log(e);
         }
     }
@@ -268,7 +307,6 @@ export const shareModelWithUser = async ({ data, model, user, shareWith, accessL
     console.log('Sharing', { data, model, user, shareWith });
 }
 
-
 export const userHasOnboared = user => {
     const fields = routes['/account'].form.onboardingFields;
 
@@ -280,4 +318,39 @@ export const userHasOnboared = user => {
     }
 
     return true;
+}
+
+export const markFavouriteForUser = async ({ model, id, user }) => {
+    try {
+        return await API.graphql(
+            graphqlOperation(`
+                mutation UpdateUser(
+                    $input: UpdateUserInput!
+                ){
+                    updateUser(input: $input) {
+                        id
+                        _version
+                        base
+                        favourites
+                        ${routes['/account'].form.onboardingFields.join(`\n`)}
+                    }
+                }
+            `, {
+                input: {
+                    id: user.appsync.id,
+                    _version: user.appsync._version,
+                    favourites: JSON.stringify({
+                        ...(user.appsync.favourites || {}),
+                        [model]: uniq([
+                            ...(user.appsync.favourites?.[model] || []),
+                            id
+                        ])
+                    })
+                }
+            })
+        );
+    }
+    catch (e) {
+        return e;
+    }
 }

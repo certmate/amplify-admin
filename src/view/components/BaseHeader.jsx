@@ -37,7 +37,8 @@ export default function BaseHeader({ title, model, form, filters, createCallback
                 try {
                     setShowModal(false);
                     createCallback();
-                    await SweetAlert.fire({ title: 'Done', text: `${model} Created!`, icon: 'success' });
+                    
+                    await SweetAlert.fire({ title: 'Done', text: get(form, 'create.messages.create', `${model} Created!`), icon: 'success' });
                 }
                 catch (e) {
                     console.log(e);

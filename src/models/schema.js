@@ -1044,7 +1044,8 @@ export const schema = {
                                 "provider": "userPools",
                                 "allow": "groups",
                                 "groups": [
-                                    "SuperAdmin"
+                                    "SuperAdmin",
+                                    "Owner"
                                 ],
                                 "operations": [
                                     "read",

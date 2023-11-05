@@ -9,7 +9,7 @@ export default function Filters({ filters }) {
     const user = useSelector(state => state.user);
     const navigate = useNavigate();
 
-    return filters ? <Space>
+    return filters ? <Space style={{maxWidth: '100%', overflow: 'scroll'}}>
         {entries(filters).filter(([_, { roles }]) => RoleRouteFilter(roles, [], user, null)).map(([key, { name, roles }], index) => <Pill index={index} key={uniqueId()} label={name} onClick={() => navigate(`?filter=${key}`)} />)}
     </Space> : null
 }

@@ -70,7 +70,6 @@ export const routes = {
                 actions: [
                     { ...actions.delete, routes: ['/certs?filter=pending'] },
                     { ...actions.update, condition: ({ status }) => isEmpty(status) || ['A', 'P'].includes(status)},
-                    shareCert,
                     approveRejectCert,
                     downloadCert
                 ],
@@ -250,6 +249,9 @@ export const routes = {
                 fields: ['name', 'vehicles', 'id'],
                 onSubmit: {
                     ['Driver']: createFleetForUser
+                },
+                messages: {
+                    create: 'Fleet Created'
                 }
             },
             read: {

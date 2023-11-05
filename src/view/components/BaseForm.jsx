@@ -241,7 +241,7 @@ export default function BaseForm({ model, schema, fields, validateOnChange, read
                         </Button>
                     </Form.Item>
                 </>}
-                {/* <pre>{JSON.stringify({ values, errors, initialValues, schema }, false, 4)}</pre> */}
+                <pre>{JSON.stringify({ values, errors, initialValues, schema }, false, 4)}</pre>
 
             </Form>
         </>)}

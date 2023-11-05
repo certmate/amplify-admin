@@ -107,7 +107,7 @@ type Company @model @auth(rules: [
 type Vehicle @model @auth(rules: [
 	{ allow: owner },
     { allow: public },
-	{ allow: groups, groups: ["SuperAdmin"], operations: [read, create, update, delete] },
+	{ allow: groups, groups: ["SuperAdmin", "Owner"], operations: [read, create, update, delete] },
 	{ allow: groups, groups: ["Admin"], operations: [read, update] },
 	{ allow: groups, groupsField: "read", operations: [read] },
 	{ allow: private, operations: [read] }

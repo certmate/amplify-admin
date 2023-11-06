@@ -12,6 +12,8 @@ import dayjs from "dayjs";
 import { numberWithCommas } from "../../../helpers";
 import { saveAs } from 'file-saver';
 import brandLogo from '../../../assets/brand.png';
+import SweetAlert from 'sweetalert2';
+import { Share } from '@capacitor/share';
 
 const a4Dimensions = {
     width: 2480,
@@ -68,12 +70,18 @@ export default function DownloadCert({ data: { id, status, type, number, created
                             saveAs(fileData, fileName);
                         }
                         else {
-                            await Filesystem.writeFile({
+                            let { uri } = await Filesystem.writeFile({
                                 path: fileName,
                                 data: fileData,
                                 directory: Directory.Documents,
                                 recursive: true
                             });
+
+                            await Share.share({
+                                url,
+                            });
+
+                            // await SweetAlert.fire({ title: 'Done', text: get(form, 'create.messages.create', `${model} Created!`), icon: 'success' });
                         }
                     }
                     catch (e) {

@@ -8,8 +8,6 @@ PODS:
     - Capacitor
   - CapacitorPluginSafeArea (2.0.5):
     - Capacitor
-  - CapacitorShare (5.0.6):
-    - Capacitor
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
@@ -17,7 +15,6 @@ DEPENDENCIES:
   - "CapacitorDevice (from `../../node_modules/@capacitor/device`)"
   - "CapacitorFilesystem (from `../../node_modules/@capacitor/filesystem`)"
   - CapacitorPluginSafeArea (from `../../node_modules/capacitor-plugin-safe-area`)
-  - "CapacitorShare (from `../../node_modules/@capacitor/share`)"
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -30,8 +27,6 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/filesystem"
   CapacitorPluginSafeArea:
     :path: "../../node_modules/capacitor-plugin-safe-area"
-  CapacitorShare:
-    :path: "../../node_modules/@capacitor/share"
 
 SPEC CHECKSUMS:
   Capacitor: 57890b363df14d5d2d5d8461aa23e886cb34da2a
@@ -39,8 +34,7 @@ SPEC CHECKSUMS:
   CapacitorDevice: 2c968f98a1ec4d22357418c1521e7ddc46c675e6
   CapacitorFilesystem: af704badfbc69f6f8623d9ed313e5490e3723dcb
   CapacitorPluginSafeArea: bfdd714827dbd89fb44fea286beec996e1b0c5c4
-  CapacitorShare: cd41743331cb71d217c029de54b681cbd91e0fcc
 
-PODFILE CHECKSUM: 4e34e7fb8324889802f0ec020ad2826f94fa7b47
+PODFILE CHECKSUM: 5fd4651fb03f927dbdd01fdf88e07a57f446baae
 
 COCOAPODS: 1.11.2

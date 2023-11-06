@@ -3,7 +3,7 @@ import { isNull } from "lodash";
 import { Link } from "react-router-dom";
 
 export const getStatusColorAndText = ({ status, type }) => {
-    return type === 'Self Declaration' ? ['#1e90ff', 'This certificate is a Self Declaration']
+    return type === 'Self Declaration' ? ['#1e90ff', 'This Self Declaration Certificate certifies this vehicle as clean']
         : status === 'P' ? ['gold', 'This Vehicle Hygiene Certificate is Pending Approval']
             : status === 'A' ? ['green', 'This Vehicle Hygiene Certificate is Valid & Active']
                 : status === 'R' ? ['orange', 'This Vehicle Hygiene Certificate has been rejected and is invalid']

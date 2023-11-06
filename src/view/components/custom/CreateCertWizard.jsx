@@ -257,7 +257,7 @@ export default function CreateCertWizard({ callback }) {
                                 {/* If driver, show inspector; vice versa */}
                                 {!values.type?.includes('elf') && role(user) === 'Driver' ? (
                                     <div className="hp-mb-16">
-                                        <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">Inspector Number</span>
+                                        <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">Inspector Passcode</span>
                                         <Field name='inspectorNumber' className='ant-input' disabled={isSubmitting} />
                                         <span className="hp-text-color-danger-1">{errors?.inspectorNumber}</span>
                                     </div>

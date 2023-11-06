@@ -6,6 +6,11 @@ TODO Create company for user pre-signup - auto select company
 TODO Fleets read only
 TODO Stripe
 TODO Scan QR Code > Open Certmate > New route without login
+TODO Fleets - view - certs of fleet (newest cert) > Renew certs from fleet (only update area & inspector signoff)
+TODO RESET Audit button
+TODO Fleets link on dashboard
+TODO Update cert > Renew Cert
+TODO Add fine print to cert
 
 TODO Secure lambdas with accessToken check - https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html
 

@@ -78,7 +78,7 @@ export default function DownloadCert({ data: { id, status, type, number, created
                             });
 
                             await Share.share({
-                                url,
+                                url: uri,
                             });
 
                             // await SweetAlert.fire({ title: 'Done', text: get(form, 'create.messages.create', `${model} Created!`), icon: 'success' });

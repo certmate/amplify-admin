@@ -101,10 +101,10 @@ export default function CreateCertWizard({ callback }) {
                         enableReinitialize={true}
                         onSubmit={async (values, { resetForm }) => {
                             values = cleanNull(values);
-                            console.log({ values });
+                            let inspectorID;
                             // Check inspector number
                             if(values.inspectorNumber){
-                                let inspectorID = await getInspectorID(values.inspectorNumber);
+                                inspectorID = await getInspectorID(values.inspectorNumber);
                                 // If inspectorID is empty, inspector number is wrong
                                 !inspectorID && SweetAlert.fire({
                                     title: 'Inspector not found',
@@ -122,11 +122,22 @@ export default function CreateCertWizard({ callback }) {
                                     await upsertData({ query: updateCert, payload: { id: values.supercede.id, _version: values.supercede._version, status: "E" }, schema: form.schema, user });
                                 }
                                 // 
-                                // 
+                                // Auto approving self declarations
                                 values.type.includes('elf') && (values.status = 'A');
+                                // 
+                                // Adding inspector & setting auto approve
+                                if(inspectorID){
+                                    values.inspectorID = inspectorID;
+                                    values.status = 'A';
+                                }
+                                delete values.inspectorNumber;
+                                // 
+                                // 
                                 await upsertData({ query: createCert, payload: omit({ ...values, number: `CM${values.type.includes('elf') ? 'SD' : 'VH'}${values.number}`, auditSections: JSON.stringify(values.auditSections) }, ['supercede']), schema: form.schema, user });
                                 resetForm();
-                                callback?.();
+                                await callback?.();
+
+                                setShowModal(false);
                             }
                             catch (e) {
                                 console.log(e);

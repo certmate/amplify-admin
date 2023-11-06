@@ -1,5 +1,5 @@
-import { Button, Modal, Card, Form, Select, Carousel, Divider, Space, List, Spin } from "antd";
-import { AddCircle } from "iconsax-react";
+import { Button, Modal, Card, Form, Select, Carousel, Divider, Space, List, Spin, Grid, Row, Col } from "antd";
+import { AddCircle, ArrowLeft2 } from "iconsax-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ErrorMessage, Field, Formik } from "formik";
 import { object } from "yup";
@@ -225,6 +225,13 @@ export default function CreateCertWizard({ callback }) {
                                                     </ul>
                                                     <Divider />
                                                     <Space>
+                                                        {values.auditSections?.length > 0 && <>
+                                                            <Button danger style={{padding: 4}} onClick={() => {
+                                                                setFieldValue('auditSections', values.auditSections.slice(0,-1));
+                                                                auditCarousel.current.prev();
+                                                            }}><ArrowLeft2 style={{margin: 0}} /></Button>
+                                                            <Divider />
+                                                        </>}
                                                         <Button danger onClick={() => {
                                                             setFieldValue('auditSections', [...values.auditSections, { title, items, result: 'Fail' }]);
                                                             auditCarousel.current.next();

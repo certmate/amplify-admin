@@ -42,7 +42,7 @@ async function getImageUrlAndConvertToBase64(key) {
     });
 }
 
-export default function DownloadCert({ data: { id, status, type, number, createdAt, Client, vehicle, odometer, operatingArea, company, inspector, driver, comments }, callback }) {
+export default function DownloadCert({ data: { id, status, type, number, createdAt, Client, vehicle, odometer, operatingArea, company, inspector, driver, comments }, callback, hideButton }) {
 
     const btnRef = useRef(null);
     const [qrCode, setQrCode] = useState(null);
@@ -50,7 +50,7 @@ export default function DownloadCert({ data: { id, status, type, number, created
     const [inspectorSignature, setInspectorSignature] = useState("");
     const [clientLogo, setClientLogo] = useState("");
     const [companyLogo, setCompanyLogo] = useState("");
-    const [showModal, setShowModal] = useState(null);
+    const [showModal, setShowModal] = useState(Boolean(hideButton));
     const [downloading, setDownloading] = useState(false);
 
     useEffect(() => {
@@ -64,12 +64,12 @@ export default function DownloadCert({ data: { id, status, type, number, created
     }, [showModal]);
 
     return <>
-        <Space onClick={() => setShowModal(true)}><DocumentDownload size={24} /> Download</Space>
+        {!hideButton && <Space onClick={() => setShowModal(true)}><DocumentDownload size={24} /> Download</Space>}
         <Modal
             bodyStyle={{ overflowX: 'auto', padding: 0 }}
             title={<h4 className='hp-mb-0'>Download Cert</h4>}
             open={showModal}
-            onCancel={() => setShowModal(false)}
+            onCancel={() => !hideButton ? setShowModal(false) : null}
             destroyOnClose={true}
             footer={[
                 <Button key="cancel" onClick={() => setShowModal(false)}>Cancel</Button>,

@@ -4,7 +4,7 @@ import { keys } from "lodash";
 
 
 export default function CreateAuditSections({ field, values, ...data }) {
-    return <>
+    return values[field]?.length > 0 && <>
         <Divider />
         <span className="hp-d-block  hp-text-black hp-mb-8">Certificate Sections</span>
         <FieldArray

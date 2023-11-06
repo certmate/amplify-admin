@@ -57,7 +57,8 @@ export const getUserFromAppSync = async cognitoUser => {
                         id: cognitoUser.attributes.email,
                         email: cognitoUser.attributes.email,
                         base: base,
-                        roles: ['Owner']
+                        roles: ['Owner'],
+                        read: [base]
                     },
                     base: {
                         id: base
@@ -345,6 +346,38 @@ export const markFavouriteForUser = async ({ model, id, user }) => {
                             ...(user.appsync.favourites?.[model] || []),
                             id
                         ])
+                    })
+                }
+            })
+        );
+    }
+    catch (e) {
+        return e;
+    }
+}
+
+export const unMarkFavouriteForUser = async ({ model, id, user }) => {
+    try {
+        return await API.graphql(
+            graphqlOperation(`
+                mutation UpdateUser(
+                    $input: UpdateUserInput!
+                ){
+                    updateUser(input: $input) {
+                        id
+                        _version
+                        base
+                        favourites
+                        ${routes['/account'].form.onboardingFields.join(`\n`)}
+                    }
+                }
+            `, {
+                input: {
+                    id: user.appsync.id,
+                    _version: user.appsync._version,
+                    favourites: JSON.stringify({
+                        ...(user.appsync.favourites || {}),
+                        [model]: (user.appsync.favourites?.[model] || []).filter(s => s !== id)
                     })
                 }
             })

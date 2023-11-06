@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
 import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
-import { markFavouriteForUser, readData, getUserFromAppSync } from "../../common";
+import { markFavouriteForUser, readData, getUserFromAppSync, unMarkFavouriteForUser } from "../../common";
 import { Heart } from "iconsax-react";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 
@@ -78,7 +78,7 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
         [
             form.read?.allowFavourites && {
                 key: 'fave',
-                render: ({ favourited, id }) => favourited ? <StarFilled style={{color: 'gold'}} /> : <StarOutlined onClick={async () => { await markFavouriteForUser({ model, id, user }); dispatch({ type: 'SET_USER_APPSYNC', data: await getUserFromAppSync(user.cognito) }); }} color="black" />
+                render: ({ favourited, id }) => favourited ? <StarFilled onClick={async () => { await unMarkFavouriteForUser({ model, id, user }); dispatch({ type: 'SET_USER_APPSYNC', data: await getUserFromAppSync(user.cognito) }); }} style={{color: 'gold'}} /> : <StarOutlined onClick={async () => { await markFavouriteForUser({ model, id, user }); dispatch({ type: 'SET_USER_APPSYNC', data: await getUserFromAppSync(user.cognito) }); }} color="black" />
             },
             // data columns
             ...tableColumns.map(({ label, column, table }) => ({

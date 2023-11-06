@@ -88,6 +88,7 @@ export default function CreateCertWizard({ callback }) {
             title={<h4 className='hp-mb-0'>Create Cert</h4>}
             open={showModal}
             onCancel={() => setShowModal(false)}
+            destroyOnClose={true}
             footer={null}
         >
             <Spin spinning={checkingRego}>

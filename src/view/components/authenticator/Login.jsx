@@ -9,6 +9,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { AuthState } from "@aws-amplify/ui-components";
 import SweetAlert from 'sweetalert2';
+import { lowerCase, toLower } from "lodash";
 
 export default function Login({ change, loggedIn }) {
 	const [loginError, setLoginError] = useState(null);
@@ -34,7 +35,7 @@ export default function Login({ change, loggedIn }) {
 			validateOnBlur={false}
 			onSubmit={async ({ username, password }, { setSubmitting }) => {
 				try {
-					loggedIn(await Auth.signIn(username, password));
+					loggedIn(await Auth.signIn(toLower(username), password));
 				} catch (error) {
 					await SweetAlert.fire({ title: 'Login Failed!', text: error.message === 'User is not confirmed.' ? "Your account is currently inactive. If you want to activate your account, please contact us." : 'Incorrect username or password. If you have forgotten your password, click on the Forgot Password link.', icon: 'error' });
 				}

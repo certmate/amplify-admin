@@ -99,7 +99,7 @@ export default function BaseForm({ model, schema, fields, validateOnChange, read
 
     useEffect(() => {
 
-        values?.id && (async () => {
+        values?.id ? (async () => {
             if (isChildNode(model)) {
                 // 
                 // 
@@ -120,7 +120,7 @@ export default function BaseForm({ model, schema, fields, validateOnChange, read
             else {
                 setFormValues(await getData({ model, fields, id: values.id }));
             }
-        })();
+        })() : setFormValues(null);
 
         return () => setFormValues(null);
     }, [values]);
@@ -223,9 +223,9 @@ export default function BaseForm({ model, schema, fields, validateOnChange, read
                                             component === 'input' ? <Field name={f} className='ant-input' disabled={isSubmitting || isDisabled(schema, f, user)} />
                                                 : component === 'textarea' ? <Field as='textarea' name={f} className='ant-input' disabled={isSubmitting} />
                                                     : component === 'switch' ? <Switch checkedChildren="Yes" unCheckedChildren="No" disabled={isSubmitting || isDisabled(schema, f, user)} />
-                                                        : component.includes('upload') ? <><StorageManager {...field} accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={component.includes('multiple') ? 10 : 1} isResumable onUploadSuccess={({ key }) => setFieldValue(f, key) } processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; return { file, key } }} />{values?.[f] && deriveComponent('image', values?.[f])}</>
+                                                        : component.includes('upload') ? <><StorageManager {...field} accessLevel="public" acceptedFileTypes={['image/*', 'application/pdf']} maxFileCount={component.includes('multiple') ? 10 : 1} isResumable onUploadSuccess={({ key }) => setFieldValue(f, key)} processFile={({ file }) => { const key = `${user.cognito.username}/${v4()}.${file.name.split('.').pop()}`; return { file, key } }} />{values?.[f] && deriveComponent('image', values?.[f])}</>
                                                             : component === 'select' ? validation?.type === 'array' ? <Select {...field} mode='multiple' onChange={c => setFieldValue(f, c)} options={options?.[f] || [{ label: f, value: f }]} disabled={isSubmitting || isDisabled(schema, f, user)} /> : <Select {...field} onChange={handleChange(f)} options={options?.[f] || [{ label: f, value: f }]} disabled={isSubmitting || isDisabled(schema, f, user)} />
-                                                                : component === 'signature' ? <BaseSignature defaultValue={values[f]} autoSave={true} onChange={c => setFieldValue(f, c)}/>
+                                                                : component === 'signature' ? <BaseSignature defaultValue={values[f]} autoSave={true} onChange={c => setFieldValue(f, c)} />
                                                                     : isFunction(component) ? component({ field, setFieldValue, isSubmitting })
                                                                         : null
                                         }
@@ -241,7 +241,7 @@ export default function BaseForm({ model, schema, fields, validateOnChange, read
                         </Button>
                     </Form.Item>
                 </>}
-                <pre>{JSON.stringify({ values, errors, initialValues, schema }, false, 4)}</pre>
+                {/* <pre>{JSON.stringify({ values, errors, initialValues, schema }, false, 4)}</pre> */}
 
             </Form>
         </>)}

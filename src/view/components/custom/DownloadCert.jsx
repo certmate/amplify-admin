@@ -30,7 +30,7 @@ async function getImageUrlAndConvertToBase64(key) {
     });
 }
 
-export default function DownloadCert({ data: { id, status, number, createdAt, Client, vehicle, odometer, operatingArea, company, inspector, driver, comments }, callback }) {
+export default function DownloadCert({ data: { id, status, type, number, createdAt, Client, vehicle, odometer, operatingArea, company, inspector, driver, comments }, callback }) {
 
     const btnRef = useRef(null);
     const [qrCode, setQrCode] = useState(null);
@@ -41,14 +41,14 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
     const [showModal, setShowModal] = useState(null);
 
     useEffect(() => {
-        (async () => {
+        showModal && (async () => {
             setQrCode(await QRCode.toDataURL(`https://admin.certmate.com.au/certs?id=${id}`));
             setDriverSignature(await getImageUrlAndConvertToBase64(driver?.signature));
             setInspectorSignature(await getImageUrlAndConvertToBase64(inspector?.signature));
             setClientLogo(await getImageUrlAndConvertToBase64(Client.logo));
             setCompanyLogo(await getImageUrlAndConvertToBase64(company.logo));
-        })()
-    }, []);
+        })();
+    }, [showModal]);
 
     return <>
         <Space onClick={() => setShowModal(true)}><DocumentDownload size={24} /> Download</Space>
@@ -57,6 +57,7 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
             title={<h4 className='hp-mb-0'>Download Cert</h4>}
             open={showModal}
             onCancel={() => setShowModal(false)}
+            destroyOnClose={true}
             footer={[
                 <Button key="cancel" onClick={() => setShowModal(false)}>Cancel</Button>,
                 <Button key="download" type="primary" onClick={async () => {
@@ -85,12 +86,12 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
         >
             <div ref={btnRef} className="hp-bg-color-black-40 hp-p-24">
                 <div className="hp-text-center hp-mb-16">
-                    <img style={{height: 50}} src={brandLogo} />
+                    <img style={{ height: 50 }} src={brandLogo} />
                 </div>
                 <Card
                     className="hp-text-center hp-mb-16"
-                    headStyle={{ backgroundColor: getStatusColorAndText(status)[0] }}
-                    title={<h4 className="hp-mb-0 hp-text-color-black-0">{getStatusColorAndText(status)[1]}</h4>}
+                    headStyle={{ backgroundColor: getStatusColorAndText({ status, type })[0] }}
+                    title={<h4 className="hp-mb-0 hp-text-color-black-0">{getStatusColorAndText({ status, type })[1]}</h4>}
                 >
                     <h3 className="hp-text-color-black-bg hp-mb-0">#{number}</h3>
                     <img src={qrCode} />
@@ -113,10 +114,10 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
                     <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Company</p>
                         <h5 className="hp-mb-16">{company.name}</h5>
-                        <img className="hp-mb-32" style={{maxHeight: 60}} src={companyLogo} />
+                        <img className="hp-mb-32" style={{ maxHeight: 60 }} src={companyLogo} />
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Operating For</p>
                         <h5 className="hp-mb-0">{Client.name}</h5>
-                        <img className="hp-mb-32" style={{maxHeight: 60}} src={clientLogo} />
+                        <img className="hp-mb-32" style={{ maxHeight: 60 }} src={clientLogo} />
                     </Card.Grid>
                     <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Vehicle Rego, Make, Model</p>
@@ -131,8 +132,6 @@ export default function DownloadCert({ data: { id, status, number, createdAt, Cl
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Driver</p>
                         <h5 className="hp-mb-0">{driver?.name}</h5>
                         <img className="hp-mb-32" src={driverSignature} />
-                        <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Certification Number</p>
-                        <h5 className="hp-mb-16">{inspector?.acN}</h5>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Phone</p>
                         <h5 className="hp-mb-0">{inspector?.phone}</h5>
                     </Card.Grid>

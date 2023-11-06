@@ -2,6 +2,11 @@ import _, { first, isFunction, last, omitBy, values } from "lodash";
 import { roles } from "./settings";
 
 export const role = user => {
+    // try{
+    //     console.log((user.cognito || user).signInUserSession.accessToken.payload['cognito:groups'])
+    // }
+    // catch(e){}
+
     if (!user?.cognito)
         return "User";
 

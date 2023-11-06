@@ -2,12 +2,13 @@ import { Tag } from "antd";
 import { isNull } from "lodash";
 import { Link } from "react-router-dom";
 
-export const getStatusColorAndText = status => {
-    return status === 'P' ? ['gold', 'This certificate is Pending Approval']
-        : status === 'A' ? ['green', 'This certificate is Valid & Active']
-            : status === 'R' ? ['orange', 'This certificate has been rejected and is invalid']
-                : status === 'E' ? ['#c00000', 'This certificate has been superceded and is invalid']
-                    : ['black', 'Unknown Status']
+export const getStatusColorAndText = ({ status, type }) => {
+    return type === 'Self Declaration' ? ['#1e90ff', 'This certificate is a Self Declaration']
+        : status === 'P' ? ['gold', 'This Vehicle Hygiene Certificate is Pending Approval']
+            : status === 'A' ? ['green', 'This Vehicle Hygiene Certificate is Valid & Active']
+                : status === 'R' ? ['orange', 'This Vehicle Hygiene Certificate has been rejected and is invalid']
+                    : status === 'E' ? ['#c00000', 'This Vehicle Hygiene Certificate has been superceded and is invalid']
+                        : ['black', 'Unknown Status']
 }
 
 export default function CertStatus({ data, record }) {

@@ -1,4 +1,4 @@
-import { Button, Card, Col, Grid, Modal, Row, Space } from "antd";
+import { Button, Card, Modal, Space } from "antd";
 import { DocumentDownload } from "iconsax-react";
 import { Storage } from 'aws-amplify';
 import { Directory, Filesystem } from '@capacitor/filesystem';
@@ -12,12 +12,23 @@ import dayjs from "dayjs";
 import { numberWithCommas } from "../../../helpers";
 import { saveAs } from 'file-saver';
 import brandLogo from '../../../assets/brand.png';
-import SweetAlert from 'sweetalert2';
+import { FileOpener } from '@capacitor-community/file-opener';
 
 const a4Dimensions = {
     width: 2480,
     padding: 72
 }
+
+const openFile = async (filePath, contentType) => {
+    try {
+        await FileOpener.open({
+            filePath,
+            contentType
+        });
+    } catch (error) {
+        console.error('Error opening file:', error);
+    }
+};
 
 async function getImageUrlAndConvertToBase64(key) {
     const url = await Storage.get(key, { level: 'public' });
@@ -40,6 +51,7 @@ export default function DownloadCert({ data: { id, status, type, number, created
     const [clientLogo, setClientLogo] = useState("");
     const [companyLogo, setCompanyLogo] = useState("");
     const [showModal, setShowModal] = useState(null);
+    const [downloading, setDownloading] = useState(false);
 
     useEffect(() => {
         showModal && (async () => {
@@ -61,27 +73,31 @@ export default function DownloadCert({ data: { id, status, type, number, created
             destroyOnClose={true}
             footer={[
                 <Button key="cancel" onClick={() => setShowModal(false)}>Cancel</Button>,
-                <Button key="download" type="primary" onClick={async () => {
-                    const fileName = `certs/${number}.png`;
-                    const fileData = (await html2canvas(btnRef.current)).toDataURL('image/png');
-                    try {
-                        if ((await Device.getInfo()).platform === 'web') {
-                            saveAs(fileData, fileName);
-                        }
-                        else {
-                            let { uri } = await Filesystem.writeFile({
-                                path: fileName,
-                                data: fileData,
-                                directory: Directory.Documents,
-                                recursive: true
-                            });
+                <Button key="download" type="primary" loading={downloading} onClick={async () => {
+                    setDownloading(true);
+                    (async () => {
+                        const fileName = `certs/${number}.png`;
+                        const fileData = (await html2canvas(btnRef.current)).toDataURL('image/png');
+                        try {
+                            if ((await Device.getInfo()).platform === 'web') {
+                                saveAs(fileData, fileName);
+                            }
+                            else {
+                                let { uri } = await Filesystem.writeFile({
+                                    path: fileName,
+                                    data: fileData,
+                                    directory: Directory.Documents,
+                                    recursive: true
+                                });
 
-                            // await SweetAlert.fire({ title: 'Done', text: get(form, 'create.messages.create', `${model} Created!`), icon: 'success' });
+                                await openFile(uri, 'image/png');
+                                setDownloading(false);
+                            }
                         }
-                    }
-                    catch (e) {
-                        console.log('utf8 fail', e);
-                    }
+                        catch (e) {
+                            console.log('utf8 fail', e);
+                        }
+                    })()
                 }}>
                     Download
                 </Button>

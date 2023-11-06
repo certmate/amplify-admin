@@ -1,17 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import VerticalLayout from "../layout/VerticalLayout";
 import Error404 from "../view/pages/404";
-import { API, graphqlOperation } from 'aws-amplify';
 import { routes } from '../settings';
 import { entries, uniqueId } from "lodash";
 import Base from "../view/pages/Base";
-import { v4 } from "uuid";
-import { createUserAndBase, getUser } from "../graphql/customQueries";
 import BaseSearch from "../view/components/BaseSearch";
 import BaseDashboard from "../view/components/BaseDashboard";
 import { getUserFromAppSync } from "../common";
+import ViewCert from "../view/components/custom/ViewCert";
 
 export default function Router() {
     const user = useSelector(state => state.user);
@@ -64,6 +62,8 @@ export default function Router() {
 
     return (
         <Routes>
+            <Route exact path='/open-cert/:id' element={<VerticalLayout><ViewCert /></VerticalLayout>} />
+
             {/* Routes > settings.json */}
             {entries(routes).map(([route, { title, model, filters, form, data, component }]) => <Route id={route} key={uniqueId()} path={route} element={
                 <VerticalLayout>

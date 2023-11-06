@@ -1,6 +1,8 @@
 PODS:
   - Capacitor (5.5.0):
     - CapacitorCordova
+  - CapacitorApp (5.0.6):
+    - Capacitor
   - CapacitorCommunityFileOpener (1.0.5):
     - Capacitor
   - CapacitorCordova (5.5.0)
@@ -13,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorApp (from `../../node_modules/@capacitor/app`)"
   - "CapacitorCommunityFileOpener (from `../../node_modules/@capacitor-community/file-opener`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorDevice (from `../../node_modules/@capacitor/device`)"
@@ -22,6 +25,8 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   Capacitor:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorApp:
+    :path: "../../node_modules/@capacitor/app"
   CapacitorCommunityFileOpener:
     :path: "../../node_modules/@capacitor-community/file-opener"
   CapacitorCordova:
@@ -35,12 +40,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Capacitor: 57890b363df14d5d2d5d8461aa23e886cb34da2a
+  CapacitorApp: 024e1b1bea5f883d79f6330d309bc441c88ad04a
   CapacitorCommunityFileOpener: 8ae87db61961a6166cb929cc16e3cc719ea58da1
   CapacitorCordova: 3d3908a3d208a11a75f9df3b18c4405c4de76e1d
   CapacitorDevice: 2c968f98a1ec4d22357418c1521e7ddc46c675e6
   CapacitorFilesystem: af704badfbc69f6f8623d9ed313e5490e3723dcb
   CapacitorPluginSafeArea: bfdd714827dbd89fb44fea286beec996e1b0c5c4
 
-PODFILE CHECKSUM: a3df08c7cb1ce52203db85113cedc34cd34209b9
+PODFILE CHECKSUM: 74d5fd2d9745abeb1fc2a9969fcb6c733befa359
 
 COCOAPODS: 1.11.2

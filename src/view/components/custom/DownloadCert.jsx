@@ -55,7 +55,7 @@ export default function DownloadCert({ data: { id, status, type, number, created
 
     useEffect(() => {
         showModal && (async () => {
-            setQrCode(await QRCode.toDataURL(`https://admin.certmate.com.au/certs?id=${id}`));
+            setQrCode(await QRCode.toDataURL(`certmate://open-cert/${id}`));
             setDriverSignature(await getImageUrlAndConvertToBase64(driver?.signature));
             setInspectorSignature(await getImageUrlAndConvertToBase64(inspector?.signature));
             setClientLogo(await getImageUrlAndConvertToBase64(Client.logo));

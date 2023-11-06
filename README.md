@@ -1,9 +1,7 @@
 TODO Export Data = Vehicles, Certs
 TODO Push Notifs - https://enappd.com/blog/firebase-push-notification-in-ionic-react-capacitor/111/
-TODO Favourite Certs, Vehicles etc. favourites go top
 TODO Offline Mode
 TODO Create company for user pre-signup - auto select company
-TODO Fleets read only
 TODO Stripe
 TODO Scan QR Code > Open Certmate > New route without login
 TODO Fleets - view - certs of fleet (newest cert) > Renew certs from fleet (only update area & inspector signoff)

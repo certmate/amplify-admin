@@ -21,12 +21,14 @@ export default function BaseHeader({ title, model, form, filters, createCallback
             </Col>
             <Col span={16} className='hp-text-right'>
                 <Space>
-                    {!isEmpty(form?.create?.fields) && RoleRouteFilter(form?.create?.roles, form?.create?.routes, user, pathname + search) && form.create.component ? form.create.component({ callback: async () => { createCallback(); await SweetAlert.fire({ title: 'Done', text: `${model} Created!`, icon: 'success' }); } }) : <>
+                    {(
+                        !isEmpty(form?.create?.fields) && RoleRouteFilter(form?.create?.roles, form?.create?.routes, user, pathname + search)
+                    ) ? form.create.component ? form.create.component({ callback: async () => { createCallback(); await SweetAlert.fire({ title: 'Done', text: `${model} Created!`, icon: 'success' }); } }) : <>
                         <Button type="primary" onClick={() => setShowModal(true)}>
                             <AddCircle set="curved" size={18} style={{ marginRight: 12 }} />
                             <span>{get(form, 'create.button.label', `Create ${title}`)}</span>
                         </Button>
-                    </>}
+                    </> : null}
                 </Space>
             </Col>
         </Row>

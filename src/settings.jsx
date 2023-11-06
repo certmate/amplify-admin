@@ -1,12 +1,12 @@
-import { Building, Colorfilter, DocumentText1, Profile, Profile2User, SecurityUser, Share, Truck } from "iconsax-react";
-import { array, boolean, object, string } from "yup";
+import { Building, DocumentText1, Profile, Profile2User, SecurityUser, Truck } from "iconsax-react";
+import { array, boolean, string } from "yup";
 import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 import * as CustomComponent from "./view/components/custom";
 import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser, sendInvitationEmailToMember } from "./custom/callbackFunctions";
-import { shareCert, approveRejectCert, downloadCert, approveDisapproveAsInspector } from "./custom/actions";
+import { approveRejectCert, downloadCert, approveDisapproveAsInspector } from "./custom/actions";
 import BaseAccount from "./view/components/BaseAccount";
-import { isEmpty, toUpper, upperCase } from "lodash";
+import { toUpper } from "lodash";
 import CreateCertWizard from "./view/components/custom/CreateCertWizard";
 import * as RouteComponents from "./view/components/RouteComponents";
 
@@ -251,7 +251,8 @@ export const routes = {
                 },
                 messages: {
                     create: 'Fleet Created'
-                }
+                },
+                roles: ['Owner']
             },
             read: {
                 fields: ['id', 'name', 'vehicles:@Vehicle.id,make,model,rego'],

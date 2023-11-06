@@ -8,13 +8,21 @@ import MenuFooter from "./components/footer";
 import { useSelector } from "react-redux";
 import { userHasOnboared } from "../common";
 import BaseOnboarding from "../view/components/BaseOnboarding";
+import { App as CapApp } from '@capacitor/app';
+import { useNavigate } from "react-router-dom";
 
 const { Content } = Layout;
 
 export default function VerticalLayout({ children }) {
     const user = useSelector(state => state.user);
+    const navigate = useNavigate();
 
     const [visible, setVisible] = useState(false);
+    
+    CapApp.addListener('appUrlOpen', ({ url }) => {
+		console.log('App opened with URL:', url);
+		navigate(url.replace('certmate:/', ''));
+	});
 
     return (
         <Spin spinning={!user?.appsync}>

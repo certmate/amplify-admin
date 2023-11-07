@@ -61,12 +61,13 @@ export const routes = {
                 vehiclePics: { label: 'Vehicle Pics', validation: array().of(string()), formComponent: { component: 'upload-multiple' }, table: { component: 'image' } },
             },
             create: {
-                fields: ['companyID', 'vehicleID', 'clientID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments', 'vehiclePics'],
+                fields: ['vehicleID', 'clientID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments', 'vehiclePics'],
                 component: ({ callback }) => <CreateCertWizard callback={callback} />,
                 roles: ['Owner', 'Inspector', 'Driver']
             },
             read: {
-                fields: ['id', '_version', 'number', 'type', 'status', 'vehicle.rego,make,model,category,assetId,pic', 'auditSections', 'odometer', 'driver.id,name,signature', 'inspector.id,name,phone,acN,signature', 'company.id,name,logo', 'Client.id,name,logo', 'operatingArea', 'createdAt', 'vehiclePics'],
+                fields: ['id', '_version', 'number', 'type', 'status', 'vehicle.rego,make,model,category,assetId,pic', 'auditSections', 'odometer', 'driver.id,name,signature', 'inspector.id,name,phone,acN,signature', 
+                'Client.id,name,logo', 'operatingArea', 'createdAt', 'vehiclePics'],
                 actions: [
                     { ...actions.delete, routes: ['/certs?filter=pending'] },
                     approveRejectCert,
@@ -138,11 +139,11 @@ export const routes = {
                 button: {
                     label: 'Add User'
                 },
-                fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'companyID', 'inspectorNumber'],
+                fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'inspectorNumber'],
                 afterSubmit: sendInvitationEmailToMember
             },
             read: {
-                fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'inspectorNumber', 'company.id,name,logo', 'approveInspector'],
+                fields: ['id', '_version', 'name', 'email', 'roles', 'acN', 'acnDoc', 'inspectorNumber', 'approveInspector'],
                 actions: [
                     { ...actions.delete, routes: ['/users?filter=invitations'], fx: deleteInvitationCallback },
                     { ...actions.delete, routes: ['/users?filter=members'] },
@@ -171,11 +172,11 @@ export const routes = {
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
-                fields: ['name', 'logo', 'companyID'],
+                fields: ['name', 'logo'],
                 roles: ['Owner', 'Driver', 'Inspector']
             },
             read: {
-                fields: ['id', 'name', 'logo', '_version', 'company.id,name,logo'],
+                fields: ['id', 'name', 'logo', '_version'],
                 actions: [
                     { ...actions.delete, roles: ['Owner'] },
                     { ...actions.update, roles: ['Owner'] }
@@ -211,11 +212,11 @@ export const routes = {
                 certs: { label: 'Cert', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.VehicleCert {...data} /> }  }
             },
             create: {
-                fields: ['make', 'model', 'rego', 'pic', 'category', 'assetId', 'companyID'],
+                fields: ['make', 'model', 'rego', 'pic', 'category', 'assetId'],
                 roles: ['Owner', 'Driver']
             },
             read: {
-                fields: ['id', '_version', 'make', 'model', 'pic', 'rego', 'category', 'assetId', 'company.id,name,logo', 'certs.id,status,number'],
+                fields: ['id', '_version', 'make', 'model', 'pic', 'rego', 'category', 'assetId', 'certs.id,status,number'],
                 actions: [
                     { ...actions.delete, roles: ['Owner'] },
                     { ...actions.update, roles: ['Owner'] }

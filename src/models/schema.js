@@ -874,7 +874,7 @@ export const schema = {
                     "name": "companyID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "company": {
@@ -1101,7 +1101,7 @@ export const schema = {
                     "name": "companyID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "company": {
@@ -1697,7 +1697,7 @@ export const schema = {
                     "name": "companyID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "company": {
@@ -2132,5 +2132,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "c06b1f14ce59cfa6828e5a877f9185ef"
+    "version": "e82ed54f9487cf9fb85c6162c97d9fec"
 };

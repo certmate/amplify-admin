@@ -3,7 +3,6 @@ TODO Push Notifs - https://enappd.com/blog/firebase-push-notification-in-ionic-r
 TODO Offline Mode
 TODO Create company for user pre-signup - auto select company
 TODO Stripe
-TODO Fleets - view - certs of fleet (newest cert) > Renew certs from fleet (only update area & inspector signoff)
 TODO Fleets link on dashboard
 
 TODO Secure lambdas with accessToken check - https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html

@@ -253,7 +253,7 @@ type EagerVehicle = {
     identifier: ManagedIdentifier<Vehicle, 'id'>;
   };
   readonly id: string;
-  readonly companyID: string;
+  readonly companyID?: string | null;
   readonly company?: Company | null;
   readonly make?: string | null;
   readonly model?: string | null;
@@ -274,7 +274,7 @@ type LazyVehicle = {
     identifier: ManagedIdentifier<Vehicle, 'id'>;
   };
   readonly id: string;
-  readonly companyID: string;
+  readonly companyID?: string | null;
   readonly company: AsyncItem<Company | undefined>;
   readonly make?: string | null;
   readonly model?: string | null;
@@ -301,7 +301,7 @@ type EagerCert = {
     identifier: ManagedIdentifier<Cert, 'id'>;
   };
   readonly id: string;
-  readonly companyID: string;
+  readonly companyID?: string | null;
   readonly company?: Company | null;
   readonly vehicleID: string;
   readonly vehicle?: Vehicle | null;
@@ -333,7 +333,7 @@ type LazyCert = {
     identifier: ManagedIdentifier<Cert, 'id'>;
   };
   readonly id: string;
-  readonly companyID: string;
+  readonly companyID?: string | null;
   readonly company: AsyncItem<Company | undefined>;
   readonly vehicleID: string;
   readonly vehicle: AsyncItem<Vehicle | undefined>;
@@ -419,7 +419,7 @@ type EagerClient = {
     identifier: ManagedIdentifier<Client, 'id'>;
   };
   readonly id: string;
-  readonly companyID: string;
+  readonly companyID?: string | null;
   readonly company?: Company | null;
   readonly name?: string | null;
   readonly logo?: string | null;
@@ -436,7 +436,7 @@ type LazyClient = {
     identifier: ManagedIdentifier<Client, 'id'>;
   };
   readonly id: string;
-  readonly companyID: string;
+  readonly companyID?: string | null;
   readonly company: AsyncItem<Company | undefined>;
   readonly name?: string | null;
   readonly logo?: string | null;

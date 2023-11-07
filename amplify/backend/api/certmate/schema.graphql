@@ -113,7 +113,7 @@ type Vehicle @model @auth(rules: [
 	{ allow: private, operations: [read] }
 ]){
 	id: ID!
-	companyID: ID! @index(name: "vehiclesInCompany", sortKeyFields: ["updatedAt"])
+	companyID: ID @index(name: "vehiclesInCompany", sortKeyFields: ["updatedAt"])
     company: Company @belongsTo(fields: ["companyID"])
 	make: String
 	model: String
@@ -138,7 +138,7 @@ type Cert @model @auth(rules: [
 	{ allow: private, operations: [read] }
 ]){
 	id: ID!
-	companyID: ID! @index(name: "certsInCompany", sortKeyFields: ["updatedAt"])
+	companyID: ID @index(name: "certsInCompany", sortKeyFields: ["updatedAt"])
     company: Company @belongsTo(fields: ["companyID"])
 	vehicleID: ID! @index(name: "certsOfVehicle", sortKeyFields: ["updatedAt"])
     vehicle: Vehicle @belongsTo(fields: ["vehicleID"])
@@ -198,7 +198,7 @@ type Client @model @auth(rules: [
 	{ allow: private, operations: [read] }
 ]){
 	id: ID!
-	companyID: ID! @index(name: "clientsInCompany", sortKeyFields: ["updatedAt"])
+	companyID: ID @index(name: "clientsInCompany", sortKeyFields: ["updatedAt"])
     company: Company @belongsTo(fields: ["companyID"])
 	name: String
 	logo: String

@@ -4,7 +4,7 @@ import { actions } from "./common";
 import vehicleCategories from "./data/vehicleCategories";
 import * as CustomComponent from "./view/components/custom";
 import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser, sendInvitationEmailToMember } from "./custom/callbackFunctions";
-import { approveRejectCert, downloadCert, approveDisapproveAsInspector } from "./custom/actions";
+import { approveRejectCert, downloadCert, approveDisapproveAsInspector, viewFleet } from "./custom/actions";
 import BaseAccount from "./view/components/BaseAccount";
 import { toUpper } from "lodash";
 import CreateCertWizard from "./view/components/custom/CreateCertWizard";
@@ -243,6 +243,7 @@ export const routes = {
                 vehicles: { label: 'Vehicles', validation: array().min(1).of(string()), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } }, table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Vehicles {...data} /> } },
                 companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
+                certs: { label: 'certs' }
             },
             create: {
                 fields: ['name', 'vehicles', 'id'],
@@ -260,6 +261,7 @@ export const routes = {
                 actions: [
                     { ...actions.update, roles: ['Owner'] },
                     { ...actions.delete, roles: ['Owner'] },
+                    viewFleet
                 ]
             }
         }

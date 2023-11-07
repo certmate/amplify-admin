@@ -5,7 +5,6 @@ TODO Create company for user pre-signup - auto select company
 TODO Stripe
 TODO Fleets - view - certs of fleet (newest cert) > Renew certs from fleet (only update area & inspector signoff)
 TODO Fleets link on dashboard
-TODO Add fine print to cert
 
 TODO Secure lambdas with accessToken check - https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html
 
@@ -27,3 +26,7 @@ source="$(readlink -f "${source}")"
 5. /ios/App/App/Info.plist
     CFBundleShortVersionString
     CFBundleVersion
+
+Always test Release build BEFORE distributing 
+> https://sarunw.com/posts/run-code-in-release-build-in-xcode/
+> https://blog.codemagic.io/testfligh-crash/

@@ -164,6 +164,19 @@ export default function DownloadCert({ data: { id, status, type, number, created
                         <h5 className="hp-mb-0">{inspector?.phone}</h5>
                     </Card.Grid>}
                 </Card>
+
+                <p className="hp-text-color-black-80 hp-mt-32">
+                    <b>Conditions</b>
+                    <br /><br />
+                    With a verified vehicle/plant weed hygiene inspection certificate, the driver/operator is authorised to enter worksites as long as a valid copy of this report is kept within the vehicle and/or mobile plant. This report shall be available to view upon request in the CertMate application or if printed.
+                    <br /><br />This report may be declared void if any land owner or authorised representative of land owner declares that the vehicle/mobile plant can no longer be deemed to be clean and free from organic materials.
+                    <br /><br />This report remains valid as long as the following conditions are met:
+                    <br /><br />1. The Vehicle and/or Mobile Plant does not travel off formed roads.
+                    <br />2. The Vehicle and/or Mobile Plant if operating off road stays within the designated work area.
+                    <br />3. The Vehicle and/or Mobile Plant does not come into direct contact with declared weeds.
+                    <br />4. The driver/operator does not operate the Vehicle and/or Mobile Plant after coming into direct contact with declared weeds.
+
+                </p>
             </div>
         </Modal>
     </>

@@ -8,6 +8,7 @@ import ShareCert from "../view/components/custom/ShareCert";
 import ApproveRejectCert from "../view/components/custom/ApproveRejectCert";
 import DownloadCert from "../view/components/custom/DownloadCert";
 import ApproveDisapproveAsInspector from "../view/components/custom/ApproveDisapproveAsInspector";
+import ViewFleet from "../view/components/custom/ViewFleet";
 
 export const shareCert = {
     component: ({ data, model, callback }) => <ShareCert data={data} model={model} callback={callback} />,
@@ -28,4 +29,8 @@ export const downloadCert = {
 export const approveDisapproveAsInspector = {
     component: ({ data, callback }) => <ApproveDisapproveAsInspector data={data} callback={callback} />,
     // condition: ({ acN, approveInspector }) => !isNull(acN) && !approveInspector // Has acN and Hasn't been approved
+}
+
+export const viewFleet = {
+    component: data => <ViewFleet {...data} />
 }

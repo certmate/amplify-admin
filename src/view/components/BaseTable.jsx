@@ -1,5 +1,5 @@
 import { Table, Space } from "antd";
-import { has, isFunction, isObject, startCase, set, find } from "lodash";
+import { has, isFunction, isObject, startCase, set, find, isArray } from "lodash";
 import { RoleRouteFilter, ConditionalFilter, getFieldsOfParentModel, getParentModel, hasArrayOfValues } from "../../helpers";
 import { useDispatch, useSelector } from "react-redux";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
@@ -12,7 +12,8 @@ import { StarFilled, StarOutlined } from "@ant-design/icons";
 export const deriveComponent = (type, data) => {
     switch (type) {
         case "image":
-            return data ? <StorageImage style={{minWidth: 100, height: 'auto'}} onClick={e => window.open(e.target.src, '_blank')} onStorageGetError={error => console.log(error)} imgKey={data} fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" accessLevel="public" /> : <img height={100} width={100} src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
+            const url = isArray(data) ? data[0] : data;
+            return  url ? <StorageImage style={{minWidth: 100, height: 'auto'}} onClick={e => window.open(e.target.src, '_blank')} onStorageGetError={error => console.log(error)} imgKey={data} fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" accessLevel="public" /> : <img height={100} width={100} src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
 
         default:
             return <p className="hp-mb-0">{isObject(data) ? JSON.stringify(data) : data}</p>;

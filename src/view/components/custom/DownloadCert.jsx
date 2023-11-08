@@ -59,7 +59,7 @@ export default function DownloadCert({ data: { id, status, type, number, created
             setDriverSignature(await getImageUrlAndConvertToBase64(driver?.signature));
             setInspectorSignature(await getImageUrlAndConvertToBase64(inspector?.signature));
             setClientLogo(await getImageUrlAndConvertToBase64(Client.logo));
-            setCompanyLogo(await getImageUrlAndConvertToBase64(company.logo));
+            // setCompanyLogo(await getImageUrlAndConvertToBase64(company.logo));
         })();
     }, [showModal]);
 
@@ -132,7 +132,7 @@ export default function DownloadCert({ data: { id, status, type, number, created
                 <Card className="hp-mb-16">
                     <Card.Grid style={{ width: '50%', boxShadow: 'none' }}>
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Company</p>
-                        <h5 className="hp-mb-16">{company.name}</h5>
+                        <h5 className="hp-mb-16">Santos</h5>
                         <img className="hp-mb-32" style={{ maxHeight: 60 }} src={companyLogo} />
                         <p className="hp-mb-0 hp-caption hp-text-color-black-80 hp-text-color-dark-30">Operating For</p>
                         <h5 className="hp-mb-0">{Client.name}</h5>

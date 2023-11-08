@@ -148,7 +148,13 @@ export const routes = {
                     { ...actions.delete, routes: ['/users?filter=invitations'], fx: deleteInvitationCallback },
                     { ...actions.delete, routes: ['/users?filter=members'] },
                     { ...approveDisapproveAsInspector, routes: ['/users', '/users?filter=members'] },
-                ]
+                ],
+                search: {
+                    component: {
+                        title: 'name'
+                    },
+                    route: '/users'
+                }
             }
         }
     },
@@ -221,7 +227,13 @@ export const routes = {
                     { ...actions.delete, roles: ['Owner'] },
                     { ...actions.update, roles: ['Owner'] }
                 ],
-                allowFavourites: true
+                allowFavourites: true,
+                search: {
+                    component: {
+                        title: 'rego'
+                    },
+                    route: '/vehicles'
+                }
             }
         }
     },

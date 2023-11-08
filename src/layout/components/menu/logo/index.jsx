@@ -1,15 +1,5 @@
 import { Link } from "react-router-dom";
-
-import { useSelector } from "react-redux";
-
-import logoSmall from "../../../../assets/images/logo/logo-small.svg";
-import logoSmallDark from "../../../../assets/images/logo/logo-small-dark.svg";
-import logoDark from "../../../../assets/images/logo/logo-dark.svg";
-import logoRTL from "../../../../assets/images/logo/logo-rtl.svg";
-import logoRTLDark from "../../../../assets/images/logo/logo-rtl-dark.svg";
-import { version } from "../../../../settings";
 import logo from '../../../../assets/logo.png';
-
 
 export default function MenuLogo(props) {
 
@@ -21,7 +11,7 @@ export default function MenuLogo(props) {
         className="hp-position-relative hp-d-flex"
       >
 
-        <div className="hp-position-absolute-top-left hp-bg-black-20 hp-bg-dark-90 hp-border-1 hp-border-color-black-0 hp-border-color-dark-90 hp-border-radius-round hp-d-flex-full-center" style={{ width: 64, height: 64, top: -5, left: 21, }}>
+        <div className="hp-position-absolute-top-left hp-bg-black-20 hp-bg-dark-90 hp-border-1 hp-border-color-black-0 hp-border-color-dark-90 hp-border-radius-round hp-d-flex-full-center" style={{ width: 64, height: 64, top: -32, left: -9, }}>
           <img className="hp-logo" src={logo} alt="logo" />
         </div>
       </Link>

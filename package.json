@@ -7,7 +7,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "sync": "bun run build; npx cap sync; cp -f ./Pods-App-frameworks.sh ./ios/App/Pods/Target\\ Support\\ Files/Pods-App/"
+    "sync": "bun run build; npx cap sync; bun ./build.js;"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",

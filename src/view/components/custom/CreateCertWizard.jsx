@@ -164,12 +164,6 @@ export default function CreateCertWizard({ callback }) {
                                     <span className="hp-text-color-danger-1">{errors?.type}</span>
                                 </div>
                                 <div className="hp-mb-16">
-                                    <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{form.schema.companyID.label}</span>
-                                    <Select onChange={handleChange('companyID')} options={selectOptions?.companies || [{ label: '', value: '' }]} />
-                                    <ErrorMessage name='companyID' render={m => <span className="hp-text-color-danger-1">{m}</span>} />
-                                    <span className="hp-text-color-danger-1">{errors?.companyID}</span>
-                                </div>
-                                <div className="hp-mb-16">
                                     <span className="hp-d-block hp-input-label hp-text-black hp-mb-8">{form.schema.clientID.label}</span>
                                     <Select onChange={handleChange('clientID')} options={selectOptions?.clients || [{ label: '', value: '' }]} />
                                     <span className="hp-text-color-danger-1">{errors?.clientID}</span>

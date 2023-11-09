@@ -12,3 +12,9 @@ const infoPlist = `./ios/App/App/Info.plist`;
     console.log('Updating version...');
     fs.writeFileSync(infoPlist, fs.readFileSync(infoPlist).toString().split(new RegExp(`<string>${currentVersion}.*</string>`)).join(`<string>${currentVersion}.${Math.round(new Date().getTime()/1000.0)}</string>`))
 })();
+
+/**
+ * 1.   Create the company account - name, email, logo
+ * 2.   Sign up link - 
+ * 3.   Set up stripe payment link - monthly / annually - 
+ */

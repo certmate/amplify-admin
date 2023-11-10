@@ -1,5 +1,7 @@
 import _, { first, isFunction, last, omitBy, values } from "lodash";
 import { roles } from "./settings";
+import { Device } from "@capacitor/device";
+import { FileOpener } from "@capacitor-community/file-opener";
 
 export const role = user => {
     // try{
@@ -143,7 +145,7 @@ export const numberWithCommas = x => x && x.toString().replace(/\B(?=(\d{3})+(?!
 
 export const isVisible = el => el.offsetWidth > 0 && el.offsetHeight > 0;
 
-export const generateRandomString = ({len = 10, onlyNumbers = false, onlyLetters = false}) => {
+export const generateRandomString = ({ len = 10, onlyNumbers = false, onlyLetters = false }) => {
     const alphanumeric = onlyLetters ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : onlyNumbers ? '0123456789' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let randomString = '';
 
@@ -153,6 +155,53 @@ export const generateRandomString = ({len = 10, onlyNumbers = false, onlyLetters
     }
 
     return randomString;
+}
+
+export const jsonToCsv = (jsonData) => {
+    const data = typeof jsonData !== 'object' ? JSON.parse(jsonData) : jsonData;
+    const headers = Object.keys(data[0]);
+
+    const csvRows = [];
+    csvRows.push(headers.join(','));
+
+    for (const row of data) {
+        const values = headers.map(header => {
+            const field = row[header];
+            return typeof field === 'undefined' ? '' : field;
+        });
+
+        csvRows.push(values.join(','));
+    }
+
+    return csvRows.join('\n');
+}
+
+export const downloadFile = async ({ fileName, fileData, fileType }) => {
+
+    const openFile = async (filePath, contentType) => {
+        try {
+            await FileOpener.open({
+                filePath,
+                contentType
+            });
+        } catch (error) {
+            console.error('Error opening file:', error);
+        }
+    };
+
+    if ((await Device.getInfo()).platform === 'web') {
+        saveAs(fileData, fileName);
+    }
+    else {
+        let { uri } = await Filesystem.writeFile({
+            path: fileName,
+            data: fileData,
+            directory: Directory.Documents,
+            recursive: true
+        });
+
+        await openFile(uri, fileType || 'image/png');
+    }
 }
 
 /**
@@ -180,10 +229,10 @@ export const getChildModel = model => last(model.slice(1).split('.'));
 export const hasArrayOfValues = model => model.includes(":@")
 
 export const isDisabled = (schema, field, user) => {
-    if(Boolean(!schema[field]?.roles?.write)){
+    if (Boolean(!schema[field]?.roles?.write)) {
         return false;
     }
-    else if(!schema[field]?.roles?.write?.includes(role(user))){
+    else if (!schema[field]?.roles?.write?.includes(role(user))) {
         return true;
     }
 };

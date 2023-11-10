@@ -2,7 +2,6 @@ TODO Export Data = Vehicles, Certs per rig
 TODO Push Notifs - https://enappd.com/blog/firebase-push-notification-in-ionic-react-capacitor/111/
 TODO Offline Mode
 TODO Stripe - build script
-TODO Fleets link on dashboard
 TODO Improve quality of cert images
 
 TODO Secure lambdas with accessToken check - https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html

@@ -1,15 +1,17 @@
-import { Card, Modal, Space } from "antd";
+import { Button, Card, Modal, Space } from "antd";
 import { Eye } from "iconsax-react";
 import { get } from "lodash";
-import { useEffect, useMemo, useState } from "react";
-import { getData, readData } from "../../../common";
+import { useEffect, useState } from "react";
+import { readData } from "../../../common";
 import { routes } from "../../../settings";
 import { useSelector } from "react-redux";
 import DownloadCert from "./DownloadCert";
+import { downloadFile, jsonToCsv } from "../../../helpers";
 
 export default function ViewFleet({ data: { name, vehicles }, hideButton }) {
     const [showModal, setShowModal] = useState(Boolean(hideButton));
     const [tableData, setTableData] = useState(null);
+    const [downloading, setDownloading] = useState(false);
     const user = useSelector(state => state.user);
 
 
@@ -25,7 +27,60 @@ export default function ViewFleet({ data: { name, vehicles }, hideButton }) {
             bodyStyle={{ overflowX: 'auto', padding: 0 }}
             title={<h4 className='hp-mb-0'>{name}</h4>}
             open={showModal}
-            onCancel={() => !hideButton ? setShowModal(false) : null}
+            footer={[
+                <Button key="cancel" onClick={() => setShowModal(false)}>Cancel</Button>,
+                <Button key="download" type="primary" loading={downloading} onClick={async () => {
+                    /**
+                     * Get vehicles, certs, cert info
+                     */
+                    try {
+                        downloadFile({
+                            fileName: `${name}.csv`, fileData: new Blob([jsonToCsv(tableData.map(t => ({
+                                'Certificate No.': get(t, 'number', ''),
+                                'Operating Area': get(t, 'operatingArea', ''),
+                                'Type': get(t, 'type', ''),
+                                'Odometer': get(t, 'odometer', ''),
+                                'Vehicle Rego': get(t, 'vehicle.rego', ''),
+                                'Vehicle Make/Model': [get(t, 'vehicle.make', ''), get(t, 'vehicle.model', '')].join(', '),
+                                'Client': get(t, 'Client.name', ''),
+                                'Inspector': get(t, 'inspector.name', ''),
+                                'Driver': get(t, 'driver.name', ''),
+                            })))], { type: 'text/plain;charset=utf-8' })
+                        });
+
+                        // const d = await readData({ model: 'Vehicle', fields: [ 'make', 'model', 'pic', 'rego', 'category', 'assetId', 'certs.id,status,number' ], user, filter: { or:  } })
+                    }
+                    catch (e) {
+                        console.log(e)
+                    }
+                    // setDownloading(true);
+                    // (async () => {
+                    //     const fileName = `certs/${number}.png`;
+                    //     const fileData = (await html2canvas(btnRef.current)).toDataURL('image/png');
+                    //     try {
+                    //         if ((await Device.getInfo()).platform === 'web') {
+                    //             saveAs(fileData, fileName);
+                    //         }
+                    //         else {
+                    //             let { uri } = await Filesystem.writeFile({
+                    //                 path: fileName,
+                    //                 data: fileData,
+                    //                 directory: Directory.Documents,
+                    //                 recursive: true
+                    //             });
+
+                    //             await openFile(uri, 'image/png');
+                    //             setDownloading(false);
+                    //         }
+                    //     }
+                    //     catch (e) {
+                    //         console.log('utf8 fail', e);
+                    //     }
+                    // })()
+                }}>
+                    Download
+                </Button>
+            ]}
             destroyOnClose={true}
         >
             <div className="hp-bg-color-black-40 hp-p-24">

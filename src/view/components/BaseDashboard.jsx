@@ -59,7 +59,7 @@ export default function BaseDashboard() {
                     </Card>
                 </Col>)}
                 <Col lg={4} xs={8}>
-                    <Card onClick={() => navigate(`/${fleets}`)} className="hp-border-color-black-40 hp-cursor-pointer hp-border-radius-xxl" bodyStyle={{ padding: 16 }}>
+                    <Card onClick={() => navigate(`/fleets`)} className="hp-border-color-black-40 hp-cursor-pointer hp-border-radius-xxl" bodyStyle={{ padding: 16 }}>
                         <Row gutter={[16, 16]} align="middle">
                             <Col flex="1 0 0" className="hp-overflow-hidden hp-text-center">
                                 <h3 className="hp-mb-8 hp-font-weight-600">

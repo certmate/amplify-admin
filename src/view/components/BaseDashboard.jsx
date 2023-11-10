@@ -6,6 +6,8 @@ import { API, graphqlOperation } from "aws-amplify";
 import { Card, Col, Row, Skeleton } from "antd";
 import { useNavigate } from "react-router-dom";
 import { excludeModelsFromDashboardStats } from "../../settings";
+import { deriveComponent } from "./BaseTable";
+import { StorageImage } from "@aws-amplify/ui-react-storage";
 
 export default function BaseDashboard() {
     const user = useSelector(state => state.user);
@@ -36,7 +38,7 @@ export default function BaseDashboard() {
     return <>
         <Row gutter={[16, 16]} align="middle" className="hp-ecommerce-app hp-mb-16">
             <Col span={8}>
-                <h1 className="hp-mb-0">Santos (logo)</h1>
+                <StorageImage style={{maxHeight: 60, width: 'auto'}} imgKey={user.appsync.company?.logo} />
                 <h1 className="hp-mb-0">Dashboard</h1>
             </Col>
         </Row>
@@ -56,6 +58,20 @@ export default function BaseDashboard() {
                         </Row>
                     </Card>
                 </Col>)}
+                <Col lg={4} xs={8}>
+                    <Card onClick={() => navigate(`/${fleets}`)} className="hp-border-color-black-40 hp-cursor-pointer hp-border-radius-xxl" bodyStyle={{ padding: 16 }}>
+                        <Row gutter={[16, 16]} align="middle">
+                            <Col flex="1 0 0" className="hp-overflow-hidden hp-text-center">
+                                <h3 className="hp-mb-8 hp-font-weight-600">
+                                    <span>{(user.appsync.company.fleets || []).length}</span>
+                                </h3>
+                                <p className="hp-p1-body hp-mb-0">
+                                    Fleets
+                                </p>
+                            </Col>
+                        </Row>
+                    </Card>
+                </Col>
             </Row> : <Skeleton />
         }
     </>

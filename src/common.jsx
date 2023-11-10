@@ -33,6 +33,15 @@ export const getUserFromAppSync = async cognitoUser => {
                             _version
                             base
                             favourites
+                            company{
+                                id
+                                name
+                                logo
+                                _version
+                                fleets{
+                                    id
+                                }
+                            }
                             ${routes['/account'].form.onboardingFields.join(`\n`)}
                         }
                     }

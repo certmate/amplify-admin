@@ -214,7 +214,7 @@ export const routes = {
                 // @model.valueField:labelField
                 companyID: { hidden: true },
                 // Example of custom component - used to display in table
-                company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
+                company: { hidden: true },
                 certs: { label: 'Cert', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.VehicleCert {...data} /> }  }
             },
             create: {

@@ -133,7 +133,7 @@ export default function CreateCertWizard({ callback }) {
                                 delete values.inspectorNumber;
                                 // 
                                 // 
-                                await upsertData({ query: createCert, payload: omit({ ...values, number: `CM${values.type.includes('elf') ? 'SD' : 'VH'}${values.number}`, auditSections: JSON.stringify(values.auditSections) }, ['supercede']), schema: form.schema, user });
+                                await upsertData({ query: createCert, payload: omit({ ...values, number: `CM${values.type.includes('elf') ? 'SD' : 'VH'}${values.number}`, companyID: (await getCompany(user)).id, auditSections: JSON.stringify(values.auditSections) }, ['supercede']), schema: form.schema, user });
                                 resetForm();
                                 await callback?.();
 

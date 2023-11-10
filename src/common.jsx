@@ -246,6 +246,8 @@ export const getData = async ({ model, fields, id }) => {
     }
 }
 
+export const getCompany = async user => (await readData({ user, model: 'Company', fields: ['id', '_version', 'name', 'logo'] }))[0];
+
 export const upsertData = async ({ query, payload, schema, user }) => {
     /**
      * Check searchable fields

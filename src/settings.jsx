@@ -6,7 +6,7 @@ import * as CustomComponent from "./view/components/custom";
 import { createFleetForUser, deleteInvitationCallback, listFleetsOfUser, sendInvitationEmailToMember } from "./custom/callbackFunctions";
 import { approveRejectCert, downloadCert, approveDisapproveAsInspector, viewFleet } from "./custom/actions";
 import BaseAccount from "./view/components/BaseAccount";
-import { toUpper } from "lodash";
+import { toLower, toUpper } from "lodash";
 import CreateCertWizard from "./view/components/custom/CreateCertWizard";
 import * as RouteComponents from "./view/components/RouteComponents";
 
@@ -38,7 +38,7 @@ export const routes = {
             schema: {
                 id: { label: 'id', hidden: true, formComponent: null },
                 _version: { hidden: true },
-                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
+                companyID: { hidden: true },
                 clientID: { label: 'Client', validation: string().required(), formComponent: { component: 'select', select: { options: '@Client.id:name' } } },
                 vehicleID: { label: 'Vehicle', validation: string().required(), formComponent: { component: 'select', select: { options: '@Vehicle.id:rego' } } },
                 driverID: { label: 'Driver', validation: string(), formComponent: { component: 'select', select: { options: '@User.id:name' } } },
@@ -61,7 +61,7 @@ export const routes = {
                 vehiclePics: { label: 'Vehicle Pics', validation: array().of(string()), formComponent: { component: 'upload-multiple' }, table: { component: 'image' } },
             },
             create: {
-                fields: ['vehicleID', 'clientID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments', 'vehiclePics'],
+                fields: ['vehicleID', 'clientID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments', 'vehiclePics', 'companyID'],
                 component: ({ callback }) => <CreateCertWizard callback={callback} />,
                 roles: ['Owner', 'Inspector', 'Driver']
             },
@@ -130,7 +130,7 @@ export const routes = {
                 acN: { label: 'Inspector Accreditation Number', searchable: true, validation: string().min(3), formComponent: { component: 'input' } },
                 acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
                 // @model.valueField:labelField
-                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
+                companyID: { hidden: true },
                 // Example of custom component
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
                 approveInspector: { label: 'Inspector Approval', routes: ['/users', '/users?filter=members'], validation: boolean(), formComponent: { component: 'switch' } },
@@ -139,7 +139,7 @@ export const routes = {
                 button: {
                     label: 'Add User'
                 },
-                fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'inspectorNumber'],
+                fields: ['name', 'email', 'roles', 'acN', 'acnDoc', 'inspectorNumber', 'companyID'],
                 afterSubmit: sendInvitationEmailToMember
             },
             read: {
@@ -173,13 +173,13 @@ export const routes = {
                 name: { label: 'Client name', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
                 logo: { label: 'Client logo', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
                 // @model.valueField:labelField
-                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
+                companyID: { hidden: true },
                 // Example of custom component
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
             },
             create: {
                 fields: ['name', 'logo'],
-                roles: ['Owner', 'Driver', 'Inspector']
+                roles: ['Owner', 'Driver', 'Inspector', 'companyID']
             },
             read: {
                 fields: ['id', 'name', 'logo', '_version'],
@@ -212,13 +212,13 @@ export const routes = {
                 category: { label: 'Category', searchable: true, validation: string().required(), formComponent: { component: 'select', select: { options: vehicleCategories } } },
                 assetId: { label: 'Asset ID', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
                 // @model.valueField:labelField
-                companyID: { label: 'Company', validation: string().required(), formComponent: { component: 'select', select: { options: '@Company.id:name' } } },
+                companyID: { hidden: true },
                 // Example of custom component - used to display in table
                 company: { label: 'Company', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
                 certs: { label: 'Cert', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.VehicleCert {...data} /> }  }
             },
             create: {
-                fields: ['make', 'model', 'rego', 'pic', 'category', 'assetId'],
+                fields: ['make', 'model', 'rego', 'pic', 'category', 'assetId', 'companyID'],
                 roles: ['Owner', 'Driver']
             },
             read: {

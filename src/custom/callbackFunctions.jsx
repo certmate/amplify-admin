@@ -3,7 +3,7 @@
 import { cleanEmptyConnections, cleanNull } from "../helpers";
 import { API, graphqlOperation } from 'aws-amplify';
 import { concat, uniqBy, omit, find } from "lodash";
-import { getData, getUserFromAppSync } from "../common";
+import { getCompany, getData, getUserFromAppSync } from "../common";
 import { updateUser } from "../graphql/mutations";
 import { v4 } from "uuid";
 
@@ -48,13 +48,12 @@ export const createFleetForUser = async ({ model, values, fields, user, readFiel
 export const listFleetsOfUser = async ({ user }) => (await getData({ model: 'User', fields: ['fleets.id,name,vehicles'], id: user.appsync.id }))?.fleets;
 
 export const sendInvitationEmailToMember = async ({ user, values: { email, companyID } }) => {
-    console.log('Inviting', { user, email, company: (await getData({ model: 'Company', fields: ['name'], id: companyID })) });
     await fetch(`https://ec756zash6.execute-api.ap-southeast-2.amazonaws.com/certmateInviteUser-dev`, {
         method: 'POST',
         body: JSON.stringify({
             user: user.appsync.name,
             to: email,
-            company: (await getData({ model: 'Company', fields: ['name'], id: companyID })).name
+            company: (await getCompany(user)).name
         }),
         headers: { 'Content-Type': 'application/json' }
     });

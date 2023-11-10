@@ -8,7 +8,7 @@ import { cleanEmptyConnections, cleanNull, getChildModel, getParentModel, isChil
 import { v4 } from "uuid";
 import { useSelector } from "react-redux";
 import { concat, entries, isArray, isEqual, omit, pick, find, uniqBy, get, isEmpty, isUndefined, isFunction, keys, first } from "lodash";
-import { getData, readData, upsertData } from "../../common";
+import { getCompany, getData, readData, upsertData } from "../../common";
 import ParentPicker from "./ParentPicker";
 import { API, graphqlOperation } from 'aws-amplify';
 import * as mutations from "../../graphql/mutations";
@@ -179,7 +179,9 @@ export default function BaseForm({ model, schema, fields, validateOnChange, read
                     }
 
                     // console.log({ query, payload, formValues }); return;
-                    await upsertData({ query, payload, schema, user });
+                    let g = { query, payload, schema, user };
+                    fields.includes('companyID') && ( g.payload.companyID = (await getCompany(user)).id )
+                    await upsertData(g);
                 }
 
                 await form[formIs]?.afterSubmit?.({ user, values });

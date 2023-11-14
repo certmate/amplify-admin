@@ -7,6 +7,8 @@ import awsconfig from './aws-exports';
 import Router from './router/Router';
 import { BrowserRouter } from 'react-router-dom';
 import Authenticator from './view/components/authenticator/Authenticator';
+import { Network } from '@capacitor/network';
+
 Amplify.configure(awsconfig);
 API.configure(awsconfig);
 
@@ -20,6 +22,11 @@ export default function App() {
 		dispatch({ type: 'SET_USER_COGNITO', data: user });
 		setAuthState(AuthState.SignedIn);
 	}
+
+	Network.addListener('networkStatusChange', status => {
+		console.log('Network status changed', status);
+	});
+
 
 	useEffect(() => {
 		Auth.currentAuthenticatedUser()

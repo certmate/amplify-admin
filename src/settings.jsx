@@ -9,6 +9,8 @@ import BaseAccount from "./view/components/BaseAccount";
 import { toLower, toUpper } from "lodash";
 import CreateCertWizard from "./view/components/custom/CreateCertWizard";
 import * as RouteComponents from "./view/components/RouteComponents";
+import { numberWithCommas } from "./helpers";
+import dayjs from "dayjs";
 
 export const appName = "CertMate";
 export const version = "0.1.1";
@@ -45,20 +47,20 @@ export const routes = {
                 inspectorID: { label: 'Inspector', validation: string(), formComponent: { component: 'select', select: { options: '@User.id:name', filter: { roles: { contains: "Inspector" } } } } },
                 number: { label: 'Certificate Number', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
                 type: { label: 'Type', searchable: true, validation: string().required(), formComponent: { component: 'select', select: { options: ['Vehicle Hygiene Certificate', 'Self Declaration'] } }, table: { columnProps: { width: 250 } } },
-                odometer: { label: 'Odometer', validation: string().max(7).nullable(), formComponent: { component: 'input', formatter: s => s.replace(/[^0-9]/g, '') } },
+                odometer: { label: 'Odometer', validation: string().max(7).nullable(), table: { formatter: s => numberWithCommas(s) }, formComponent: { component: 'input', formatter: s => s.replace(/[^0-9]/g, '') } },
                 operatingArea: { label: 'Operating Area', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
                 checkList: { label: 'Checklist', validation: string(), formComponent: { component: 'input' } },
                 status: { label: 'Status', validation: string(), formComponent: { component: 'select', select: { options: ['Pending', 'Approved', 'Rejected'] } }, table: { component: (data, record) => <CustomComponent.CertStatus data={data} record={record} /> } },
-                vehicle: { label: 'Vehicle', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Vehicle {...data} /> } },
+                vehicle: { label: 'Vehicle', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Vehicle {...data} {...record} /> } },
                 driver: { label: 'Driver', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
                 inspector: { label: 'Inspector', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.User {...data} /> } },
                 client: { label: 'Client', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
                 Client: { label: 'Client', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
                 company: { label: 'Company', table: { columnProps: { width: 400 }, component: (data, record) => <CustomComponent.Company {...data} /> } },
-                auditSections: { label: 'Sections', validation: array().nullable(), table: { columnProps: { width: 400 }, component: (data, record) => <CustomComponent.AuditSections data={data} />}, formComponent: { component: data => <CustomComponent.CreateAuditSections {...data} /> } },
+                auditSections: { label: 'Sections', validation: array().nullable(), table: { hidden: true, columnProps: { width: 400 }, component: (data, record) => <CustomComponent.AuditSections data={data} /> }, formComponent: { component: data => <CustomComponent.CreateAuditSections {...data} /> } },
                 comments: { label: 'Comments', validation: string(), formComponent: { component: 'textarea' } },
-                createdAt: { label: 'Created At' },
-                vehiclePics: { label: 'Vehicle Pics', validation: array().of(string()), formComponent: { component: 'upload-multiple' }, table: { component: 'image' } },
+                createdAt: { label: 'Created At', table: { formatter: s => dayjs(s).format('DD/MM/YYYY') } },
+                vehiclePics: { label: 'Vehicle Pics', validation: array().of(string()), formComponent: { component: 'upload-multiple' }, table: { hidden: true, component: 'image' } },
             },
             create: {
                 fields: ['vehicleID', 'clientID', 'driverID', 'inspectorID', 'type', 'odometer', 'operatingArea', 'number', 'auditSections.heading,result,description', 'comments', 'vehiclePics', 'companyID'],
@@ -66,8 +68,7 @@ export const routes = {
                 roles: ['Owner', 'Inspector', 'Driver']
             },
             read: {
-                fields: ['id', '_version', 'number', 'type', 'status', 'vehicle.rego,make,model,category,assetId,pic', 'auditSections', 'odometer', 'driver.id,name,signature', 'inspector.id,name,phone,acN,signature', 
-                'Client.id,name,logo', 'operatingArea', 'createdAt', 'vehiclePics'],
+                fields: ['id', '_version', 'number', 'type', 'status', 'vehicle.rego,make,model,category,assetId,pic', 'auditSections', 'odometer', 'driver.id,name,signature', 'inspector.id,name,phone,acN,signature', 'Client.id,name,logo', 'operatingArea', 'createdAt', 'vehiclePics'],
                 actions: [
                     { ...actions.delete, routes: ['/certs?filter=pending'] },
                     approveRejectCert,
@@ -215,7 +216,7 @@ export const routes = {
                 companyID: { hidden: true },
                 // Example of custom component - used to display in table
                 company: { hidden: true },
-                certs: { label: 'Cert', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.VehicleCert {...data} /> }  }
+                certs: { label: 'Cert', table: { columnProps: { width: 250 }, component: (data, record) => <CustomComponent.VehicleCert {...data} /> } }
             },
             create: {
                 fields: ['make', 'model', 'rego', 'pic', 'category', 'assetId', 'companyID'],

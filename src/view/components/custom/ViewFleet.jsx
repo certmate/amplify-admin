@@ -34,8 +34,9 @@ export default function ViewFleet({ data: { name, vehicles }, hideButton }) {
                      * Get vehicles, certs, cert info
                      */
                     try {
+                        console.log('Downloading now');
                         downloadFile({
-                            fileName: `${name}.csv`, fileData: new Blob([jsonToCsv(tableData.map(t => ({
+                            fileName: `${name}.csv`, fileData: jsonToCsv(tableData.map(t => ({
                                 'Certificate No.': get(t, 'number', ''),
                                 'Operating Area': get(t, 'operatingArea', ''),
                                 'Type': get(t, 'type', ''),
@@ -45,7 +46,7 @@ export default function ViewFleet({ data: { name, vehicles }, hideButton }) {
                                 'Client': get(t, 'Client.name', ''),
                                 'Inspector': get(t, 'inspector.name', ''),
                                 'Driver': get(t, 'driver.name', ''),
-                            })))], { type: 'text/plain;charset=utf-8' })
+                            }))), fileType: 'text/csv'
                         });
 
                         // const d = await readData({ model: 'Vehicle', fields: [ 'make', 'model', 'pic', 'rego', 'category', 'assetId', 'certs.id,status,number' ], user, filter: { or:  } })

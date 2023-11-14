@@ -12,7 +12,7 @@ export const getStatusColorAndText = ({ status, type }) => {
 }
 
 export default function CertStatus({ data, record }) {
-    return record.type === 'Self Declaration' ? <Tag color="blue">Self Declaration</Tag> :
+    return record.type === 'Self Declaration' ? <Tag color="green">Active</Tag> :
         isNull(record.status) || record.status === 'P' ? <Tag color="gold">Pending Approval</Tag> :
             record.status === 'A' ? <Tag color="green">Active</Tag> :
                 record.status === 'R' ? <Tag color="orange">Rejected</Tag> :

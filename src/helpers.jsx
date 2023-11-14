@@ -2,6 +2,7 @@ import _, { first, isFunction, last, omitBy, values } from "lodash";
 import { roles } from "./settings";
 import { Device } from "@capacitor/device";
 import { FileOpener } from "@capacitor-community/file-opener";
+import { Directory, Filesystem } from "@capacitor/filesystem";
 
 export const role = user => {
     // try{
@@ -190,17 +191,27 @@ export const downloadFile = async ({ fileName, fileData, fileType }) => {
     };
 
     if ((await Device.getInfo()).platform === 'web') {
+        if(typeof fileData === 'string'){
+            fileData = new Blob([fileData], { type: 'text/plain;charset=utf-8' })
+        }
         saveAs(fileData, fileName);
     }
     else {
-        let { uri } = await Filesystem.writeFile({
-            path: fileName,
-            data: fileData,
-            directory: Directory.Documents,
-            recursive: true
-        });
-
-        await openFile(uri, fileType || 'image/png');
+        console.log('Downloading on mobile...');
+        try{
+            console.log({ fileData, fileName })
+            let { uri } = await Filesystem.writeFile({
+                path: fileName,
+                data: fileData,
+                directory: Directory.Documents,
+                recursive: true
+            });
+            console.log({uri});
+            await openFile(uri, fileType || 'image/png');
+        }
+        catch(e){
+            console.log(e);
+        }
     }
 }
 

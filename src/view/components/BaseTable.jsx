@@ -9,14 +9,14 @@ import { markFavouriteForUser, readData, getUserFromAppSync, unMarkFavouriteForU
 import { Heart } from "iconsax-react";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 
-export const deriveComponent = (type, data) => {
+export const deriveComponent = (type, data, formatter) => {
     switch (type) {
         case "image":
             const url = isArray(data) ? data[0] : data;
             return  url ? <StorageImage style={{minWidth: 100, height: 'auto'}} onClick={e => window.open(e.target.src, '_blank')} onStorageGetError={error => console.log(error)} imgKey={data} fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" accessLevel="public" /> : <img height={100} width={100} src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
 
         default:
-            return <p className="hp-mb-0">{isObject(data) ? JSON.stringify(data) : data}</p>;
+            return <p className="hp-mb-0" style={{minWidth: 150}}>{isObject(data) ? JSON.stringify(data) : isFunction(formatter) ? formatter(data) : data}</p>;
     }
 }
 
@@ -38,8 +38,9 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
             for (const i in columns) {
                 const column = columns[i];
                 if (schema[column]) {
-                    const { hidden, roles } = schema[column];
-                    !hidden && RoleRouteFilter(roles, null, user, null) && c.push({ ...schema[column], column });
+                    const { hidden, roles, table } = schema[column];
+                    console.log(schema[column]);
+                    !hidden && ( table?.hidden !== true ) && RoleRouteFilter(roles, null, user, null) && c.push({ ...schema[column], column });
                 }
                 else if (hasArrayOfValues(column)) {
                     // field:@Model.field1,field2,field3
@@ -87,7 +88,7 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
                 key: label,
                 ...(table?.columnProps || {}),
                 render: record => <>
-                    {isFunction(table?.component) ? table?.component(record[column], record) : deriveComponent(table?.component, record[column])}
+                    {isFunction(table?.component) ? table?.component(record[column], record) : deriveComponent(table?.component, record[column], table?.formatter)}
                 </>
             })),
             // actions
@@ -111,5 +112,5 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
             } : []
         ].filter(Boolean)
     }
-        scroll={{ x: 1000 }} />
+        scroll={{ x: 1000 }} size="middle" />
 }

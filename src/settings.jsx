@@ -127,7 +127,7 @@ export const routes = {
                 name: { label: 'Name', searchable: true, validation: string().required(), formComponent: { component: 'input' } },
                 email: { label: 'Email', searchable: true, validation: string().email().required(), formComponent: { component: 'input', formatter: s => toLower(s) } },
                 roles: { label: 'Roles', searchable: true, validation: array().of(string()), formComponent: { component: 'select', select: { options: appRoles.users } } },
-                inspectorNumber: { label: 'Inspector Passcode', searchable: true, validation: string().min(6).nullable(), formComponent: { component: 'input' } },
+                inspectorNumber: { label: 'Inspector Passcode', searchable: true, validation: string().min(6).max(6).nullable(), formComponent: { component: 'input' } },
                 acN: { label: 'Inspector Accreditation Number', searchable: true, validation: string().min(3), formComponent: { component: 'input' } },
                 acnDoc: { label: 'Accreditation Certificate', validation: string(), formComponent: { component: 'upload' }, table: { component: 'image' } },
                 // @model.valueField:labelField

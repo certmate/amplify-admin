@@ -177,7 +177,7 @@ module.exports = {
                                                                             <tr>
                                                                                 <td align="center" bgcolor="#4703D7" role="presentation"
                                                                                     style="border:none;border-radius:24px;cursor:auto;mso-padding-alt:10px 25px;background:#4703D7;"
-                                                                                    valign="middle"><a href="https://admin.certmate.com.au"
+                                                                                    valign="middle"><a href="https://admin.certmate.com.au?s=yes"
                                                                                         style="display:inline-block;background:#4703D7;color:#ffffff;font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:24px;"
                                                                                         target="_blank">Join company on CertMate</a></td>
                                                                             </tr>

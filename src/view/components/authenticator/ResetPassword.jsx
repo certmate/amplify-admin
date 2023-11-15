@@ -63,7 +63,7 @@ export default function ResetPassword({ change }) {
 						<Input.Password onChange={handleChange('code')} onBlur={handleBlur('code')} />
 					</Form.Item>
 
-					<Form.Item label="Username" className="hp-mb-16" validateStatus={errors?.username ? 'error' : ''} help={errors?.username}>
+					<Form.Item label="Email" className="hp-mb-16" validateStatus={errors?.username ? 'error' : ''} help={errors?.username}>
 						<Input onChange={handleChange('username')} onBlur={handleBlur('username')} />
 					</Form.Item>
 

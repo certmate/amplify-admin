@@ -13,10 +13,10 @@ export const deriveComponent = (type, data, formatter) => {
     switch (type) {
         case "image":
             const url = isArray(data) ? data[0] : data;
-            return  url ? <StorageImage style={{minWidth: 100, height: 'auto'}} onClick={e => window.open(e.target.src, '_blank')} onStorageGetError={error => console.log(error)} imgKey={data} fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" accessLevel="public" /> : <img height={100} width={100} src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
+            return url ? <StorageImage style={{ minWidth: 100, height: 'auto' }} onClick={e => window.open(e.target.src, '_blank')} onStorageGetError={error => console.log(error)} imgKey={data} fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" accessLevel="public" /> : <img height={100} width={100} src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
 
         default:
-            return <p className="hp-mb-0" style={{minWidth: 150}}>{isObject(data) ? JSON.stringify(data) : isFunction(formatter) ? formatter(data) : data}</p>;
+            return <p className="hp-mb-0" style={{ minWidth: 150 }}>{isObject(data) ? JSON.stringify(data) : isFunction(formatter) ? formatter(data) : data}</p>;
     }
 }
 
@@ -39,8 +39,7 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
                 const column = columns[i];
                 if (schema[column]) {
                     const { hidden, roles, table } = schema[column];
-                    console.log(schema[column]);
-                    !hidden && ( table?.hidden !== true ) && RoleRouteFilter(roles, null, user, null) && c.push({ ...schema[column], column });
+                    !hidden && (table?.hidden !== true) && RoleRouteFilter(roles, null, user, null) && c.push({ ...schema[column], column });
                 }
                 else if (hasArrayOfValues(column)) {
                     // field:@Model.field1,field2,field3
@@ -80,7 +79,7 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
         [
             form.read?.allowFavourites && {
                 key: 'fave',
-                render: ({ favourited, id }) => favourited ? <StarFilled onClick={async () => { await unMarkFavouriteForUser({ model, id, user }); dispatch({ type: 'SET_USER_APPSYNC', data: await getUserFromAppSync(user.cognito) }); }} style={{color: 'gold'}} /> : <StarOutlined onClick={async () => { await markFavouriteForUser({ model, id, user }); dispatch({ type: 'SET_USER_APPSYNC', data: await getUserFromAppSync(user.cognito) }); }} color="black" />
+                render: ({ favourited, id }) => favourited ? <StarFilled onClick={async () => { await unMarkFavouriteForUser({ model, id, user }); dispatch({ type: 'SET_USER_APPSYNC', data: await getUserFromAppSync(user.cognito) }); }} style={{ color: 'gold' }} /> : <StarOutlined onClick={async () => { await markFavouriteForUser({ model, id, user }); dispatch({ type: 'SET_USER_APPSYNC', data: await getUserFromAppSync(user.cognito) }); }} color="black" />
             },
             // data columns
             ...tableColumns.map(({ label, column, table }) => ({
@@ -95,6 +94,8 @@ export default function BaseTable({ data, columns, schema, actions, model, form,
             actions.filter(({ roles, routes, condition }) => RoleRouteFilter(roles, routes, user, pathname + search) && ConditionalFilter(condition, data)).length ? {
                 title: 'Actions',
                 key: 'actions',
+                // fixed: 'right',
+                // width: 400,
                 render: data => <Space size="large">
                     {/* TODO Format Filters to accept an array of filters */}
                     {actions.filter(({ roles, routes, condition }) => RoleRouteFilter(roles, routes, user, pathname + search) && ConditionalFilter(condition, data)).map(({ component, fx }, key) => (

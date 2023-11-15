@@ -2,7 +2,7 @@
 
 import { schema } from "./models/schema";
 import { API, graphqlOperation } from 'aws-amplify';
-import { isArray, isString, lowerCase, omit, values, first, deburr, chain, entries, isEmpty, get, isObject, uniq } from "lodash";
+import { isArray, isString, lowerCase, omit, values, first, deburr, chain, entries, isEmpty, get, isObject, uniq, merge, without } from "lodash";
 import { routes } from "./settings";
 import { cleanEmptyConnections, hasArrayOfValues } from "./helpers";
 import BaseUpdateButton from "./view/components/BaseUpdateButton";
@@ -334,6 +334,9 @@ export const userHasOnboared = user => {
 
 export const markFavouriteForUser = async ({ model, id, user }) => {
     try {
+        let favourites = JSON.parse(user.appsync.favourites || '{}');
+        favourites = merge(favourites, { [model]: uniq([...(favourites[model] || []), id]) });
+        
         return await API.graphql(
             graphqlOperation(`
                 mutation UpdateUser(
@@ -351,24 +354,22 @@ export const markFavouriteForUser = async ({ model, id, user }) => {
                 input: {
                     id: user.appsync.id,
                     _version: user.appsync._version,
-                    favourites: JSON.stringify({
-                        ...(user.appsync.favourites || {}),
-                        [model]: uniq([
-                            ...(user.appsync.favourites?.[model] || []),
-                            id
-                        ])
-                    })
+                    favourites: JSON.stringify(favourites)
                 }
             })
         );
     }
     catch (e) {
+        console.log(e);
         return e;
     }
 }
 
 export const unMarkFavouriteForUser = async ({ model, id, user }) => {
     try {
+        let favourites = JSON.parse(user.appsync.favourites || '{}');
+        favourites[model] = without(favourites[model], id);
+
         return await API.graphql(
             graphqlOperation(`
                 mutation UpdateUser(
@@ -386,15 +387,13 @@ export const unMarkFavouriteForUser = async ({ model, id, user }) => {
                 input: {
                     id: user.appsync.id,
                     _version: user.appsync._version,
-                    favourites: JSON.stringify({
-                        ...(user.appsync.favourites || {}),
-                        [model]: (user.appsync.favourites?.[model] || []).filter(s => s !== id)
-                    })
+                    favourites: JSON.stringify(favourites)
                 }
             })
         );
     }
     catch (e) {
+        console.log(e);
         return e;
     }
 }

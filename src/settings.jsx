@@ -265,7 +265,8 @@ export const routes = {
                     ['Driver']: createFleetForUser
                 },
                 messages: {
-                    create: 'Fleet Created'
+                    create: 'Fleet Created',
+                    update: 'Fleet Updated',
                 },
                 roles: ['Owner']
             },
